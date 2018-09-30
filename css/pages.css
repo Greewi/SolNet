@@ -1,0 +1,99 @@
+/*
+ * Layout général des pages et animations d'ouverture
+ */
+.page {
+    position: absolute;
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: none;
+    will-change: transform;
+}
+.page__contenu {
+    position: absolute;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 10px;
+    margin-bottom: 50px;
+    overflow-y: auto;
+}
+
+.page__on {
+    display: block;
+}
+
+@keyframes page__depuis_gauche {
+    from {transform: translate(-100%);}
+    to {transform: translate(0%);}
+}
+@keyframes page__depuis_droite {
+    from {transform: translate(100%);}
+    to {transform: translate(0%);}
+}
+@keyframes page__vers_gauche {
+    from {transform: translate(0%);}
+    to {transform: translate(-100%);}
+}
+@keyframes page__vers_droite {
+    from {transform: translate(0%);}
+    to {transform: translate(100%);}
+}
+.page__depuis_gauche {
+    animation-name: page__depuis_gauche;
+    animation-duration: 500ms;
+}
+.page__depuis_droite {
+    animation-name: page__depuis_droite;
+    animation-duration: 500ms;
+}
+.page__vers_gauche {
+    animation-name: page__vers_gauche;
+    animation-duration: 500ms;
+}
+.page__vers_droite {
+    animation-name: page__vers_droite;
+    animation-duration: 500ms;
+}
+
+/*
+ * Boutons des pages
+ */
+
+.page__bouton {
+    box-sizing: border-box;
+    padding: 10px;
+    height: 40px;
+    background : #05F;
+    color: #FFF;
+    border: none;
+    border-radius : 10px;
+    font-weight: bold;
+}
+
+@keyframes page__bouton__active {
+    from {transform: scale(1.0);}
+    50% {transform: scale(0.95);}
+    to {transform: scale(1.0);}
+}
+.page__bouton:active {
+    animation-name: page__bouton__active;
+    animation-duration: 200ms;
+}
+.page__bouton_precedent {
+    position: fixed;
+    bottom: 2.5vw;
+    left: 2.5vw;
+    width: 35vw;
+}
+.page__bouton_suivant {
+    position: fixed;
+    bottom: 2.5vw;
+    right: 2.5vw;
+    width: 35vw;
+}
+

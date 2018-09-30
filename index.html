@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>SolNet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/pages.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/creationPerso.css">
+</head>
+<body class="body">
+    <div id="creationPersonnagePageIntroduction" class="page">
+        <div class="page__contenu">
+            <h1>Création d'un personnage</h1>
+            <h2>Créer </h2>
+            <p>Solaires possède un système de jeu très simple et vous pouvez vous limiter à décrire votre personnage, surligner ses éléments importants et leur donner un nombre entre 1 et 3 en fonction de leur importance. C’est tout : le personnage sera utilisable et entièrement compatible avec le reste du système de jeu.</p>
+            <p>C’est bien, non ? Pour le MJ cela permet de créer des PNJ rapidement comme ce « Chef de la sécurité (3), ancien Commando spatial (2), Peu loquace (1) qui possède un Fort a priori envers les étrangers (3) et qui joue de son statut et de la stature que lui donne son Armure légère (1). ».</p>
+            <p>Pour créer un personnage joueur en revanche, nous avons constaté que cette méthode ne guide pas suffisamment le joueur. Heureusement, l’énorme flexibilité du système permet d’autre méthodes de création. Et pour vous aider, nous vous donnons dans cette section une méthode plus détaillée pour construire vos personnages.</p>
+            <p>Pour commencer, voici, en résumé, les étapes de la création d’un personnage :</p>
+            <ul>
+                <li>la création du groupe qui assure un certain équilibre et la polyvalence de l’équipe ;</li>
+                <li>la définition du concept et de l’identité du personnage qui permettent de définir les éléments principaux du personnage ;</li>
+                <li>la construction de l’histoire, construite à partir de carrières et relations mises ensuite en ordre dans une mini frise chronologique ;</li>
+                <li>le choix de traits physiques et mentaux pour personnaliser votre personnage ;</li>
+                <li>la description de son avatar et de son enveloppe ;</li>
+                <li>le choix de ses possessions, ses modifications et logiciels ;</li>
+                <li>le chiffrage des éléments qui permet d’attribuer des valeurs à tout ce qui précède.</li>
+            </ul>
+            <p>Dans le cas d’une série, vous définirez aussi une intrigue pour le personnage qui servira lui donner un objectif secondaire et un moyen d’évoluer.</p>
+        </div>
+        <button class="bouton-suivant page__bouton page__bouton_suivant">Suivant</button>
+    </div>
+   
+    <div id="creationPersonnagePageRoles" class="page">
+        <div class="page__contenu">
+            <p>Une aventure de Solaires peut couvrir plusieurs aspects. Il est indispensable que l’équipe des PJ soit en mesure de faire face aux situations découlant de tous ces aspects, ou tout du moins de tout ceux que le meneur a prévu de faire intervenir. Les personnages du groupe devraient donc se répartir les différents aspects sans oublier un peu de redondance au cas où. De façon générale nous vous recommandons de choisir 3 aspects.</p>
+            <ul id="creationPersonnageRoles" class="page_creation__liste_role">
+                <li>Combat</li>
+                <li>Enquête</li>
+                <li>Espace</li>
+                <li>Infiltration</li>
+                <li>Informatique</li>
+                <li>Négociation</li>
+                <li>Relation</li>
+                <li>Technologie</li>
+            </ul>        
+            <template id="creationPersonnageSelecteurRoles">
+                <li class="page_creation__selecteur_role">
+                    <p class="page_creation__selecteur_role__nom_role"></p>
+                    <button class="page_creation__selecteur_role__bouton_infos">🔍</button>
+                    <p class="page_creation__selecteur_role__infos_role"></p>
+                </li>
+            </template>
+        </div>
+        <button class="bouton-precedent page__bouton page__bouton_precedent">Précédent</button>
+        <button class="bouton-suivant page__bouton page__bouton_suivant">Suivant</button>
+    </div>
+  
+    <div id="creationPersonnagePageIdentite" class="page">
+        <div class="page__contenu">
+            <h1>Identité</h1>
+            <h2>Pseudonyme</h2>
+            <input type="text" id="creationPersonnagePseudonyme" />
+            
+            <h2>Nom administratif</h2>
+            <input type="text" id="creationPersonnageNomAdministratif" />
+
+            <h2>Rôles</h2>
+            <p id="creationPersonnageRôles"></p>
+
+            <h2>Profession</h2>
+            <input type="text" id="creationPersonnageProfession" />
+
+            <h2>Nature d'esprit</h2>
+            <input type="text" id="creationPersonnageNatureEsprit" />
+
+            <h2>Enveloppe usuelle</h2>
+            <input type="text" id="creationPersonnageEnveloppeUsuelle" />
+
+            <h2>Affiliation</h2>
+            <input type="text" id="creationPersonnageAffiliation" />
+            <h2>Genre</h2>
+            <input type="text" id="creationPersonnageGenre" />
+        </div>
+        <button class="bouton-precedent page__bouton page__bouton_precedent">Précédent</button>
+        <button class="bouton-suivant page__bouton page__bouton_suivant">Suivant</button>
+    </div>
+    
+
+    <template id="selecteur-carriere">
+        <div class="popup">
+
+        </div>
+    </template>
+
+    <template id="selecteur-esprit">
+        <div class="popup">
+
+        </div>
+    </template>
+
+    <template id="selecteur-enveloppe">
+        <div class="popup">
+
+        </div>
+    </template>
+
+    <script type="module" src="js/ajax.js"></script>
+    <script type="module" src="test/combinaisons.js"></script>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

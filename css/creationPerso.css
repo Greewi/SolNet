@@ -1,0 +1,70 @@
+
+.page_creation__liste_role{
+    box-sizing: border-box;
+    width: 100%;
+    margin:0;
+    padding:0;
+}
+.page_creation__selecteur_role{
+    box-sizing: border-box;
+    width: 100%;
+    padding:0;
+    margin:0;
+    margin-bottom: 10px;
+    display:grid;
+    grid-template-columns: auto 50px;
+    grid-template-rows: 50px auto;
+}
+.page_creation__selecteur_role__nom_role{
+    box-sizing: border-box;
+    display: block;
+    grid-column: 1;
+    width: 100%;
+    height: 100%;
+    padding:17px;
+    margin: 0;
+    background: #222;
+    color: #FFF;
+    border-radius: 10px 0 0 10px;
+}
+.page_creation__selecteur_role__nom_role__ouvert{
+    border-radius: 10px 0 0 0;
+}
+.page_creation__selecteur_role__nom_role__possede{
+    background: #252;
+}
+.page_creation__selecteur_role__bouton_infos{
+    box-sizing: border-box;
+    display: block;
+    grid-column: 2;
+    width: 100%;
+    height: 100%;
+    padding:10px;
+    background : #05F;
+    color: #FFF;
+    border : none;
+    border-radius: 0 10px 10px 0;
+    font-size: 17pt;
+}
+.page_creation__selecteur_role__bouton_infos__ouvert{
+    border-radius: 0 10px 0 0;
+}
+.page_creation__selecteur_role__infos_role{
+    box-sizing: border-box;
+    display: block;
+    grid-column: 1/3;
+    width: 100%;
+    padding:10px;
+    margin: 0;
+    background: #AAA;
+    color: #000;
+    border-radius: 0 0 10px 10px;
+    display: none;
+}
+.page_creation__selecteur_role__infos_role__ouvert{
+    display: block;
+}
+
+.page_creation__selecteur_role__infos_role em{
+    font-weight: bold;
+}
