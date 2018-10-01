@@ -4,9 +4,15 @@ import {Opinion} from './opinion';
 import {Description} from './description';
 import {Element} from './element';
 import { Histoire } from './histoire';
+import { Elements } from './elements';
 
 export class Personnage {
     constructor(){
+        /**
+         * @type {Object<string, string>}
+         */
+        this.roles = {};    
+        this.elements = new Elements();
         this.identite = new Identite();
         this.motivation = "";
         this.intriguePersonnage = new Intrigue();
@@ -20,37 +26,10 @@ export class Personnage {
             new Opinion("TERRE", "Terre"),
             new Opinion("COLONIES", "Colonies"),
         ];
-        this.description = new Description();
-        this.avatar = new Description();
-
-        /**
-         * @type {Element[]}
-         */
-        this.traits = [];
-        /**
-         * @type {Element[]}
-         */
-        this.carrieres = [];
-        /**
-         * @type {Element[]}
-         */
-        this.relations = [];
-        /**
-         * @type {Element[]}
-         */
-        this.modifications = [];
-        /**
-         * @type {Element[]}
-         */
-        this.equipement = [];
-        /**
-         * @type {Element[]}
-         */
-        this.logiciels = [];
-
+        this.description = new Description();  
+        this.avatar = new Description();  
+        this.histoire = new Histoire();
         this.pointPersonnage = 3;
         this.maxPointPersonnage = 3;
-
-        this.histoire = new Histoire();
     }
 }

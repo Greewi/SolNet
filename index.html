@@ -34,23 +34,33 @@
     <div id="creationPersonnagePageRoles" class="page">
         <div class="page__contenu">
             <p>Une aventure de Solaires peut couvrir plusieurs aspects. Il est indispensable que l’équipe des PJ soit en mesure de faire face aux situations découlant de tous ces aspects, ou tout du moins de tout ceux que le meneur a prévu de faire intervenir. Les personnages du groupe devraient donc se répartir les différents aspects sans oublier un peu de redondance au cas où. De façon générale nous vous recommandons de choisir 3 aspects.</p>
-            <ul id="creationPersonnageRoles" class="page_creation__liste_role">
-                <li>Combat</li>
-                <li>Enquête</li>
-                <li>Espace</li>
-                <li>Infiltration</li>
-                <li>Informatique</li>
-                <li>Négociation</li>
-                <li>Relation</li>
-                <li>Technologie</li>
-            </ul>        
-            <template id="creationPersonnageSelecteurRoles">
-                <li class="page_creation__selecteur_role">
-                    <p class="page_creation__selecteur_role__nom_role"></p>
-                    <button class="page_creation__selecteur_role__bouton_infos">🔍</button>
-                    <p class="page_creation__selecteur_role__infos_role"></p>
-                </li>
-            </template>
+            <ul id="creationPersonnageRoles" class="creation_perso__liste_role">
+                <template id="creationPersonnageSelecteurRoles">
+                    <li class="creation_perso__selecteur_role">
+                        <p class="creation_perso__selecteur_role__nom_role"></p>
+                        <button class="creation_perso__selecteur_role__bouton_infos">🔍</button>
+                        <p class="creation_perso__selecteur_role__infos_role"></p>
+                    </li>
+                </template>
+            </ul>  
+        </div>
+        <button class="bouton-precedent page__bouton page__bouton_precedent">Précédent</button>
+        <button class="bouton-suivant page__bouton page__bouton_suivant">Suivant</button>
+    </div>
+  
+    <div id="creationPersonnagePageCarriere" class="page">
+        <div class="page__contenu">
+            <p>Choisissez des carrières</p>
+            <ul id="creationPersonnageCarrieres" class="creation_perso__liste_carriere">
+                <template id="creationPersonnageSelecteurCarrieres">
+                    <li class="creation_perso__selecteur_carriere">
+                        <p class="creation_perso__selecteur_carriere__nom_carriere"></p>
+                        <p class="creation_perso__selecteur_carriere__roles_carriere"></p>
+                        <button class="creation_perso__selecteur_carriere__bouton_infos">🔍</button>
+                        <p class="creation_perso__selecteur_carriere__infos_carriere"></p>
+                    </li>
+                </template>
+            </ul>
         </div>
         <button class="bouton-precedent page__bouton page__bouton_precedent">Précédent</button>
         <button class="bouton-suivant page__bouton page__bouton_suivant">Suivant</button>

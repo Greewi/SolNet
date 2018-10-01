@@ -9,10 +9,6 @@ export class Identite{
          */
         this.nomAdministratif = "";
         /**
-         * @type {Object<string, string>}
-         */
-        this.roles = {};
-        /**
          * @type {string}
          */
         this.profession = null;

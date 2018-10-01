@@ -14,7 +14,7 @@ export class PageChoixRole extends Page{
     constructor(ecran , personnage){
         super("creationPersonnagePageRoles", ecran);
         this._personnage = personnage;
-        this._rolesPersonnage = personnage.identite.roles;
+        this._rolesPersonnage = personnage.roles;
 
         this._listeRoles = this.element.querySelector("#creationPersonnageRoles");
         this._templateSelecteurRole = this.element.querySelector("#creationPersonnageSelecteurRoles");
@@ -27,7 +27,7 @@ export class PageChoixRole extends Page{
 
         this._boutonSuivant = this.element.querySelector(".bouton-suivant");
         this._actionBoutonSuivant = (event) => {
-            this.ecran.ouvre("identite", true);
+            this.ecran.ouvre("choixCarriere", true);
         };
         this._boutonSuivant.addEventListener("click", this._actionBoutonSuivant);
     }
@@ -45,31 +45,31 @@ export class PageChoixRole extends Page{
             let role = roles[idRole];
             let element = this._templateSelecteurRole.content.cloneNode(true);
             
-            let nomRole = element.querySelector(".page_creation__selecteur_role__nom_role");
+            let nomRole = element.querySelector(".creation_perso__selecteur_role__nom_role");
             nomRole.innerHTML = role.nom;
             if(this._rolesPersonnage[idRole])
-                nomRole.classList.add("page_creation__selecteur_role__nom_role__possede");
+                nomRole.classList.add("creation_perso__selecteur_role__nom_role__possede");
             nomRole.onclick = (e)=>{
                 if(this._rolesPersonnage[idRole])
                 {
                     delete this._rolesPersonnage[idRole];
-                    nomRole.classList.remove("page_creation__selecteur_role__nom_role__possede");
+                    nomRole.classList.remove("creation_perso__selecteur_role__nom_role__possede");
                 }
                 else
                 {
                     this._rolesPersonnage[idRole] = idRole;
-                    nomRole.classList.add("page_creation__selecteur_role__nom_role__possede");
+                    nomRole.classList.add("creation_perso__selecteur_role__nom_role__possede");
                 }
             };
 
-            let blockInfos = element.querySelector(".page_creation__selecteur_role__infos_role");
+            let blockInfos = element.querySelector(".creation_perso__selecteur_role__infos_role");
             blockInfos.innerHTML = `<em>${role.nom}</em> : ${role.description}`;
 
-            let boutonInfos = element.querySelector(".page_creation__selecteur_role__bouton_infos");
+            let boutonInfos = element.querySelector(".creation_perso__selecteur_role__bouton_infos");
             boutonInfos.onclick = (e)=>{
-                nomRole.classList.toggle("page_creation__selecteur_role__nom_role__ouvert");
-                boutonInfos.classList.toggle("page_creation__selecteur_role__bouton_infos__ouvert");
-                blockInfos.classList.toggle("page_creation__selecteur_role__infos_role__ouvert");
+                nomRole.classList.toggle("creation_perso__selecteur_role__nom_role__ouvert");
+                boutonInfos.classList.toggle("creation_perso__selecteur_role__bouton_infos__ouvert");
+                blockInfos.classList.toggle("creation_perso__selecteur_role__infos_role__ouvert");
             };
 
             this._listeRoles.appendChild(element);

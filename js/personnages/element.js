@@ -1,6 +1,13 @@
 export class Element{
-    constructor(){
-        this.nom="";
-        this.score=0;
+    /**
+     * @param {string} id 
+     * @param {string} nom 
+     * @param {number} score 
+     */
+    constructor(id, nom, score)
+    {
+        this.id = id;
+        this.nom = nom;
+        this.score = score;
     }
 }
