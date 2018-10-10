@@ -34,33 +34,48 @@
     <div id="creationPersonnagePageRoles" class="page">
         <div class="page__contenu">
             <p>Une aventure de Solaires peut couvrir plusieurs aspects. Il est indispensable que l’équipe des PJ soit en mesure de faire face aux situations découlant de tous ces aspects, ou tout du moins de tout ceux que le meneur a prévu de faire intervenir. Les personnages du groupe devraient donc se répartir les différents aspects sans oublier un peu de redondance au cas où. De façon générale nous vous recommandons de choisir 3 aspects.</p>
-            <ul id="creationPersonnageRoles" class="creation_perso__liste_role">
-                <template id="creationPersonnageSelecteurRoles">
-                    <li class="creation_perso__selecteur_role">
-                        <p class="creation_perso__selecteur_role__nom_role"></p>
-                        <button class="creation_perso__selecteur_role__bouton_infos">🔍</button>
-                        <p class="creation_perso__selecteur_role__infos_role"></p>
-                    </li>
-                </template>
-            </ul>  
+            <ul id="creationPersonnageRoles" class="page__liste"></ul>
+            <template id="creationPersonnageSelecteurRoles">
+                <li class="page__selecteur">
+                    <p class="page__selecteur__nom"></p>
+                    <button class="page___selecteur__bouton_infos">🔍</button>
+                    <p class="page___selecteur__infos"></p>
+                </li>
+            </template>
         </div>
         <button class="bouton-precedent page__bouton page__bouton_precedent">Précédent</button>
         <button class="bouton-suivant page__bouton page__bouton_suivant">Suivant</button>
     </div>
-  
+
+    <div id="creationPersonnagePageEsprit" class="page">
+        <div class="page__contenu">
+            <p>Choisissez des carrières</p>
+            <ul id="creationPersonnageEsprit" class="page__liste"></ul>
+            <template id="creationPersonnageSelecteurEsprit">
+                <li class="page__selecteur page__selecteur__deux_lignes">
+                    <p class="page__selecteur__nom page__selecteur__ligne_haut"></p>
+                    <p class="page__selecteur__nom page__selecteur__ligne_bas"></p>
+                    <button class="page___selecteur__bouton_infos page___selecteur__bouton_infos__deux_lignes">🔍</button>
+                    <p class="page___selecteur__infos"></p>
+                </li>
+            </template>
+        </div>
+        <button class="bouton-precedent page__bouton page__bouton_precedent">Précédent</button>
+        <button class="bouton-suivant page__bouton page__bouton_suivant">Suivant</button>
+    </div>
+
     <div id="creationPersonnagePageCarriere" class="page">
         <div class="page__contenu">
             <p>Choisissez des carrières</p>
-            <ul id="creationPersonnageCarrieres" class="creation_perso__liste_carriere">
-                <template id="creationPersonnageSelecteurCarrieres">
-                    <li class="creation_perso__selecteur_carriere">
-                        <p class="creation_perso__selecteur_carriere__nom_carriere"></p>
-                        <p class="creation_perso__selecteur_carriere__roles_carriere"></p>
-                        <button class="creation_perso__selecteur_carriere__bouton_infos">🔍</button>
-                        <p class="creation_perso__selecteur_carriere__infos_carriere"></p>
-                    </li>
-                </template>
-            </ul>
+            <ul id="creationPersonnageCarrieres" class="page__liste"></ul>
+            <template id="creationPersonnageSelecteurCarrieres">
+                <li class="page__selecteur page__selecteur__deux_lignes">
+                    <p class="page__selecteur__nom page__selecteur__ligne_haut"></p>
+                    <p class="page__selecteur__nom page__selecteur__ligne_bas"></p>
+                    <button class="page___selecteur__bouton_infos page___selecteur__bouton_infos__deux_lignes">🔍</button>
+                    <p class="page___selecteur__infos"></p>
+                </li>
+            </template>
         </div>
         <button class="bouton-precedent page__bouton page__bouton_precedent">Précédent</button>
         <button class="bouton-suivant page__bouton page__bouton_suivant">Suivant</button>
@@ -95,28 +110,7 @@
         <button class="bouton-precedent page__bouton page__bouton_precedent">Précédent</button>
         <button class="bouton-suivant page__bouton page__bouton_suivant">Suivant</button>
     </div>
-    
 
-    <template id="selecteur-carriere">
-        <div class="popup">
-
-        </div>
-    </template>
-
-    <template id="selecteur-esprit">
-        <div class="popup">
-
-        </div>
-    </template>
-
-    <template id="selecteur-enveloppe">
-        <div class="popup">
-
-        </div>
-    </template>
-
-    <script type="module" src="js/ajax.js"></script>
-    <script type="module" src="test/combinaisons.js"></script>
     <script type="module" src="js/main.js"></script>
 </body>
 </html>

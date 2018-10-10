@@ -1,15 +1,14 @@
 
 /**
- * Styles de la page de sélection des rôles
+ * Liste de sélections
  */
-
-.creation_perso__liste_role{
+.page__liste{
     box-sizing: border-box;
     width: 100%;
     margin:0;
     padding:0;
 }
-.creation_perso__selecteur_role{
+.page__selecteur{
     box-sizing: border-box;
     width: 100%;
     padding:0;
@@ -19,7 +18,11 @@
     grid-template-columns: auto 50px;
     grid-template-rows: 50px auto;
 }
-.creation_perso__selecteur_role__nom_role{
+.page__selecteur__deux_lignes{
+    grid-template-rows: 25px 25px auto;
+}
+/* Contenu du sélecteur */
+.page__selecteur__nom{
     box-sizing: border-box;
     display: block;
     grid-column: 1;
@@ -31,146 +34,71 @@
     color: #FFF;
     border-radius: 10px 0 0 10px;
 }
-.creation_perso__selecteur_role__nom_role__ouvert{
+.page__selecteur__nom__ouvert{
     border-radius: 10px 0 0 0;
 }
-.creation_perso__selecteur_role__nom_role__possede{
+.page__selecteur__nom__possede{
     background: #252;
 }
-.creation_perso__selecteur_role__bouton_infos{
-    box-sizing: border-box;
-    display: block;
-    grid-column: 2;
-    width: 100%;
-    height: 100%;
-    padding:10px;
-    background : #05F;
-    color: #FFF;
-    border : none;
-    border-radius: 0 10px 10px 0;
-    font-size: 17pt;
-}
-.creation_perso__selecteur_role__bouton_infos__ouvert{
-    border-radius: 0 10px 0 0;
-}
-.creation_perso__selecteur_role__infos_role{
-    box-sizing: border-box;
-    display: block;
-    grid-column: 1/3;
-    width: 100%;
-    padding:10px;
-    margin: 0;
-    background: #AAA;
-    color: #000;
-    border-radius: 0 0 10px 10px;
-    display: none;
-}
-.creation_perso__selecteur_role__infos_role__ouvert{
-    display: block;
-}
-
-.creation_perso__selecteur_role__infos_role em{
-    font-weight: bold;
-}
-
-/**
- * Styles de la page de sélection des dcarrières
- */
-
- .creation_perso__liste_carriere{
-    box-sizing: border-box;
-    width: 100%;
-    margin:0;
-    padding:0;
-}
-.creation_perso__selecteur_carriere{
-    box-sizing: border-box;
-    width: 100%;
-    padding:0;
-    margin:0;
-    margin-bottom: 10px;
-    display:grid;
-    grid-template-columns: auto 50px;
-    grid-template-rows: 25px 25px auto;
-}
-.creation_perso__selecteur_carriere__nom_carriere{
-    box-sizing: border-box;
-    display: block;
-    grid-column: 1;
+.page__selecteur__ligne_haut{
     grid-row:1;
-    width: 100%;
-    height: 100%;
     padding: 8px 17px 0px 17px;
-    margin: 0;
-    background: #222;
-    color: #FFF;
     border-radius: 10px 0 0 0;
 }
-.creation_perso__selecteur_carriere__nom_carriere__possede{
-    background: #252;
-}
-.creation_perso__selecteur_carriere__roles_carriere{
-    box-sizing: border-box;
-    display: block;
-    grid-column: 1;
+.page__selecteur__ligne_bas{
     grid-row:2;
-    width: 100%;
-    height: 100%;
     padding: 5px 17px 5px 37px;
-    margin: 0;
-    background: #222;
-    color: #FFF;
     font-size: 8pt;
     border-radius: 0 0 0 10px;
 }
-.creation_perso__selecteur_carriere__roles_carriere__possede{
-    background: #252;
-}
-.creation_perso__selecteur_carriere__roles_carriere__ouvert{
+.page__selecteur__ligne_bas.page__selecteur__nom__ouvert{
     border-radius: 0 0 0 0;
 }
-.creation_perso__selecteur_carriere__bouton_infos{
-    box-sizing: border-box;
-    display: block;
-    grid-column: 2;
-    grid-row:1/3;
-    width: 100%;
-    height: 100%;
-    padding:10px;
-    background : #05F;
-    color: #FFF;
-    border : none;
-    border-radius: 0 10px 10px 0;
-    font-size: 17pt;
-}
-.creation_perso__selecteur_carriere__bouton_infos__ouvert{
-    border-radius: 0 10px 0 0;
-}
-.creation_perso__selecteur_carriere__infos_carriere{
-    box-sizing: border-box;
-    display: block;
-    grid-column: 1/3;
-    width: 100%;
-    padding:10px;
-    margin: 0;
-    background: #AAA;
-    color: #000;
-    border-radius: 0 0 10px 10px;
-    display: none;
-}
-.creation_perso__selecteur_carriere__infos_carriere__ouvert{
-    display: block;
-}
-
-.creation_perso__selecteur_carriere__infos_carriere em{
-    font-weight: bold;
-}
-.creation_perso__selecteur_carriere__roles_carriere__role{
+.page__selecteur__prerequis{
     margin:10px;
     color:#555;
     font-style: italic;
 }
-.creation_perso__selecteur_carriere__roles_carriere__role_possede{
+.page__selecteur__prerequis__possede{
     color:#EEE;
+    font-weight: bold;
+}
+/* Bouton d'info */
+.page___selecteur__bouton_infos{
+    box-sizing: border-box;
+    display: block;
+    grid-column: 2;
+    width: 100%;
+    height: 100%;
+    padding:10px;
+    background : #05F;
+    color: #FFF;
+    border : none;
+    border-radius: 0 10px 10px 0;
+    font-size: 17pt;
+}
+.page___selecteur__bouton_infos__deux_lignes{
+    grid-row:1/3;
+}
+.page___selecteur__bouton_infos__ouvert{
+    border-radius: 0 10px 0 0;
+}
+/* Boîte d'info */
+.page___selecteur__infos{
+    box-sizing: border-box;
+    display: block;
+    grid-column: 1/3;
+    width: 100%;
+    padding:10px;
+    margin: 0;
+    background: #AAA;
+    color: #000;
+    border-radius: 0 0 10px 10px;
+    display: none;
+}
+.page___selecteur__infos__ouvert{
+    display: block;
+}
+.page___selecteur__infos em{
     font-weight: bold;
 }

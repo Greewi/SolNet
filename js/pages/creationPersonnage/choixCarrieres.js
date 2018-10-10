@@ -74,18 +74,18 @@ export class PageChoixCarrieres extends Page{
             let element = this._templateSelecteurCarrieres.content.cloneNode(true);
 
             //Nom de la carrière
-            let nomCarriere = element.querySelector(".creation_perso__selecteur_carriere__nom_carriere");
+            let nomCarriere = element.querySelector(".page__selecteur__ligne_haut");
             nomCarriere.innerHTML = carriere.nom;
 
             //Liste des rôles de la carrière
-            let rolesCarriere = element.querySelector(".creation_perso__selecteur_carriere__roles_carriere");
+            let rolesCarriere = element.querySelector(".page__selecteur__ligne_bas");
             var listeRoles = "";
             for(let idRole of carriere.roles)
             {
                 let role = roles[idRole];
-                let classe = "creation_perso__selecteur_carriere__roles_carriere__role";
+                let classe = "page__selecteur__prerequis";
                 if(this._rolesPersonnage[idRole])
-                    classe = "creation_perso__selecteur_carriere__roles_carriere__role creation_perso__selecteur_carriere__roles_carriere__role_possede";
+                    classe = "page__selecteur__prerequis page__selecteur__prerequis__possede";
                 listeRoles+=`<span class="${classe}">${role.nom}</span>`;
             }
             rolesCarriere.innerHTML = listeRoles;
@@ -93,8 +93,8 @@ export class PageChoixCarrieres extends Page{
             //Sélection/Déselection de la carrière
             if(this._elementsPersonnage.possedeCarriere(carriere.id))
             {
-                nomCarriere.classList.add("creation_perso__selecteur_carriere__nom_carriere__possede");
-                rolesCarriere.classList.add("creation_perso__selecteur_carriere__roles_carriere__possede");
+                nomCarriere.classList.add("page__selecteur__nom__possede");
+                rolesCarriere.classList.add("page__selecteur__nom__possede");
             }            
             rolesCarriere.onclick = nomCarriere.onclick = (e)=>{
                 if(this._elementsPersonnage.possedeCarriere(carriere.id))
@@ -105,26 +105,26 @@ export class PageChoixCarrieres extends Page{
                             this._carrieresPersonnage.splice(i, 1);
                             break;
                         }
-                    nomCarriere.classList.remove("creation_perso__selecteur_carriere__nom_carriere__possede");
-                    rolesCarriere.classList.remove("creation_perso__selecteur_carriere__roles_carriere__possede");
+                    nomCarriere.classList.remove("page__selecteur__nom__possede");
+                    rolesCarriere.classList.remove("page__selecteur__nom__possede");
                 }
                 else
                 {
                     this._carrieresPersonnage.push(new Element(carriere.id, carriere.nom, 1));
-                    nomCarriere.classList.add("creation_perso__selecteur_carriere__nom_carriere__possede");
-                    rolesCarriere.classList.add("creation_perso__selecteur_carriere__roles_carriere__possede");
+                    nomCarriere.classList.add("page__selecteur__nom__possede");
+                    rolesCarriere.classList.add("page__selecteur__nom__possede");
                 }
             };
 
             // Block d'infos
-            let blockInfos = element.querySelector(".creation_perso__selecteur_carriere__infos_carriere");
+            let blockInfos = element.querySelector(".page___selecteur__infos");
             blockInfos.innerHTML = `<em>${carriere.nom}</em> : ${carriere.description}`;
 
-            let boutonInfos = element.querySelector(".creation_perso__selecteur_carriere__bouton_infos");
+            let boutonInfos = element.querySelector(".page___selecteur__bouton_infos");
             boutonInfos.onclick = (e)=>{
-                rolesCarriere.classList.toggle("creation_perso__selecteur_carriere__roles_carriere__ouvert");
-                boutonInfos.classList.toggle("creation_perso__selecteur_carriere__bouton_infos__ouvert");
-                blockInfos.classList.toggle("creation_perso__selecteur_carriere__infos_carriere__ouvert");
+                rolesCarriere.classList.toggle("page__selecteur__nom__ouvert");
+                boutonInfos.classList.toggle("page___selecteur__bouton_infos__ouvert");
+                blockInfos.classList.toggle("page___selecteur__infos__ouvert");
             };
 
             this._listeCarrieres.appendChild(element);

@@ -45,31 +45,31 @@ export class PageChoixRole extends Page{
             let role = roles[idRole];
             let element = this._templateSelecteurRole.content.cloneNode(true);
             
-            let nomRole = element.querySelector(".creation_perso__selecteur_role__nom_role");
+            let nomRole = element.querySelector(".page__selecteur__nom");
             nomRole.innerHTML = role.nom;
             if(this._rolesPersonnage[idRole])
-                nomRole.classList.add("creation_perso__selecteur_role__nom_role__possede");
+                nomRole.classList.add("page__selecteur__nom__possede");
             nomRole.onclick = (e)=>{
                 if(this._rolesPersonnage[idRole])
                 {
                     delete this._rolesPersonnage[idRole];
-                    nomRole.classList.remove("creation_perso__selecteur_role__nom_role__possede");
+                    nomRole.classList.remove("page__selecteur__nom__possede");
                 }
                 else
                 {
                     this._rolesPersonnage[idRole] = idRole;
-                    nomRole.classList.add("creation_perso__selecteur_role__nom_role__possede");
+                    nomRole.classList.add("page__selecteur__nom__possede");
                 }
             };
 
-            let blockInfos = element.querySelector(".creation_perso__selecteur_role__infos_role");
+            let blockInfos = element.querySelector(".page___selecteur__infos");
             blockInfos.innerHTML = `<em>${role.nom}</em> : ${role.description}`;
 
-            let boutonInfos = element.querySelector(".creation_perso__selecteur_role__bouton_infos");
+            let boutonInfos = element.querySelector(".page___selecteur__bouton_infos");
             boutonInfos.onclick = (e)=>{
-                nomRole.classList.toggle("creation_perso__selecteur_role__nom_role__ouvert");
-                boutonInfos.classList.toggle("creation_perso__selecteur_role__bouton_infos__ouvert");
-                blockInfos.classList.toggle("creation_perso__selecteur_role__infos_role__ouvert");
+                nomRole.classList.toggle("page__selecteur__nom__ouvert");
+                boutonInfos.classList.toggle("page___selecteur__bouton_infos__ouvert");
+                blockInfos.classList.toggle("page___selecteur__infos__ouvert");
             };
 
             this._listeRoles.appendChild(element);
