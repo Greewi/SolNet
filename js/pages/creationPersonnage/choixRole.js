@@ -17,7 +17,7 @@ export class PageChoixRole extends Page{
         this._rolesPersonnage = personnage.roles;
 
         this._listeRoles = this.element.querySelector("#creationPersonnageRoles");
-        this._templateSelecteurRole = this.element.querySelector("#creationPersonnageSelecteurRoles");
+        this._templateSelecteur = this.element.querySelector("#creationPersonnageSelecteurRoles");
 
         this._boutonPrecedent = this.element.querySelector(".bouton-precedent");
         this._actionBoutonPrecedent = (event) => {
@@ -43,7 +43,7 @@ export class PageChoixRole extends Page{
         for(let idRole in roles)
         {
             let role = roles[idRole];
-            let element = this._templateSelecteurRole.content.cloneNode(true);
+            let element = this._templateSelecteur.content.cloneNode(true);
             
             let nomRole = element.querySelector(".page__selecteur__nom");
             nomRole.innerHTML = role.nom;

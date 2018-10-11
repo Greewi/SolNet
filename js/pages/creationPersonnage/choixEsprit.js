@@ -17,7 +17,7 @@ export class PageChoixEsprit extends Page{
         this._rolesPersonnage = personnage.roles;
 
         this._listeIntelligences = this.element.querySelector("#creationPersonnageEsprit");
-        this._templateSelecteurRole = this.element.querySelector("#creationPersonnageSelecteurEsprit");
+        this._templateSelecteur = this.element.querySelector("#creationPersonnageSelecteurEsprit");
 
         this._boutonPrecedent = this.element.querySelector(".bouton-precedent");
         this._actionBoutonPrecedent = (event) => {
@@ -27,7 +27,7 @@ export class PageChoixEsprit extends Page{
 
         this._boutonSuivant = this.element.querySelector(".bouton-suivant");
         this._actionBoutonSuivant = (event) => {
-            this.ecran.ouvre("choixCarriere", true);
+            this.ecran.ouvre("choixEnveloppe", true);
         };
         this._boutonSuivant.addEventListener("click", this._actionBoutonSuivant);
     }
@@ -44,7 +44,7 @@ export class PageChoixEsprit extends Page{
         for(let idIntelligence in intelligences)
         {
             let intelligence = intelligences[idIntelligence];
-            let element = this._templateSelecteurRole.content.cloneNode(true);
+            let element = this._templateSelecteur.content.cloneNode(true);
             
             // Nom de l'intelligence
             let nomIntelligence = element.querySelector(".page__selecteur__ligne_haut");
@@ -52,14 +52,14 @@ export class PageChoixEsprit extends Page{
 
             //Liste des enveloppes compatibles
             let enveloppesCompatibles = element.querySelector(".page__selecteur__ligne_bas");
-            var listeEnveloppes = "";
+            var estCompatible = false;
             for(let idEnveloppe of intelligence.enveloppes)
-            {
-                let enveloppe = enveloppes[idEnveloppe];
-                let classe = "page__selecteur__prerequis page__selecteur__prerequis__possede";
-                listeEnveloppes+=`<span class="${classe}">${enveloppe.nom}</span>`;
-            }//TODO mettre "Enveloppe compatible/Non Compatible"
-            enveloppesCompatibles.innerHTML = `<span class="${classe}">${enveloppe.nom}</span>`;
+                if(this._personnage.identite.enveloppeUsuelle && this._personnage.identite.enveloppeUsuelle.id == idEnveloppe)
+                    estCompatible = true;
+            if(estCompatible)
+                enveloppesCompatibles.innerHTML = `<span class="page__selecteur__prerequis page__selecteur__prerequis__possede">Enveloppe compatible</span>`;
+            else
+                enveloppesCompatibles.innerHTML = `<span class="page__selecteur__prerequis">Enveloppe non compatible</span>`;
 
             //Sélection/Déselection de l'intelligence
             if(this._personnage.identite.natureEsprit && this._personnage.identite.natureEsprit.id == idIntelligence)

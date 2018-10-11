@@ -21,7 +21,7 @@ export class PageChoixCarrieres extends Page{
         this._carrieresPersonnage = personnage.elements.carrieres;
 
         this._listeCarrieres = this.element.querySelector("#creationPersonnageCarrieres");
-        this._templateSelecteurCarrieres = this.element.querySelector("#creationPersonnageSelecteurCarrieres");
+        this._templateSelecteur = this.element.querySelector("#creationPersonnageSelecteurCarrieres");
 
         this._boutonPrecedent = this.element.querySelector(".bouton-precedent");
         this._actionBoutonPrecedent = (event) => {
@@ -71,7 +71,7 @@ export class PageChoixCarrieres extends Page{
 
         for(let carriere of carrieres)
         {
-            let element = this._templateSelecteurCarrieres.content.cloneNode(true);
+            let element = this._templateSelecteur.content.cloneNode(true);
 
             //Nom de la carrière
             let nomCarriere = element.querySelector(".page__selecteur__ligne_haut");

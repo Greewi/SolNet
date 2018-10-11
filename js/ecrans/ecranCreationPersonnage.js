@@ -5,6 +5,7 @@ import { PageIdentite } from "../pages/creationPersonnage/identite";
 import { Personnage } from "../personnages/personnage";
 import { PageChoixCarrieres } from "../pages/creationPersonnage/choixCarrieres";
 import { PageChoixEsprit } from "../pages/creationPersonnage/choixEsprit";
+import { PageChoixEnveloppe } from "../pages/creationPersonnage/choixEnveloppe";
 
 /**
  * Écran de création de personnage
@@ -19,6 +20,7 @@ export class EcranCreationPersonnage extends Ecran{
             "introduction" : new PageIntroduction(this, personnage),
             "choixRole" : new PageChoixRole(this, personnage),
             "choixEsprit" : new PageChoixEsprit(this, personnage),
+            "choixEnveloppe" : new PageChoixEnveloppe(this, personnage),
             "choixCarriere" : new PageChoixCarrieres(this, personnage),
             "identite" : new PageIdentite(this, personnage),
         });
