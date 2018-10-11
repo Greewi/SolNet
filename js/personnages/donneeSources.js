@@ -3,6 +3,8 @@ import { Ajax } from "../ajax";
 var _roles = null;
 var _carrieres = null;
 var _carrieresParRole = null;
+var _intelligences = null;
+var _enveloppes = null;
 
 /**
  * Charge et gère les données de l'application
@@ -42,6 +44,22 @@ export class BanqueDonnees {
             }
             console.log("Carrières chargés");
         })
+        .then(()=>{
+            console.log("Début chargement intelligences");
+            return Ajax.get("./res/intelligences.json");
+        })
+        .then((json)=>{
+            _intelligences = JSON.parse(json);
+            console.log("Intelligences chargées");
+        })
+        .then(()=>{
+            console.log("Début chargement enveloppes");
+            return Ajax.get("./res/enveloppes.json");
+        })
+        .then((json)=>{
+            _enveloppes = JSON.parse(json);
+            console.log("Enveloppes chargées");
+        })
     }
 
     static get roles(){
@@ -50,5 +68,13 @@ export class BanqueDonnees {
 
     static get carrieres(){
         return _carrieres;
+    }
+
+    static get intelligences(){
+        return _intelligences;
+    }
+
+    static get enveloppes(){
+        return _enveloppes;
     }
 }

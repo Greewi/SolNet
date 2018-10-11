@@ -27,7 +27,7 @@ export class PageChoixRole extends Page{
 
         this._boutonSuivant = this.element.querySelector(".bouton-suivant");
         this._actionBoutonSuivant = (event) => {
-            this.ecran.ouvre("choixCarriere", true);
+            this.ecran.ouvre("choixEsprit", true);
         };
         this._boutonSuivant.addEventListener("click", this._actionBoutonSuivant);
     }

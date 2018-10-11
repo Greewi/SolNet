@@ -25,7 +25,7 @@ export class PageChoixCarrieres extends Page{
 
         this._boutonPrecedent = this.element.querySelector(".bouton-precedent");
         this._actionBoutonPrecedent = (event) => {
-            this.ecran.ouvre("choixRole", false);
+            this.ecran.ouvre("choixEsprit", false);
         };
         this._boutonPrecedent.addEventListener("click", this._actionBoutonPrecedent);
 
