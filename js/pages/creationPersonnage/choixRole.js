@@ -2,7 +2,7 @@ import { Page } from "../page";
 import { Ecran } from "../../ecrans/ecran";
 import { Personnage } from "../../personnages/personnage";
 import { BanqueDonnees } from "../../personnages/donneeSources";
-import { Selecteur } from "./selecteur";
+import { Selecteur, SelecteurSimple } from "./selecteur";
 
 /**
  * Page de choix des rôles du personnage
@@ -45,7 +45,7 @@ export class PageChoixRole extends Page{
             let role = roles[idRole];    
             let nom = role.nom;
             let description = `<em>${role.nom}</em> : ${role.description}`;
-            let selecteur = new Selecteur(nom, description, false);
+            let selecteur = new SelecteurSimple(nom, description);
 
             //Sélection/Déselection du rôle
             if(this._rolesPersonnage[idRole])

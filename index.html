@@ -9,21 +9,27 @@
     <link rel="stylesheet" type="text/css" media="screen" href="css/creationPerso.css">
 </head>
 <body class="body">
-        <template id="creationPersonnageSelecteurSimple">
-            <li class="page__selecteur">
-                <p class="page__selecteur__nom"></p>
-                <button class="page___selecteur__bouton_infos">🔍</button>
-                <p class="page___selecteur__infos"></p>
-            </li>
-        </template>
-        <template id="creationPersonnageSelecteurDeuxLigne">
-            <li class="page__selecteur page__selecteur__deux_lignes">
-                <p class="page__selecteur__nom page__selecteur__ligne_haut"></p>
-                <p class="page__selecteur__nom page__selecteur__ligne_bas"></p>
-                <button class="page___selecteur__bouton_infos page___selecteur__bouton_infos__deux_lignes">🔍</button>
-                <p class="page___selecteur__infos"></p>
-            </li>
-        </template>
+    <template id="creationPersonnageSelecteurSimple">
+        <li class="page__selecteur">
+            <p class="page__selecteur__nom"></p>
+            <button class="page___selecteur__bouton_infos">🔍</button>
+            <p class="page___selecteur__infos"></p>
+        </li>
+    </template>
+    <template id="creationPersonnageSelecteurDeuxLigne">
+        <li class="page__selecteur page__selecteur__deux_lignes">
+            <p class="page__selecteur__nom page__selecteur__ligne_haut"></p>
+            <p class="page__selecteur__nom page__selecteur__ligne_bas"></p>
+            <button class="page___selecteur__bouton_infos page___selecteur__bouton_infos__deux_lignes">🔍</button>
+            <p class="page___selecteur__infos"></p>
+        </li>
+    </template>
+    <template id="creationPersonnageSelecteurElementSpecial">
+        <li class="page__selecteur">
+            <p class="page__selecteur__nom"></p>
+            <button class="page___selecteur__bouton_supprimer">X</button>
+        </li>
+    </template>
             
     <div id="creationPersonnagePageIntroduction" class="page">
         <div class="page__contenu">
@@ -77,7 +83,10 @@
     <div id="creationPersonnagePageCarriere" class="page">
         <div class="page__contenu">
             <p>Choisissez des carrières</p>
+            <p>Carrières standardes :</p>
             <ul id="creationPersonnageCarrieres" class="page__liste"></ul>
+            <ul id="creationPersonnageCarrieresCustom" class="page__liste"></ul>
+            <button class="bouton-ajouter-carriere page__bouton page__bouton__pleine_largeur">Ajouter une carrière personnalisée</button>
         </div>
         <button class="bouton-precedent page__bouton page__bouton_precedent">Précédent</button>
         <button class="bouton-suivant page__bouton page__bouton_suivant">Suivant</button>

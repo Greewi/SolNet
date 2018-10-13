@@ -8,6 +8,7 @@ export class Page{
         this._element = document.getElementById(id);
         this._ecran = ecran;
         this._transition = null;
+        this._contenu = this._element.querySelector(".page__contenu");
     }
 
     /**
@@ -58,6 +59,20 @@ export class Page{
     detruit(){
         this._stopTransition();
         this._element.classList.remove("page__on");
+    }
+
+    /**
+     * Scroll le contenu de la page pour monter le haut de la page
+     */
+    scrollEnBas(){
+        this._contenu.scrollTo(0, 0);
+    }
+
+    /**
+     * Scroll le contenu de la page pour monter le bas de la page
+     */
+    scrollEnBas(){
+        this._contenu.scrollTo(0, this._contenu.scrollHeight);
     }
 
     /**

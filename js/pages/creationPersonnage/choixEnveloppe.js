@@ -2,7 +2,7 @@ import { Page } from "../page";
 import { Ecran } from "../../ecrans/ecran";
 import { Personnage } from "../../personnages/personnage";
 import { BanqueDonnees } from "../../personnages/donneeSources";
-import { Selecteur } from "./selecteur";
+import { Selecteur, SelecteurAvecPrerequis } from "./selecteur";
 
 /**
  * Page de choix de l'enveloppe usuelle du personnage
@@ -67,7 +67,7 @@ export class PageChoixEnveloppe extends Page{
                 else
                     listeModeles+=`, <em>${modele}</em>`;
                     let description = `<em>${enveloppe.nom}</em> (depuis ${enveloppe.dateInitiale}) : ${enveloppe.description}.<br/> Modèles : ${listeModeles}. <br/> Esprit compatibles : ${listeEsprits}.`;
-            let selecteur = new Selecteur(nom, description, true);
+            let selecteur = new SelecteurAvecPrerequis(nom, description);
 
             //Liste des enveloppes compatibles
             var estCompatible = false;

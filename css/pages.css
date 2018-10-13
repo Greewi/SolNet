@@ -96,4 +96,9 @@
     right: 10px;
     width: 35vw;
 }
-
+.page__bouton__pleine_largeur {
+    width: 100%;
+}
+.page__bouton_flottant_droite {
+    float:right;
+}

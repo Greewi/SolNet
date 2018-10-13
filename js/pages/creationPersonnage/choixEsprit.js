@@ -2,7 +2,7 @@ import { Page } from "../page";
 import { Ecran } from "../../ecrans/ecran";
 import { Personnage } from "../../personnages/personnage";
 import { BanqueDonnees } from "../../personnages/donneeSources";
-import { Selecteur } from "./selecteur";
+import { Selecteur, SelecteurAvecPrerequis } from "./selecteur";
 
 /**
  * Page de choix de la nature d'esprit du personnage
@@ -55,7 +55,7 @@ export class PageChoixEsprit extends Page{
                     listeEnveloppes+=`, <em>${enveloppe.nom}</em>`;
             }
             let description = `<em>${intelligence.nom}</em> (depuis ${intelligence.dateInitiale}) : ${intelligence.description}.<br/> Enveloppes compatibles : ${listeEnveloppes}.`;
-            let selecteur = new Selecteur(nom, description, true);
+            let selecteur = new SelecteurAvecPrerequis(nom, description);
 
             //Liste des enveloppes compatibles
             var estCompatible = false;
