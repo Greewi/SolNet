@@ -2,6 +2,7 @@ import { Page } from "../page";
 import { Ecran } from "../../ecrans/ecran";
 import { Personnage } from "../../personnages/personnage";
 import { BanqueDonnees } from "../../personnages/donneeSources";
+import { Selecteur } from "./selecteur";
 
 /**
  * Page de choix des rôles du personnage
@@ -17,7 +18,6 @@ export class PageChoixRole extends Page{
         this._rolesPersonnage = personnage.roles;
 
         this._listeRoles = this.element.querySelector("#creationPersonnageRoles");
-        this._templateSelecteur = this.element.querySelector("#creationPersonnageSelecteurRoles");
 
         this._boutonPrecedent = this.element.querySelector(".bouton-precedent");
         this._actionBoutonPrecedent = (event) => {
@@ -42,37 +42,28 @@ export class PageChoixRole extends Page{
         let roles = BanqueDonnees.roles;
         for(let idRole in roles)
         {
-            let role = roles[idRole];
-            let element = this._templateSelecteur.content.cloneNode(true);
-            
-            let nomRole = element.querySelector(".page__selecteur__nom");
-            nomRole.innerHTML = role.nom;
+            let role = roles[idRole];    
+            let nom = role.nom;
+            let description = `<em>${role.nom}</em> : ${role.description}`;
+            let selecteur = new Selecteur(nom, description, false);
+
+            //Sélection/Déselection du rôle
             if(this._rolesPersonnage[idRole])
-                nomRole.classList.add("page__selecteur__nom__possede");
-            nomRole.onclick = (e)=>{
+                selecteur.selectionne();
+            selecteur.onclick = (e) => {
                 if(this._rolesPersonnage[idRole])
                 {
                     delete this._rolesPersonnage[idRole];
-                    nomRole.classList.remove("page__selecteur__nom__possede");
+                    selecteur.deselectionne();
                 }
                 else
                 {
                     this._rolesPersonnage[idRole] = idRole;
-                    nomRole.classList.add("page__selecteur__nom__possede");
+                    selecteur.selectionne();
                 }
             };
 
-            let blockInfos = element.querySelector(".page___selecteur__infos");
-            blockInfos.innerHTML = `<em>${role.nom}</em> : ${role.description}`;
-
-            let boutonInfos = element.querySelector(".page___selecteur__bouton_infos");
-            boutonInfos.onclick = (e)=>{
-                nomRole.classList.toggle("page__selecteur__nom__ouvert");
-                boutonInfos.classList.toggle("page___selecteur__bouton_infos__ouvert");
-                blockInfos.classList.toggle("page___selecteur__infos__ouvert");
-            };
-
-            this._listeRoles.appendChild(element);
+            this._listeRoles.appendChild(selecteur.element);
         }
     }
 

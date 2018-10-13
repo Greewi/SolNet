@@ -3,6 +3,7 @@ import { Ecran } from "../../ecrans/ecran";
 import { Personnage } from "../../personnages/personnage";
 import { BanqueDonnees } from "../../personnages/donneeSources";
 import { Element } from "../../personnages/element";
+import { Selecteur } from "./selecteur";
 
 /**
  * Page de choix des rôles du personnage
@@ -21,7 +22,6 @@ export class PageChoixCarrieres extends Page{
         this._carrieresPersonnage = personnage.elements.carrieres;
 
         this._listeCarrieres = this.element.querySelector("#creationPersonnageCarrieres");
-        this._templateSelecteur = this.element.querySelector("#creationPersonnageSelecteurCarrieres");
 
         this._boutonPrecedent = this.element.querySelector(".bouton-precedent");
         this._actionBoutonPrecedent = (event) => {
@@ -71,63 +71,40 @@ export class PageChoixCarrieres extends Page{
 
         for(let carriere of carrieres)
         {
-            let element = this._templateSelecteur.content.cloneNode(true);
-
-            //Nom de la carrière
-            let nomCarriere = element.querySelector(".page__selecteur__ligne_haut");
-            nomCarriere.innerHTML = carriere.nom;
+            let nom = carriere.nom;
+            let description = `<em>${carriere.nom}</em> : ${carriere.description}`;
+            let selecteur = new Selecteur(nom, description, true);
 
             //Liste des rôles de la carrière
-            let rolesCarriere = element.querySelector(".page__selecteur__ligne_bas");
             var listeRoles = "";
             for(let idRole of carriere.roles)
             {
                 let role = roles[idRole];
-                let classe = "page__selecteur__prerequis";
-                if(this._rolesPersonnage[idRole])
-                    classe = "page__selecteur__prerequis page__selecteur__prerequis__possede";
-                listeRoles+=`<span class="${classe}">${role.nom}</span>`;
+                selecteur.ajoutePrerequis(role.nom, this._rolesPersonnage[idRole]? true : false);
             }
-            rolesCarriere.innerHTML = listeRoles;
 
             //Sélection/Déselection de la carrière
             if(this._elementsPersonnage.possedeCarriere(carriere.id))
-            {
-                nomCarriere.classList.add("page__selecteur__nom__possede");
-                rolesCarriere.classList.add("page__selecteur__nom__possede");
-            }            
-            rolesCarriere.onclick = nomCarriere.onclick = (e)=>{
+                selecteur.selectionne();
+            selecteur.onclick = (e) => {
                 if(this._elementsPersonnage.possedeCarriere(carriere.id))
                 {
                     for(var i=0; i<this._carrieresPersonnage.length; i++)
-                        if(this._carrieresPersonnage[i].id = carriere.id)
-                        {
-                            this._carrieresPersonnage.splice(i, 1);
-                            break;
-                        }
-                    nomCarriere.classList.remove("page__selecteur__nom__possede");
-                    rolesCarriere.classList.remove("page__selecteur__nom__possede");
+                    if(this._carrieresPersonnage[i].id = carriere.id)
+                    {
+                        this._carrieresPersonnage.splice(i, 1);
+                        break;
+                    }
+                    selecteur.deselectionne();
                 }
                 else
                 {
                     this._carrieresPersonnage.push(new Element(carriere.id, carriere.nom, 1));
-                    nomCarriere.classList.add("page__selecteur__nom__possede");
-                    rolesCarriere.classList.add("page__selecteur__nom__possede");
+                    selecteur.selectionne();
                 }
             };
 
-            // Block d'infos
-            let blockInfos = element.querySelector(".page___selecteur__infos");
-            blockInfos.innerHTML = `<em>${carriere.nom}</em> : ${carriere.description}`;
-
-            let boutonInfos = element.querySelector(".page___selecteur__bouton_infos");
-            boutonInfos.onclick = (e)=>{
-                rolesCarriere.classList.toggle("page__selecteur__nom__ouvert");
-                boutonInfos.classList.toggle("page___selecteur__bouton_infos__ouvert");
-                blockInfos.classList.toggle("page___selecteur__infos__ouvert");
-            };
-
-            this._listeCarrieres.appendChild(element);
+            this._listeCarrieres.appendChild(selecteur.element);
         }
     }
 

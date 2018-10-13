@@ -2,6 +2,7 @@ import { Page } from "../page";
 import { Ecran } from "../../ecrans/ecran";
 import { Personnage } from "../../personnages/personnage";
 import { BanqueDonnees } from "../../personnages/donneeSources";
+import { Selecteur } from "./selecteur";
 
 /**
  * Page de choix de la nature d'esprit du personnage
@@ -17,7 +18,6 @@ export class PageChoixEsprit extends Page{
         this._rolesPersonnage = personnage.roles;
 
         this._listeIntelligences = this.element.querySelector("#creationPersonnageEsprit");
-        this._templateSelecteur = this.element.querySelector("#creationPersonnageSelecteurEsprit");
 
         this._boutonPrecedent = this.element.querySelector(".bouton-precedent");
         this._actionBoutonPrecedent = (event) => {
@@ -44,40 +44,7 @@ export class PageChoixEsprit extends Page{
         for(let idIntelligence in intelligences)
         {
             let intelligence = intelligences[idIntelligence];
-            let element = this._templateSelecteur.content.cloneNode(true);
-            
-            // Nom de l'intelligence
-            let nomIntelligence = element.querySelector(".page__selecteur__ligne_haut");
-            nomIntelligence.innerHTML = intelligence.nom;
-
-            //Liste des enveloppes compatibles
-            let enveloppesCompatibles = element.querySelector(".page__selecteur__ligne_bas");
-            var estCompatible = false;
-            for(let idEnveloppe of intelligence.enveloppes)
-                if(this._personnage.identite.enveloppeUsuelle && this._personnage.identite.enveloppeUsuelle.id == idEnveloppe)
-                    estCompatible = true;
-            if(estCompatible)
-                enveloppesCompatibles.innerHTML = `<span class="page__selecteur__prerequis page__selecteur__prerequis__possede">Enveloppe compatible</span>`;
-            else
-                enveloppesCompatibles.innerHTML = `<span class="page__selecteur__prerequis">Enveloppe non compatible</span>`;
-
-            //Sélection/Déselection de l'intelligence
-            if(this._personnage.identite.natureEsprit && this._personnage.identite.natureEsprit.id == idIntelligence)
-            {
-                nomIntelligence.classList.add("page__selecteur__nom__possede");
-                enveloppesCompatibles.classList.add("page__selecteur__nom__possede");
-            }
-            enveloppesCompatibles.onclick = nomIntelligence.onclick = (e)=>{
-                var selecteurs = this._listeIntelligences.querySelectorAll(".page__selecteur__nom__possede");
-                for(var selecteur of selecteurs)
-                    selecteur.classList.remove("page__selecteur__nom__possede");
-                this._personnage.identite.natureEsprit = intelligence;
-                nomIntelligence.classList.add("page__selecteur__nom__possede");
-                enveloppesCompatibles.classList.add("page__selecteur__nom__possede");
-            };
-
-            // Block d'infos
-            let blockInfos = element.querySelector(".page___selecteur__infos");
+            let nom = intelligence.nom;
             var listeEnveloppes = "";
             for(let idEnveloppe of intelligence.enveloppes)
             {
@@ -87,16 +54,29 @@ export class PageChoixEsprit extends Page{
                 else
                     listeEnveloppes+=`, <em>${enveloppe.nom}</em>`;
             }
-            blockInfos.innerHTML = `<em>${intelligence.nom}</em> (depuis ${intelligence.dateInitiale}) : ${intelligence.description}.<br/> Enveloppes compatibles : ${listeEnveloppes}.`;
+            let description = `<em>${intelligence.nom}</em> (depuis ${intelligence.dateInitiale}) : ${intelligence.description}.<br/> Enveloppes compatibles : ${listeEnveloppes}.`;
+            let selecteur = new Selecteur(nom, description, true);
 
-            let boutonInfos = element.querySelector(".page___selecteur__bouton_infos");
-            boutonInfos.onclick = (e)=>{
-                nomIntelligence.classList.toggle("page__selecteur__nom__ouvert");
-                boutonInfos.classList.toggle("page___selecteur__bouton_infos__ouvert");
-                blockInfos.classList.toggle("page___selecteur__infos__ouvert");
+            //Liste des enveloppes compatibles
+            var estCompatible = false;
+            for(let idEnveloppe of intelligence.enveloppes)
+                if(this._personnage.identite.enveloppeUsuelle && this._personnage.identite.enveloppeUsuelle.id == idEnveloppe)
+                    estCompatible = true;
+            if(estCompatible)
+                selecteur.ajoutePrerequis("Enveloppe compatible", true);
+            else
+                selecteur.ajoutePrerequis("Enveloppe non compatible", false);
+
+            //Sélection/Déselection de l'intelligence
+            if(this._personnage.identite.natureEsprit && this._personnage.identite.natureEsprit.id == idIntelligence)
+                selecteur.selectionne();
+            selecteur.onclick = (e)=>{
+                Selecteur.deselectionneTous(this._listeIntelligences);
+                this._personnage.identite.natureEsprit = intelligence;
+                selecteur.selectionne();
             };
 
-            this._listeIntelligences.appendChild(element);
+            this._listeIntelligences.appendChild(selecteur.element);
         }
     }
 
