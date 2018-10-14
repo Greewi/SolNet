@@ -1,6 +1,8 @@
 const templateSelecteurSimple = document.getElementById("creationPersonnageSelecteurSimple");
 const templateSelecteurDeuxLignes = document.getElementById("creationPersonnageSelecteurDeuxLigne");
 const templateSelecteurElementSpecial = document.getElementById("creationPersonnageSelecteurElementSpecial");
+const templateSelecteurInput = document.getElementById("creationPersonnageSelecteurInput");
+const templateSelecteurSelect = document.getElementById("creationPersonnageSelecteurSelect");
 
 /**
  * Définis un selecteur abstrait
@@ -62,7 +64,6 @@ export class SelecteurSimple extends Selecteur{
 
         this._ligne1 = this._element.querySelector(".page__selecteur__nom");
         this._ligne1.innerHTML = texte;
-        this._ligne2 = null;
         this._blockInfos = this._element.querySelector(".page___selecteur__infos");
         this._blockInfos.innerHTML = description;
         this._boutonInfos = this._element.querySelector(".page___selecteur__bouton_infos");
@@ -187,5 +188,72 @@ export class SelecteurElementSpecial extends Selecteur{
      */
     set onsupprime(callback){
         this._onsupprime = callback;
+    }
+}
+
+export class SelecteurInputText extends Selecteur{
+    /**
+     * @param {string} texte
+     * @param {string} description
+     */
+    constructor(texte, description){
+        super(templateSelecteurInput);
+        this._ligne1 = this._element.querySelector(".page__selecteur__nom");
+        this._ligne1.placeholder = texte;
+        this._blockInfos = this._element.querySelector(".page___selecteur__infos");
+        this._blockInfos.innerHTML = description;
+        this._boutonInfos = this._element.querySelector(".page___selecteur__bouton_infos");
+        this._boutonInfos.onclick = (e)=>{
+            this._ligne1.classList.toggle("page__selecteur__nom__ouvert");
+            this._boutonInfos.classList.toggle("page___selecteur__bouton_infos__ouvert");
+            this._blockInfos.classList.toggle("page___selecteur__infos__ouvert");
+        };
+        this._onchange = (valeur)=>{};
+        this._ligne1.onchange = (e)=>{
+            this._onchange(this._ligne1.value);
+        }
+    }
+
+    set valeur(valeur){
+        this._ligne1.value = valeur;
+    }
+
+    set onchange(callback){
+        this._onchange = callback;
+    }
+}
+
+export class SelecteurSelect extends Selecteur{
+    /**
+     * @param {string} description
+     */
+    constructor(description){
+        super(templateSelecteurSelect);
+        this._ligne1 = this._element.querySelector(".page__selecteur__nom");
+        this._blockInfos = this._element.querySelector(".page___selecteur__infos");
+        this._blockInfos.innerHTML = description;
+        this._boutonInfos = this._element.querySelector(".page___selecteur__bouton_infos");
+        this._boutonInfos.onclick = (e)=>{
+            this._ligne1.classList.toggle("page__selecteur__nom__ouvert");
+            this._boutonInfos.classList.toggle("page___selecteur__bouton_infos__ouvert");
+            this._blockInfos.classList.toggle("page___selecteur__infos__ouvert");
+        };
+        this._onchange = (valeur)=>{};
+        this._ligne1.onchange = (e)=>{
+            this._onchange(this._ligne1.value);
+        }
+    }
+
+    ajouteOption(valeur, texte, selectionnee){
+        var option = document.createElement("option");
+        option.value = valeur;
+        option.innerHTML = texte;
+        if(selectionnee)
+            option.selected = true;
+        this._ligne1.appendChild(option);
+    }
+
+    set onchange(callback){
+        this._onchange = callback;
     }
 }

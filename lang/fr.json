@@ -5,7 +5,13 @@
 
     "// Fragments d'interface ------------------------------------------------------------------------": "",
 
-    "": "",
+    "InputPseudonyme": "Pseudonyme",
+    "DescriptionPseudonyme": "Quel est le pseudonyme de votre personnage ? Plus qu’un simple alias, il s'agit de la façon dont le personnage est couramment appelé. À la différence d'un surnom, le pseudonyme est généralement choisi par la personne le portant et, dans la société des Solaires, il est souvent plus utilisé que le nom. Le pseudonyme est d'ailleurs enregistré dans l'état civil, généralement entre guillemets, placé entre les prénoms et les noms de famille.",
+    "InputNomAdministratif": "Nom administratif",
+    "DescriptionNomAdministratif": "Quel est le nom administratif du personnage ? Ce concept administratif regroupe ce que nous connaissons comme “premier prénom, nom”. Beaucoup de Solaires ne l'emploient plus vraiment et son usage tombe en désuétude. Toutefois, certaines administrations l'emploient encore et il est donc nécessaire d’en posséder un, même s’il s'agit souvent du pseudonyme seul pour les êtres artificiels.",
+    "DescriptionProfessionActuelle": "Quelle est la profession, le métier ou la vocation actuelle de votre personnage ? Cette notion correspond à une des carrière du personnage déjà choisie.",
+    "DescriptionAffiliationActuelle": "À quelle entité votre personnage est-il rattaché ? Qu’il s’agisse d’une corporation, d’un groupe ou d’une autre faction, le personnage est normalement attaché à une telle entité. C’est un peu l’équivalent de la nationalité pour un Solaire.",
+    "DescriptionGenre": "De quel genre votre personnage se revendique-t-il ? Initialement basée sur le sexe, cette notion a beaucoup perdu en sens. Choisi de plus en plus arbitrairement, notamment par les IA, cette notion ne revêt plus la même importance. Les valeurs les plus représentées restent « neutre », « masculin » et « féminin ». On trouve aussi de nombreuses variantes comme « mixte », « fluide » ou « indéfini ».",
 
     "// Données de génération des personnages ------------------------------------------------------------------------": "",
 
@@ -14,6 +20,7 @@
     "Genre_FEMININ": "Féminin",
     "Genre_MIXTE": "Mixte",
     "Genre_FLUIDE": "Fluide",
+    "Genre_INDEFINI": "Indéfini",
 
     "Role_COMBAT" : "Combat",
     "Role_ENQUETE" : "Enquête",

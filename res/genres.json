@@ -1,0 +1,8 @@
+{
+    "NEUTRE" : {"id": "NEUTRE"},
+    "MASCULIN" : {"id": "MASCULIN"},
+    "FEMININ" : {"id": "FEMININ"},
+    "MIXTE" : {"id": "MIXTE"},
+    "FLUIDE" : {"id": "FLUIDE"},
+    "INDEFINI" : {"id": "INDEFINI"}
+}

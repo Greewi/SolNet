@@ -30,6 +30,20 @@
             <button class="page___selecteur__bouton_supprimer">X</button>
         </li>
     </template>
+    <template id="creationPersonnageSelecteurInput">
+        <li class="page__selecteur">
+            <input class="page__selecteur__nom" type="text" placeholder="" />
+            <button class="page___selecteur__bouton_infos">🔍</button>
+            <p class="page___selecteur__infos"></p>
+        </li>
+    </template>
+    <template id="creationPersonnageSelecteurSelect">
+        <li class="page__selecteur">
+            <select class="page__selecteur__nom"></select>
+            <button class="page___selecteur__bouton_infos">🔍</button>
+            <p class="page___selecteur__infos"></p>
+        </li>
+    </template>
             
     <div id="creationPersonnagePageIntroduction" class="page">
         <div class="page__contenu">
@@ -115,28 +129,22 @@
     <div id="creationPersonnagePageIdentite" class="page">
         <div class="page__contenu">
             <h1>Identité</h1>
-            <h2>Pseudonyme</h2>
-            <input type="text" id="creationPersonnagePseudonyme" />
+            <p>L'identité regroupe de nombreuses informations de nature adminsitrative.</p>
             
-            <h2>Nom administratif</h2>
-            <input type="text" id="creationPersonnageNomAdministratif" />
+            <p>Pseudonyme :</p>
+            <div id="creationPersonnagePseudonyme"></div>
 
-            <h2>Rôles</h2>
-            <p id="creationPersonnageRôles"></p>
+            <p>Nom administratif :</p>
+            <div id="creationPersonnageNomAdministratif"></div>
 
-            <h2>Profession</h2>
-            <input type="text" id="creationPersonnageProfession" />
+            <p>Profession actuelle :</p>
+            <div id="creationPersonnageProfession"></div>
 
-            <h2>Nature d'esprit</h2>
-            <input type="text" id="creationPersonnageNatureEsprit" />
+            <p>Affiliation :</p>
+            <div id="creationPersonnageAffiliation"></div>
 
-            <h2>Enveloppe usuelle</h2>
-            <input type="text" id="creationPersonnageEnveloppeUsuelle" />
-
-            <h2>Affiliation</h2>
-            <input type="text" id="creationPersonnageAffiliation" />
-            <h2>Genre</h2>
-            <input type="text" id="creationPersonnageGenre" />
+            <p>Genre :</p>
+            <div id="creationPersonnageGenre"></div>
         </div>
         <div class="page__footer">
             <button class="bouton-precedent page__bouton page__bouton_precedent">Précédent</button>

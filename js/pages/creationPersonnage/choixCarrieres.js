@@ -128,7 +128,7 @@ export class PageChoixCarrieres extends Page{
                 }
                 else
                 {
-                    this._carrieresPersonnage.push(new Element(carriere.id, carriere.nom, 1));
+                    this._carrieresPersonnage.push(new Element(carriere.id, Lang.get(`Carriere_${carriere.id}`), 1));
                     selecteur.selectionne();
                 }
             };

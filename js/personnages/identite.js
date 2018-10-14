@@ -15,14 +15,6 @@ export class Identite{
         /**
          * @type {string}
          */
-        this.natureEsprit = null;
-        /**
-         * @type {string}
-         */
-        this.enveloppeUsuelle = null;
-        /**
-         * @type {string}
-         */
         this.affiliation = "";
         /**
          * @type {string}
