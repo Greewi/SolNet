@@ -4,6 +4,7 @@ import { Personnage } from "../../personnages/personnage";
 import { BanqueDonnees } from "../../personnages/donneeSources";
 import { Element } from "../../personnages/element";
 import { Selecteur, SelecteurAvecPrerequis, SelecteurElementSpecial } from "./selecteur";
+import { Lang } from "../../lang";
 
 /**
  * Page de choix des rôles du personnage
@@ -93,12 +94,11 @@ export class PageChoixCarrieres extends Page{
         // Carrières standardes
         for(let carriere of carrieres)
         {
-            let nom = carriere.nom;
-            let description = `<em>${carriere.nom}</em> : ${carriere.description}`;
+            let nom = Lang.get(`Carriere_${carriere.id}`);
+            let description = `<em>${nom}</em> : ${Lang.get(`DescriptionCarriere_${carriere.id}`)}`;
             let selecteur = new SelecteurAvecPrerequis(nom, description);
 
             //Liste des rôles de la carrière
-            var listeRoles = "";
             for(let idRole of carriere.roles)
             {
                 let role = roles[idRole];
