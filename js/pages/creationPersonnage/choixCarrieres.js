@@ -25,17 +25,23 @@ export class PageChoixCarrieres extends Page{
         this._listeCarrieres = this.element.querySelector("#creationPersonnageCarrieres");
         this._listeCarrieresCustom = this.element.querySelector("#creationPersonnageCarrieresCustom");
 
-        this._boutonAjouterCarriere = this.element.querySelector(".bouton-ajouter-carriere");
+        this._boutonAjouterCarriere = this.element.querySelector("#creationPersonnageCarrieresAjouter");
+        this._inputAjouterCarriere = this._boutonAjouterCarriere.querySelector("input");
         this._actionBoutonAjouterCarriere = (event) => {
-            let nom = prompt("Nom de la carrière ?");
+            event.preventDefault();
+            let nom = this._inputAjouterCarriere.value;
             if(nom && nom.trim()!="")
             {
                 this._carrieresPersonnage.push(new Element(null, nom, 1));
                 this._ajouteCarrierePersonnalisee(nom);
+                this._inputAjouterCarriere.blur();
             }
+            else
+            this._inputAjouterCarriere.focus();
+            this._inputAjouterCarriere.value = "";
             this.scrollEnBas();    
         };
-        this._boutonAjouterCarriere.addEventListener("click", this._actionBoutonAjouterCarriere);
+        this._boutonAjouterCarriere.addEventListener("submit", this._actionBoutonAjouterCarriere);
 
         this._boutonPrecedent = this.element.querySelector(".bouton-precedent");
         this._actionBoutonPrecedent = (event) => {
