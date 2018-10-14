@@ -20,7 +20,7 @@ export class PageIdentite extends Page{
 
         this._boutonPrecedent = this.element.querySelector(".bouton-precedent");
         this._actionBoutonPrecedent = (event) => {
-            this.ecran.ouvre("choixCarriere", false);
+            this.ecran.ouvre("choixRelations", false);
         };
         this._boutonPrecedent.addEventListener("click", this._actionBoutonPrecedent);
 
@@ -64,7 +64,7 @@ export class PageIdentite extends Page{
     }
     initialiseProfession(){
         this._elementProfession.innerHTML = "";
-        var selecteur = new SelecteurSelect(Lang.get("DescriptionProfessionActuelle"));
+        var selecteur = new SelecteurSelect(Lang.get("InputProfessionActuelle"), Lang.get("DescriptionProfessionActuelle"));
         for(let carriere of this._personnage.elements.carrieres)
             selecteur.ajouteOption(carriere.nom, carriere.nom, this._personnage.identite.profession == carriere.nom);
         selecteur.onchange = (valeur)=>{
@@ -74,12 +74,17 @@ export class PageIdentite extends Page{
     }
     initialiseAffiliation(){
         this._elementAffiliation.innerHTML = "";
-        var selecteur = new SelecteurSelect(Lang.get("DescriptionAffiliationActuelle"));
+        var selecteur = new SelecteurSelect(Lang.get("InputAffiliationActuelle"), Lang.get("DescriptionAffiliationActuelle"));
+        for(let relation of this._personnage.elements.relations)
+            selecteur.ajouteOption(relation.nom, relation.nom, this._personnage.identite.affiliation == relation.nom);
+        selecteur.onchange = (valeur)=>{
+            this._personnage.identite.affiliation = valeur;
+        };
         this._elementAffiliation.appendChild(selecteur.element);
     }
     initialiseGenre(){
         this._elementGenre.innerHTML = "";
-        let selecteur = new SelecteurSelect(Lang.get("DescriptionGenre"));
+        let selecteur = new SelecteurSelect(Lang.get("InputGenre"), Lang.get("DescriptionGenre"));
         for(let idGenre in BanqueDonnees.genres)
             selecteur.ajouteOption(idGenre, Lang.get(`Genre_${idGenre}`), this._personnage.identite.genre == idGenre);
         selecteur.onchange = (valeur)=>{

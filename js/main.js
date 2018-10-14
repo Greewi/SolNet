@@ -14,4 +14,7 @@ Promise.resolve()
     var ecran = new EcranCreationPersonnage(new Personnage());
     ecran.ouvre();
     window.ecran = ecran;
+})
+.catch((e) => {
+    console.error(e);
 });

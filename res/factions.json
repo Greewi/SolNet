@@ -1,0 +1,17 @@
+{
+    "INDEPENDANT" : {"id": "INDEPENDANT"},
+    "ONU" : {"id": "ONU"},
+    "MARS" : {"id": "MARS"},
+    "WAYLANDERS" : {"id": "WAYLANDERS"},
+    "SUAN" : {"id": "SUAN"},
+    "VRANBERG_LYTAN" : {"id": "VRANBERG_LYTAN"},
+    "AESIR" : {"id": "AESIR"},
+    "URANIA" : {"id": "URANIA"},
+    "SOL6" : {"id": "SOL6"},
+    "SOLAR_WARDNER" : {"id": "SOLAR_WARDNER"},
+    "SOLEILS" : {"id": "SOLEILS"},
+    "NEO_CONTROL" : {"id": "NEO_CONTROL"},
+    "ICARENS" : {"id": "ICARENS"},
+    "PHOBOS_HEIGHTS" : {"id": "PHOBOS_HEIGHTS"},
+    "ZGC" : {"id": "ZGC"}
+}

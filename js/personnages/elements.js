@@ -47,4 +47,12 @@ export class Elements{
     possedeCarriere(id){
         return this._possedeElement(id, this.carrieres);
     }
+    
+    /**
+     * @param {string} id 
+     * @returns {boolean}
+     */
+    possedeRelation(id){
+        return this._possedeElement(id, this.relations);
+    }
 };

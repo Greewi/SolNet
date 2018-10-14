@@ -61,6 +61,11 @@
 .page__selecteur__ligne_bas.page__selecteur__nom__ouvert{
     border-radius: 0 0 0 0;
 }
+.page__selecteur__label{
+    margin:10px;
+    color:#555;
+    font-style: italic;
+}
 .page__selecteur__prerequis{
     margin:10px;
     color:#555;

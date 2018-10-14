@@ -7,7 +7,7 @@ import { Selecteur, SelecteurAvecPrerequis, SelecteurElementSpecial } from "./se
 import { Lang } from "../../lang";
 
 /**
- * Page de choix des rôles du personnage
+ * Page de choix des carrières du personnage
  */
 export class PageChoixCarrieres extends Page{
     /**
@@ -53,7 +53,7 @@ export class PageChoixCarrieres extends Page{
 
         this._boutonSuivant = this.element.querySelector(".bouton-suivant");
         this._actionBoutonSuivant = (event) => {
-            this.ecran.ouvre("identite", true);
+            this.ecran.ouvre("choixRelations", true);
         };
         this._boutonSuivant.addEventListener("click", this._actionBoutonSuivant);
     }
@@ -143,7 +143,7 @@ export class PageChoixCarrieres extends Page{
         selecteur.onsupprime = ()=>{
             for(var i=0; i<this._carrieresPersonnage.length; i++)
             {
-                if(this._carrieresPersonnage[i].num = nom)
+                if(this._carrieresPersonnage[i].nom == nom)
                 {
                     this._carrieresPersonnage.splice(i, 1);
                     break;

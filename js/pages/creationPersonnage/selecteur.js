@@ -198,13 +198,20 @@ export class SelecteurInputText extends Selecteur{
      */
     constructor(texte, description){
         super(templateSelecteurInput);
-        this._ligne1 = this._element.querySelector(".page__selecteur__nom");
+        this._ligne1 = this._element.querySelector(".page__selecteur__ligne_haut");
         this._ligne1.placeholder = texte;
+
+        this._ligne2 = this._element.querySelector(".page__selecteur__ligne_bas");
+        let elementPrerequis = document.createElement("span");
+        elementPrerequis.className = "page__selecteur__label";
+        elementPrerequis.innerHTML = texte;
+        this._ligne2.appendChild(elementPrerequis);
+
         this._blockInfos = this._element.querySelector(".page___selecteur__infos");
         this._blockInfos.innerHTML = description;
         this._boutonInfos = this._element.querySelector(".page___selecteur__bouton_infos");
         this._boutonInfos.onclick = (e)=>{
-            this._ligne1.classList.toggle("page__selecteur__nom__ouvert");
+            this._ligne2.classList.toggle("page__selecteur__nom__ouvert");
             this._boutonInfos.classList.toggle("page___selecteur__bouton_infos__ouvert");
             this._blockInfos.classList.toggle("page___selecteur__infos__ouvert");
         };
@@ -227,20 +234,30 @@ export class SelecteurSelect extends Selecteur{
     /**
      * @param {string} description
      */
-    constructor(description){
+    constructor(texte, description){
         super(templateSelecteurSelect);
-        this._ligne1 = this._element.querySelector(".page__selecteur__nom");
+        this._ligne1 = this._element.querySelector(".page__selecteur__ligne_haut");
+
+        this._ligne2 = this._element.querySelector(".page__selecteur__ligne_bas");
+        let elementPrerequis = document.createElement("span");
+        elementPrerequis.className = "page__selecteur__label";
+        elementPrerequis.innerHTML = texte;
+        this._ligne2.appendChild(elementPrerequis);
+                
         this._blockInfos = this._element.querySelector(".page___selecteur__infos");
         this._blockInfos.innerHTML = description;
         this._boutonInfos = this._element.querySelector(".page___selecteur__bouton_infos");
         this._boutonInfos.onclick = (e)=>{
-            this._ligne1.classList.toggle("page__selecteur__nom__ouvert");
+            this._ligne2.classList.toggle("page__selecteur__nom__ouvert");
             this._boutonInfos.classList.toggle("page___selecteur__bouton_infos__ouvert");
             this._blockInfos.classList.toggle("page___selecteur__infos__ouvert");
         };
         this._onchange = (valeur)=>{};
         this._ligne1.onchange = (e)=>{
             this._onchange(this._ligne1.value);
+        }
+        this._ligne2.onclick = ()=>{
+            this._ligne1.click();
         }
     }
 

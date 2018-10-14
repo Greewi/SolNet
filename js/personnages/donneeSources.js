@@ -6,6 +6,7 @@ var _carrieresParRole = null;
 var _intelligences = null;
 var _enveloppes = null;
 var _genres = null;
+var _factions = null;
 
 /**
  * Charge et gère les données de l'application
@@ -69,6 +70,14 @@ export class BanqueDonnees {
             _genres = JSON.parse(json);
             console.log("Genres chargés");
         })
+        .then(()=>{
+            console.log("Début chargement factions");
+            return Ajax.get("./res/factions.json");
+        })
+        .then((json)=>{
+            _factions = JSON.parse(json);
+            console.log("Factions chargées");
+        })
     }
 
     static get roles(){
@@ -89,5 +98,9 @@ export class BanqueDonnees {
 
     static get genres(){
         return _genres;
+    }
+
+    static get factions(){
+        return _factions;
     }
 }

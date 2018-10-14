@@ -31,16 +31,18 @@
         </li>
     </template>
     <template id="creationPersonnageSelecteurInput">
-        <li class="page__selecteur">
-            <input class="page__selecteur__nom" type="text" placeholder="" />
-            <button class="page___selecteur__bouton_infos">🔍</button>
+        <li class="page__selecteur page__selecteur__deux_lignes">
+            <input class="page__selecteur__nom page__selecteur__ligne_haut" type="text" placeholder="" />
+            <p class="page__selecteur__nom page__selecteur__ligne_bas"></p>
+            <button class="page___selecteur__bouton_infos page___selecteur__bouton_infos__deux_lignes">🔍</button>
             <p class="page___selecteur__infos"></p>
         </li>
     </template>
     <template id="creationPersonnageSelecteurSelect">
-        <li class="page__selecteur">
-            <select class="page__selecteur__nom"></select>
-            <button class="page___selecteur__bouton_infos">🔍</button>
+        <li class="page__selecteur page__selecteur__deux_lignes">
+            <select class="page__selecteur__nom page__selecteur__ligne_haut"></select>
+            <p class="page__selecteur__nom page__selecteur__ligne_bas"></p>
+            <button class="page___selecteur__bouton_infos page___selecteur__bouton_infos__deux_lignes">🔍</button>
             <p class="page___selecteur__infos"></p>
         </li>
     </template>
@@ -125,25 +127,33 @@
             <button class="bouton-suivant page__bouton page__bouton_suivant">Suivant</button>
         </div>
     </div>
-  
+
+    <div id="creationPersonnagePageRelations" class="page">
+        <div class="page__contenu">
+            <h1>Relations</h1>
+            <p>Votre personnage possède normalement de nombreuses relations avec d’autres personnes et groupes dans le système solaire. Il s'agit d'alliés, de contacts, d'amis, etc. Tous les personnages en possèdent quelque uns mais ceux qui ont choisi le rôle Relations, devraient en prendre plus.</p>
+            <p>Choisissez les relations de votre personnage. N'oubliez pas la faction à laquelle votre personnage est rattachée et si vous avez envie d'ajouter une faction qui ne figure pas dans cette liste, n'hésitez pas à en ajouter une personnalisée.</p>
+            <ul id="creationPersonnageRelations" class="page__liste"></ul>
+            <ul id="creationPersonnageRelationsCustom" class="page__liste"></ul>
+            <form id="creationPersonnageRelationsAjouter" class="page__selecteur">
+                <input class="page__selecteur__nom" type="text" placeholder="Relation personnalisée" />
+                <button class="page___selecteur__bouton_ajouter" type="submit">+</button>
+            </form>
+        </div>
+        <div class="page__footer">
+            <button class="bouton-precedent page__bouton page__bouton_precedent">Précédent</button>
+            <button class="bouton-suivant page__bouton page__bouton_suivant">Suivant</button>
+        </div>
+    </div>
+    
     <div id="creationPersonnagePageIdentite" class="page">
         <div class="page__contenu">
             <h1>Identité</h1>
             <p>L'identité regroupe de nombreuses informations de nature adminsitrative.</p>
-            
-            <p>Pseudonyme :</p>
             <div id="creationPersonnagePseudonyme"></div>
-
-            <p>Nom administratif :</p>
             <div id="creationPersonnageNomAdministratif"></div>
-
-            <p>Profession actuelle :</p>
             <div id="creationPersonnageProfession"></div>
-
-            <p>Affiliation :</p>
             <div id="creationPersonnageAffiliation"></div>
-
-            <p>Genre :</p>
             <div id="creationPersonnageGenre"></div>
         </div>
         <div class="page__footer">
