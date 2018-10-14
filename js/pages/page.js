@@ -36,6 +36,7 @@ export class Page{
         this._element.classList.remove("page__vers_droite");
         this._element.classList.remove(avancer ? "page__depuis_gauche" : "page__depuis_droite");
         this._element.classList.add(avancer ? "page__depuis_droite" : "page__depuis_gauche");
+        this.scrollEnHaut();
     }
 
     /**
@@ -64,7 +65,7 @@ export class Page{
     /**
      * Scroll le contenu de la page pour monter le haut de la page
      */
-    scrollEnBas(){
+    scrollEnHaut(){
         this._contenu.scrollTo(0, 0);
     }
 

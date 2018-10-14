@@ -9,22 +9,28 @@
     margin: 0;
     padding: 0;
     display: none;
-    will-change: transform;
+}
+.page__on {
+    display:grid;
+    grid-template-columns: auto;
+    grid-template-rows: calc(100vh - 60px) 60px;
 }
 .page__contenu {
-    position: absolute;
+    grid-row: 1;
     box-sizing: border-box;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
     padding: 10px;
-    margin-bottom: 60px;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
     overflow-y: auto;
 }
-
-.page__on {
-    display: block;
+.page__footer {
+    grid-row: 2;
+    box-sizing: border-box;
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
 @keyframes page__depuis_gauche {
@@ -85,15 +91,11 @@
     animation-duration: 200ms;
 }
 .page__bouton_precedent {
-    position: fixed;
-    bottom: 10px;
-    left: 10px;
+    float: left;
     width: 35vw;
 }
 .page__bouton_suivant {
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
+    float: right;
     width: 35vw;
 }
 .page__bouton__pleine_largeur {
