@@ -36,8 +36,10 @@ export class PageChoixCarrieres extends Page{
                 this._ajouteCarrierePersonnalisee(nom);
                 this._inputAjouterCarriere.blur();
             }
+            else if(document.activeElement != this._inputAjouterCarriere)
+                this._inputAjouterCarriere.focus();
             else
-            this._inputAjouterCarriere.focus();
+                this._inputAjouterCarriere.blur();
             this._inputAjouterCarriere.value = "";
             this.scrollEnBas();    
         };
@@ -106,10 +108,7 @@ export class PageChoixCarrieres extends Page{
 
             //Liste des rôles de la carrière
             for(let idRole of carriere.roles)
-            {
-                let role = roles[idRole];
-                selecteur.ajoutePrerequis(role.nom, this._rolesPersonnage[idRole]? true : false);
-            }
+                selecteur.ajoutePrerequis(Lang.get(`Role_${idRole}`), this._rolesPersonnage[idRole]? true : false);
 
             //Sélection/Déselection de la carrière
             if(this._elementsPersonnage.possedeCarriere(carriere.id))

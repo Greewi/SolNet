@@ -3,6 +3,7 @@ import { Ecran } from "../../ecrans/ecran";
 import { Personnage } from "../../personnages/personnage";
 import { BanqueDonnees } from "../../personnages/donneeSources";
 import { Selecteur, SelecteurAvecPrerequis } from "./selecteur";
+import { Lang } from "../../lang";
 
 /**
  * Page de choix de l'enveloppe usuelle du personnage
@@ -44,19 +45,20 @@ export class PageChoixEnveloppe extends Page{
         for(let idEnveloppe in enveloppes)
         {
             let enveloppe = enveloppes[idEnveloppe];
-            let nom = enveloppe.nom;
+            let nom = Lang.get(`Enveloppe_${idEnveloppe}`);
             var listeEsprits = "";
             for(let idIntelligence in intelligences)
             {
                 let intelligence = intelligences[idIntelligence];
                 for(let idEnveloppe of intelligence.enveloppes)
                 {
+                    let nomIntelligence = Lang.get(`Intelligence_${idIntelligence}`);
                     if(idEnveloppe == enveloppe.id)
                     {
                         if(listeEsprits=="")
-                            listeEsprits = `<em>${intelligence.nom}</em>`;
+                            listeEsprits = `<em>${nomIntelligence}</em>`;
                         else
-                            listeEsprits+=`, <em>${intelligence.nom}</em>`;
+                            listeEsprits+=`, <em>${nomIntelligence}</em>`;
                     }
                 }
             }
@@ -66,7 +68,7 @@ export class PageChoixEnveloppe extends Page{
                     listeModeles = `<em>${modele}</em>`;
                 else
                     listeModeles+=`, <em>${modele}</em>`;
-                    let description = `<em>${enveloppe.nom}</em> (depuis ${enveloppe.dateInitiale}) : ${enveloppe.description}.<br/> Modèles : ${listeModeles}. <br/> Esprit compatibles : ${listeEsprits}.`;
+            let description = `<em>${nom}</em> (depuis ${enveloppe.dateInitiale}) : ${Lang.get(`DescriptionEnveloppe_${idEnveloppe}`)}.<br/> Modèles : ${listeModeles}. <br/> Esprit compatibles : ${listeEsprits}.`;
             let selecteur = new SelecteurAvecPrerequis(nom, description);
 
             //Liste des enveloppes compatibles

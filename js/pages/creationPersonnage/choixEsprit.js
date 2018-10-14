@@ -3,6 +3,7 @@ import { Ecran } from "../../ecrans/ecran";
 import { Personnage } from "../../personnages/personnage";
 import { BanqueDonnees } from "../../personnages/donneeSources";
 import { Selecteur, SelecteurAvecPrerequis } from "./selecteur";
+import { Lang } from "../../lang";
 
 /**
  * Page de choix de la nature d'esprit du personnage
@@ -40,21 +41,20 @@ export class PageChoixEsprit extends Page{
         super.ouvre(avancer);
         this._listeIntelligences.innerHTML = "";
         let intelligences = BanqueDonnees.intelligences;
-        let enveloppes = BanqueDonnees.enveloppes;
         for(let idIntelligence in intelligences)
         {
             let intelligence = intelligences[idIntelligence];
-            let nom = intelligence.nom;
+            let nom = Lang.get(`Intelligence_${idIntelligence}`);
             var listeEnveloppes = "";
             for(let idEnveloppe of intelligence.enveloppes)
             {
-                let enveloppe = enveloppes[idEnveloppe];
+                let nomEnveloppe = Lang.get(`Enveloppe_${idEnveloppe}`);
                 if(listeEnveloppes=="")
-                    listeEnveloppes = `<em>${enveloppe.nom}</em>`;
+                    listeEnveloppes = `<em>${nomEnveloppe}</em>`;
                 else
-                    listeEnveloppes+=`, <em>${enveloppe.nom}</em>`;
+                    listeEnveloppes+=`, <em>${nomEnveloppe}</em>`;
             }
-            let description = `<em>${intelligence.nom}</em> (depuis ${intelligence.dateInitiale}) : ${intelligence.description}.<br/> Enveloppes compatibles : ${listeEnveloppes}.`;
+            let description = `<em>${nom}</em> (depuis ${intelligence.dateInitiale}) : ${Lang.get(`DescriptionIntelligence_${idIntelligence}`)}.<br/> Enveloppes compatibles : ${listeEnveloppes}.`;
             let selecteur = new SelecteurAvecPrerequis(nom, description);
 
             //Liste des enveloppes compatibles
