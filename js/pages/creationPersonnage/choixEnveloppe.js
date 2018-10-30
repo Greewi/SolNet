@@ -4,6 +4,7 @@ import { Personnage } from "../../personnages/personnage";
 import { BanqueDonnees } from "../../personnages/donneeSources";
 import { Selecteur, SelecteurAvecPrerequis } from "./selecteur";
 import { Lang } from "../../lang";
+import { Element } from "../../personnages/element";
 
 /**
  * Page de choix de l'enveloppe usuelle du personnage
@@ -17,6 +18,8 @@ export class PageChoixEnveloppe extends Page{
         super("creationPersonnagePageEnveloppe", ecran);
         this._personnage = personnage;
         this._rolesPersonnage = personnage.roles;
+        this._elementsPersonnage = personnage.elements;
+        this._traitsPersonnage = personnage.elements.traits;
 
         this._listeEnveloppes = this.element.querySelector("#creationPersonnageEnveloppe");
 
@@ -88,6 +91,15 @@ export class PageChoixEnveloppe extends Page{
             selecteur.onclick = (e)=>{
                 Selecteur.deselectionneTous(this._listeEnveloppes);
                 this._personnage.identite.enveloppeUsuelle = enveloppe;
+                for(var i=0; i<this._traitsPersonnage.length; i++)
+                {
+                    if(this._traitsPersonnage[i].type == Element.TRAIT_ENVELOPPE)
+                    {
+                        this._traitsPersonnage.splice(i, 1);
+                        break;
+                    }
+                }
+                this._traitsPersonnage.push(new Element(enveloppe.id, Element.TRAIT_ENVELOPPE, nom, 1));
                 selecteur.selectionne();
             };
             

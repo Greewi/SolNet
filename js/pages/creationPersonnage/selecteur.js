@@ -3,6 +3,8 @@ const templateSelecteurDeuxLignes = document.getElementById("creationPersonnageS
 const templateSelecteurElementSpecial = document.getElementById("creationPersonnageSelecteurElementSpecial");
 const templateSelecteurInput = document.getElementById("creationPersonnageSelecteurInput");
 const templateSelecteurSelect = document.getElementById("creationPersonnageSelecteurSelect");
+const templateSelecteurAjoutElement = document.getElementById("creationPersonnageSelecteurAjoutElement");
+const templateSelecteurEvaluation = document.getElementById("creationPersonnageSelecteurEvaluation");
 
 /**
  * Définis un selecteur abstrait
@@ -67,13 +69,17 @@ export class SelecteurSimple extends Selecteur{
         this._blockInfos = this._element.querySelector(".page___selecteur__infos");
         this._blockInfos.innerHTML = description;
         this._boutonInfos = this._element.querySelector(".page___selecteur__bouton_infos");
-        this._boutonInfos.onclick = (e)=>{
+        this._boutonInfos.onclick = (event)=>{
+            if(event)
+                event.preventDefault();
             this._ligne1.classList.toggle("page__selecteur__nom__ouvert");
             this._boutonInfos.classList.toggle("page___selecteur__bouton_infos__ouvert");
             this._blockInfos.classList.toggle("page___selecteur__infos__ouvert");
         };
-        this._ligne1.onclick = (e)=>{
-            this._onclick(e);
+        this._ligne1.onclick = (event)=>{
+            if(event)
+                event.preventDefault();
+            this._onclick();
         };
     }
 
@@ -110,13 +116,17 @@ export class SelecteurAvecPrerequis extends Selecteur{
         this._blockInfos = this._element.querySelector(".page___selecteur__infos");
         this._blockInfos.innerHTML = description;
         this._boutonInfos = this._element.querySelector(".page___selecteur__bouton_infos");
-        this._boutonInfos.onclick = (e)=>{
+        this._boutonInfos.onclick = (event)=>{
+            if(event)
+                event.preventDefault();
             this._ligne2.classList.toggle("page__selecteur__nom__ouvert");
             this._boutonInfos.classList.toggle("page___selecteur__bouton_infos__ouvert");
             this._blockInfos.classList.toggle("page___selecteur__infos__ouvert");
         };
-        this._ligne1.onclick = this._ligne2.onclick = (e)=>{
-            this._onclick(e);
+        this._ligne1.onclick = this._ligne2.onclick = (event)=>{
+            if(event)
+                event.preventDefault();
+            this._onclick(event);
         };
     }
 
@@ -163,8 +173,10 @@ export class SelecteurElementSpecial extends Selecteur{
         this._ligne1 = this._element.querySelector(".page__selecteur__nom");
         this._ligne1.innerHTML = texte;
         this._boutonSupprimer = this._element.querySelector(".page___selecteur__bouton_supprimer");
-        this._boutonSupprimer.onclick = (e)=>{
-            this._onsupprime(e);
+        this._boutonSupprimer.onclick = (event)=>{
+            if(event)
+                event.preventDefault();
+            this._onsupprime(event);
         };
         this._element = this._element.children[0];
     }
@@ -191,6 +203,39 @@ export class SelecteurElementSpecial extends Selecteur{
     }
 }
 
+export class SelecteurAjoutElement extends Selecteur{
+    /**
+     * @param {string} texte
+     */
+    constructor(texte){
+        super(templateSelecteurAjoutElement);
+        this._ligne1 = this._element.querySelector(".page__selecteur__nom");
+        this._ligne1.placeholder = texte;
+
+        this._onadd = (valeur)=>{};
+        this._boutonAjouter = this._element.querySelector(".page___selecteur__bouton_ajouter");
+        this._boutonAjouter.onclick = (event)=>{
+            if(event)
+                event.preventDefault();
+            let nom = this._ligne1.value;
+            if(nom && nom.trim()!="")
+            {
+                this._onadd(nom);
+                this._ligne1.blur();
+            }
+            else if(document.activeElement != this._ligne1)
+                this._ligne1.focus();
+            else
+                this._ligne1.blur();
+            this._ligne1.value = "";
+        }
+    }
+    
+    set onadd(callback){
+        this._onadd = callback;
+    }
+}
+
 export class SelecteurInputText extends Selecteur{
     /**
      * @param {string} texte
@@ -210,7 +255,9 @@ export class SelecteurInputText extends Selecteur{
         this._blockInfos = this._element.querySelector(".page___selecteur__infos");
         this._blockInfos.innerHTML = description;
         this._boutonInfos = this._element.querySelector(".page___selecteur__bouton_infos");
-        this._boutonInfos.onclick = (e)=>{
+        this._boutonInfos.onclick = (event)=>{
+            if(event)
+                event.preventDefault();
             this._ligne2.classList.toggle("page__selecteur__nom__ouvert");
             this._boutonInfos.classList.toggle("page___selecteur__bouton_infos__ouvert");
             this._blockInfos.classList.toggle("page___selecteur__infos__ouvert");
@@ -247,7 +294,9 @@ export class SelecteurSelect extends Selecteur{
         this._blockInfos = this._element.querySelector(".page___selecteur__infos");
         this._blockInfos.innerHTML = description;
         this._boutonInfos = this._element.querySelector(".page___selecteur__bouton_infos");
-        this._boutonInfos.onclick = (e)=>{
+        this._boutonInfos.onclick = (event)=>{
+            if(event)
+                event.preventDefault();
             this._ligne2.classList.toggle("page__selecteur__nom__ouvert");
             this._boutonInfos.classList.toggle("page___selecteur__bouton_infos__ouvert");
             this._blockInfos.classList.toggle("page___selecteur__infos__ouvert");
@@ -256,7 +305,9 @@ export class SelecteurSelect extends Selecteur{
         this._ligne1.onchange = (e)=>{
             this._onchange(this._ligne1.value);
         }
-        this._ligne2.onclick = ()=>{
+        this._ligne2.onclick = (event)=>{
+            if(event)
+                event.preventDefault();
             this._ligne1.click();
         }
     }
@@ -268,6 +319,61 @@ export class SelecteurSelect extends Selecteur{
         if(selectionnee)
             option.selected = true;
         this._ligne1.appendChild(option);
+    }
+
+    set onchange(callback){
+        this._onchange = callback;
+    }
+}
+
+/**
+ * Définis un selecteur permettant d'affecter une valeur à un élément
+ */
+export class SelecteurValeurElement extends Selecteur{
+    /**
+     * @param {String} texte 
+     * @param {String[]} descriptions le texte de chaque valeurs rangées dans un tableau
+     */
+    constructor(texte, descriptions, valeurInitiale){
+        super(templateSelecteurEvaluation);
+        this._valeur = -1;
+        this._textes = descriptions;
+
+        this._ligne1 = this._element.querySelector(".page__selecteur__ligne_haut");
+        this._ligne1.innerHTML = texte;
+        this._ligne2 = this._element.querySelector(".page__selecteur__ligne_bas");
+        this._ligneValeur = this._element.querySelector(".page___selecteur__valeur_element");
+
+        this._onchange = (valeur) => {};
+        this._setValeur(valeurInitiale);
+
+        this._boutonMoins = this._element.querySelector(".page___selecteur__bouton_moins");
+        this._boutonMoins.onclick = (event)=>{
+            if(event)
+                event.preventDefault();
+            this._setValeur(this._valeur-1);
+        };
+
+        this._boutonPlus = this._element.querySelector(".page___selecteur__bouton_plus");
+        this._boutonPlus.onclick = (event)=>{
+            if(event)
+                event.preventDefault();
+            this._setValeur(this._valeur+1);
+        };
+    }
+
+    _setValeur(valeur){
+        valeur = Math.round(valeur);
+        if(valeur<1)
+            valeur = 1;
+        if(valeur>3)
+            valeur = 3;
+        if(valeur == this._valeur)
+            return;
+        this._valeur = valeur;
+        this._ligne2.innerHTML = `<span class="page__selecteur__label page__selecteur__label__focus">${this._textes[valeur-1]}</span>`;
+        this._ligneValeur.innerHTML = `${valeur}`;
+        this._onchange(valeur);
     }
 
     set onchange(callback){

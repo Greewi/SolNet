@@ -20,7 +20,7 @@
         <li class="page__selecteur page__selecteur__deux_lignes">
             <p class="page__selecteur__nom page__selecteur__ligne_haut"></p>
             <p class="page__selecteur__nom page__selecteur__ligne_bas"></p>
-            <button class="page___selecteur__bouton_infos page___selecteur__bouton_infos__deux_lignes">🔍</button>
+            <button class="page___selecteur__bouton_infos page___selecteur__bouton__deux_lignes">🔍</button>
             <p class="page___selecteur__infos"></p>
         </li>
     </template>
@@ -34,7 +34,7 @@
         <li class="page__selecteur page__selecteur__deux_lignes">
             <input class="page__selecteur__nom page__selecteur__ligne_haut" type="text" placeholder="" />
             <p class="page__selecteur__nom page__selecteur__ligne_bas"></p>
-            <button class="page___selecteur__bouton_infos page___selecteur__bouton_infos__deux_lignes">🔍</button>
+            <button class="page___selecteur__bouton_infos page___selecteur__bouton__deux_lignes">🔍</button>
             <p class="page___selecteur__infos"></p>
         </li>
     </template>
@@ -42,11 +42,25 @@
         <li class="page__selecteur page__selecteur__deux_lignes">
             <select class="page__selecteur__nom page__selecteur__ligne_haut"></select>
             <p class="page__selecteur__nom page__selecteur__ligne_bas"></p>
-            <button class="page___selecteur__bouton_infos page___selecteur__bouton_infos__deux_lignes">🔍</button>
+            <button class="page___selecteur__bouton_infos page___selecteur__bouton__deux_lignes">🔍</button>
             <p class="page___selecteur__infos"></p>
         </li>
     </template>
-            
+    <template id="creationPersonnageSelecteurAjoutElement">
+        <form class="page__selecteur">
+            <input class="page__selecteur__nom" type="text" placeholder="" />
+            <button class="page___selecteur__bouton_ajouter" type="submit">+</button>
+        </form>
+    </template>
+    <template id="creationPersonnageSelecteurEvaluation">
+        <form class="page__selecteur page__selecteur__deux_lignes page__selecteur__trois_boutons">
+            <p class="page__selecteur__nom page__selecteur__ligne_haut"></p>
+            <p class="page__selecteur__nom page__selecteur__ligne_bas"></p>
+            <button class="page___selecteur__bouton_moins page___selecteur__bouton__deux_lignes" type="submit">-</button>
+            <p class="page___selecteur__valeur_element page___selecteur__bouton__deux_lignes"></p>
+            <button class="page___selecteur__bouton_plus page___selecteur__bouton__deux_lignes" type="submit">+</button>
+        </form>
+    </template>
     <div id="creationPersonnagePageIntroduction" class="page">
         <div class="page__contenu">
             <h1>Édition de personnage</h1>
@@ -162,6 +176,38 @@
         </div>
     </div>
 
+    <div id="creationPersonnagePageTraits" class="page">
+        <div class="page__contenu">
+            <h1>Traits</h1>
+            <p>Traits de caractère : </p>
+            <ul id="creationPersonnageTraitsCaractere" class="page__liste"></ul>
+            <div id="creationPersonnageTraitCaractereAjouter"></div>
+            <p>Particularités physiques : </p>
+            <ul id="creationPersonnageTraitsPhysiques" class="page__liste"></ul>
+            <div id="creationPersonnageTraitPhysiqueAjouter"></div>
+        </div>
+        <div class="page__footer">
+            <button class="bouton-precedent page__bouton page__bouton_precedent">Précédent</button>
+            <button class="bouton-suivant page__bouton page__bouton_suivant">Suivant</button>
+        </div>
+    </div>
+    
+    <div id="creationPersonnagePageEvaluation" class="page">
+        <div class="page__contenu">
+            <h1>Évaluation des éléments</h1>
+            <p>Carrières : </p>
+            <ul id="creationPersonnageEvaluationCarrieres" class="page__liste"></ul>
+            <p>Relations : </p>
+            <ul id="creationPersonnageEvaluationRelations" class="page__liste"></ul>
+            <p>Traits : </p>
+            <ul id="creationPersonnageEvaluationTraits" class="page__liste"></ul>
+        </div>
+        <div class="page__footer">
+            <button class="bouton-precedent page__bouton page__bouton_precedent">Précédent</button>
+            <button class="bouton-suivant page__bouton page__bouton_suivant">Suivant</button>
+        </div>
+    </div>
+    
     <script type="module" src="js/main.js"></script>
 </body>
 </html>

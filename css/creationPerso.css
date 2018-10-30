@@ -21,6 +21,12 @@
 .page__selecteur__deux_lignes{
     grid-template-rows: 25px 25px auto;
 }
+.page__selecteur__deux_boutons{
+    grid-template-columns: auto 50px 50px;
+}
+.page__selecteur__trois_boutons{
+    grid-template-columns: auto 50px 50px 50px;
+}
 .page__selecteur__bouton_large{
     grid-template-columns: auto 150px;
 }
@@ -66,6 +72,10 @@
     color:#555;
     font-style: italic;
 }
+.page__selecteur__label__focus{
+    color:#EEE;
+    font-weight: bold;
+}
 .page__selecteur__prerequis{
     margin:10px;
     color:#555;
@@ -89,7 +99,7 @@
     border-radius: 0 10px 10px 0;
     font-size: 17pt;
 }
-.page___selecteur__bouton_infos__deux_lignes{
+.page___selecteur__bouton__deux_lignes{
     grid-row:1/3;
 }
 .page___selecteur__bouton_infos__ouvert{
@@ -141,4 +151,50 @@
     border : none;
     border-radius: 0 10px 10px 0;
     font-size: 17pt;
+}
+/* Bouton moins */
+.page___selecteur__bouton_moins{
+    box-sizing: border-box;
+    display: block;
+    grid-column: 2;
+    width: 100%;
+    height: 100%;
+    padding:10px;
+    background : #05F;
+    color: #FFF;
+    border : none;
+    border-radius: 0;
+    font-size: 17pt;
+    text-align: center;
+}
+/* Valeur d'un élément */
+.page___selecteur__valeur_element{
+    box-sizing: border-box;
+    display: block;
+    grid-column: 3;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding:10px;
+    background: #222;
+    color: #FFF;
+    border : none;
+    border-radius: 0;
+    font-size: 17pt;
+    text-align: center;
+}
+/* Bouton plus */
+.page___selecteur__bouton_plus{
+    box-sizing: border-box;
+    display: block;
+    grid-column: 4;
+    width: 100%;
+    height: 100%;
+    padding:10px;
+    background : #05F;
+    color: #FFF;
+    border : none;
+    border-radius: 0 10px 10px 0;
+    font-size: 17pt;
+    text-align: center;
 }

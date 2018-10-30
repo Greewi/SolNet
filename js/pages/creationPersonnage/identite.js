@@ -26,7 +26,7 @@ export class PageIdentite extends Page{
 
         this._boutonSuivant = this.element.querySelector(".bouton-suivant");
         this._actionBoutonSuivant = (event) => {
-        //    this.ecran.ouvre("concept", true);
+            this.ecran.ouvre("choixTraits", true);
         };
         this._boutonSuivant.addEventListener("click", this._actionBoutonSuivant);
     }
@@ -37,6 +37,9 @@ export class PageIdentite extends Page{
      */
     ouvre(avancer){
         super.ouvre(avancer);
+
+        console.log(this._personnage);
+        console.log(JSON.stringify(this._personnage));
 
         this.initialisePseudonyme();
         this.initialiseNomAdministratif();

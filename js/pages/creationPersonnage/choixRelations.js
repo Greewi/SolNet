@@ -32,7 +32,7 @@ export class PageChoixRelations extends Page{
             let nom = this._inputAjouterRelation.value;
             if(nom && nom.trim()!="")
             {
-                this._relationsPersonnage.push(new Element(null, nom, 1));
+                this._relationsPersonnage.push(new Element(null, Element.RELATION_PERSO, nom, 1));
                 this._ajouteRelationPersonnalisee(nom);
                 this._inputAjouterRelation.blur();
             }
@@ -101,7 +101,7 @@ export class PageChoixRelations extends Page{
                 }
                 else
                 {
-                    this._relationsPersonnage.push(new Element(idRelation, Lang.get(`Faction_${idRelation}`), 1));
+                    this._relationsPersonnage.push(new Element(idRelation, Element.RELATION_BASE, Lang.get(`Faction_${idRelation}`), 1));
                     selecteur.selectionne();
                 }
             };

@@ -7,6 +7,8 @@ import { PageChoixCarrieres } from "../pages/creationPersonnage/choixCarrieres";
 import { PageChoixEsprit } from "../pages/creationPersonnage/choixEsprit";
 import { PageChoixEnveloppe } from "../pages/creationPersonnage/choixEnveloppe";
 import { PageChoixRelations } from "../pages/creationPersonnage/choixRelations";
+import { PageChoixTraits } from "../pages/creationPersonnage/choixTraits";
+import { PageEvaluation } from "../pages/creationPersonnage/evaluationElements";
 
 /**
  * Écran de création de personnage
@@ -25,6 +27,8 @@ export class EcranCreationPersonnage extends Ecran{
             "choixCarriere" : new PageChoixCarrieres(this, personnage),
             "choixRelations" : new PageChoixRelations(this, personnage),
             "identite" : new PageIdentite(this, personnage),
+            "choixTraits" : new PageChoixTraits(this, personnage),
+            "evaluation" : new PageEvaluation(this, personnage),
         });
         super.setPageParDefaut("introduction");
     }

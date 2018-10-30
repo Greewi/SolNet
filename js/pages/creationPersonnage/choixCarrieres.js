@@ -32,7 +32,7 @@ export class PageChoixCarrieres extends Page{
             let nom = this._inputAjouterCarriere.value;
             if(nom && nom.trim()!="")
             {
-                this._carrieresPersonnage.push(new Element(null, nom, 1));
+                this._carrieresPersonnage.push(new Element(null, Element.CARRIERE_PERSO, nom, 1));
                 this._ajouteCarrierePersonnalisee(nom);
                 this._inputAjouterCarriere.blur();
             }
@@ -128,7 +128,7 @@ export class PageChoixCarrieres extends Page{
                 }
                 else
                 {
-                    this._carrieresPersonnage.push(new Element(carriere.id, Lang.get(`Carriere_${carriere.id}`), 1));
+                    this._carrieresPersonnage.push(new Element(carriere.id, Element.CARRIERE_BASE, Lang.get(`Carriere_${carriere.id}`), 1));
                     selecteur.selectionne();
                 }
             };

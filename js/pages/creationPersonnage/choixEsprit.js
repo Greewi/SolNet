@@ -4,6 +4,7 @@ import { Personnage } from "../../personnages/personnage";
 import { BanqueDonnees } from "../../personnages/donneeSources";
 import { Selecteur, SelecteurAvecPrerequis } from "./selecteur";
 import { Lang } from "../../lang";
+import { Element } from "../../personnages/element";
 
 /**
  * Page de choix de la nature d'esprit du personnage
@@ -17,6 +18,8 @@ export class PageChoixEsprit extends Page{
         super("creationPersonnagePageEsprit", ecran);
         this._personnage = personnage;
         this._rolesPersonnage = personnage.roles;
+        this._elementsPersonnage = personnage.elements;
+        this._traitsPersonnage = personnage.elements.traits;
 
         this._listeIntelligences = this.element.querySelector("#creationPersonnageEsprit");
 
@@ -73,6 +76,15 @@ export class PageChoixEsprit extends Page{
             selecteur.onclick = (e)=>{
                 Selecteur.deselectionneTous(this._listeIntelligences);
                 this._personnage.identite.natureEsprit = intelligence;
+                for(var i=0; i<this._traitsPersonnage.length; i++)
+                {
+                    if(this._traitsPersonnage[i].type == Element.TRAIT_ESPRIT)
+                    {
+                        this._traitsPersonnage.splice(i, 1);
+                        break;
+                    }
+                }
+                this._traitsPersonnage.push(new Element(intelligence.id, Element.TRAIT_ESPRIT, nom, 1));
                 selecteur.selectionne();
             };
 
