@@ -39,19 +39,27 @@
     height: 100%;
     padding:17px;
     margin: 0;
-    background: #222;
-    color: #FFF;
+    background: var(--couleurFondSelecteurs);
+    color: var(--couleurTexteSelecteur);
     border: none;
     border-radius: 10px 0 0 10px;
     overflow: hidden;
+    font-weight: bold;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
+.page__selecteur__nom::placeholder {
+    color:var(--couleurPlaceholderSelecteur);
+    opacity: 1;
+}
+
 .page__selecteur__nom__ouvert{
     border-radius: 10px 0 0 0;
 }
 .page__selecteur__nom__possede{
-    background: #252;
+    background: var(--couleurFondSelecteursSelection);
+    color: var(--couleurTexteSelecteurSelection);
 }
 .page__selecteur__ligne_haut{
     grid-row:1;
@@ -69,20 +77,20 @@
 }
 .page__selecteur__label{
     margin:10px;
-    color:#555;
+    color:var(--couleurLabelSelecteurOff);
     font-style: italic;
 }
 .page__selecteur__label__focus{
-    color:#EEE;
+    color:var(--couleurLabelSelecteurOn);
     font-weight: bold;
 }
 .page__selecteur__prerequis{
     margin:10px;
-    color:#555;
+    color:var(--couleurLabelSelecteurOff);
     font-style: italic;
 }
 .page__selecteur__prerequis__possede{
-    color:#EEE;
+    color:var(--couleurLabelSelecteurOn);
     font-weight: bold;
 }
 /* Bouton d'info */
@@ -93,8 +101,8 @@
     width: 100%;
     height: 100%;
     padding:10px;
-    background : #05F;
-    color: #FFF;
+    background : var(--couleurBoutons);
+    color: var(--couleurTexteBoutons);
     border : none;
     border-radius: 0 10px 10px 0;
     font-size: 17pt;
@@ -113,8 +121,8 @@
     width: 100%;
     padding:10px;
     margin: 0;
-    background: #AAA;
-    color: #000;
+    background: var(--couleurFondInfosSelecteur);
+    color: var(--couleurTexteInfosSelecteur);
     border-radius: 0 0 10px 10px;
     display: none;
 }
@@ -132,8 +140,8 @@
     width: 100%;
     height: 100%;
     padding:10px;
-    background : #F00;
-    color: #FFF;
+    background : var(--couleurBoutonsBad);
+    color: var(--couleurTexteBoutonsBad);
     border : none;
     border-radius: 0 10px 10px 0;
     font-size: 17pt;
@@ -146,8 +154,8 @@
     width: 100%;
     height: 100%;
     padding:10px;
-    background : #05F;
-    color: #FFF;
+    background : var(--couleurBoutons);
+    color: var(--couleurTexteBoutons);
     border : none;
     border-radius: 0 10px 10px 0;
     font-size: 17pt;
@@ -160,8 +168,8 @@
     width: 100%;
     height: 100%;
     padding:10px;
-    background : #05F;
-    color: #FFF;
+    background : var(--couleurBoutons);
+    color: var(--couleurTexteBoutons);
     border : none;
     border-radius: 0;
     font-size: 17pt;
@@ -176,8 +184,8 @@
     height: 100%;
     margin: 0;
     padding:10px;
-    background: #222;
-    color: #FFF;
+    background: var(--couleurFondSelecteurs);
+    color: var(--couleurTexteSelecteur);
     border : none;
     border-radius: 0;
     font-size: 17pt;
@@ -191,8 +199,8 @@
     width: 100%;
     height: 100%;
     padding:10px;
-    background : #05F;
-    color: #FFF;
+    background : var(--couleurBoutons);
+    color: var(--couleurTexteBoutons);
     border : none;
     border-radius: 0 10px 10px 0;
     font-size: 17pt;
