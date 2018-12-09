@@ -30,6 +30,10 @@
 .page__selecteur__bouton_large{
     grid-template-columns: auto 150px;
 }
+.page__selecteur__sans_bouton{
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
 /* Contenu du sélecteur */
 .page__selecteur__nom{
     box-sizing: border-box;
@@ -92,6 +96,11 @@
 .page__selecteur__prerequis__possede{
     color:var(--couleurLabelSelecteurOn);
     font-weight: bold;
+}
+
+.page__selecteur__textarea{
+    resize: none;
+    border-radius:10px;
 }
 /* Bouton d'info */
 .page___selecteur__bouton_infos{

@@ -31,19 +31,22 @@
         </li>
     </template>
     <template id="creationPersonnageSelecteurInput">
-        <li class="page__selecteur page__selecteur__deux_lignes">
-            <input class="page__selecteur__nom page__selecteur__ligne_haut" type="text" placeholder="" />
-            <p class="page__selecteur__nom page__selecteur__ligne_bas"></p>
+        <li class="page__selecteur">
+            <input class="page__selecteur__nom" type="text" placeholder="" />
             <button class="page___selecteur__bouton_infos page___selecteur__bouton__deux_lignes">🔍</button>
             <p class="page___selecteur__infos"></p>
         </li>
     </template>
     <template id="creationPersonnageSelecteurSelect">
-        <li class="page__selecteur page__selecteur__deux_lignes">
-            <select class="page__selecteur__nom page__selecteur__ligne_haut"></select>
-            <p class="page__selecteur__nom page__selecteur__ligne_bas"></p>
+        <li class="page__selecteur">
+            <select class="page__selecteur__nom"></select>
             <button class="page___selecteur__bouton_infos page___selecteur__bouton__deux_lignes">🔍</button>
             <p class="page___selecteur__infos"></p>
+        </li>
+    </template>
+    <template id="creationPersonnageSelecteurTextArea">
+        <li class="page__selecteur page__selecteur__sans_bouton">
+            <textarea class="page__selecteur__nom page__selecteur__textarea"></textarea>
         </li>
     </template>
     <template id="creationPersonnageSelecteurAjoutElement">
@@ -160,22 +163,6 @@
         </div>
     </div>
     
-    <div id="creationPersonnagePageIdentite" class="page">
-        <div class="page__contenu">
-            <h1>Identité</h1>
-            <p>L'identité regroupe de nombreuses informations de nature adminsitrative.</p>
-            <div id="creationPersonnagePseudonyme"></div>
-            <div id="creationPersonnageNomAdministratif"></div>
-            <div id="creationPersonnageProfession"></div>
-            <div id="creationPersonnageAffiliation"></div>
-            <div id="creationPersonnageGenre"></div>
-        </div>
-        <div class="page__footer">
-            <button class="bouton-precedent page__bouton page__bouton_precedent">Précédent</button>
-            <button class="bouton-suivant page__bouton page__bouton_suivant">Suivant</button>
-        </div>
-    </div>
-
     <div id="creationPersonnagePageTraits" class="page">
         <div class="page__contenu">
             <h1>Traits</h1>
@@ -255,6 +242,61 @@
             <ul id="creationPersonnageEvaluationEquipements" class="page__liste"></ul>
             <h2 id="creationPersonnageLabelEvaluationLogiciels">Logiciels</h2>
             <ul id="creationPersonnageEvaluationLogiciels" class="page__liste"></ul>
+        </div>
+        <div class="page__footer">
+            <button class="bouton-precedent page__bouton page__bouton_precedent">Précédent</button>
+            <button class="bouton-suivant page__bouton page__bouton_suivant">Suivant</button>
+        </div>
+    </div>
+
+    <div id="creationPersonnagePageIdentite" class="page">
+        <div class="page__contenu">
+            <h1>Identité</h1>
+            <p>L'identité regroupe de nombreuses informations de nature adminsitrative.</p>
+            <h2>Pseudonyme</h2>
+            <ul id="creationPersonnagePseudonyme" class="page__liste"></ul>
+            <h2>Nom administratif</h2>
+            <ul id="creationPersonnageNomAdministratif" class="page__liste"></ul>
+            <h2>Profession actuelle</h2>
+            <ul id="creationPersonnageProfession" class="page__liste"></ul>
+            <h2>Affiliation actuelle</h2>
+            <ul id="creationPersonnageAffiliation" class="page__liste"></ul>
+            <h2>Genre</h2>
+            <ul id="creationPersonnageGenre" class="page__liste"></ul>
+        </div>
+        <div class="page__footer">
+            <button class="bouton-precedent page__bouton page__bouton_precedent">Précédent</button>
+            <button class="bouton-suivant page__bouton page__bouton_suivant">Suivant</button>
+        </div>
+    </div>
+
+    <div id="creationPersonnagePageDescription" class="page">
+        <div class="page__contenu">
+            <h1>Description</h1>
+            <p>Décrivez votre personnage.</p>
+            <h2>Première impression</h2>
+            <div id="creationPersonnageDescriptionPremiereImpression"></div>
+            <h2>Corps</h2>
+            <div id="creationPersonnageDescriptionCorps"></div>
+            <h2>Visage</h2>
+            <div id="creationPersonnageDescriptionVisage"></div>
+        </div>
+        <div class="page__footer">
+            <button class="bouton-precedent page__bouton page__bouton_precedent">Précédent</button>
+            <button class="bouton-suivant page__bouton page__bouton_suivant">Suivant</button>
+        </div>
+    </div>
+
+    <div id="creationPersonnagePageAvatar" class="page">
+        <div class="page__contenu">
+            <h1>Avatar</h1>
+            <p>Décrivez l'avatar de votre personnage. Ça peut être une copie conforme de l'enveloppe du personnage ou quelque chose de totalement nouveau !</p>
+            <h2>Première impression</h2>
+            <div id="creationPersonnageAvatarPremiereImpression"></div>
+            <h2>Corps</h2>
+            <div id="creationPersonnageAvatarCorps"></div>
+            <h2>Visage</h2>
+            <div id="creationPersonnageAvatarVisage"></div>
         </div>
         <div class="page__footer">
             <button class="bouton-precedent page__bouton page__bouton_precedent">Précédent</button>

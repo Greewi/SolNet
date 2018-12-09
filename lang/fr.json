@@ -15,6 +15,9 @@
     "DescriptionAffiliationActuelle": "À quelle entité votre personnage est-il rattaché ? Qu’il s’agisse d’une corporation, d’un groupe ou d’une autre faction, le personnage est normalement attaché à une telle entité. C’est un peu l’équivalent de la nationalité pour un Solaire.",
     "InputGenre": "Genre",
     "DescriptionGenre": "De quel genre votre personnage se revendique-t-il ? Initialement basée sur le sexe, cette notion a beaucoup perdu en sens. Choisi de plus en plus arbitrairement, notamment par les IA, cette notion ne revêt plus la même importance. Les valeurs les plus représentées restent « neutre », « masculin » et « féminin ». On trouve aussi de nombreuses variantes comme « mixte », « fluide » ou « indéfini ».",
+    "InputDescriptionPremiereImpression": "Première impression",
+    "InputDescriptionCorps": "Corps",
+    "InputDescriptionVisage": "Visage",
 
     "// Données de génération des personnages ------------------------------------------------------------------------": "",
 
