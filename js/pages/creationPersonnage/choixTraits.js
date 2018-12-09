@@ -26,7 +26,7 @@ export class PageChoixTraits extends Page{
         this._inputAjouterTraitCaractere = new SelecteurAjoutElement("Trait de caractère");
         this._inputAjouterTraitCaractere.onadd = (nom)=>{
             this._traitsPersonnage.push(new Element(null, Element.TRAIT_CARACTERE, nom, 1));
-            this._ajouteTraitCaractere(nom);
+            this._ajouteTrait(nom, Element.TRAIT_CARACTERE, this._listeTraitsCaracteres);
             this.scrollEnBas();
         };
         this._creationPersonnageTraitCaractereAjouter.appendChild(this._inputAjouterTraitCaractere.element);
@@ -35,7 +35,7 @@ export class PageChoixTraits extends Page{
         this._inputAjouterTraitPhysique = new SelecteurAjoutElement("Trait physique");
         this._inputAjouterTraitPhysique.onadd = (nom)=>{
             this._traitsPersonnage.push(new Element(null, Element.TRAIT_PHYSIQUE, nom, 1));
-            this._ajouteTraitPhysique(nom);
+            this._ajouteTrait(nom, Element.TRAIT_PHYSIQUE, this._listeTraitsPhysiques);
             this.scrollEnBas();
         };
         this._creationPersonnageTraitPhysiqueAjouter.appendChild(this._inputAjouterTraitPhysique.element);
@@ -53,23 +53,24 @@ export class PageChoixTraits extends Page{
         for(let trait of this._traitsPersonnage)
         {
             if(trait.type == Element.TRAIT_CARACTERE)
-                this._ajouteTraitCaractere(trait.nom);
+                this._ajouteTrait(trait.nom, Element.TRAIT_CARACTERE, this._listeTraitsCaracteres);
             else if(trait.type == Element.TRAIT_PHYSIQUE)
-                this._ajouteTraitPhysique(trait.nom);
+                this._ajouteTrait(trait.nom, Element.TRAIT_PHYSIQUE, this._listeTraitsPhysiques);
         }
     }
 
     /**
-     * Ajoute un trait de caractère dans la liste
+     * Ajoute un trait dans la liste
      * @param {string} nom 
      */
-    _ajouteTraitCaractere(nom){
+    _ajouteTrait(nom, type, listeTraits){
         let selecteur = new SelecteurElementSpecial(nom);
         selecteur.selectionne();
         selecteur.onsupprime = ()=>{
             for(var i=0; i<this._traitsPersonnage.length; i++)
             {
-                if(trait.type == Element.TRAIT_CARACTERE && this._traitsPersonnage[i].nom == nom)
+                let trait = this._traitsPersonnage[i];
+                if(trait.type == type && this._traitsPersonnage[i].nom == nom)
                 {
                     this._traitsPersonnage.splice(i, 1);
                     break;
@@ -77,28 +78,7 @@ export class PageChoixTraits extends Page{
             }
             selecteur.element.remove();
         };
-        this._listeTraitsCaracteres.appendChild(selecteur.element);
-    }
-    
-    /**
-     * Ajoute un trait physique dans la liste
-     * @param {string} nom 
-     */
-    _ajouteTraitPhysique(nom){
-        let selecteur = new SelecteurElementSpecial(nom);
-        selecteur.selectionne();
-        selecteur.onsupprime = ()=>{
-            for(var i=0; i<this._traitsPersonnage.length; i++)
-            {
-                if(trait.type == Element.TRAIT_CARACTERE && this._traitsPersonnage[i].nom == nom)
-                {
-                    this._traitsPersonnage.splice(i, 1);
-                    break;
-                }
-            }
-            selecteur.element.remove();
-        };
-        this._listeTraitsPhysiques.appendChild(selecteur.element);
+        listeTraits.appendChild(selecteur.element);
     }
 
     detruit(){
