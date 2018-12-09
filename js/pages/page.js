@@ -1,11 +1,12 @@
 import { Ecran } from "../ecrans/ecran";
+import { Templates } from "../templates";
 
 export class Page{
     /**
      * @param {string} id L'id de l'élément racine de la page dans le DOM
      */
     constructor(id, ecran, pagePrecedente, pageSuivante){
-        this._element = document.getElementById(id);
+        this._element = Templates.getTemplate(id).content.cloneNode(true).children[0];
         this._ecran = ecran;
         this._transition = null;
         this._contenu = this._element.querySelector(".page__contenu");
@@ -31,7 +32,7 @@ export class Page{
         }
         else
             this._actionBoutonSuivant = null;
-       
+        document.body.appendChild(this._element);
     }
 
     /**
@@ -89,6 +90,7 @@ export class Page{
         if(this._actionBoutonSuivant)
             this._boutonSuivant.removeEventListener(this._actionBoutonSuivant);        
         this._actionBoutonSuivant = null;
+        document.body.removeChild(this._element);
     }
 
     /**

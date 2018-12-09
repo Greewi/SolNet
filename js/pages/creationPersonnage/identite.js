@@ -1,7 +1,7 @@
 import { Page } from "../page";
 import { Selecteur, SelecteurInputText, SelecteurSelect } from "./selecteur";
 import { Lang } from "../../lang";
-import { BanqueDonnees } from "../../personnages/donneeSources";
+import { BanqueDonnees } from "../../donneeSources";
 
 export class PageIdentite extends Page{
     /**
@@ -9,7 +9,7 @@ export class PageIdentite extends Page{
      * @param {Personnage} personnage Le personnage à créer
      */
     constructor(ecran , personnage, pagePrecedent, pageSuivante){
-        super("creationPersonnagePageIdentite", ecran, pagePrecedent, pageSuivante);
+        super("pageCreationPersonnageIdentite", ecran, pagePrecedent, pageSuivante);
         this._personnage = personnage;
 
         this._elementPseudonyme = this.element.querySelector("#creationPersonnagePseudonyme");

@@ -11,7 +11,7 @@ export class PageIntroduction extends Page{
      * @param {Personnage} personnage Le personnage à créer
      */
     constructor(ecran , personnage, pagePrecedent, pageSuivante){
-        super("creationPersonnagePageIntroduction", ecran, pagePrecedent, pageSuivante);
+        super("pageCreationPersonnageIntroduction", ecran, pagePrecedent, pageSuivante);
         this._personnage = personnage;
     }
 

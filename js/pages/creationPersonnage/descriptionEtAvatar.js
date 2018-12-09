@@ -80,7 +80,7 @@ export class PageDescriptionPhysique extends PageDescriptionGenerique{
      * @param {Personnage} personnage Le personnage à créer
      */
     constructor(ecran, personnage, pagePrecedent, pageSuivante){
-        super(ecran, "creationPersonnagePageDescription", personnage.description, personnage, pagePrecedent, pageSuivante);
+        super(ecran, "pageCreationPersonnageDescription", personnage.description, personnage, pagePrecedent, pageSuivante);
         this.setElements("creationPersonnageDescriptionPremiereImpression", "creationPersonnageDescriptionCorps", "creationPersonnageDescriptionVisage");
     }
 }
@@ -91,7 +91,7 @@ export class PageDescriptionAvatar extends PageDescriptionGenerique{
     * @param {Personnage} personnage Le personnage à créer
     */
    constructor(ecran, personnage, pagePrecedent, pageSuivante){
-       super(ecran, "creationPersonnagePageAvatar", personnage.avatar, personnage, pagePrecedent, pageSuivante);
+       super(ecran, "pageCreationPersonnageAvatar", personnage.avatar, personnage, pagePrecedent, pageSuivante);
        this.setElements("creationPersonnageAvatarPremiereImpression", "creationPersonnageAvatarCorps", "creationPersonnageAvatarVisage");
    }
 }

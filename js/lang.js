@@ -1,4 +1,6 @@
 import { Ajax } from "./ajax";
+
+var _codeLangue = "";
 var _fragmentLang = null;
 
 /**
@@ -10,6 +12,7 @@ export class Lang {
      * @param {string} codeLangue le code ISO 639-1 de la langue à charger.
      */
     static initialise(codeLangue){
+        _codeLangue = codeLangue;
         return Promise.resolve()
         .then(()=>{
             console.log(`Début chargement langue : ${codeLangue}`);
@@ -25,6 +28,13 @@ export class Lang {
             else if(codeLangue!="fr")
                 return Lang.initialise("fr");
         });
+    }
+
+    /**
+     * @returns {string} codeLangue
+     */
+    static getCodeLangue(){
+        return _codeLangue;
     }
 
     /**

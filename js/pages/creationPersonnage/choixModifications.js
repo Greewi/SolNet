@@ -1,7 +1,7 @@
 import { Page } from "../page";
 import { Ecran } from "../../ecrans/ecran";
 import { Personnage } from "../../personnages/personnage";
-import { BanqueDonnees } from "../../personnages/donneeSources";
+import { BanqueDonnees } from "../../donneeSources";
 import { Element } from "../../personnages/element";
 import { SelecteurElementSpecial, SelecteurSimple } from "./selecteur";
 import { Lang } from "../../lang";
@@ -15,7 +15,7 @@ export class PageChoixModifications extends Page{
      * @param {Personnage} personnage Le personnage à créer
      */
     constructor(ecran , personnage, pagePrecedent, pageSuivante){
-        super("creationPersonnagePageModifications", ecran, pagePrecedent, pageSuivante);
+        super("pageCreationPersonnageModifications", ecran, pagePrecedent, pageSuivante);
 
         this._personnage = personnage;
         this._rolesPersonnage = personnage.roles;

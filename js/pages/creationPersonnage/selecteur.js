@@ -1,22 +1,15 @@
-const templateSelecteurSimple = document.getElementById("creationPersonnageSelecteurSimple");
-const templateSelecteurDeuxLignes = document.getElementById("creationPersonnageSelecteurDeuxLigne");
-const templateSelecteurElementSpecial = document.getElementById("creationPersonnageSelecteurElementSpecial");
-const templateSelecteurInput = document.getElementById("creationPersonnageSelecteurInput");
-const templateSelecteurSelect = document.getElementById("creationPersonnageSelecteurSelect");
-const templateSelecteurAjoutElement = document.getElementById("creationPersonnageSelecteurAjoutElement");
-const templateSelecteurEvaluation = document.getElementById("creationPersonnageSelecteurEvaluation");
-const templateSelecteurTextArea = document.getElementById("creationPersonnageSelecteurTextArea");
+import { Templates } from "../../templates";
 
 /**
  * Définis un selecteur abstrait
  */
 export class Selecteur{
     /**
-     * @param {HTMLTemplateElement} template Le template à utiliser pour générer le selecteur
+     * @param {string} template Le nom du template à utiliser pour générer le selecteur
      */
     constructor(template){
         this._onclick = ()=>{};
-        this._element = template.content.cloneNode(true);
+        this._element = Templates.getTemplate(template).content.cloneNode(true);
     }
 
     /**
@@ -63,7 +56,7 @@ export class SelecteurSimple extends Selecteur{
      * @param {String} description
      */
     constructor(texte, description){
-        super(templateSelecteurSimple);
+        super("fragmentCreationPersonnageSelecteurSimple");
 
         this._ligne1 = this._element.querySelector(".page__selecteur__nom");
         this._ligne1.innerHTML = texte;
@@ -109,7 +102,7 @@ export class SelecteurAvecPrerequis extends Selecteur{
      * @param {String} description
      */
     constructor(texte, description){
-        super(templateSelecteurDeuxLignes);
+        super("fragmentCreationPersonnageSelecteurDeuxLignes");
 
         this._ligne1 = this._element.querySelector(".page__selecteur__ligne_haut");
         this._ligne1.innerHTML = texte;
@@ -169,7 +162,7 @@ export class SelecteurElementSpecial extends Selecteur{
      * @param {String} texte
      */
     constructor(texte){
-        super(templateSelecteurElementSpecial);
+        super("fragmentCreationPersonnageSelecteurElementSpecial");
         this._onsupprime = (e) => {};
         this._ligne1 = this._element.querySelector(".page__selecteur__nom");
         this._ligne1.innerHTML = texte;
@@ -209,7 +202,7 @@ export class SelecteurAjoutElement extends Selecteur{
      * @param {string} texte
      */
     constructor(texte){
-        super(templateSelecteurAjoutElement);
+        super("fragmentCreationPersonnageSelecteurAjoutElement");
         this._ligne1 = this._element.querySelector(".page__selecteur__nom");
         this._ligne1.placeholder = texte;
 
@@ -243,7 +236,7 @@ export class SelecteurInputText extends Selecteur{
      * @param {string} description
      */
     constructor(texte, description){
-        super(templateSelecteurInput);
+        super("fragmentCreationPersonnageSelecteurInput");
         this._ligne1 = this._element.querySelector(".page__selecteur__nom");
         this._ligne1.placeholder = texte;
 
@@ -277,7 +270,7 @@ export class SelecteurSelect extends Selecteur{
      * @param {string} description
      */
     constructor(texte, description){
-        super(templateSelecteurSelect);
+        super("fragmentCreationPersonnageSelecteurSelect");
         this._ligne1 = this._element.querySelector(".page__selecteur__nom");
         this._ligne1.placeholder = texte;
 
@@ -317,7 +310,7 @@ export class SelecteurTextArea extends Selecteur{
      * @param {number} lignes
      */
     constructor(texte, lignes){
-        super(templateSelecteurTextArea);
+        super("fragmentCreationPersonnageSelecteurTextArea");
         this._ligne1 = this._element.querySelector(".page__selecteur__textarea");
         this._ligne1.placeholder = texte;
         this._ligne1.rows = lignes || 5;
@@ -346,7 +339,7 @@ export class SelecteurValeurElement extends Selecteur{
      * @param {String[]} descriptions le texte de chaque valeurs rangées dans un tableau
      */
     constructor(texte, descriptions, valeurInitiale){
-        super(templateSelecteurEvaluation);
+        super("fragmentCreationPersonnageSelecteurEvaluation");
         this._valeur = -1;
         this._textes = descriptions;
 
