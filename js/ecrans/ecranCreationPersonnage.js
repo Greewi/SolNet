@@ -9,6 +9,9 @@ import { PageChoixEnveloppe } from "../pages/creationPersonnage/choixEnveloppe";
 import { PageChoixRelations } from "../pages/creationPersonnage/choixRelations";
 import { PageChoixTraits } from "../pages/creationPersonnage/choixTraits";
 import { PageEvaluation } from "../pages/creationPersonnage/evaluationElements";
+import { PageChoixModifications } from "../pages/creationPersonnage/choixModifications";
+import { PageChoixEquipements } from "../pages/creationPersonnage/choixEquipements";
+import { PageChoixLogiciels } from "../pages/creationPersonnage/choixLogiciels";
 
 /**
  * Écran de création de personnage
@@ -20,15 +23,18 @@ export class EcranCreationPersonnage extends Ecran{
     constructor(personnage){
         super();
         super.setPages({
-            "introduction" : new PageIntroduction(this, personnage),
-            "choixRole" : new PageChoixRole(this, personnage),
-            "choixEsprit" : new PageChoixEsprit(this, personnage),
-            "choixEnveloppe" : new PageChoixEnveloppe(this, personnage),
-            "choixCarriere" : new PageChoixCarrieres(this, personnage),
-            "choixRelations" : new PageChoixRelations(this, personnage),
-            "identite" : new PageIdentite(this, personnage),
-            "choixTraits" : new PageChoixTraits(this, personnage),
-            "evaluation" : new PageEvaluation(this, personnage),
+            "introduction" : new PageIntroduction(this, personnage, null, "choixRole"),
+            "choixRole" : new PageChoixRole(this, personnage, "introduction", "choixEsprit"),
+            "choixEsprit" : new PageChoixEsprit(this, personnage, "choixRole", "choixEnveloppe"),
+            "choixEnveloppe" : new PageChoixEnveloppe(this, personnage, "choixEsprit", "choixCarriere"),
+            "choixCarriere" : new PageChoixCarrieres(this, personnage, "choixEnveloppe", "choixRelations"),
+            "choixRelations" : new PageChoixRelations(this, personnage, "choixCarriere", "identite"),
+            "identite" : new PageIdentite(this, personnage, "choixRelations", "choixTraits"),
+            "choixTraits" : new PageChoixTraits(this, personnage, "identite", "choixModifications"),
+            "choixModifications" : new PageChoixModifications(this, personnage, "choixTraits", "choixEquipements"),
+            "choixEquipements" : new PageChoixEquipements(this, personnage, "choixModifications", "choixLogiciels"),
+            "choixLogiciels" : new PageChoixLogiciels(this, personnage, "choixEquipements", "evaluation"),
+            "evaluation" : new PageEvaluation(this, personnage, "choixLogiciels", null),
         });
         super.setPageParDefaut("introduction");
     }

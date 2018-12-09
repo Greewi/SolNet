@@ -21,7 +21,7 @@ export class Elements{
         /**
          * @type {Element[]}
          */
-        this.equipement = [];
+        this.equipements = [];
         /**
          * @type {Element[]}
          */
@@ -54,5 +54,29 @@ export class Elements{
      */
     possedeRelation(id){
         return this._possedeElement(id, this.relations);
+    }
+
+    /**
+     * @param {string} id 
+     * @returns {boolean}
+     */
+    possedeModification(id){
+        return this._possedeElement(id, this.modifications);
+    }
+    
+    /**
+     * @param {string} id 
+     * @returns {boolean}
+     */
+    possedeEquipement(id){
+        return this._possedeElement(id, this.equipements);
+    }
+
+    /**
+     * @param {string} id 
+     * @returns {boolean}
+     */
+    possedeLogiciel(id){
+        return this._possedeElement(id, this.logiciels);
     }
 };

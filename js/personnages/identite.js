@@ -1,3 +1,4 @@
+
 export class Identite{
     constructor(){
         /**
@@ -20,5 +21,13 @@ export class Identite{
          * @type {string}
          */
         this.genre = "";
+        /**
+         * @type {string}
+         */
+        this.natureEsprit = null;
+        /**
+         * @type {string}
+         */
+        this.enveloppeUsuelle = null;
     }
 };

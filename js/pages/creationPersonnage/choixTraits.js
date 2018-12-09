@@ -12,8 +12,8 @@ export class PageChoixTraits extends Page{
      * @param {Ecran} ecran L'écran auquel cette page est rattachée
      * @param {Personnage} personnage Le personnage à créer
      */
-    constructor(ecran , personnage){
-        super("creationPersonnagePageTraits", ecran);
+    constructor(ecran, personnage, pagePrecedent, pageSuivante){
+        super("creationPersonnagePageTraits", ecran, pagePrecedent, pageSuivante);
 
         this._personnage = personnage;
         this._elementsPersonnage = personnage.elements;
@@ -39,18 +39,6 @@ export class PageChoixTraits extends Page{
             this.scrollEnBas();
         };
         this._creationPersonnageTraitPhysiqueAjouter.appendChild(this._inputAjouterTraitPhysique.element);
-
-        this._boutonPrecedent = this.element.querySelector(".bouton-precedent");
-        this._actionBoutonPrecedent = (event) => {
-            this.ecran.ouvre("identite", false);
-        };
-        this._boutonPrecedent.addEventListener("click", this._actionBoutonPrecedent);
-
-        this._boutonSuivant = this.element.querySelector(".bouton-suivant");
-        this._actionBoutonSuivant = (event) => {
-            this.ecran.ouvre("evaluation", true);
-        };
-        this._boutonSuivant.addEventListener("click", this._actionBoutonSuivant);
     }
 
     /**
@@ -115,8 +103,6 @@ export class PageChoixTraits extends Page{
 
     detruit(){
         super.detruit();
-        this._boutonPrecedent.removeEventListener(this._actionBoutonPrecedent);
-        this._boutonSuivant.removeEventListener(this._actionBoutonSuivant);
         this._boutonAjouterTrait.removeEventListener(this._actionBoutonAjouterTrait);
     }
 }

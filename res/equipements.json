@@ -1,0 +1,19 @@
+{
+    "ARME_PULSEUR" : {"id" : "ARME_PULSEUR"},
+    "ARME_SHOCK" : {"id" : "ARME_SHOCK"},
+    "ARMURE_LOURDE" : {"id" : "ARMURE_LOURDE"},
+    "COMBINAISON_SPATIALE" : {"id" : "COMBINAISON_SPATIALE"},
+    "CONSOLE_DECRYPTAGE" : {"id" : "CONSOLE_DECRYPTAGE"},
+    "DECODEUR" : {"id" : "DECODEUR"},
+    "FOGLETS" : {"id" : "FOGLETS"},
+    "GANTS_GECKO" : {"id" : "GANTS_GECKO"},
+    "KIT_MEDICAL" : {"id" : "KIT_MEDICAL"},
+    "JET_PACK" : {"id" : "JET_PACK"},
+    "LAME_ACTIVE" : {"id" : "LAME_ACTIVE"},
+    "MICRO_DRONE" : {"id" : "MICRO_DRONE"},
+    "MULTI_TOOL" : {"id" : "MULTI_TOOL"},
+    "LINK" : {"id" : "LINK"},
+    "PROTECTION_LEGERE" : {"id" : "PROTECTION_LEGERE"},
+    "SCANNER_WOLFA_PORTATIF" : {"id" : "SCANNER_WOLFA_PORTATIF"},
+    "TENUE_CAMOUFLAGE_THERMO_OPTIQUE" : {"id" : "TENUE_CAMOUFLAGE_THERMO_OPTIQUE"}
+}

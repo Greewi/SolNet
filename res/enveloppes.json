@@ -1,11 +1,11 @@
 {
-    "BIOLOGIQUE" : {"id":"BIOLOGIQUE", "dateInitiale":1970, "modeles":["Humain"]},
-    "PROVOLUE" : {"id":"PROVOLUE", "dateInitiale":2084, "modeles":["Provolué de singe", "Provolué de pieuvre", "Provolué d’humain", "ETC"]},
-    "BIOMODIFIE" : {"id":"BIOMODIFIE", "dateInitiale":2050, "modeles":["Humain bio-modifié", "Provolué bio-modifié"]},
-    "REPLICANT" : {"id":"REPLICANT", "dateInitiale":2075, "modeles":["Réplicant d’humain"]},
-    "CHIMERE" : {"id":"CHIMERE", "dateInitiale":2082, "modeles":["Furry", "Assistant domestique", "ETC"]},
-    "CYBORG" : {"id":"CYBORG", "dateInitiale":2035, "modeles":["Cyborg"]},
-    "CYBERNETIQUE" : {"id":"CYBERNETIQUE", "dateInitiale":2061, "modeles":["Syntha", "Androïde", "Spiderbot", "Monkeybot", "Dogbot", "ETC"]},
-    "HYPER_HYBRIDE" : {"id":"HYPER_HYBRIDE", "dateInitiale":2090, "modeles":["Furry", "Androïde hyper-hybride", "Assistant domestique", "ETC"]},
-    "INFORMORPHE" : {"id":"INFORMORPHE", "dateInitiale":2060, "modeles":["Éthéré", "IA"]}
+    "BIOLOGIQUE" : {"id":"BIOLOGIQUE", "dateInitiale":1970, "modeles":["Humain"], "substrat":"BIOLOGIQUE"},
+    "PROVOLUE" : {"id":"PROVOLUE", "dateInitiale":2084, "modeles":["Provolué de singe", "Provolué de pieuvre", "Provolué d’humain", "ETC"], "substrat":"BIOLOGIQUE"},
+    "BIOMODIFIE" : {"id":"BIOMODIFIE", "dateInitiale":2050, "modeles":["Humain bio-modifié", "Provolué bio-modifié"], "substrat":"ORGANIQUE"},
+    "REPLICANT" : {"id":"REPLICANT", "dateInitiale":2075, "modeles":["Réplicant d’humain"], "substrat":"ORGANIQUE"},
+    "CHIMERE" : {"id":"CHIMERE", "dateInitiale":2082, "modeles":["Furry", "Assistant domestique", "ETC"], "substrat":"ORGANIQUE"},
+    "CYBORG" : {"id":"CYBORG", "dateInitiale":2035, "modeles":["Cyborg"], "substrat":"MIXTE"},
+    "CYBERNETIQUE" : {"id":"CYBERNETIQUE", "dateInitiale":2061, "modeles":["Syntha", "Androïde", "Spiderbot", "Monkeybot", "Dogbot", "ETC"], "substrat":"CYBERNETIQUE"},
+    "HYPER_HYBRIDE" : {"id":"HYPER_HYBRIDE", "dateInitiale":2090, "modeles":["Furry", "Androïde hyper-hybride", "Assistant domestique", "ETC"], "substrat":"MIXTE"},
+    "INFORMORPHE" : {"id":"INFORMORPHE", "dateInitiale":2060, "modeles":["Éthéré", "IA"], "substrat":"AUCUN"}
 }

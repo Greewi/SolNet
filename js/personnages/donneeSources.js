@@ -7,6 +7,9 @@ var _intelligences = null;
 var _enveloppes = null;
 var _genres = null;
 var _factions = null;
+var _modifications = null;
+var _equipements = null;
+var _logiciels = null;
 
 /**
  * Charge et gère les données de l'application
@@ -78,6 +81,30 @@ export class BanqueDonnees {
             _factions = JSON.parse(json);
             console.log("Factions chargées");
         })
+        .then(()=>{
+            console.log("Début chargement modifications");
+            return Ajax.get("./res/modifications.json");
+        })
+        .then((json)=>{
+            _modifications = JSON.parse(json);
+            console.log("Modifications chargées");
+        })
+        .then(()=>{
+            console.log("Début chargement équipements");
+            return Ajax.get("./res/equipements.json");
+        })
+        .then((json)=>{
+            _equipements = JSON.parse(json);
+            console.log("Equipements chargées");
+        })
+        .then(()=>{
+            console.log("Début chargement logiciels");
+            return Ajax.get("./res/logiciels.json");
+        })
+        .then((json)=>{
+            _logiciels = JSON.parse(json);
+            console.log("Logiciels chargées");
+        })
     }
 
     static get roles(){
@@ -102,5 +129,17 @@ export class BanqueDonnees {
 
     static get factions(){
         return _factions;
+    }
+
+    static get modifications(){
+        return _modifications;
+    }
+
+    static get equipements(){
+        return _equipements;
+    }
+
+    static get logiciels(){
+        return _logiciels;
     }
 }

@@ -4,11 +4,34 @@ export class Page{
     /**
      * @param {string} id L'id de l'élément racine de la page dans le DOM
      */
-    constructor(id, ecran){
+    constructor(id, ecran, pagePrecedente, pageSuivante){
         this._element = document.getElementById(id);
         this._ecran = ecran;
         this._transition = null;
         this._contenu = this._element.querySelector(".page__contenu");
+        
+        this._boutonPrecedent = this.element.querySelector(".bouton-precedent");
+        if(this._boutonPrecedent && pagePrecedente)
+        {
+            this._actionBoutonPrecedent = (event) => {
+                this.ecran.ouvre(pagePrecedente, false);
+            };
+            this._boutonPrecedent.addEventListener("click", this._actionBoutonPrecedent);    
+        }
+        else
+            this._actionBoutonPrecedent = null;
+
+        this._boutonSuivant = this.element.querySelector(".bouton-suivant");
+        if(this._boutonSuivant && pageSuivante)
+        {
+            this._actionBoutonSuivant = (event) => {
+                this.ecran.ouvre(pageSuivante, true);
+            };
+            this._boutonSuivant.addEventListener("click", this._actionBoutonSuivant);
+        }
+        else
+            this._actionBoutonSuivant = null;
+       
     }
 
     /**
@@ -60,6 +83,12 @@ export class Page{
     detruit(){
         this._stopTransition();
         this._element.classList.remove("page__on");
+        if(this._actionBoutonPrecedent)
+            this._boutonPrecedent.removeEventListener(this._actionBoutonPrecedent);
+        this._actionBoutonPrecedent = null;
+        if(this._actionBoutonSuivant)
+            this._boutonSuivant.removeEventListener(this._actionBoutonSuivant);        
+        this._actionBoutonSuivant = null;
     }
 
     /**

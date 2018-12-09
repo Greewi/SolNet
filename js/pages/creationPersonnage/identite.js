@@ -8,8 +8,8 @@ export class PageIdentite extends Page{
      * @param {Ecran} ecran L'écran auquel cette page est rattachée
      * @param {Personnage} personnage Le personnage à créer
      */
-    constructor(ecran , personnage){
-        super("creationPersonnagePageIdentite", ecran);
+    constructor(ecran , personnage, pagePrecedent, pageSuivante){
+        super("creationPersonnagePageIdentite", ecran, pagePrecedent, pageSuivante);
         this._personnage = personnage;
 
         this._elementPseudonyme = this.element.querySelector("#creationPersonnagePseudonyme");
@@ -17,18 +17,6 @@ export class PageIdentite extends Page{
         this._elementProfession = this.element.querySelector("#creationPersonnageProfession");
         this._elementAffiliation = this.element.querySelector("#creationPersonnageAffiliation");
         this._elementGenre = this.element.querySelector("#creationPersonnageGenre");
-
-        this._boutonPrecedent = this.element.querySelector(".bouton-precedent");
-        this._actionBoutonPrecedent = (event) => {
-            this.ecran.ouvre("choixRelations", false);
-        };
-        this._boutonPrecedent.addEventListener("click", this._actionBoutonPrecedent);
-
-        this._boutonSuivant = this.element.querySelector(".bouton-suivant");
-        this._actionBoutonSuivant = (event) => {
-            this.ecran.ouvre("choixTraits", true);
-        };
-        this._boutonSuivant.addEventListener("click", this._actionBoutonSuivant);
     }
 
     /**
@@ -98,7 +86,5 @@ export class PageIdentite extends Page{
 
     detruit(){
         super.detruit();
-        this._boutonPrecedent.removeEventListener(this._actionBoutonPrecedent);
-        this._boutonSuivant.removeEventListener(this._actionBoutonSuivant);
     }
 }
