@@ -49,14 +49,17 @@ export class PageChoixEsprit extends Page{
             let selecteur = new SelecteurAvecPrerequis(nom, description);
 
             //Liste des enveloppes compatibles
-            var estCompatible = false;
-            for(let idEnveloppe of intelligence.enveloppes)
-                if(this._personnage.identite.enveloppeUsuelle && this._personnage.identite.enveloppeUsuelle.id == idEnveloppe)
-                    estCompatible = true;
-            if(estCompatible)
-                selecteur.ajoutePrerequis("Enveloppe compatible", true);
-            else
-                selecteur.ajoutePrerequis("Enveloppe non compatible", false);
+            if(this._personnage.identite.enveloppeUsuelle)
+            {
+                var estCompatible = false;
+                for(let idEnveloppe of intelligence.enveloppes)
+                    if(this._personnage.identite.enveloppeUsuelle && this._personnage.identite.enveloppeUsuelle.id == idEnveloppe)
+                        estCompatible = true;
+                if(estCompatible)
+                    selecteur.ajoutePrerequis("Enveloppe compatible", true);
+                else
+                    selecteur.ajoutePrerequis("Enveloppe non compatible", false);
+            }
 
             //Sélection/Déselection de l'intelligence
             if(this._personnage.identite.natureEsprit && this._personnage.identite.natureEsprit.id == idIntelligence)

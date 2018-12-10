@@ -82,12 +82,16 @@
     border: none;
     border-radius : 10px;
     font-weight: bold;
+    cursor: pointer;
+    user-select: none;
 }
-
 @keyframes page__bouton__active {
     from {transform: scale(1.0);}
     50% {transform: scale(0.95);}
     to {transform: scale(1.0);}
+}
+.page__bouton:focus {
+    outline:0;
 }
 .page__bouton:active {
     animation-name: page__bouton__active;

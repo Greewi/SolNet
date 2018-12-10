@@ -65,13 +65,15 @@ export class PageChoixEnveloppe extends Page{
             //Liste des enveloppes compatibles
             var estCompatible = false;
             if(this._personnage.identite.natureEsprit)
-            for(let idEnveloppeActuelle of this._personnage.identite.natureEsprit.enveloppes)
-                if(idEnveloppe==idEnveloppeActuelle)
-                    estCompatible = true;
-            if(estCompatible)
-                selecteur.ajoutePrerequis("Esprit compatible", true);
-            else
-                selecteur.ajoutePrerequis("Esprit non compatible", false);
+            {
+                for(let idEnveloppeActuelle of this._personnage.identite.natureEsprit.enveloppes)
+                    if(idEnveloppe==idEnveloppeActuelle)
+                        estCompatible = true;
+                if(estCompatible)
+                    selecteur.ajoutePrerequis("Esprit compatible", true);
+                else
+                    selecteur.ajoutePrerequis("Esprit non compatible", false);
+            }
             
             //Sélection/Déselection de l'enveloppe
             if(this._personnage.identite.enveloppeUsuelle && this._personnage.identite.enveloppeUsuelle.id == idEnveloppe)
