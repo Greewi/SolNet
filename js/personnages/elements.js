@@ -33,7 +33,7 @@ export class Elements{
      * @param {Element[]} tableau 
      * @returns {boolean}
      */
-    _possedeElement(id, tableau){
+    possedeElement(id, tableau){
         for(let element of tableau)
             if(element.id == id)
                 return true;
@@ -45,7 +45,7 @@ export class Elements{
      * @returns {boolean}
      */
     possedeCarriere(id){
-        return this._possedeElement(id, this.carrieres);
+        return this.possedeElement(id, this.carrieres);
     }
     
     /**
@@ -53,7 +53,7 @@ export class Elements{
      * @returns {boolean}
      */
     possedeRelation(id){
-        return this._possedeElement(id, this.relations);
+        return this.possedeElement(id, this.relations);
     }
 
     /**
@@ -61,7 +61,7 @@ export class Elements{
      * @returns {boolean}
      */
     possedeModification(id){
-        return this._possedeElement(id, this.modifications);
+        return this.possedeElement(id, this.modifications);
     }
     
     /**
@@ -69,7 +69,7 @@ export class Elements{
      * @returns {boolean}
      */
     possedeEquipement(id){
-        return this._possedeElement(id, this.equipements);
+        return this.possedeElement(id, this.equipements);
     }
 
     /**
@@ -77,6 +77,6 @@ export class Elements{
      * @returns {boolean}
      */
     possedeLogiciel(id){
-        return this._possedeElement(id, this.logiciels);
+        return this.possedeElement(id, this.logiciels);
     }
 };
