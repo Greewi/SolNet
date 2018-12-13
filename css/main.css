@@ -8,6 +8,9 @@
     --couleurFondTitre1: rgba(0, 153, 255, 0.473);
     --couleurBordureTitre2 : rgba(0, 85, 255, 0.747);
 
+    --couleurBordureEncart : rgb(139, 209, 255);
+    --couleurFondEncart : rgba(231, 245, 255, 0.384);
+
     /**
      * Boutons
      */
@@ -59,4 +62,14 @@ h2 {
 
 p {
     text-align: justify;
+}
+
+.encart {
+    box-sizing: border-box;
+    padding: 10px;
+    margin-left: -5px;
+    margin-right: -5px;
+    border : solid 2px var(--couleurBordureEncart);
+    border-radius: 15px;
+    background: var(--couleurFondEncart);
 }
