@@ -1,0 +1,248 @@
+/**
+ * Liste de sélections
+ */
+.page__liste{
+    box-sizing: border-box;
+    width: 100%;
+    margin:0;
+    margin-top:10px;
+    padding:0;
+}
+.page__selecteur{
+    box-sizing: border-box;
+    width: 100%;
+    padding:0;
+    margin:0;
+    margin-bottom: 10px;
+    display:grid;
+    grid-template-columns: auto 50px;
+    grid-template-rows: 50px auto;
+    cursor: pointer;
+    user-select: none;
+}
+.page__selecteur__deux_lignes{
+    grid-template-rows: 25px 25px auto;
+}
+.page__selecteur__deux_boutons{
+    grid-template-columns: auto 50px 50px;
+}
+.page__selecteur__trois_boutons{
+    grid-template-columns: auto 50px 50px 50px;
+}
+.page__selecteur__bouton_large{
+    grid-template-columns: auto 150px;
+}
+.page__selecteur__sans_bouton{
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+/* Contenu du sélecteur */
+.page__selecteur__nom{
+    box-sizing: border-box;
+    display: block;
+    grid-column: 1;
+    width: 100%;
+    height: 100%;
+    padding:17px;
+    margin: 0;
+    background: var(--couleurFondSelecteurs);
+    color: var(--couleurTexteSelecteur);
+    border: none;
+    border-radius: 10px 0 0 10px;
+    overflow: hidden;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.page__selecteur__nom::placeholder {
+    color:var(--couleurPlaceholderSelecteur);
+    opacity: 1;
+}
+
+.page__selecteur__nom__ouvert{
+    border-radius: 10px 0 0 0;
+}
+.page__selecteur__nom__possede{
+    background: var(--couleurFondSelecteursSelection);
+    color: var(--couleurTexteSelecteurSelection);
+}
+.page__selecteur__ligne_haut{
+    grid-row:1;
+    padding: 8px 17px 0px 17px;
+    border-radius: 10px 0 0 0;
+}
+.page__selecteur__ligne_bas{
+    grid-row:2;
+    padding: 5px 17px 5px 37px;
+    font-size: 8pt;
+    border-radius: 0 0 0 10px;
+}
+.page__selecteur__ligne_bas.page__selecteur__nom__ouvert{
+    border-radius: 0 0 0 0;
+}
+.page__selecteur__label{
+    margin:10px;
+    color:var(--couleurLabelSelecteurOff);
+    font-style: italic;
+}
+.page__selecteur__label__focus{
+    color:var(--couleurLabelSelecteurOn);
+    font-weight: bold;
+}
+.page__selecteur__prerequis{
+    margin:10px;
+    color:var(--couleurLabelSelecteurOff);
+    font-style: italic;
+}
+.page__selecteur__prerequis__possede{
+    color:var(--couleurLabelSelecteurOn);
+    font-weight: bold;
+}
+
+.page__selecteur__textarea{
+    resize: none;
+    border-radius:10px;
+}
+/* Bouton d'info */
+.page___selecteur__bouton_infos{
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding:10px;
+    background : var(--couleurBoutons);
+    color: var(--couleurTexteBoutons);
+    border : none;
+    border-radius: 0 10px 10px 0;
+    font-size: 17pt;
+    cursor: pointer;
+    user-select: none;
+}
+.page___selecteur__bouton__deux_lignes{
+    grid-row:1/3;
+}
+.page___selecteur__bouton_1{
+    grid-column:2;
+}
+.page___selecteur__bouton_2{
+    grid-column:3;
+}
+.page___selecteur__bouton_3{
+    grid-column:4;
+}
+.page___selecteur__bouton_infos__ouvert{
+    border-radius: 0 10px 0 0;
+}
+/* Boîte d'info */
+.page___selecteur__infos{
+    box-sizing: border-box;
+    display: block;
+    grid-column: 1/3;
+    width: 100%;
+    padding:10px;
+    margin: 0;
+    background: var(--couleurFondInfosSelecteur);
+    color: var(--couleurTexteInfosSelecteur);
+    border-radius: 0 0 10px 10px;
+    display: none;
+}
+.page___selecteur__infos__ouvert{
+    display: block;
+}
+.page___selecteur__infos em{
+    font-weight: bold;
+}
+/* Bouton supprimer */
+.page___selecteur__bouton_supprimer{
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding:10px;
+    background : var(--couleurBoutonsBad);
+    color: var(--couleurTexteBoutonsBad);
+    border : none;
+    border-radius: 0 10px 10px 0;
+    font-size: 17pt;
+    cursor: pointer;
+    user-select: none;
+}
+/* Bouton ajouter */
+.page___selecteur__bouton_ajouter{
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding:10px;
+    background : var(--couleurBoutons);
+    color: var(--couleurTexteBoutons);
+    border : none;
+    border-radius: 0 10px 10px 0;
+    font-size: 17pt;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Bouton moins */
+.page___selecteur__bouton_moins{
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding:10px;
+    background : var(--couleurBoutons);
+    color: var(--couleurTexteBoutons);
+    border : none;
+    border-radius: 0;
+    font-size: 17pt;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+}
+/* Bouton editer */
+.page___selecteur__bouton_editer{
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding:10px;
+    background : var(--couleurBoutons);
+    color: var(--couleurTexteBoutons);
+    border : none;
+    border-radius: 0 0 0 0;
+    font-size: 17pt;
+    cursor: pointer;
+    user-select: none;
+}
+/* Valeur d'un élément */
+.page___selecteur__valeur_element{
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding:10px;
+    background: var(--couleurFondSelecteurs);
+    color: var(--couleurTexteSelecteur);
+    border : none;
+    border-radius: 0;
+    font-size: 17pt;
+    text-align: center;
+}
+/* Bouton plus */
+.page___selecteur__bouton_plus{
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding:10px;
+    background : var(--couleurBoutons);
+    color: var(--couleurTexteBoutons);
+    border : none;
+    border-radius: 0 10px 10px 0;
+    font-size: 17pt;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+}

@@ -3,6 +3,8 @@ import { Personnage } from "./personnages/personnage";
 import { BanqueDonnees } from "./donneeSources";
 import { Lang } from "./lang";
 import { Templates } from "./templates";
+import { EcranGestionPersonnage } from "./ecrans/ecranGestionPersonnage";
+import { Routeur } from "./routeur";
 
 Promise.resolve()
 .then(()=>{
@@ -16,9 +18,8 @@ Promise.resolve()
 })
 .then(() => {
     Templates.log();
-    var ecran = new EcranCreationPersonnage(new Personnage());
-    ecran.ouvre();
-    window.ecran = ecran;
+    var ecran = new EcranGestionPersonnage();
+    Routeur.ouvreEcran(ecran);
 })
 .catch((e) => {
     console.error(e);

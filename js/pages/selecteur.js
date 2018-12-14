@@ -1,4 +1,4 @@
-import { Templates } from "../../templates";
+import { Templates } from "../templates";
 
 /**
  * Définis un selecteur abstrait
@@ -382,5 +382,62 @@ export class SelecteurValeurElement extends Selecteur{
 
     set onchange(callback){
         this._onchange = callback;
+    }
+}
+
+export class SelecteurElementEditable extends Selecteur{
+    /**
+     * @param {String} texte
+     */
+    constructor(texte){
+        super("fragmentListePersonnageSelecteurPersonnage");
+        this._onsupprime = (e) => {};
+        this._onedite = (e) => {};
+        this._ligne1 = this._element.querySelector(".page__selecteur__nom");
+        this._ligne1.innerHTML = texte;
+
+        this._boutonEditer = this._element.querySelector(".page___selecteur__bouton_editer");
+        this._boutonEditer.onclick = (event)=>{
+            if(event)
+                event.preventDefault();
+            this._onedite(event);
+        };
+
+        this._boutonSupprimer = this._element.querySelector(".page___selecteur__bouton_supprimer");
+        this._boutonSupprimer.onclick = (event)=>{
+            if(event)
+                event.preventDefault();
+            this._onsupprime(event);
+        };
+
+        this._element = this._element.children[0];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    selectionne(){
+        this._ligne1.classList.add("page__selecteur__nom__possede");
+    }
+
+    /**
+     * @inheritdoc
+     */
+    deselectionne(){
+        this._ligne1.classList.remove("page__selecteur__nom__possede");
+    }
+
+    /**
+     * Définis une callback déclenchée lors d'un clique sur le bouton éditer
+     */
+    set onedite(callback){
+        this._onedite = callback;
+    }
+
+    /**
+     * Définis une callback déclenchée lors d'un clique sur le bouton supprimer
+     */
+    set onsupprime(callback){
+        this._onsupprime = callback;
     }
 }

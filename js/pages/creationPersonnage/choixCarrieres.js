@@ -3,7 +3,7 @@ import { Ecran } from "../../ecrans/ecran";
 import { Personnage } from "../../personnages/personnage";
 import { BanqueDonnees } from "../../donneeSources";
 import { Element } from "../../personnages/element";
-import { Selecteur, SelecteurAvecPrerequis, SelecteurElementSpecial } from "./selecteur";
+import { Selecteur, SelecteurAvecPrerequis, SelecteurElementSpecial } from "../selecteur";
 import { Lang } from "../../lang";
 
 /**
@@ -41,7 +41,6 @@ export class PageChoixCarrieres extends Page{
             else
                 this._inputAjouterCarriere.blur();
             this._inputAjouterCarriere.value = "";
-            this.scrollEnBas();    
         };
         this._boutonAjouterCarriere.addEventListener("submit", this._actionBoutonAjouterCarriere);
     }

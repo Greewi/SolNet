@@ -1,5 +1,5 @@
 import { Page } from "../page";
-import { SelecteurTextArea } from "./selecteur";
+import { SelecteurTextArea } from "../selecteur";
 import { Lang } from "../../lang";
 import { Description } from "../../personnages/description";
 

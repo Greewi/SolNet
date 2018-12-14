@@ -1,7 +1,7 @@
 import { Page } from "../page";
 import { Ecran } from "../../ecrans/ecran";
 import { Personnage } from "../../personnages/personnage";
-import { SelecteurValeurElement } from "./selecteur";
+import { SelecteurValeurElement } from "../selecteur";
 import { Lang } from "../../lang";
 
 /**

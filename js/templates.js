@@ -16,6 +16,8 @@ var _listeTemplates =  [
     "pageCreationPersonnageRelations",
     "pageCreationPersonnageRoles",
     "pageCreationPersonnageTraits",
+    "pagePersonnageExporter",
+    "pagePersonnageListe",
     "fragmentCreationPersonnageSelecteurAjoutElement",
     "fragmentCreationPersonnageSelecteurDeuxLignes",
     "fragmentCreationPersonnageSelecteurElementSpecial",
@@ -24,6 +26,7 @@ var _listeTemplates =  [
     "fragmentCreationPersonnageSelecteurSelect",
     "fragmentCreationPersonnageSelecteurSimple",
     "fragmentCreationPersonnageSelecteurTextArea",
+    "fragmentListePersonnageSelecteurPersonnage",
 ];
 
 var _templates = {};

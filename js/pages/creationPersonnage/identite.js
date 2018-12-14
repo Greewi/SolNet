@@ -1,5 +1,5 @@
 import { Page } from "../page";
-import { Selecteur, SelecteurInputText, SelecteurSelect } from "./selecteur";
+import { Selecteur, SelecteurInputText, SelecteurSelect } from "../selecteur";
 import { Lang } from "../../lang";
 import { BanqueDonnees } from "../../donneeSources";
 

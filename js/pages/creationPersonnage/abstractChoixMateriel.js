@@ -3,7 +3,7 @@ import { Ecran } from "../../ecrans/ecran";
 import { Personnage } from "../../personnages/personnage";
 import { BanqueDonnees } from "../../donneeSources";
 import { Element } from "../../personnages/element";
-import { SelecteurElementSpecial, SelecteurSimple, SelecteurAvecPrerequis } from "./selecteur";
+import { SelecteurElementSpecial, SelecteurSimple, SelecteurAvecPrerequis } from "../selecteur";
 import { Lang } from "../../lang";
 
 /**
@@ -53,7 +53,6 @@ export class AbstractPageChoixMateriel extends Page{
             else
                 this._inputAjouterMateriel.blur();
             this._inputAjouterMateriel.value = "";
-            this.scrollEnBas();    
         };
         this._boutonAjouterMateriel.addEventListener("submit", this._actionBoutonAjouterMateriel);
     }
@@ -86,6 +85,8 @@ export class AbstractPageChoixMateriel extends Page{
             let conseille = false;
             for(let carrierePerso of this._carrieresPersonnage)
             {
+                if(!carrierePerso.id)
+                    continue;
                 let carriere = BanqueDonnees.carrieres[carrierePerso.id];
                 for(let idMaterielConseille of carriere.materiel)
                     if(idMateriel == idMaterielConseille)
