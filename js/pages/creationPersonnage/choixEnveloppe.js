@@ -2,7 +2,7 @@ import { Page } from "../page";
 import { Ecran } from "../../ecrans/ecran";
 import { Personnage } from "../../personnages/personnage";
 import { BanqueDonnees } from "../../donneeSources";
-import { Selecteur, SelecteurAvecPrerequis } from "./selecteur";
+import { Selecteur, SelecteurAvecPrerequis } from "../selecteur";
 import { Lang } from "../../lang";
 import { Element } from "../../personnages/element";
 
@@ -14,8 +14,8 @@ export class PageChoixEnveloppe extends Page{
      * @param {Ecran} ecran L'écran auquel cette page est rattachée
      * @param {Personnage} personnage Le personnage à créer
      */
-    constructor(ecran , personnage, pagePrecedent, pageSuivante){
-        super("pageCreationPersonnageEnveloppe", ecran, pagePrecedent, pageSuivante);
+    constructor(ecran , personnage){
+        super("pageCreationPersonnageEnveloppe", ecran);
         this._personnage = personnage;
         this._rolesPersonnage = personnage.roles;
         this._elementsPersonnage = personnage.elements;
@@ -65,13 +65,15 @@ export class PageChoixEnveloppe extends Page{
             //Liste des enveloppes compatibles
             var estCompatible = false;
             if(this._personnage.identite.natureEsprit)
-            for(let idEnveloppeActuelle of this._personnage.identite.natureEsprit.enveloppes)
-                if(idEnveloppe==idEnveloppeActuelle)
-                    estCompatible = true;
-            if(estCompatible)
-                selecteur.ajoutePrerequis("Esprit compatible", true);
-            else
-                selecteur.ajoutePrerequis("Esprit non compatible", false);
+            {
+                for(let idEnveloppeActuelle of this._personnage.identite.natureEsprit.enveloppes)
+                    if(idEnveloppe==idEnveloppeActuelle)
+                        estCompatible = true;
+                if(estCompatible)
+                    selecteur.ajoutePrerequis("Esprit compatible", true);
+                else
+                    selecteur.ajoutePrerequis("Esprit non compatible", false);
+            }
             
             //Sélection/Déselection de l'enveloppe
             if(this._personnage.identite.enveloppeUsuelle && this._personnage.identite.enveloppeUsuelle.id == idEnveloppe)

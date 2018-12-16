@@ -1,0 +1,51 @@
+.footer {
+    box-sizing: border-box;
+    width: 100%;
+    height: 60px;
+    margin : 0;
+    padding : 10px;
+
+    position: fixed;
+    bottom:0px;
+    transform: translateY(60px);
+
+    display:grid;
+    
+    justify-items: center;
+    grid-template-columns: calc(30% - 5px) calc(40% - 10px) calc(30% - 5px);
+    grid-template-rows: auto;
+    column-gap: 10px;
+
+    background : var(--couleurFondFooter);
+
+    transition-property: transform;
+    transition-duration: 300ms;
+}
+.footer__actif {
+    transform: translateY(0);
+}
+
+.footer__bouton-1 {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: left;
+    width:100%;
+    display: none;
+}
+.footer__bouton-2 {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: center;
+    width:100%;
+    display: none;
+}
+.footer__bouton-3 {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: right;
+    width:100%;
+    display: none;
+}
+.footer__bouton__actif {
+    display: block;
+}

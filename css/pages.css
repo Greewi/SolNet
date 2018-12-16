@@ -6,34 +6,27 @@
     box-sizing: border-box;
     width: 100vw;
     height: 100vh;
+    top: 0;
     margin: 0;
     padding: 0;
     display: none;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 .page__on {
-    display:grid;
+    display: grid;
     justify-items: center;
     grid-template-columns: auto;
-    grid-template-rows: calc(100vh - 60px) 60px;
+    grid-template-rows: auto;
 }
 .page__contenu {
     grid-row: 1;
     box-sizing: border-box;
-    padding: 0 10px 10px 10px;
+    padding: 0 10px 70px 10px;
     width: 100%;
     max-width: 640px;
-    height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
-}
-.page__footer {
-    grid-row: 2;
-    box-sizing: border-box;
-    padding: 10px;
-    width: 100%;
-    max-width: 640px;
-    height: 100%;
-    overflow: hidden;
 }
 
 @keyframes page__depuis_gauche {
@@ -76,32 +69,32 @@
 .page__bouton {
     box-sizing: border-box;
     padding: 10px;
+    margin: 10px 0 10px 0;
     height: 40px;
     background : var(--couleurBoutons);
     color: var(--couleurTexteBoutons);
     border: none;
     border-radius : 10px;
     font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    text-align: center;
+    font-size: 10pt;
 }
-
 @keyframes page__bouton__active {
     from {transform: scale(1.0);}
     50% {transform: scale(0.95);}
     to {transform: scale(1.0);}
 }
+.page__bouton:focus {
+    outline:0;
+}
 .page__bouton:active {
     animation-name: page__bouton__active;
     animation-duration: 200ms;
 }
-.page__bouton_precedent {
-    float: left;
-    width: 35%;
-}
-.page__bouton_suivant {
-    float: right;
-    width: 35%;
-}
 .page__bouton__pleine_largeur {
+    display: block;
     width: 100%;
 }
 .page__bouton_flottant_droite {

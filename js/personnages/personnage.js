@@ -7,10 +7,8 @@ import { Histoire } from './histoire';
 import { Elements } from './elements';
 
 export class Personnage {
-    constructor(){
-        /**
-         * @type {Object<string, string>}
-         */
+    constructor(id){
+        this.id = id;
         this.roles = {};    
         this.elements = new Elements();
         this.identite = new Identite();

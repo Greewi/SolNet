@@ -5,34 +5,12 @@ export class Page{
     /**
      * @param {string} id L'id de l'élément racine de la page dans le DOM
      */
-    constructor(id, ecran, pagePrecedente, pageSuivante){
+    constructor(id, ecran){
         this._element = Templates.getTemplate(id).content.cloneNode(true).children[0];
         this._ecran = ecran;
         this._transition = null;
         this._contenu = this._element.querySelector(".page__contenu");
-        
-        this._boutonPrecedent = this.element.querySelector(".bouton-precedent");
-        if(this._boutonPrecedent && pagePrecedente)
-        {
-            this._actionBoutonPrecedent = (event) => {
-                this.ecran.ouvre(pagePrecedente, false);
-            };
-            this._boutonPrecedent.addEventListener("click", this._actionBoutonPrecedent);    
-        }
-        else
-            this._actionBoutonPrecedent = null;
-
-        this._boutonSuivant = this.element.querySelector(".bouton-suivant");
-        if(this._boutonSuivant && pageSuivante)
-        {
-            this._actionBoutonSuivant = (event) => {
-                this.ecran.ouvre(pageSuivante, true);
-            };
-            this._boutonSuivant.addEventListener("click", this._actionBoutonSuivant);
-        }
-        else
-            this._actionBoutonSuivant = null;
-        document.body.appendChild(this._element);
+        document.getElementById("main").appendChild(this._element);
     }
 
     /**
@@ -84,13 +62,7 @@ export class Page{
     detruit(){
         this._stopTransition();
         this._element.classList.remove("page__on");
-        if(this._actionBoutonPrecedent)
-            this._boutonPrecedent.removeEventListener(this._actionBoutonPrecedent);
-        this._actionBoutonPrecedent = null;
-        if(this._actionBoutonSuivant)
-            this._boutonSuivant.removeEventListener(this._actionBoutonSuivant);        
-        this._actionBoutonSuivant = null;
-        document.body.removeChild(this._element);
+        document.getElementById("main").removeChild(this._element);
     }
 
     /**

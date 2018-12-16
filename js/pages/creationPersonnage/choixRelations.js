@@ -3,7 +3,7 @@ import { Ecran } from "../../ecrans/ecran";
 import { Personnage } from "../../personnages/personnage";
 import { BanqueDonnees } from "../../donneeSources";
 import { Element } from "../../personnages/element";
-import { Selecteur, SelecteurAvecPrerequis, SelecteurElementSpecial, SelecteurSimple } from "./selecteur";
+import { Selecteur, SelecteurAvecPrerequis, SelecteurElementSpecial, SelecteurSimple } from "../selecteur";
 import { Lang } from "../../lang";
 
 
@@ -15,8 +15,8 @@ export class PageChoixRelations extends Page{
      * @param {Ecran} ecran L'écran auquel cette page est rattachée
      * @param {Personnage} personnage Le personnage à créer
      */
-    constructor(ecran , personnage, pagePrecedent, pageSuivante){
-        super("pageCreationPersonnageRelations", ecran, pagePrecedent, pageSuivante);
+    constructor(ecran , personnage){
+        super("pageCreationPersonnageRelations", ecran);
 
         this._personnage = personnage;
         this._elementsPersonnage = personnage.elements;
@@ -41,7 +41,6 @@ export class PageChoixRelations extends Page{
             else
                 this._inputAjouterRelation.blur();
             this._inputAjouterRelation.value = "";
-            this.scrollEnBas();    
         };
         this._boutonAjouterRelation.addEventListener("submit", this._actionBoutonAjouterRelation);
     }
@@ -117,6 +116,6 @@ export class PageChoixRelations extends Page{
 
     detruit(){
         super.detruit();
-        this._boutonAjouterRelation.removeEventListener(this._actionBoutonAjouterRelation);
+        this._boutonAjouterRelation.removeEventListener("submit", this._actionBoutonAjouterRelation);
     }
 }

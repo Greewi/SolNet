@@ -2,7 +2,7 @@ import { Page } from "../page";
 import { Ecran } from "../../ecrans/ecran";
 import { Personnage } from "../../personnages/personnage";
 import { Element } from "../../personnages/element";
-import { SelecteurElementSpecial, SelecteurAjoutElement } from "./selecteur";
+import { SelecteurElementSpecial, SelecteurAjoutElement } from "../selecteur";
 
 /**
  * Page de choix des relations du personnage
@@ -12,8 +12,8 @@ export class PageChoixTraits extends Page{
      * @param {Ecran} ecran L'écran auquel cette page est rattachée
      * @param {Personnage} personnage Le personnage à créer
      */
-    constructor(ecran, personnage, pagePrecedent, pageSuivante){
-        super("pageCreationPersonnageTraits", ecran, pagePrecedent, pageSuivante);
+    constructor(ecran, personnage){
+        super("pageCreationPersonnageTraits", ecran);
 
         this._personnage = personnage;
         this._elementsPersonnage = personnage.elements;
@@ -27,7 +27,6 @@ export class PageChoixTraits extends Page{
         this._inputAjouterTraitCaractere.onadd = (nom)=>{
             this._traitsPersonnage.push(new Element(null, Element.TRAIT_CARACTERE, nom, 1));
             this._ajouteTrait(nom, Element.TRAIT_CARACTERE, this._listeTraitsCaracteres);
-            this.scrollEnBas();
         };
         this._creationPersonnageTraitCaractereAjouter.appendChild(this._inputAjouterTraitCaractere.element);
 
@@ -36,7 +35,6 @@ export class PageChoixTraits extends Page{
         this._inputAjouterTraitPhysique.onadd = (nom)=>{
             this._traitsPersonnage.push(new Element(null, Element.TRAIT_PHYSIQUE, nom, 1));
             this._ajouteTrait(nom, Element.TRAIT_PHYSIQUE, this._listeTraitsPhysiques);
-            this.scrollEnBas();
         };
         this._creationPersonnageTraitPhysiqueAjouter.appendChild(this._inputAjouterTraitPhysique.element);
     }
@@ -83,6 +81,5 @@ export class PageChoixTraits extends Page{
 
     detruit(){
         super.detruit();
-        this._boutonAjouterTrait.removeEventListener(this._actionBoutonAjouterTrait);
     }
 }

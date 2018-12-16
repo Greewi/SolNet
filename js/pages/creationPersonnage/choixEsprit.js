@@ -2,7 +2,7 @@ import { Page } from "../page";
 import { Ecran } from "../../ecrans/ecran";
 import { Personnage } from "../../personnages/personnage";
 import { BanqueDonnees } from "../../donneeSources";
-import { Selecteur, SelecteurAvecPrerequis } from "./selecteur";
+import { Selecteur, SelecteurAvecPrerequis } from "../selecteur";
 import { Lang } from "../../lang";
 import { Element } from "../../personnages/element";
 
@@ -14,8 +14,8 @@ export class PageChoixEsprit extends Page{
      * @param {Ecran} ecran L'écran auquel cette page est rattachée
      * @param {Personnage} personnage Le personnage à créer
      */
-    constructor(ecran , personnage, pagePrecedent, pageSuivante){
-        super("pageCreationPersonnageEsprit", ecran, pagePrecedent, pageSuivante);
+    constructor(ecran , personnage){
+        super("pageCreationPersonnageEsprit", ecran);
         this._personnage = personnage;
         this._rolesPersonnage = personnage.roles;
         this._elementsPersonnage = personnage.elements;
@@ -49,14 +49,17 @@ export class PageChoixEsprit extends Page{
             let selecteur = new SelecteurAvecPrerequis(nom, description);
 
             //Liste des enveloppes compatibles
-            var estCompatible = false;
-            for(let idEnveloppe of intelligence.enveloppes)
-                if(this._personnage.identite.enveloppeUsuelle && this._personnage.identite.enveloppeUsuelle.id == idEnveloppe)
-                    estCompatible = true;
-            if(estCompatible)
-                selecteur.ajoutePrerequis("Enveloppe compatible", true);
-            else
-                selecteur.ajoutePrerequis("Enveloppe non compatible", false);
+            if(this._personnage.identite.enveloppeUsuelle)
+            {
+                var estCompatible = false;
+                for(let idEnveloppe of intelligence.enveloppes)
+                    if(this._personnage.identite.enveloppeUsuelle && this._personnage.identite.enveloppeUsuelle.id == idEnveloppe)
+                        estCompatible = true;
+                if(estCompatible)
+                    selecteur.ajoutePrerequis("Enveloppe compatible", true);
+                else
+                    selecteur.ajoutePrerequis("Enveloppe non compatible", false);
+            }
 
             //Sélection/Déselection de l'intelligence
             if(this._personnage.identite.natureEsprit && this._personnage.identite.natureEsprit.id == idIntelligence)

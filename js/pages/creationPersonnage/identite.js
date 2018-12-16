@@ -1,5 +1,5 @@
 import { Page } from "../page";
-import { Selecteur, SelecteurInputText, SelecteurSelect } from "./selecteur";
+import { Selecteur, SelecteurInputText, SelecteurSelect } from "../selecteur";
 import { Lang } from "../../lang";
 import { BanqueDonnees } from "../../donneeSources";
 
@@ -8,8 +8,8 @@ export class PageIdentite extends Page{
      * @param {Ecran} ecran L'écran auquel cette page est rattachée
      * @param {Personnage} personnage Le personnage à créer
      */
-    constructor(ecran , personnage, pagePrecedent, pageSuivante){
-        super("pageCreationPersonnageIdentite", ecran, pagePrecedent, pageSuivante);
+    constructor(ecran , personnage){
+        super("pageCreationPersonnageIdentite", ecran);
         this._personnage = personnage;
 
         this._elementPseudonyme = this.element.querySelector("#creationPersonnagePseudonyme");
@@ -25,10 +25,6 @@ export class PageIdentite extends Page{
      */
     ouvre(avancer){
         super.ouvre(avancer);
-
-        console.log(this._personnage);
-        console.log(JSON.stringify(this._personnage));
-
         this.initialisePseudonyme();
         this.initialiseNomAdministratif();
         this.initialiseProfession();

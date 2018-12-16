@@ -3,7 +3,7 @@ import { Ecran } from "../../ecrans/ecran";
 import { Personnage } from "../../personnages/personnage";
 import { BanqueDonnees } from "../../donneeSources";
 import { Element } from "../../personnages/element";
-import { Selecteur, SelecteurAvecPrerequis, SelecteurElementSpecial } from "./selecteur";
+import { Selecteur, SelecteurAvecPrerequis, SelecteurElementSpecial } from "../selecteur";
 import { Lang } from "../../lang";
 
 /**
@@ -14,8 +14,8 @@ export class PageChoixCarrieres extends Page{
      * @param {Ecran} ecran L'écran auquel cette page est rattachée
      * @param {Personnage} personnage Le personnage à créer
      */
-    constructor(ecran , personnage, pagePrecedent, pageSuivante){
-        super("pageCreationPersonnageCarrieres", ecran, pagePrecedent, pageSuivante);
+    constructor(ecran , personnage){
+        super("pageCreationPersonnageCarrieres", ecran);
 
         this._personnage = personnage;
         this._rolesPersonnage = personnage.roles;
@@ -41,7 +41,6 @@ export class PageChoixCarrieres extends Page{
             else
                 this._inputAjouterCarriere.blur();
             this._inputAjouterCarriere.value = "";
-            this.scrollEnBas();    
         };
         this._boutonAjouterCarriere.addEventListener("submit", this._actionBoutonAjouterCarriere);
     }
@@ -144,6 +143,6 @@ export class PageChoixCarrieres extends Page{
 
     detruit(){
         super.detruit();
-        this._boutonAjouterCarriere.removeEventListener(this._actionBoutonAjouterCarriere);
+        this._boutonAjouterCarriere.removeEventListener("submit", this._actionBoutonAjouterCarriere);
     }
 }

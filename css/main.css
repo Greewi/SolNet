@@ -1,12 +1,20 @@
+/**
+ * Thèmes
+ */
 :root{
     /**
      * Interface générale
      */
     --couleurFondPage: rgb(255, 255, 255);
-    --couleurTextePage: #242424;
+    --couleurTextePage: rgb(36, 36, 36);
+
+    --couleurFondFooter: rgba(255, 255, 255, 0.486);
 
     --couleurFondTitre1: rgba(0, 153, 255, 0.473);
     --couleurBordureTitre2 : rgba(0, 85, 255, 0.747);
+
+    --couleurBordureEncart : rgb(139, 209, 255);
+    --couleurFondEncart : rgba(231, 245, 255, 0.384);
 
     /**
      * Boutons
@@ -30,19 +38,44 @@
     --couleurLabelSelecteurOff: rgba(0, 0, 0, 0.397);
 }
 
+/**
+ * Zone principale
+ */
 .body {
     width: 100%;
     height: 100%;
-    overflow: hidden;
     margin: 0;
     padding: 0;
-    background: var(--couleurFondPage);
-    color : var(--couleurTextePage);
+    overflow: hidden;
 
     font-family: Arial, Helvetica, sans-serif;
     font-size: 11pt;
 }
+.header {
+    position: fixed;
+    top:0px;
+    width: 100%;
+    height: 60px;
+    transform: translateY(-60px);
+    transition-property: transform;
+    transition-duration: 300ms;
+}
+.header__actif {
+    transform: translateY(0);
+}
+.main {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: var(--couleurFondPage);
+    color : var(--couleurTextePage);
+}
 
+/**
+ * Styles de texte
+ */
 h1 {
     text-align: center;
     background: var(--couleurFondTitre1);
@@ -59,4 +92,43 @@ h2 {
 
 p {
     text-align: justify;
+}
+
+.encart {
+    box-sizing: border-box;
+    padding: 10px;
+    margin-left: -5px;
+    margin-right: -5px;
+    border : solid 2px var(--couleurBordureEncart);
+    border-radius: 15px;
+    background: var(--couleurFondEncart);
+}
+
+/**
+ * Boutons
+ */
+.bouton {
+    box-sizing: border-box;
+    padding: 10px;
+    height: 40px;
+    background : var(--couleurBoutons);
+    color: var(--couleurTexteBoutons);
+    border: none;
+    border-radius : 10px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    font-size: 10pt;
+}
+@keyframes bouton__active {
+    from {transform: scale(1.0);}
+    50% {transform: scale(0.95);}
+    to {transform: scale(1.0);}
+}
+.bouton:focus {
+    outline:0;
+}
+.bouton:active {
+    animation-name: bouton__active;
+    animation-duration: 200ms;
 }

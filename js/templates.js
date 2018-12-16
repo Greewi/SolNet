@@ -11,11 +11,14 @@ var _listeTemplates =  [
     "pageCreationPersonnageEvaluation",
     "pageCreationPersonnageIdentite",
     "pageCreationPersonnageIntroduction",
+    "pageCreationPersonnageIntroductionEdition",
     "pageCreationPersonnageLogiciels",
     "pageCreationPersonnageModifications",
     "pageCreationPersonnageRelations",
     "pageCreationPersonnageRoles",
     "pageCreationPersonnageTraits",
+    "pagePersonnageImporter",
+    "pagePersonnageListe",
     "fragmentCreationPersonnageSelecteurAjoutElement",
     "fragmentCreationPersonnageSelecteurDeuxLignes",
     "fragmentCreationPersonnageSelecteurElementSpecial",
@@ -24,6 +27,7 @@ var _listeTemplates =  [
     "fragmentCreationPersonnageSelecteurSelect",
     "fragmentCreationPersonnageSelecteurSimple",
     "fragmentCreationPersonnageSelecteurTextArea",
+    "fragmentListePersonnageSelecteurPersonnage",
 ];
 
 var _templates = {};

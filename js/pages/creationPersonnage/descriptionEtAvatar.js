@@ -1,5 +1,5 @@
 import { Page } from "../page";
-import { SelecteurTextArea } from "./selecteur";
+import { SelecteurTextArea } from "../selecteur";
 import { Lang } from "../../lang";
 import { Description } from "../../personnages/description";
 
@@ -10,8 +10,8 @@ class PageDescriptionGenerique extends Page{
      * @param {Description} description La description à remplir
      * @param {Personnage} personnage Le personnage à créer
      */
-    constructor(ecran, pageDOM, description, personnage, pagePrecedent, pageSuivante){
-        super(pageDOM, ecran, pagePrecedent, pageSuivante);
+    constructor(ecran, pageDOM, description, personnage){
+        super(pageDOM, ecran);
         this._personnage = personnage;
         this._description = description;
     }
@@ -79,8 +79,8 @@ export class PageDescriptionPhysique extends PageDescriptionGenerique{
      * @param {Ecran} ecran L'écran auquel cette page est rattachée
      * @param {Personnage} personnage Le personnage à créer
      */
-    constructor(ecran, personnage, pagePrecedent, pageSuivante){
-        super(ecran, "pageCreationPersonnageDescription", personnage.description, personnage, pagePrecedent, pageSuivante);
+    constructor(ecran, personnage){
+        super(ecran, "pageCreationPersonnageDescription", personnage.description, personnage);
         this.setElements("creationPersonnageDescriptionPremiereImpression", "creationPersonnageDescriptionCorps", "creationPersonnageDescriptionVisage");
     }
 }
@@ -90,8 +90,8 @@ export class PageDescriptionAvatar extends PageDescriptionGenerique{
     * @param {Ecran} ecran L'écran auquel cette page est rattachée
     * @param {Personnage} personnage Le personnage à créer
     */
-   constructor(ecran, personnage, pagePrecedent, pageSuivante){
-       super(ecran, "pageCreationPersonnageAvatar", personnage.avatar, personnage, pagePrecedent, pageSuivante);
+   constructor(ecran, personnage){
+       super(ecran, "pageCreationPersonnageAvatar", personnage.avatar, personnage);
        this.setElements("creationPersonnageAvatarPremiereImpression", "creationPersonnageAvatarCorps", "creationPersonnageAvatarVisage");
    }
 }
