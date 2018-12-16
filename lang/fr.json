@@ -34,6 +34,7 @@
     "InputDescriptionVisage": "Visage",
     "MaterielConseille": "Élement conseillé",
     "MaterielUniversel": "Élement universel",
+    "ConfirmationCopierDescription": "Ceci écrasera la description actuelle. Voulez-vous vraiment le faire ?",
 
     "// Données de génération des personnages ------------------------------------------------------------------------": "",
 

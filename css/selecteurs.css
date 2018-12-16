@@ -103,6 +103,7 @@
 .page__selecteur__textarea{
     resize: none;
     border-radius:10px;
+    white-space: pre-wrap;
 }
 /* Bouton d'info */
 .page___selecteur__bouton_infos{

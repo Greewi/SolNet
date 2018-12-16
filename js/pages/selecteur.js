@@ -205,6 +205,9 @@ export class SelecteurAjoutElement extends Selecteur{
         super("fragmentCreationPersonnageSelecteurAjoutElement");
         this._ligne1 = this._element.querySelector(".page__selecteur__nom");
         this._ligne1.placeholder = texte;
+        this._ligne1.onfocus = ()=>{
+            this._ligne1.scrollIntoView(true);
+        };
 
         this._onadd = (valeur)=>{};
         this._boutonAjouter = this._element.querySelector(".page___selecteur__bouton_ajouter");
@@ -239,6 +242,9 @@ export class SelecteurInputText extends Selecteur{
         super("fragmentCreationPersonnageSelecteurInput");
         this._ligne1 = this._element.querySelector(".page__selecteur__nom");
         this._ligne1.placeholder = texte;
+        this._ligne1.onfocus = ()=>{
+            this._ligne1.scrollIntoView(true);
+        };
 
         this._blockInfos = this._element.querySelector(".page___selecteur__infos");
         this._blockInfos.innerHTML = description;
@@ -314,6 +320,9 @@ export class SelecteurTextArea extends Selecteur{
         this._ligne1 = this._element.querySelector(".page__selecteur__textarea");
         this._ligne1.placeholder = texte;
         this._ligne1.rows = lignes || 5;
+        this._ligne1.onfocus = ()=>{
+            this._ligne1.scrollIntoView(true);
+        };
 
         this._onchange = (valeur)=>{};
         this._ligne1.onchange = (e)=>{

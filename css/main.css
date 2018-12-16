@@ -99,6 +99,7 @@ p {
     padding: 10px;
     margin-left: -5px;
     margin-right: -5px;
+    margin-bottom: 10px;
     border : solid 2px var(--couleurBordureEncart);
     border-radius: 15px;
     background: var(--couleurFondEncart);
