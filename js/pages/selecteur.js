@@ -1,7 +1,7 @@
 import { Templates } from "../templates";
 
 /**
- * Définis un selecteur abstrait
+ * Définit un selecteur abstrait
  */
 export class Selecteur{
     /**
@@ -20,7 +20,7 @@ export class Selecteur{
     }
 
     /**
-     * Définis le gestionnaire d'évenement lors d'un clic sur ce selecteur
+     * Définit le gestionnaire d'évenement lors d'un clic sur ce selecteur
      */
     set onclick(callback){
         this._onclick = callback || (()=>{});
@@ -48,7 +48,7 @@ export class Selecteur{
 }
 
 /**
- * Définis un selecteur simple avec une description
+ * Définit un selecteur simple avec une description
  */
 export class SelecteurSimple extends Selecteur{
     /**
@@ -94,7 +94,7 @@ export class SelecteurSimple extends Selecteur{
 };
 
 /**
- * Définis un selecteur avec une description et des prérequis
+ * Définit un selecteur avec une description et des prérequis
  */
 export class SelecteurAvecPrerequis extends Selecteur{
     /**
@@ -190,7 +190,7 @@ export class SelecteurElementSpecial extends Selecteur{
     }
 
     /**
-     * Définis une callback déclenchée lors d'un clique sur le bouton supprimer
+     * Définit une callback déclenchée lors d'un clique sur le bouton supprimer
      */
     set onsupprime(callback){
         this._onsupprime = callback;
@@ -331,7 +331,7 @@ export class SelecteurTextArea extends Selecteur{
 }
 
 /**
- * Définis un selecteur permettant d'affecter une valeur à un élément
+ * Définit un selecteur permettant d'affecter une valeur à un élément
  */
 export class SelecteurValeurElement extends Selecteur{
     /**
@@ -385,13 +385,14 @@ export class SelecteurValeurElement extends Selecteur{
     }
 }
 
-export class SelecteurElementEditable extends Selecteur{
+export class SelecteurPersonnage extends Selecteur{
     /**
      * @param {String} texte
      */
     constructor(texte){
         super("fragmentListePersonnageSelecteurPersonnage");
         this._onsupprime = (e) => {};
+        this._onsauvegarde = (e) => {};
         this._onedite = (e) => {};
         this._ligne1 = this._element.querySelector(".page__selecteur__nom");
         this._ligne1.innerHTML = texte;
@@ -401,6 +402,13 @@ export class SelecteurElementEditable extends Selecteur{
             if(event)
                 event.preventDefault();
             this._onedite(event);
+        };
+        
+        this._boutonSauvegarder = this._element.querySelector(".page___selecteur__bouton_sauvegarder");
+        this._boutonSauvegarder.onclick = (event)=>{
+            if(event)
+                event.preventDefault();
+            this._onsauvegarde(event);
         };
 
         this._boutonSupprimer = this._element.querySelector(".page___selecteur__bouton_supprimer");
@@ -428,16 +436,23 @@ export class SelecteurElementEditable extends Selecteur{
     }
 
     /**
-     * Définis une callback déclenchée lors d'un clique sur le bouton éditer
+     * Définit une callback déclenchée lors d'un clique sur le bouton éditer
      */
     set onedite(callback){
         this._onedite = callback;
     }
 
     /**
-     * Définis une callback déclenchée lors d'un clique sur le bouton supprimer
+     * Définit une callback déclenchée lors d'un clique sur le bouton supprimer
      */
     set onsupprime(callback){
         this._onsupprime = callback;
+    }
+
+    /**
+     * Définit la callback déclenchée lors d'un clique sur le bouton sauvegarde
+     */
+    set onsauvegarde(callback){
+        this._onsauvegarde = callback;
     }
 }

@@ -12,7 +12,7 @@ export class PageChoixModifications extends AbstractPageChoixMateriel{
      * @param {Ecran} ecran L'écran auquel cette page est rattachée
      * @param {Personnage} personnage Le personnage à créer
      */
-    constructor(ecran , personnage, pagePrecedent, pageSuivante){
+    constructor(ecran , personnage){
         let template = "pageCreationPersonnageModifications";
         let module = "Modification";
         let listeMaterielPersonnage = personnage.elements.modifications;
@@ -25,6 +25,6 @@ export class PageChoixModifications extends AbstractPageChoixMateriel{
             return true;
         };
 
-        super(ecran, template, module, personnage, listeMaterielPersonnage, listeMateriel, typeMaterielBase, typeMaterielCustom, filtre, pagePrecedent, pageSuivante)
+        super(ecran, template, module, personnage, listeMaterielPersonnage, listeMateriel, typeMaterielBase, typeMaterielCustom, filtre)
     }
 }

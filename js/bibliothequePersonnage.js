@@ -1,6 +1,7 @@
 import { Utils } from "./utils";
 import { Personnage } from "./personnages/personnage";
 import { Lang } from "./lang";
+import { Element } from "./personnages/element";
 
 /**
  * Ce singleton gère la bibliothèque des personnages et les stocke dans le local storage.
@@ -8,12 +9,19 @@ import { Lang } from "./lang";
 export class BibliothequePersonnage{
 
     /**
+     * Initialise la bibliothèque des personnages
+     */
+    static initialise(){
+        let liste = Utils.parseJSON(localStorage.getItem(`personnage_liste`));
+        if(!liste)
+            localStorage.setItem(`personnage_liste`, JSON.stringify({}));
+    }
+
+    /**
      * @returns {string[]} La liste des personnages
      */
     static getListePersonnages(){
         let liste = Utils.parseJSON(localStorage.getItem(`personnage_liste`));
-        if(!liste)
-            liste={};
         return liste;
     }
 
@@ -26,7 +34,7 @@ export class BibliothequePersonnage{
         let json = Utils.parseJSON(localStorage.getItem(`personnage_${index}`));
         if(json == null)
             return null;
-        return BibliothequePersonnage.parsePersonnageV1(json);
+        return this.parsePersonnageV1(json);
     }
 
     /**
@@ -34,9 +42,9 @@ export class BibliothequePersonnage{
      * @returns {Personnage} Le personnage créé
      */
     static creePersonnage(){
-        let personnage = new Personnage(BibliothequePersonnage.genereIDPersonnage());
+        let personnage = new Personnage(this.genereIDPersonnage());
         personnage.identite.pseudonyme = Lang.get("NomNouveauPersonnage");
-        BibliothequePersonnage.ajoutePersonnage(personnage);
+        this.ajoutePersonnage(personnage);
         return personnage;
     }
 
@@ -47,10 +55,8 @@ export class BibliothequePersonnage{
      */
     static ajoutePersonnage(personnage){
         let liste = Utils.parseJSON(localStorage.getItem(`personnage_liste`));
-        if(!liste)
-            liste={};
         if(liste[personnage.id])
-            personnage.id = BibliothequePersonnage.genereIDPersonnage();
+            personnage.id = this.genereIDPersonnage();
         liste[personnage.id] = personnage.identite.pseudonyme;
         localStorage.setItem(`personnage_liste`, JSON.stringify(liste));
         localStorage.setItem(`personnage_${personnage.id}`, JSON.stringify(personnage));
@@ -62,11 +68,67 @@ export class BibliothequePersonnage{
      */
     static retirePersonnage(idPersonnage){
         let liste = Utils.parseJSON(localStorage[`personnage_liste`]);
-        if(!liste)
-            liste={};
         delete liste[idPersonnage];
         localStorage.setItem(`personnage_liste`, JSON.stringify(liste));
         localStorage.removeItem(`personnage_${idPersonnage}`);
+    }
+
+    /**
+     * Sauvegarde un personnage
+     * @param {Personnage} personnage Le personnage à sauvegarder
+     */
+    static sauvegardePersonnage(personnage){
+        let liste = Utils.parseJSON(localStorage.getItem(`personnage_liste`));
+        liste[personnage.id] = personnage.identite.pseudonyme;
+        localStorage.setItem(`personnage_liste`, JSON.stringify(liste));
+        localStorage.setItem(`personnage_${personnage.id}`, JSON.stringify(personnage));
+    }
+
+    /**
+     * Exporte un personnage dans un fichier json
+     * @param {string} idPersonnage L'id du personnage à exporter
+     */
+    static exportePersonnage(idPersonnage){
+        let personnage = this.getPersonnage(idPersonnage);
+        var json = JSON.stringify(personnage);
+        var blob = new Blob([json], {
+            "type": "application/json"
+        });
+        var a = document.createElement("a");
+        a.download = `${personnage.identite.pseudonyme}.json`;
+        a.href = URL.createObjectURL(blob);
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    }
+
+    /**
+     * Importe un personnage depuis un fichier json
+     * https://stackoverflow.com/questions/34034475/edit-and-save-a-file-locally-with-js
+     * @param {File} fichier Le fichier à charger
+     * @param {function} [callback] Une callback appelée une fois le fichier chargé avec succès
+     */
+    static importePersonnage(fichier, callback){
+        callback = callback || (()=>{});
+        var reader = new FileReader();
+        reader.onload = (event) => {
+            try{
+                let json = JSON.parse(event.target.result);
+                let personnage = this.parsePersonnageV1(json);
+                if(confirm(Lang.get("ConfirmationImportationPersonnage", {"CharacterName":personnage.identite.pseudonyme})))
+                {
+                    this.ajoutePersonnage(personnage);
+                    callback();
+                }
+            }
+            catch(e){
+                console.error(e);
+                alert(Lang.get("ErreurChargementFichierPersonnage"));
+            }
+        }
+        reader.readAsText(new Blob([fichier], {
+            "type": "application/json"
+        }));
     }
 
     /**
@@ -141,40 +203,5 @@ export class BibliothequePersonnage{
         personnage.maxPointPersonnage = json.maxPointPersonnage;
 
         return personnage;
-    }
-
-
-
-    
-    /**
-     * https://stackoverflow.com/questions/34034475/edit-and-save-a-file-locally-with-js
-     * 
-     * @param {*} e Event provenant du onchange d'un input[type=file]
-     */
-    _importePersonnage(e){
-        var reader = new FileReader();
-        reader.onload = function(event) {
-            var json = JSON.parse(event.target.result);
-        }
-        reader.readAsText(new Blob([e.target.files[0]], {
-            "type": "application/json"
-        }));
-    }
-
-    /**
-     * 
-     * @param {Personnage} personnage 
-     */
-    _exportePersonnage(personnage){
-        var json = JSON.stringify(personnage);
-        var blob = new Blob([json], {
-            "type": "application/json"
-        });
-        var a = document.createElement("a");
-        a.download = `${personnage.identite.pseudonyme}.json`;
-        a.href = URL.createObjectURL(blob);
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
     }
 }

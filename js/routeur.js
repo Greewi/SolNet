@@ -9,6 +9,17 @@ let _ecranActuel = null;
  * Gère l'ouverture et la fermeture des écrans
  */
 export class Routeur{
+
+    /**
+     * Initialise le routeur
+     */
+    static initialise(){
+        window.addEventListener("beforeunload", function(){
+            if(_ecranActuel != null)
+                _ecranActuel.ferme();
+        });
+    }
+
     /**
      * Ouvre un écran et ferme l'actuel
      * @param {Ecran} ecran 

@@ -14,8 +14,8 @@ export class PageChoixEsprit extends Page{
      * @param {Ecran} ecran L'écran auquel cette page est rattachée
      * @param {Personnage} personnage Le personnage à créer
      */
-    constructor(ecran , personnage, pagePrecedent, pageSuivante){
-        super("pageCreationPersonnageEsprit", ecran, pagePrecedent, pageSuivante);
+    constructor(ecran , personnage){
+        super("pageCreationPersonnageEsprit", ecran);
         this._personnage = personnage;
         this._rolesPersonnage = personnage.roles;
         this._elementsPersonnage = personnage.elements;

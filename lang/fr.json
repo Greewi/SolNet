@@ -5,6 +5,20 @@
 
     "// Fragments d'interface ------------------------------------------------------------------------": "",
 
+    "BoutonPrecedent" : "Précédent",
+    "BoutonSuivant" : "Suivant",
+    "BoutonRetour" : "Retour",
+    "BoutonQuitter" : "Quitter",
+
+    "// Gestion des personnages ------------------------------------------------------------------------": "",
+
+    "NomNouveauPersonnage" : "Nouveau personnage",
+    "ErreurChargementFichierPersonnage" : "Le fichier du personnage n'a pas pu être chargé. Une erreur semble s'y être glissé !",
+    "ConfirmationSuppressionPersonnage" : "Voulez vous vraiment supprimer le personnage %CharacterName% ?",
+    "ConfirmationImportationPersonnage" : "Voulez vous vraiment importer le personnage %CharacterName% ?",
+
+    "// Edition des personnages ------------------------------------------------------------------------": "",
+
     "InputPseudonyme": "Pseudonyme",
     "DescriptionPseudonyme": "Quel est le pseudonyme de votre personnage ? Plus qu’un simple alias, il s'agit de la façon dont le personnage est couramment appelé. À la différence d'un surnom, le pseudonyme est généralement choisi par la personne le portant et, dans la société des Solaires, il est souvent plus utilisé que le nom. Le pseudonyme est d'ailleurs enregistré dans l'état civil, généralement entre guillemets, placé entre les prénoms et les noms de famille.",
     "InputNomAdministratif": "Nom administratif",
@@ -20,8 +34,6 @@
     "InputDescriptionVisage": "Visage",
     "MaterielConseille": "Élement conseillé",
     "MaterielUniversel": "Élement universel",
-    
-    "NomNouveauPersonnage" : "Nouveau personnage",
 
     "// Données de génération des personnages ------------------------------------------------------------------------": "",
 
@@ -322,16 +334,16 @@
     "Logiciel_RECONSTITUTION" : "Reconstitution",
     "Logiciel_SOCIABILITE" : "Sociabilité",
 
-    "DecriptionLogiciel_AGENT_RECHERCHE" : "de base tout le monde en possède, ce sont simplement les successeurs des moteurs de recherche.",
-    "DecriptionLogiciel_COMMUNICATION_INFORMELLE" : "celui-ci permet de communiquer par gestes avec d’autres personnes sans qu’un tiers puisse intercepter le message, voir même sans que personne ne s’en rende compte.",
-    "DecriptionLogiciel_INTERFACE_COMBAT" : "le logiciel permet de se servir d’une enveloppe à des fins guerrières sans entraînement.",
-    "DecriptionLogiciel_LANGUE" : "cette famille de logiciels permet de comprendre, parler, lire et écrire d’autres langues que celle que connaît son utilisateur.",
-    "DecriptionLogiciel_LECTEUR_INTENTION" : "celui-ci permet de prédire le comportement ou l’état émotionnel d’une personne en la regardant. Peut aussi permettre de prédire une action juste avant qu’elle ne soit faite.",
-    "DecriptionLogiciel_MAINTENANCE" : "ils sont utilisés pour réparer et entretenir des tas de choses.",
-    "DecriptionLogiciel_PILOTAGE" : "possédé par tous les véhicules, ce logiciel permet d’arriver à bon port.",
-    "DecriptionLogiciel_PIRATAGE" : "ce logiciel sert à forcer les serveurs et autres nœuds de SolNet. Utilisé par tout pirate informatique qui se respecte.",
-    "DecriptionLogiciel_RECONSTITUTION" : "celui-ci parvient à reconstruire la succession d’événement qui a conduit une scène de crime à se retrouver dans l’état où l’observateur l’a trouvé. Il permet aussi de tester des hypothèses.",
-    "DecriptionLogiciel_SOCIABILITE" : "permet de prendre le comportement d’un autre persona, pour, par exemple, se faire passer pour quelqu’un d’autre.",
+    "DescriptionLogiciel_AGENT_RECHERCHE" : "de base tout le monde en possède, ce sont simplement les successeurs des moteurs de recherche.",
+    "DescriptionLogiciel_COMMUNICATION_INFORMELLE" : "celui-ci permet de communiquer par gestes avec d’autres personnes sans qu’un tiers puisse intercepter le message, voir même sans que personne ne s’en rende compte.",
+    "DescriptionLogiciel_INTERFACE_COMBAT" : "le logiciel permet de se servir d’une enveloppe à des fins guerrières sans entraînement.",
+    "DescriptionLogiciel_LANGUE" : "cette famille de logiciels permet de comprendre, parler, lire et écrire d’autres langues que celle que connaît son utilisateur.",
+    "DescriptionLogiciel_LECTEUR_INTENTION" : "celui-ci permet de prédire le comportement ou l’état émotionnel d’une personne en la regardant. Peut aussi permettre de prédire une action juste avant qu’elle ne soit faite.",
+    "DescriptionLogiciel_MAINTENANCE" : "ils sont utilisés pour réparer et entretenir des tas de choses.",
+    "DescriptionLogiciel_PILOTAGE" : "possédé par tous les véhicules, ce logiciel permet d’arriver à bon port.",
+    "DescriptionLogiciel_PIRATAGE" : "ce logiciel sert à forcer les serveurs et autres nœuds de SolNet. Utilisé par tout pirate informatique qui se respecte.",
+    "DescriptionLogiciel_RECONSTITUTION" : "celui-ci parvient à reconstruire la succession d’événement qui a conduit une scène de crime à se retrouver dans l’état où l’observateur l’a trouvé. Il permet aussi de tester des hypothèses.",
+    "DescriptionLogiciel_SOCIABILITE" : "permet de prendre le comportement d’un autre persona, pour, par exemple, se faire passer pour quelqu’un d’autre.",
 
     "// OEF" : ""
 }

@@ -3,7 +3,7 @@ import { Ecran } from "../../ecrans/ecran";
 import { Personnage } from "../../personnages/personnage";
 import { BanqueDonnees } from "../../donneeSources";
 import { Element } from "../../personnages/element";
-import { SelecteurElementSpecial, SelecteurSimple, SelecteurAvecPrerequis } from "../selecteur";
+import { SelecteurElementSpecial, SelecteurAvecPrerequis } from "../selecteur";
 import { Lang } from "../../lang";
 
 /**
@@ -21,8 +21,8 @@ export class AbstractPageChoixMateriel extends Page{
      * @param {string} typeMaterielCustom Le type du matériel à utiliser.
      * @param {function} filtre Une fonction recevant un matériel en parametre et revoyant vrai si et seulement si le matériel est compatible avec le personnage
      */
-    constructor(ecran, template, module, personnage, listeMaterielPersonnage, listeMateriel, typeMaterielBase, typeMaterielCustom, filtre, pagePrecedent, pageSuivante){
-        super(template, ecran, pagePrecedent, pageSuivante);
+    constructor(ecran, template, module, personnage, listeMaterielPersonnage, listeMateriel, typeMaterielBase, typeMaterielCustom, filtre){
+        super(template, ecran);
         this._module = module;
         this._typeMaterielBase = typeMaterielBase;
         this._typeMaterielCustom = typeMaterielCustom;
@@ -161,6 +161,6 @@ export class AbstractPageChoixMateriel extends Page{
 
     detruit(){
         super.detruit();
-        this._boutonAjouterMateriel.removeEventListener(this._actionBoutonAjouterMateriel);
+        this._boutonAjouterMateriel.removeEventListener("submit", this._actionBoutonAjouterMateriel);
     }
 }

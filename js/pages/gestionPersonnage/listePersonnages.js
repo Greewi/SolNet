@@ -2,27 +2,36 @@ import { Page } from "../page";
 import { Lang } from "../../lang";
 import { Personnage } from "../../personnages/personnage";
 import { BibliothequePersonnage } from "../../bibliothequePersonnage";
-import { SelecteurElementEditable } from "../selecteur";
+import { SelecteurPersonnage as SelecteurPersonnage } from "../selecteur";
 import { EcranCreationPersonnage } from "../../ecrans/ecranCreationPersonnage";
 import { Routeur } from "../../routeur";
+import { EcranEditionPersonnage } from "../../ecrans/ecranEditionPersonnage";
 
 export class PageListePersonnages extends Page{
     /**
      * @param {Ecran} ecran L'écran auquel cette page est rattachée
      */
-    constructor(ecran , pagePrecedent, pageSuivante){
-        super("pagePersonnageListe", ecran, pagePrecedent, pageSuivante);
+    constructor(ecran){
+        super("pagePersonnageListe", ecran);
 
         this._listePersonnages = this.element.querySelector("#personnageListePersonnages");
         this._boutonCreer = this.element.querySelector("#personnageNouveauPersonnage");
+        this._boutonImporter = this.element.querySelector("#personnageImporterPersonnage");
         
         this._actionCreePersonnage = ()=>{
-            console.log("Nouveau personnage");
             event.preventDefault();
             let personnage = BibliothequePersonnage.creePersonnage();
             this._ajoutePersonnage(personnage.id, Lang.get("NomNouveauPersonnage"));
+            let ecranEdition = new EcranCreationPersonnage(personnage);
+            Routeur.ouvreEcran(ecranEdition);
         };
         this._boutonCreer.addEventListener("click", this._actionCreePersonnage);
+
+        this._actionImporter = ()=>{
+            event.preventDefault();
+            ecran.ouvre("importerPersonnage", true);
+        };
+        this._boutonImporter.addEventListener("click", this._actionImporter);
     }
     
     /**
@@ -47,22 +56,25 @@ export class PageListePersonnages extends Page{
      * @param {string} nomPersonnage 
      */
     _ajoutePersonnage(idPersonnage, nomPersonnage){
-        let selecteur = new SelecteurElementEditable(nomPersonnage);
+        let selecteur = new SelecteurPersonnage(nomPersonnage);
         selecteur.onclick = ()=>{
             let personnage = BibliothequePersonnage.getPersonnage(idPersonnage);
             //Todo
         };
         selecteur.onedite = ()=>{
             let personnage = BibliothequePersonnage.getPersonnage(idPersonnage);
-            let ecranEdition = new EcranCreationPersonnage(personnage);
+            let ecranEdition = new EcranEditionPersonnage(personnage);
             Routeur.ouvreEcran(ecranEdition);
         };
         selecteur.onsupprime = ()=>{
-            if(confirm(`Voulez vous vraiment supprimer le personnage ${nomPersonnage} ?`))
+            if(confirm(Lang.get("ConfirmationSuppressionPersonnage", {"CharacterName":nomPersonnage})))
             {
                 BibliothequePersonnage.retirePersonnage(idPersonnage);
                 selecteur.element.remove();
             }
+        };
+        selecteur.onsauvegarde = ()=>{
+            BibliothequePersonnage.exportePersonnage(idPersonnage);
         };
         this._listePersonnages.appendChild(selecteur.element);
     }
@@ -74,5 +86,6 @@ export class PageListePersonnages extends Page{
     detruit(){
         super.detruit();
         this._boutonCreer.removeEventListener("click", this._actionCreePersonnage);
+        this._boutonImporter.removeEventListener("click", this._actionImporter);
     }
 }

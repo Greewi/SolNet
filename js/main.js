@@ -1,10 +1,10 @@
-import { EcranCreationPersonnage } from "./ecrans/ecranCreationPersonnage";
-import { Personnage } from "./personnages/personnage";
-import { BanqueDonnees } from "./donneeSources";
 import { Lang } from "./lang";
+import { BanqueDonnees } from "./donneeSources";
 import { Templates } from "./templates";
-import { EcranGestionPersonnage } from "./ecrans/ecranGestionPersonnage";
+import { BibliothequePersonnage } from "./bibliothequePersonnage";
 import { Routeur } from "./routeur";
+import { EcranGestionPersonnage } from "./ecrans/ecranGestionPersonnage";
+import { Footer } from "./footer";
 
 Promise.resolve()
 .then(()=>{
@@ -16,8 +16,17 @@ Promise.resolve()
 .then(()=>{
     return Templates.initialise();
 })
+.then(()=>{
+    BibliothequePersonnage.initialise();
+})
+.then(()=>{
+    Footer.initialise();
+    Footer.affiche();
+})
+.then(()=>{
+    Routeur.initialise();
+})
 .then(() => {
-    Templates.log();
     var ecran = new EcranGestionPersonnage();
     Routeur.ouvreEcran(ecran);
 })

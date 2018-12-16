@@ -12,8 +12,8 @@ export class PageChoixTraits extends Page{
      * @param {Ecran} ecran L'écran auquel cette page est rattachée
      * @param {Personnage} personnage Le personnage à créer
      */
-    constructor(ecran, personnage, pagePrecedent, pageSuivante){
-        super("pageCreationPersonnageTraits", ecran, pagePrecedent, pageSuivante);
+    constructor(ecran, personnage){
+        super("pageCreationPersonnageTraits", ecran);
 
         this._personnage = personnage;
         this._elementsPersonnage = personnage.elements;
@@ -81,6 +81,5 @@ export class PageChoixTraits extends Page{
 
     detruit(){
         super.detruit();
-        this._boutonAjouterTrait.removeEventListener(this._actionBoutonAjouterTrait);
     }
 }

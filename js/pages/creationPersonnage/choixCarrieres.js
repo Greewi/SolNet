@@ -14,8 +14,8 @@ export class PageChoixCarrieres extends Page{
      * @param {Ecran} ecran L'écran auquel cette page est rattachée
      * @param {Personnage} personnage Le personnage à créer
      */
-    constructor(ecran , personnage, pagePrecedent, pageSuivante){
-        super("pageCreationPersonnageCarrieres", ecran, pagePrecedent, pageSuivante);
+    constructor(ecran , personnage){
+        super("pageCreationPersonnageCarrieres", ecran);
 
         this._personnage = personnage;
         this._rolesPersonnage = personnage.roles;
@@ -143,6 +143,6 @@ export class PageChoixCarrieres extends Page{
 
     detruit(){
         super.detruit();
-        this._boutonAjouterCarriere.removeEventListener(this._actionBoutonAjouterCarriere);
+        this._boutonAjouterCarriere.removeEventListener("submit", this._actionBoutonAjouterCarriere);
     }
 }
