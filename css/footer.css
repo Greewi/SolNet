@@ -25,6 +25,13 @@
     transform: translateY(0);
 }
 
+@media (min-width: 640px) {
+    .footer {
+        width: 640px;
+        left: calc(50% - 320px);
+    }
+}
+
 .footer__bouton-1 {
     grid-column: 1;
     grid-row: 1;
