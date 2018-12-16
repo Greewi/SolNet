@@ -1,5 +1,5 @@
 import { Ecran } from "./ecran";
-import { BibliothequePersonnage } from "../bibliothequePersonnage";
+import { BibliothequePersonnage } from "../ressources/bibliothequePersonnage";
 import { EcranGestionPersonnage } from "./ecranGestionPersonnage";
 import { PageIntroductionEdition } from "../pages/creationPersonnage/introductionEdition";
 import { PageChoixRole } from "../pages/creationPersonnage/choixRole";

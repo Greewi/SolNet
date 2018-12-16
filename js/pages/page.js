@@ -1,12 +1,12 @@
 import { Ecran } from "../ecrans/ecran";
-import { Templates } from "../templates";
+import { BibliothequeTemplates } from "../ressources/templates";
 
 export class Page{
     /**
      * @param {string} id L'id de l'élément racine de la page dans le DOM
      */
     constructor(id, ecran){
-        this._element = Templates.getTemplate(id).content.cloneNode(true).children[0];
+        this._element = BibliothequeTemplates.getTemplate(id).content.cloneNode(true).children[0];
         this._ecran = ecran;
         this._transition = null;
         this._contenu = this._element.querySelector(".page__contenu");

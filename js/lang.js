@@ -16,7 +16,7 @@ export class Lang {
         return Promise.resolve()
         .then(()=>{
             console.log(`Début chargement langue : ${codeLangue}`);
-            return Ajax.get(`./lang/${codeLangue}.json`);
+            return Ajax.get(`./localisation/${codeLangue}/fragments.json`);
         })
         .then((json)=>{
             _fragmentLang = JSON.parse(json);

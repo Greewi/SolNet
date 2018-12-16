@@ -1,5 +1,5 @@
 import { Page } from "../page";
-import { BibliothequePersonnage } from "../../bibliothequePersonnage";
+import { BibliothequePersonnage } from "../../ressources/bibliothequePersonnage";
 
 export class PageImporterPersonnage extends Page{
     /**

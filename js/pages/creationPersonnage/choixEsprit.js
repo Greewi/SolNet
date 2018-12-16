@@ -1,7 +1,7 @@
 import { Page } from "../page";
 import { Ecran } from "../../ecrans/ecran";
 import { Personnage } from "../../personnages/personnage";
-import { BanqueDonnees } from "../../donneeSources";
+import { BibliothequeDonnees } from "../../ressources/donneeSources";
 import { Selecteur, SelecteurAvecPrerequis } from "../selecteur";
 import { Lang } from "../../lang";
 import { Element } from "../../personnages/element";
@@ -31,7 +31,7 @@ export class PageChoixEsprit extends Page{
     ouvre(avancer){
         super.ouvre(avancer);
         this._listeIntelligences.innerHTML = "";
-        let intelligences = BanqueDonnees.intelligences;
+        let intelligences = BibliothequeDonnees.intelligences;
         for(let idIntelligence in intelligences)
         {
             let intelligence = intelligences[idIntelligence];

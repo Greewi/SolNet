@@ -1,4 +1,4 @@
-import { Templates } from "../templates";
+import { BibliothequeTemplates } from "../ressources/templates";
 
 /**
  * Définit un selecteur abstrait
@@ -9,7 +9,7 @@ export class Selecteur{
      */
     constructor(template){
         this._onclick = ()=>{};
-        this._element = Templates.getTemplate(template).content.cloneNode(true);
+        this._element = BibliothequeTemplates.getTemplate(template).content.cloneNode(true);
     }
 
     /**

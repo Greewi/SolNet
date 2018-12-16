@@ -1,7 +1,7 @@
 import { Page } from "../page";
 import { Ecran } from "../../ecrans/ecran";
 import { Personnage } from "../../personnages/personnage";
-import { BanqueDonnees } from "../../donneeSources";
+import { BibliothequeDonnees } from "../../ressources/donneeSources";
 import { Element } from "../../personnages/element";
 import { Selecteur, SelecteurAvecPrerequis, SelecteurElementSpecial, SelecteurSimple } from "../selecteur";
 import { Lang } from "../../lang";
@@ -54,7 +54,7 @@ export class PageChoixRelations extends Page{
         this._listeRelations.innerHTML = "";
         this._listeCarrieresCustom.innerHTML = "";
 
-        let factions = BanqueDonnees.factions;
+        let factions = BibliothequeDonnees.factions;
 
         // Relations personnalisées
         for(let relation of this._relationsPersonnage)

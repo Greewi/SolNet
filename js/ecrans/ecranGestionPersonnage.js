@@ -1,15 +1,17 @@
 import { Ecran } from "./ecran";
 import { PageListePersonnages } from "../pages/gestionPersonnage/listePersonnages";
 import { PageImporterPersonnage } from "../pages/gestionPersonnage/importationPersonnage";
+import { Routeur } from "../routeur";
+import { EcranAccueil } from "./ecranAccueil";
 
 /**
  * Écran de gestion de personnage
  */
 export class EcranGestionPersonnage extends Ecran{
     /**
-     * @param {Personnage} personnage Le personnage à créer
+     * Constructeur
      */
-    constructor(personnage){
+    constructor(){
         super();
         super.setPages({
             "listePersonnages" : new PageListePersonnages(this),
@@ -32,10 +34,11 @@ export class EcranGestionPersonnage extends Ecran{
         }
         else
         {
-            super.setActionRetour(null);
+            super.setActionRetour(()=>{
+                Routeur.ouvreEcran(new EcranAccueil());
+            });
         }
 
         super.ouvre(page, avancer);
     }
-
 }

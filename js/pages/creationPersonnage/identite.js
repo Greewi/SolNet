@@ -1,7 +1,7 @@
 import { Page } from "../page";
 import { Selecteur, SelecteurInputText, SelecteurSelect } from "../selecteur";
 import { Lang } from "../../lang";
-import { BanqueDonnees } from "../../donneeSources";
+import { BibliothequeDonnees } from "../../ressources/donneeSources";
 
 export class PageIdentite extends Page{
     /**
@@ -75,7 +75,7 @@ export class PageIdentite extends Page{
         this._elementGenre.innerHTML = "";
         let selecteur = new SelecteurSelect(Lang.get("InputGenre"), Lang.get("DescriptionGenre"));
         selecteur.ajouteOption("", "", this._personnage.identite.genre == "");
-        for(let idGenre in BanqueDonnees.genres)
+        for(let idGenre in BibliothequeDonnees.genres)
             selecteur.ajouteOption(idGenre, Lang.get(`Genre_${idGenre}`), this._personnage.identite.genre == idGenre);
         selecteur.onchange = (valeur)=>{
             this._personnage.identite.genre = valeur;

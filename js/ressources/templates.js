@@ -1,7 +1,11 @@
-import { Ajax } from "./ajax";
-import { Lang } from "./lang";
+import { Ajax } from "../ajax";
+import { Lang } from "../lang";
 
 var _listeTemplates =  [
+    "pageAccueil",
+    "pageEncyclopedieRacine",
+    "pageEncyclopedieSection",
+    "pageEncyclopedieArticle",
     "pageCreationPersonnageAvatar",
     "pageCreationPersonnageCarrieres",
     "pageCreationPersonnageDescription",
@@ -30,27 +34,27 @@ var _listeTemplates =  [
     "fragmentListePersonnageSelecteurPersonnage",
 ];
 
-var _templates = {};
-
 /**
  * Gère et instancie les templates
  */
-export class Templates{
+export class BibliothequeTemplates{
     /**
      * Initialise la banque de templates
      * @returns {Promise}
      */
     static initialise(){
+        this._templates = {};
+
         var promise = Promise.resolve();
         for(let nomTemplate of _listeTemplates)
         {
             promise = promise.then(()=>{
                 console.log(`Début chargement template ${nomTemplate}`);
-                return Ajax.get(`./templates/${Lang.getCodeLangue()}/${nomTemplate}.html`);
+                return Ajax.get(`./localisation/${Lang.getCodeLangue()}/templates/${nomTemplate}.html`);
             }).then((html)=>{
                 let template = document.createElement("template");
                 template.innerHTML = html;
-                _templates[nomTemplate] = template;
+                this._templates[nomTemplate] = template;
                 console.log(`Template ${nomTemplate} chargé`);
             });
         }
@@ -63,10 +67,10 @@ export class Templates{
      * @returns {HTMLTemplateElement} le template chargé
      */
     static getTemplate(nomTemplate){
-        return _templates[nomTemplate];
+        return this._templates[nomTemplate];
     }
 
     static log(){
-        console.log(_templates);
+        console.log(this._templates);
     }
 }

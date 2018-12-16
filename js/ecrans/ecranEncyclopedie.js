@@ -1,16 +1,23 @@
 import { Ecran } from "./ecran";
+import { PageRacine } from "../pages/encyclopedie/racine";
+import { Routeur } from "../routeur";
+import { EcranAccueil } from "./ecranAccueil";
 
 /**
- * Écran représentant une section de l'encyclopédie
+ * Écran représentant la racine de l'encyclopédie
  */
 export class EcranEncyclopedie extends Ecran{
     /**
-     * @param {string} premierePage La première page
-     * @param {Object<string:Page>} pages Les pages de la section
+     * Constructeur
      */
-    constructor(premierePage, pages){
+    constructor(){
         super();
-        super.setPages(pages);
-        super.setPageParDefaut(premierePage);
+        super.setPages({
+            sommaire : new PageRacine(this)
+        });
+        super.setPageParDefaut("sommaire");
+        super.setActionRetour(()=>{
+            Routeur.ouvreEcran(new EcranAccueil());
+        });
     }
 }

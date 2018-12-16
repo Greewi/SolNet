@@ -1,7 +1,7 @@
 import { Page } from "../page";
 import { Ecran } from "../../ecrans/ecran";
 import { Personnage } from "../../personnages/personnage";
-import { BanqueDonnees } from "../../donneeSources";
+import { BibliothequeDonnees } from "../../ressources/donneeSources";
 import { Element } from "../../personnages/element";
 import { Selecteur, SelecteurAvecPrerequis, SelecteurElementSpecial } from "../selecteur";
 import { Lang } from "../../lang";
@@ -54,15 +54,15 @@ export class PageChoixCarrieres extends Page{
         this._listeCarrieres.innerHTML = "";
         this._listeCarrieresCustom.innerHTML = "";
 
-        let roles = BanqueDonnees.roles;
+        let roles = BibliothequeDonnees.roles;
 
         // On ordonne les carrières en mettant celles qui remplissent le mieux les rôles du personnage en premier.
         let carrieresRolesComplet = [];
         let carrieresRolesPartiel = [];
         let carrieresRolesAucun = [];
-        for(let idCarriere in BanqueDonnees.carrieres)
+        for(let idCarriere in BibliothequeDonnees.carrieres)
         {
-            let carriere = BanqueDonnees.carrieres[idCarriere];
+            let carriere = BibliothequeDonnees.carrieres[idCarriere];
             let possedeRoleOk=false;
             let possedeRolePasOk=false;
             for(let role of carriere.roles)

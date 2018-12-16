@@ -1,7 +1,7 @@
-import { Utils } from "./utils";
-import { Personnage } from "./personnages/personnage";
-import { Lang } from "./lang";
-import { Element } from "./personnages/element";
+import { Utils } from "../utils";
+import { Personnage } from "../personnages/personnage";
+import { Lang } from "../lang";
+import { Element } from "../personnages/element";
 
 /**
  * Ce singleton gère la bibliothèque des personnages et les stocke dans le local storage.

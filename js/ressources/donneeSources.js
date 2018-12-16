@@ -1,20 +1,9 @@
-import { Ajax } from "./ajax";
-
-var _roles = null;
-var _carrieres = null;
-var _carrieresParRole = null;
-var _intelligences = null;
-var _enveloppes = null;
-var _genres = null;
-var _factions = null;
-var _modifications = null;
-var _equipements = null;
-var _logiciels = null;
+import { Ajax } from "../ajax";
 
 /**
  * Charge et gère les données de l'application
  */
-export class BanqueDonnees {
+export class BibliothequeDonnees {
     /**
      * Initialise la banque de donnée
      * @returns {Promise}
@@ -26,10 +15,10 @@ export class BanqueDonnees {
             return Ajax.get("./res/roles.json");
         })
         .then((json)=>{
-            _roles = JSON.parse(json);
-            _carrieresParRole = {};
-            for(let idRole in _roles)
-                _carrieresParRole[idRole] = [];
+            this._roles = JSON.parse(json);
+            this._carrieresParRole = {};
+            for(let idRole in this._roles)
+                this._carrieresParRole[idRole] = [];
             console.log("Roles chargés");
         })
         .then(()=>{
@@ -37,13 +26,13 @@ export class BanqueDonnees {
             return Ajax.get("./res/carrieres.json");
         })
         .then((json)=>{
-            _carrieres = JSON.parse(json);
-            for(let idCarriere in _carrieres)
+            this._carrieres = JSON.parse(json);
+            for(let idCarriere in this._carrieres)
             {
-                let carriere = _carrieres[idCarriere];
+                let carriere = this._carrieres[idCarriere];
                 for(let role of carriere.roles)
-                    if(_carrieresParRole[role])
-                        _carrieresParRole[role].push(carriere);
+                    if(this._carrieresParRole[role])
+                        this._carrieresParRole[role].push(carriere);
                     else
                         console.error(`Carrière ${idCarriere} possède un rôle invalide : ${role}`)
             }
@@ -54,7 +43,7 @@ export class BanqueDonnees {
             return Ajax.get("./res/intelligences.json");
         })
         .then((json)=>{
-            _intelligences = JSON.parse(json);
+            this._intelligences = JSON.parse(json);
             console.log("Intelligences chargées");
         })
         .then(()=>{
@@ -62,7 +51,7 @@ export class BanqueDonnees {
             return Ajax.get("./res/enveloppes.json");
         })
         .then((json)=>{
-            _enveloppes = JSON.parse(json);
+            this._enveloppes = JSON.parse(json);
             console.log("Enveloppes chargées");
         })
         .then(()=>{
@@ -70,7 +59,7 @@ export class BanqueDonnees {
             return Ajax.get("./res/genres.json");
         })
         .then((json)=>{
-            _genres = JSON.parse(json);
+            this._genres = JSON.parse(json);
             console.log("Genres chargés");
         })
         .then(()=>{
@@ -78,7 +67,7 @@ export class BanqueDonnees {
             return Ajax.get("./res/factions.json");
         })
         .then((json)=>{
-            _factions = JSON.parse(json);
+            this._factions = JSON.parse(json);
             console.log("Factions chargées");
         })
         .then(()=>{
@@ -86,7 +75,7 @@ export class BanqueDonnees {
             return Ajax.get("./res/modifications.json");
         })
         .then((json)=>{
-            _modifications = JSON.parse(json);
+            this._modifications = JSON.parse(json);
             console.log("Modifications chargées");
         })
         .then(()=>{
@@ -94,7 +83,7 @@ export class BanqueDonnees {
             return Ajax.get("./res/equipements.json");
         })
         .then((json)=>{
-            _equipements = JSON.parse(json);
+            this._equipements = JSON.parse(json);
             console.log("Equipements chargées");
         })
         .then(()=>{
@@ -102,44 +91,56 @@ export class BanqueDonnees {
             return Ajax.get("./res/logiciels.json");
         })
         .then((json)=>{
-            _logiciels = JSON.parse(json);
+            this._logiciels = JSON.parse(json);
             console.log("Logiciels chargées");
+        })
+        .then(()=>{
+            console.log("Début chargement encyclopedie");
+            return Ajax.get("./res/encyclopedie.json");
+        })
+        .then((json)=>{
+            this._encyclopedie = JSON.parse(json);
+            console.log("Encyclopédie chargées");
         })
     }
 
     static get roles(){
-        return _roles;
+        return this._roles;
     }
 
     static get carrieres(){
-        return _carrieres;
+        return this._carrieres;
     }
 
     static get intelligences(){
-        return _intelligences;
+        return this._intelligences;
     }
 
     static get enveloppes(){
-        return _enveloppes;
+        return this._enveloppes;
     }
 
     static get genres(){
-        return _genres;
+        return this._genres;
     }
 
     static get factions(){
-        return _factions;
+        return this._factions;
     }
 
     static get modifications(){
-        return _modifications;
+        return this._modifications;
     }
 
     static get equipements(){
-        return _equipements;
+        return this._equipements;
     }
 
     static get logiciels(){
-        return _logiciels;
+        return this._logiciels;
+    }
+
+    static get encyclopedie(){
+        return this._encyclopedie;
     }
 }

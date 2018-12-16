@@ -1,6 +1,6 @@
 import { Ecran } from "../../ecrans/ecran";
 import { Personnage } from "../../personnages/personnage";
-import { BanqueDonnees } from "../../donneeSources";
+import { BibliothequeDonnees } from "../../ressources/donneeSources";
 import { Element } from "../../personnages/element";
 import { AbstractPageChoixMateriel } from "./abstractChoixMateriel";
 
@@ -16,7 +16,7 @@ export class PageChoixModifications extends AbstractPageChoixMateriel{
         let template = "pageCreationPersonnageModifications";
         let module = "Modification";
         let listeMaterielPersonnage = personnage.elements.modifications;
-        let listeMateriel = BanqueDonnees.modifications;
+        let listeMateriel = BibliothequeDonnees.modifications;
         let typeMaterielBase = Element.MODIFICATION_BASE;
         let typeMaterielCustom = Element.MODIFICATION_PERSO;
         let filtre = function(materiel){

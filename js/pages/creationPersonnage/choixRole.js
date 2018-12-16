@@ -1,7 +1,7 @@
 import { Page } from "../page";
 import { Ecran } from "../../ecrans/ecran";
 import { Personnage } from "../../personnages/personnage";
-import { BanqueDonnees } from "../../donneeSources";
+import { BibliothequeDonnees } from "../../ressources/donneeSources";
 import { Selecteur, SelecteurSimple } from "../selecteur";
 import { Lang } from "../../lang";
 
@@ -28,7 +28,7 @@ export class PageChoixRole extends Page{
     ouvre(avancer){
         super.ouvre(avancer);
         this._listeRoles.innerHTML = "";
-        let roles = BanqueDonnees.roles;
+        let roles = BibliothequeDonnees.roles;
         for(let idRole in roles)
         {
             let role = roles[idRole];    

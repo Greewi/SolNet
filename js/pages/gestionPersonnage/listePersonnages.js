@@ -1,7 +1,6 @@
 import { Page } from "../page";
 import { Lang } from "../../lang";
-import { Personnage } from "../../personnages/personnage";
-import { BibliothequePersonnage } from "../../bibliothequePersonnage";
+import { BibliothequePersonnage } from "../../ressources/bibliothequePersonnage";
 import { SelecteurPersonnage as SelecteurPersonnage } from "../selecteur";
 import { EcranCreationPersonnage } from "../../ecrans/ecranCreationPersonnage";
 import { Routeur } from "../../routeur";

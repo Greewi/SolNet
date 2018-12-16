@@ -1,7 +1,7 @@
 import { Page } from "../page";
 import { Ecran } from "../../ecrans/ecran";
 import { Personnage } from "../../personnages/personnage";
-import { BanqueDonnees } from "../../donneeSources";
+import { BibliothequeDonnees } from "../../ressources/donneeSources";
 import { Selecteur, SelecteurAvecPrerequis } from "../selecteur";
 import { Lang } from "../../lang";
 import { Element } from "../../personnages/element";
@@ -31,8 +31,8 @@ export class PageChoixEnveloppe extends Page{
     ouvre(avancer){
         super.ouvre(avancer);
         this._listeEnveloppes.innerHTML = "";
-        let intelligences = BanqueDonnees.intelligences;
-        let enveloppes = BanqueDonnees.enveloppes;
+        let intelligences = BibliothequeDonnees.intelligences;
+        let enveloppes = BibliothequeDonnees.enveloppes;
         for(let idEnveloppe in enveloppes)
         {
             let enveloppe = enveloppes[idEnveloppe];

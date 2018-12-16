@@ -1,7 +1,7 @@
 import { Page } from "../page";
 import { Ecran } from "../../ecrans/ecran";
 import { Personnage } from "../../personnages/personnage";
-import { BanqueDonnees } from "../../donneeSources";
+import { BibliothequeDonnees } from "../../ressources/donneeSources";
 import { Element } from "../../personnages/element";
 import { SelecteurElementSpecial, SelecteurAvecPrerequis } from "../selecteur";
 import { Lang } from "../../lang";
@@ -87,7 +87,7 @@ export class AbstractPageChoixMateriel extends Page{
             {
                 if(!carrierePerso.id)
                     continue;
-                let carriere = BanqueDonnees.carrieres[carrierePerso.id];
+                let carriere = BibliothequeDonnees.carrieres[carrierePerso.id];
                 for(let idMaterielConseille of carriere.materiel)
                     if(idMateriel == idMaterielConseille)
                         conseille = true;
