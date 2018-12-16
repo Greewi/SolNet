@@ -4,6 +4,7 @@ import { PageArticle } from "../pages/encyclopedie/article";
 import { PageSection } from "../pages/encyclopedie/section";
 import { EcranEncyclopedie } from "./ecranEncyclopedie";
 import { Routeur } from "../routeur";
+import { Page } from "../pages/page";
 
 /**
  * Écran représentant une section de l'encyclopédie
@@ -44,7 +45,7 @@ export class EcranSectionEncyclopedie extends Ecran{
      * @override
      * @inheritdoc
      */
-    ouvre(page, avancer){
+    ouvre(page, animation){
         if(!page || page==this._idSection)
         {
             super.setActionRetour(()=>{
@@ -54,9 +55,9 @@ export class EcranSectionEncyclopedie extends Ecran{
         else
         {
             super.setActionRetour(()=>{
-                this.ouvre(this._idSection, false);
+                this.ouvre(this._idSection, Page.RECULER);
             });
         }
-        super.ouvre(page, avancer);
+        super.ouvre(page, animation);
     }
 }

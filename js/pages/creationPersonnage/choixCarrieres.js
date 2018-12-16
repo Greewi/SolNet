@@ -49,8 +49,8 @@ export class PageChoixCarrieres extends Page{
      * @override
      * @inheritdoc
      */
-    ouvre(avancer){
-        super.ouvre(avancer);
+    ouvre(animation){
+        super.ouvre(animation);
         this._listeCarrieres.innerHTML = "";
         this._listeCarrieresCustom.innerHTML = "";
 

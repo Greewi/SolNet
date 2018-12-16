@@ -28,8 +28,8 @@ export class PageChoixEsprit extends Page{
      * @override
      * @inheritdoc
      */
-    ouvre(avancer){
-        super.ouvre(avancer);
+    ouvre(animation){
+        super.ouvre(animation);
         this._listeIntelligences.innerHTML = "";
         let intelligences = BibliothequeDonnees.intelligences;
         for(let idIntelligence in intelligences)

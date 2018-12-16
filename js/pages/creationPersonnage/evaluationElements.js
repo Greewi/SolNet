@@ -43,8 +43,8 @@ export class PageEvaluation extends Page{
      * @override
      * @inheritdoc
      */
-    ouvre(avancer){
-        super.ouvre(avancer);
+    ouvre(animation){
+        super.ouvre(animation);
         this.genereListeElement(this._labelCarrieres, this._carrieresPersonnage, this._listeCarrieres, "NiveauCarriere");
         this.genereListeElement(this._labelRelations, this._relationsPersonnage, this._listeRelations, "NiveauRelation");
         this.genereListeElement(this._labelTraits, this._traitsPersonnage, this._listeTraits, "NiveauTrait");

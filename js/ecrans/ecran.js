@@ -82,15 +82,15 @@ export class Ecran{
      * Ouvre une page (et l'écran s'il n'est pas déjà ouvert)
      * @param {string}  [page] Le nom de la page à ouvrir. Ouvre l'accueil par défaut
      */
-    ouvre(page, avancer){
+    ouvre(page, animation){
         page = page || this._accueil;
-        avancer = avancer===undefined ? true : avancer;
+        animation = animation===undefined ? Page.NOUVEL_ECRAN : animation;
         //Ouverture de la page
         if(this._pageActuelle)
-            this._pageActuelle.ferme(avancer);
+            this._pageActuelle.ferme(animation);
         this._pageActuelle = this._pages[page];
         this._nomPageActuelle = page;
-        this._pageActuelle.ouvre(avancer);
+        this._pageActuelle.ouvre(animation);
         //Mise à jour du footer
         Footer.desactiveBoutons();
         if(this._ordrePage)
@@ -101,18 +101,18 @@ export class Ecran{
             if(i<this._ordrePage.length)
             {
                 if(i>0)
-                    Footer.setBouton1(Lang.get("BoutonPrecedent"), this._creeActionAllerAPage(this._ordrePage[i-1], false));
+                    Footer.setBouton1(Lang.get("BoutonPrecedent"), this._creeActionAllerAPage(this._ordrePage[i-1], Page.RECULER));
                 if(i<this._ordrePage.length-1)
-                    Footer.setBouton3(Lang.get("BoutonSuivant"), this._creeActionAllerAPage(this._ordrePage[i+1], true));
+                    Footer.setBouton3(Lang.get("BoutonSuivant"), this._creeActionAllerAPage(this._ordrePage[i+1], Page.AVANCER));
             }
         }
         if(this._onRetour)
             Footer.setBouton2(this._textBoutonRetour, this._onRetour);
     }
 
-    _creeActionAllerAPage(page, avancer){
+    _creeActionAllerAPage(page, animation){
         return ()=>{
-            this.ouvre(page, avancer);
+            this.ouvre(page, animation);
         };
     }
 

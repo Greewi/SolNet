@@ -28,7 +28,7 @@ export class PageListePersonnages extends Page{
 
         this._actionImporter = ()=>{
             event.preventDefault();
-            ecran.ouvre("importerPersonnage", true);
+            ecran.ouvre("importerPersonnage", Page.AVANCER);
         };
         this._boutonImporter.addEventListener("click", this._actionImporter);
     }
@@ -37,8 +37,8 @@ export class PageListePersonnages extends Page{
      * @override
      * @inheritdoc
      */
-    ouvre(avancer){
-        super.ouvre(avancer);
+    ouvre(animation){
+        super.ouvre(animation);
         this._listePersonnages.innerHTML = "";
 
         var personnages = BibliothequePersonnage.getListePersonnages();

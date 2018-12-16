@@ -28,8 +28,8 @@ export class PageChoixEnveloppe extends Page{
      * @override
      * @inheritdoc
      */
-    ouvre(avancer){
-        super.ouvre(avancer);
+    ouvre(animation){
+        super.ouvre(animation);
         this._listeEnveloppes.innerHTML = "";
         let intelligences = BibliothequeDonnees.intelligences;
         let enveloppes = BibliothequeDonnees.enveloppes;

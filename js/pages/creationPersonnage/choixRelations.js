@@ -49,8 +49,8 @@ export class PageChoixRelations extends Page{
      * @override
      * @inheritdoc
      */
-    ouvre(avancer){
-        super.ouvre(avancer);
+    ouvre(animation){
+        super.ouvre(animation);
         this._listeRelations.innerHTML = "";
         this._listeCarrieresCustom.innerHTML = "";
 

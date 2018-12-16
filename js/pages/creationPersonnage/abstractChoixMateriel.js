@@ -61,8 +61,8 @@ export class AbstractPageChoixMateriel extends Page{
      * @override
      * @inheritdoc
      */
-    ouvre(avancer){
-        super.ouvre(avancer);
+    ouvre(animation){
+        super.ouvre(animation);
         this._listeMateriel.innerHTML = "";
         this._listeMaterielCustom.innerHTML = "";
 

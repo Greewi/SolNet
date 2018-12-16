@@ -71,9 +71,9 @@ export class EcranCreationPersonnage extends Ecran{
      * @override
      * @inheritdoc
      */
-    ouvre(page, avancer){
+    ouvre(page, animation){
         BibliothequePersonnage.sauvegardePersonnage(this._personnage);
-        super.ouvre(page, avancer);
+        super.ouvre(page, animation);
     }
 
     /**

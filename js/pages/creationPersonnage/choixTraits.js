@@ -43,8 +43,8 @@ export class PageChoixTraits extends Page{
      * @override
      * @inheritdoc
      */
-    ouvre(avancer){
-        super.ouvre(avancer);
+    ouvre(animation){
+        super.ouvre(animation);
         this._listeTraitsCaracteres.innerHTML = "";
         this._listeTraitsPhysiques.innerHTML = "";
 

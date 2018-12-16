@@ -25,8 +25,8 @@ export class PageChoixRole extends Page{
      * @override
      * @inheritdoc
      */
-    ouvre(avancer){
-        super.ouvre(avancer);
+    ouvre(animation){
+        super.ouvre(animation);
         this._listeRoles.innerHTML = "";
         let roles = BibliothequeDonnees.roles;
         for(let idRole in roles)

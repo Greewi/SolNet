@@ -27,7 +27,7 @@ export class PageSection extends Page{
                 bouton.innerHTML = titre;
                 bouton.className = "page__bouton page__bouton__pleine_largeur";
                 bouton.onclick = ()=>{
-                    ecran.ouvre(idArticle);
+                    ecran.ouvre(idArticle, Page.AVANCER);
                 };
                 this._listeSommaire.appendChild(bouton);
             }

@@ -23,8 +23,8 @@ export class PageIdentite extends Page{
      * @override
      * @inheritdoc
      */
-    ouvre(avancer){
-        super.ouvre(avancer);
+    ouvre(animation){
+        super.ouvre(animation);
         this.initialisePseudonyme();
         this.initialiseNomAdministratif();
         this.initialiseProfession();

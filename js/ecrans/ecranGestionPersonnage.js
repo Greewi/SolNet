@@ -3,6 +3,7 @@ import { PageListePersonnages } from "../pages/gestionPersonnage/listePersonnage
 import { PageImporterPersonnage } from "../pages/gestionPersonnage/importationPersonnage";
 import { Routeur } from "../routeur";
 import { EcranAccueil } from "./ecranAccueil";
+import { Page } from "../pages/page";
 
 /**
  * Écran de gestion de personnage
@@ -24,12 +25,12 @@ export class EcranGestionPersonnage extends Ecran{
      * @override
      * @inheritdoc
      */
-    ouvre(page, avancer){
+    ouvre(page, animation){
 
         if(page=="importerPersonnage")
         {
             super.setActionRetour(()=>{
-                this.ouvre("listePersonnages", false);
+                this.ouvre("listePersonnages", Page.RECULER);
             });
         }
         else
@@ -39,6 +40,6 @@ export class EcranGestionPersonnage extends Ecran{
             });
         }
 
-        super.ouvre(page, avancer);
+        super.ouvre(page, animation);
     }
 }

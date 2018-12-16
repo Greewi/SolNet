@@ -48,8 +48,8 @@ class PageDescriptionGenerique extends Page{
      * @override
      * @inheritdoc
      */
-    ouvre(avancer){
-        super.ouvre(avancer);
+    ouvre(animation){
+        super.ouvre(animation);
         this.initialisePremiereImpression();
         this.initialiseCorps();
         this.initialiseVisage();

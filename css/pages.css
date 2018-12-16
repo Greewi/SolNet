@@ -29,36 +29,44 @@
     overflow-y: auto;
 }
 
-@keyframes page__depuis_gauche {
+@keyframes page__depuis-gauche {
     from {transform: translate(-100%);}
     to {transform: translate(0%);}
 }
-@keyframes page__depuis_droite {
+@keyframes page__depuis-droite {
     from {transform: translate(100%);}
     to {transform: translate(0%);}
 }
-@keyframes page__vers_gauche {
+@keyframes page__vers-gauche {
     from {transform: translate(0%);}
     to {transform: translate(-100%);}
 }
-@keyframes page__vers_droite {
+@keyframes page__vers-droite {
     from {transform: translate(0%);}
     to {transform: translate(100%);}
 }
-.page__depuis_gauche {
-    animation-name: page__depuis_gauche;
+@keyframes page__depuis-vide {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+.page__depuis-gauche {
+    animation-name: page__depuis-gauche;
     animation-duration: 500ms;
 }
-.page__depuis_droite {
-    animation-name: page__depuis_droite;
+.page__depuis-droite {
+    animation-name: page__depuis-droite;
     animation-duration: 500ms;
 }
-.page__vers_gauche {
-    animation-name: page__vers_gauche;
+.page__vers-gauche {
+    animation-name: page__vers-gauche;
     animation-duration: 500ms;
 }
-.page__vers_droite {
-    animation-name: page__vers_droite;
+.page__vers-droite {
+    animation-name: page__vers-droite;
+    animation-duration: 500ms;
+}
+.page__depuis-vide {
+    animation-name: page__depuis-vide;
     animation-duration: 500ms;
 }
 

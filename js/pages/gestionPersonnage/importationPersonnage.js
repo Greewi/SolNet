@@ -13,7 +13,7 @@ export class PageImporterPersonnage extends Page{
             if(this._inputFile.files && this._inputFile.files.length > 0)
             {
                 BibliothequePersonnage.importePersonnage(this._inputFile.files[0], ()=>{
-                    ecran.ouvre("listePersonnages", false);
+                    ecran.ouvre("listePersonnages", Page.RECULER);
                 });
             }
         };
@@ -23,8 +23,8 @@ export class PageImporterPersonnage extends Page{
      * @override
      * @inheritdoc
      */
-    ouvre(avancer){
-        super.ouvre(avancer);
+    ouvre(animation){
+        super.ouvre(animation);
         this._inputFile.value = "";
     }
 

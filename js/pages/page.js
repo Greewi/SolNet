@@ -29,28 +29,50 @@ export class Page{
 
     /**
      * Ouvre la page
-     * @param {boolean} avancer Mettre à true pour avancer et false pour aller en arrière (Simule le swipe)
+     * @param {number} animation Détermine l'animation d'ouverture (Page.AVANCER, Page.RECULER, PAGE.NOUVEL_ECRAN)
      */
-    ouvre(avancer){
+    ouvre(animation){
         this._stopTransition();
         this._element.classList.add("page__on");
-        this._element.classList.remove("page__vers_gauche");
-        this._element.classList.remove("page__vers_droite");
-        this._element.classList.remove(avancer ? "page__depuis_gauche" : "page__depuis_droite");
-        this._element.classList.add(avancer ? "page__depuis_droite" : "page__depuis_gauche");
+        this._element.classList.remove("page__vers-gauche");
+        this._element.classList.remove("page__vers-droite");
+        if(animation==Page.AVANCER)
+        {
+            this._element.classList.remove("page__depuis-gauche");
+            this._element.classList.add("page__depuis-droite");
+        }
+        else if(animation==Page.RECULER)
+        {
+            this._element.classList.remove("page__depuis-droite");
+            this._element.classList.add("page__depuis-gauche");
+        }
+        else
+        {
+            this._element.classList.add("page__depuis-vide");
+        }
         this.scrollEnHaut();
     }
 
     /**
      * Ferme la page
-     * @param {boolean} avancer Mettre à true pour avancer et false pour aller en arrière (Simule le swipe)
+     * @param {number} animation Détermine l'animation d'ouverture (Page.AVANCER, Page.RECULER, PAGE.NOUVEL_ECRAN)
      */
-    ferme(avancer){
+    ferme(animation){
         this._stopTransition();
-        this._element.classList.remove("page__depuis_gauche");
-        this._element.classList.remove("page__depuis_droite");
-        this._element.classList.remove(avancer ? "page__vers_droite" : "page__vers_gauche");
-        this._element.classList.add(avancer ? "page__vers_gauche" : "page__vers_droite");
+        this._element.classList.remove("page__depuis-gauche");
+        this._element.classList.remove("page__depuis-droite");
+        this._element.classList.remove("page__depuis-vide");
+        if(animation==Page.AVANCER)
+        {
+            this._element.classList.remove("page__vers-droite");
+            this._element.classList.add("page__vers-gauche");
+        }
+        else if(animation==Page.RECULER)
+        {
+            this._element.classList.remove("page__vers-gauche");
+            this._element.classList.add("page__vers-droite");
+        }
+
         this._transition = setTimeout(() => {
             this._element.classList.remove("page__on");
         }, 500);
@@ -88,5 +110,15 @@ export class Page{
             clearTimeout(this._transition);
             this._transition = null;
         }
+    }
+
+    static get AVANCER(){
+        return 1;
+    }
+    static get RECULER(){
+        return -1;
+    }
+    static get NOUVEL_ECRAN(){
+        return 0;
     }
 }

@@ -17,6 +17,7 @@ import { PageChoixLogiciels } from "../pages/creationPersonnage/choixLogiciels";
 import { PageDescriptionPhysique, PageDescriptionAvatar } from "../pages/creationPersonnage/descriptionEtAvatar";
 import { Routeur } from "../routeur";
 import { Lang } from "../lang";
+import { Page } from "../pages/page";
 
 /**
  * Écran de création de personnage
@@ -67,7 +68,7 @@ export class EcranEditionPersonnage extends Ecran{
      * @override
      * @inheritdoc
      */
-    ouvre(page, avancer){
+    ouvre(page, animation){
         //Sauvegarde automatique
         BibliothequePersonnage.sauvegardePersonnage(this._personnage);
 
@@ -80,11 +81,11 @@ export class EcranEditionPersonnage extends Ecran{
         else
         {
             super.setActionRetour(()=>{
-                this.ouvre("introduction", false);
+                this.ouvre("introduction", Page.RECULER);
             }, Lang.get("BoutonRetour"));
         }
 
-        super.ouvre(page, avancer);
+        super.ouvre(page, animation);
     }
 
     /**
