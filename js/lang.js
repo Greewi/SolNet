@@ -1,4 +1,5 @@
 import { Ajax } from "./ajax";
+import { Loader } from "./loader";
 
 var _codeLangue = "";
 var _fragmentLang = null;
@@ -13,6 +14,9 @@ export class Lang {
      */
     static initialise(codeLangue){
         _codeLangue = codeLangue;
+
+        Loader.setNombreSousEtape(1);
+
         return Promise.resolve()
         .then(()=>{
             console.log(`Début chargement langue : ${codeLangue}`);
@@ -21,6 +25,7 @@ export class Lang {
         .then((json)=>{
             _fragmentLang = JSON.parse(json);
             console.log(`Début langue ${codeLangue} chargée`);
+            Loader.termineSousEtape();
         })
         .catch((e)=>{
             if(codeLangue!="en" && codeLangue!="fr")

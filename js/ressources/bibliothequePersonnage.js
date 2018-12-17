@@ -2,6 +2,7 @@ import { Utils } from "../utils";
 import { Personnage } from "../personnages/personnage";
 import { Lang } from "../lang";
 import { Element } from "../personnages/element";
+import { Loader } from "../loader";
 
 /**
  * Ce singleton gère la bibliothèque des personnages et les stocke dans le local storage.
@@ -12,9 +13,11 @@ export class BibliothequePersonnage{
      * Initialise la bibliothèque des personnages
      */
     static initialise(){
+        Loader.setNombreSousEtape(1);
         let liste = Utils.parseJSON(localStorage.getItem(`personnage_liste`));
         if(!liste)
             localStorage.setItem(`personnage_liste`, JSON.stringify({}));
+        Loader.termineSousEtape();
     }
 
     /**

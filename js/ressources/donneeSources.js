@@ -1,4 +1,5 @@
 import { Ajax } from "../ajax";
+import { Loader } from "../loader";
 
 /**
  * Charge et gère les données de l'application
@@ -9,6 +10,7 @@ export class BibliothequeDonnees {
      * @returns {Promise}
      */
     static initialise(){
+        Loader.setNombreSousEtape(10);        
         return Promise.resolve()
         .then(()=>{
             console.log("Début chargement roles");
@@ -20,6 +22,7 @@ export class BibliothequeDonnees {
             for(let idRole in this._roles)
                 this._carrieresParRole[idRole] = [];
             console.log("Roles chargés");
+            Loader.termineSousEtape();
         })
         .then(()=>{
             console.log("Début chargement carrieres");
@@ -37,6 +40,7 @@ export class BibliothequeDonnees {
                         console.error(`Carrière ${idCarriere} possède un rôle invalide : ${role}`)
             }
             console.log("Carrières chargés");
+            Loader.termineSousEtape();
         })
         .then(()=>{
             console.log("Début chargement intelligences");
@@ -45,6 +49,7 @@ export class BibliothequeDonnees {
         .then((json)=>{
             this._intelligences = JSON.parse(json);
             console.log("Intelligences chargées");
+            Loader.termineSousEtape();
         })
         .then(()=>{
             console.log("Début chargement enveloppes");
@@ -53,6 +58,7 @@ export class BibliothequeDonnees {
         .then((json)=>{
             this._enveloppes = JSON.parse(json);
             console.log("Enveloppes chargées");
+            Loader.termineSousEtape();
         })
         .then(()=>{
             console.log("Début chargement genres");
@@ -61,6 +67,7 @@ export class BibliothequeDonnees {
         .then((json)=>{
             this._genres = JSON.parse(json);
             console.log("Genres chargés");
+            Loader.termineSousEtape();
         })
         .then(()=>{
             console.log("Début chargement factions");
@@ -69,6 +76,7 @@ export class BibliothequeDonnees {
         .then((json)=>{
             this._factions = JSON.parse(json);
             console.log("Factions chargées");
+            Loader.termineSousEtape();
         })
         .then(()=>{
             console.log("Début chargement modifications");
@@ -77,6 +85,7 @@ export class BibliothequeDonnees {
         .then((json)=>{
             this._modifications = JSON.parse(json);
             console.log("Modifications chargées");
+            Loader.termineSousEtape();
         })
         .then(()=>{
             console.log("Début chargement équipements");
@@ -85,6 +94,7 @@ export class BibliothequeDonnees {
         .then((json)=>{
             this._equipements = JSON.parse(json);
             console.log("Equipements chargées");
+            Loader.termineSousEtape();
         })
         .then(()=>{
             console.log("Début chargement logiciels");
@@ -93,6 +103,7 @@ export class BibliothequeDonnees {
         .then((json)=>{
             this._logiciels = JSON.parse(json);
             console.log("Logiciels chargées");
+            Loader.termineSousEtape();
         })
         .then(()=>{
             console.log("Début chargement encyclopedie");
@@ -101,6 +112,7 @@ export class BibliothequeDonnees {
         .then((json)=>{
             this._encyclopedie = JSON.parse(json);
             console.log("Encyclopédie chargées");
+            Loader.termineSousEtape();
         })
     }
 

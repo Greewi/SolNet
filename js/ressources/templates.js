@@ -1,5 +1,6 @@
 import { Ajax } from "../ajax";
 import { Lang } from "../lang";
+import { Loader } from "../loader";
 
 var _listeTemplates =  [
     "pageAccueil",
@@ -43,6 +44,8 @@ export class BibliothequeTemplates{
      * @returns {Promise}
      */
     static initialise(){
+        Loader.setNombreSousEtape(_listeTemplates.length);
+
         this._templates = {};
 
         var promise = Promise.resolve();
@@ -56,6 +59,7 @@ export class BibliothequeTemplates{
                 template.innerHTML = html;
                 this._templates[nomTemplate] = template;
                 console.log(`Template ${nomTemplate} chargé`);
+                Loader.termineSousEtape();
             });
         }
         return promise;

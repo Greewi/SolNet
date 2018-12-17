@@ -6,22 +6,31 @@ import { Routeur } from "./routeur";
 import { Footer } from "./footer";
 import { BibliothequeArticle } from "./ressources/bibliothequeArticle";
 import { EcranAccueil } from "./ecrans/ecranAccueil";
+import { Loader } from "./loader";
+
+Loader.initialise();
+Loader.setNombreEtape(5);
 
 Promise.resolve()
 .then(()=>{
     return Lang.initialise("fr");
 })
 .then(()=>{
+    Loader.termineEtape();
     return BibliothequeDonnees.initialise();
 })
 .then(()=>{
+    Loader.termineEtape();
     return BibliothequeTemplates.initialise();
 })
 .then(()=>{
+    Loader.termineEtape();
     return BibliothequeArticle.initialise();
 })
 .then(()=>{
+    Loader.termineEtape();
     BibliothequePersonnage.initialise();
+    Loader.termineEtape();
 })
 .then(()=>{
     Footer.initialise();
@@ -33,6 +42,7 @@ Promise.resolve()
 .then(() => {
     var ecran = new EcranAccueil();
     Routeur.ouvreEcran(ecran);
+    Loader.termineChargement();
 })
 .catch((e) => {
     console.error(e);

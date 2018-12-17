@@ -1,6 +1,7 @@
 import { Ajax } from "../ajax";
 import { Lang } from "../lang";
 import { BibliothequeDonnees } from "./donneeSources";
+import { Loader } from "../loader";
 
 /**
  * Gère et instancie les articles
@@ -12,6 +13,15 @@ export class BibliothequeArticle{
      */
     static initialise(){
         this._article = {};
+
+        let nombre = 0;
+        for(let idSection in encyclopedie)
+        {
+            nombre++;
+            for(let idArticle of section)
+                nombre++;
+        }
+        Loader.setNombreSousEtape(nombre);
 
         var promise = Promise.resolve();
         var encyclopedie = BibliothequeDonnees.encyclopedie;
@@ -54,6 +64,7 @@ export class BibliothequeArticle{
             article.innerHTML = html;
             this._article[idArticle] = article;
             console.log(`Article ${idArticle} chargé`);
+            Loader.termineSousEtape();
         });
     }
 };
