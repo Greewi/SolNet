@@ -1,18 +1,49 @@
 {
+    "introduction" : [],
     "regles" : [
-
+        "introduction",
+        "reglesGenerales",
+        "resolutionActions",
+        "mecanismesParticuliers",
+        "pointsPersonnages",
+        "conseilsJoueurs",
+        "conseilsMeneurs",
+        "systemes"
     ],
     "personnages" : [
-
+        "creationPersonnages",
+        "elmentsPersonnages",
+        "evolutionPersonnages"
     ],
     "contexte" : [
         "systemeSolaire",
-        "systemesPlanetaires"
+        "systemesPlanetaires",
+        "evenementsClefs",
+        "chronologie",
+        "factions",
+        "sciencesEtTEchnologie"
     ],
     "modeDeVie" : [
-
+        "civilisationAbondance",
+        "corporations",
+        "habitats",
+        "ritesVie",
+        "naissanceEtMort",
+        "colonies",
+        "voyagesEtCommunication"
     ],
     "catalogue" : [
-
+        "outilsQuotidiens",
+        "materielIngenierie",
+        "materielEVA",
+        "materielMedical",
+        "materielEspionnage",
+        "materielMilitaire",
+        "vehicules",
+        "implantsCybernetiques",
+        "modificationsOrganiques",
+        "implantPsi",
+        "logiciels",
+        "robots"
     ]
 }
