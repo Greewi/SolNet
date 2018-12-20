@@ -13,18 +13,9 @@ export class BibliothequeArticle{
      */
     static initialise(){
         this._article = {};
-
-        let nombre = 0;
-        for(let idSection in encyclopedie)
-        {
-            nombre++;
-            for(let idArticle of section)
-                nombre++;
-        }
-        Loader.setNombreSousEtape(nombre);
-
         var promise = Promise.resolve();
         var encyclopedie = BibliothequeDonnees.encyclopedie;
+        let nombre = 0;        
         for(let idSection in encyclopedie)
         {
             var section = encyclopedie[idSection];
@@ -36,9 +27,12 @@ export class BibliothequeArticle{
             {
                 promise = promise.then(()=>{
                     return this._chargeArticle(idArticle);
-                });    
+                });
+                nombre++;                
             }
+            nombre++;            
         }
+        Loader.setNombreSousEtape(nombre);
         return promise;
     };
 
