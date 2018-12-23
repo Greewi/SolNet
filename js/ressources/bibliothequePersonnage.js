@@ -3,6 +3,7 @@ import { Personnage } from "../personnages/personnage";
 import { Lang } from "../lang";
 import { Element } from "../personnages/element";
 import { Loader } from "../loader";
+import { BibliothequeDonnees } from "./donneeSources";
 
 /**
  * Ce singleton gère la bibliothèque des personnages et les stocke dans le local storage.
@@ -188,7 +189,8 @@ export class BibliothequePersonnage{
         personnage.motivation = json.motivation;
 
         //Opinions
-        //TODO
+        for(let idOpinion in BibliothequeDonnees.opinions)
+            personnage.opinions[idOpinion] = json.opinions[idOpinion];
 
         //Histoire
         //TODO

@@ -61,6 +61,9 @@ export class BibliothequeDonnees {
             this._chargeDonnee("Logiciels", "./res/logiciels.json", "_logiciels")
         );
         promises.push(
+            this._chargeDonnee("Opinions", "./res/opinions.json", "_opinions")
+        );
+        promises.push(
             this._chargeDonnee("Encyclopedie", "./res/encyclopedie.json", "_encyclopedie")
         );
         
@@ -111,6 +114,10 @@ export class BibliothequeDonnees {
 
     static get logiciels(){
         return this._logiciels;
+    }
+
+    static get opinions(){
+        return this._opinions;
     }
 
     static get encyclopedie(){

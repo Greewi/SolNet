@@ -346,5 +346,29 @@
     "DescriptionLogiciel_RECONSTITUTION" : "celui-ci parvient à reconstruire la succession d’événement qui a conduit une scène de crime à se retrouver dans l’état où l’observateur l’a trouvé. Il permet aussi de tester des hypothèses.",
     "DescriptionLogiciel_SOCIABILITE" : "permet de prendre le comportement d’un autre persona, pour, par exemple, se faire passer pour quelqu’un d’autre.",
 
+    "NiveauOpinion_+" : "Favorable",
+    "NiveauOpinion_-" : "Defavorable",
+    "NiveauOpinion_0" : "Neutre",
+    "NiveauOpinion_=" : "Mitigé",
+    "NiveauOpinion_?" : "Sans avis",
+
+    "Opinion_TECHNOLOGIE" : "Technologie",
+    "Opinion_BIOLOGIQUES" : "Biologiques",
+    "Opinion_MODIFIES" : "Modifiés",
+    "Opinion_ARTIFICIELS" : "Artificiels",
+    "Opinion_PSIONS" : "Psions",
+    "Opinion_RELIGION" : "Religion",
+    "Opinion_TERRE" : "Terre",
+    "Opinion_COLONIES" : "Colonies",
+
+    "DescriptionOpinion_TECHNOLOGIE" : "comment le personnage considère-t-il la technologie de façon générale ?",
+    "DescriptionOpinion_BIOLOGIQUES" : "quel est son point de vue sur les êtres biologiques, notamment les humains ?",
+    "DescriptionOpinion_MODIFIES" : "comment considère-t-il les êtres modifiés, tels les biomodifiés, les cyborgs, mais aussi les provolués ?",
+    "DescriptionOpinion_ARTIFICIELS" : "comment appréhende-t-il les êtres artificiels, notamment les intelligences artificielles ?",
+    "DescriptionOpinion_PSIONS" : "comment voit-il les psions et cette technologie encore incomprise ?",
+    "DescriptionOpinion_RELIGION" : "quel est son avis vis-à-vis des religions ?",
+    "DescriptionOpinion_TERRE" : "quelle est sa position sur la Terre et des terriens ?",
+    "DescriptionOpinion_COLONIES" : "comment voit-il les colonies et la politique des corporations ?",
+
     "// OEF" : ""
 }

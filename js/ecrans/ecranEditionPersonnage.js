@@ -18,6 +18,7 @@ import { PageDescriptionPhysique, PageDescriptionAvatar } from "../pages/creatio
 import { Routeur } from "../routeur";
 import { Lang } from "../lang";
 import { Page } from "../pages/page";
+import { PageOpinions } from "../pages/creationPersonnage/opinions";
 
 /**
  * Écran de création de personnage
@@ -43,6 +44,7 @@ export class EcranEditionPersonnage extends Ecran{
             "identite" : new PageIdentite(this, personnage),
             "description" : new PageDescriptionPhysique(this, personnage),
             "avatar" : new PageDescriptionAvatar(this, personnage),
+            "opinions" : new PageOpinions(this, personnage),
         });
         super.setPageParDefaut("introduction");
         super.setOrdrePages([
@@ -60,6 +62,7 @@ export class EcranEditionPersonnage extends Ecran{
             "identite",
             "description",
             "avatar",
+            "opinions",
         ]);
         this._personnage = personnage;
     }

@@ -17,6 +17,7 @@ import { PageChoixLogiciels } from "../pages/creationPersonnage/choixLogiciels";
 import { PageDescriptionPhysique, PageDescriptionAvatar } from "../pages/creationPersonnage/descriptionEtAvatar";
 import { Routeur } from "../routeur";
 import { Lang } from "../lang";
+import { PageOpinions } from "../pages/creationPersonnage/opinions";
 
 /**
  * Écran de création de personnage
@@ -42,6 +43,7 @@ export class EcranCreationPersonnage extends Ecran{
             "identite" : new PageIdentite(this, personnage),
             "description" : new PageDescriptionPhysique(this, personnage),
             "avatar" : new PageDescriptionAvatar(this, personnage),
+            "opinions" : new PageOpinions(this, personnage),
         });
         super.setPageParDefaut("introduction");
         super.setOrdrePages([
@@ -59,6 +61,7 @@ export class EcranCreationPersonnage extends Ecran{
             "identite",
             "description",
             "avatar",
+            "opinions",
         ]);
         super.setActionRetour(()=>{
             let ecranListePersonnage = new EcranGestionPersonnage();

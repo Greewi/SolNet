@@ -1,0 +1,10 @@
+{
+    "TECHNOLOGIE" : {"id": "TECHNOLOGIE"},
+    "BIOLOGIQUES" : {"id": "BIOLOGIQUES"},
+    "MODIFIES" : {"id": "MODIFIES"},
+    "ARTIFICIELS" : {"id": "ARTIFICIELS"},
+    "PSIONS" : {"id": "PSIONS"},
+    "RELIGION" : {"id": "RELIGION"},
+    "TERRE" : {"id": "TERRE"},
+    "COLONIES" : {"id": "COLONIES"}
+}

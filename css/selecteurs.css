@@ -36,6 +36,9 @@
     grid-template-columns: auto;
     grid-template-rows: auto;
 }
+.page__selecteur__avec_label{
+    grid-template-columns: 1fr 1fr 50px;
+}
 /* Contenu du sélecteur */
 .page__selecteur__nom{
     box-sizing: border-box;
@@ -58,6 +61,11 @@
 .page__selecteur__nom::placeholder {
     color:var(--couleurPlaceholderSelecteur);
     opacity: 1;
+}
+
+.page__selecteur__second_nom {
+    grid-column: 2;
+    border-radius: 0 0 0 0;
 }
 
 .page__selecteur__nom__ouvert{
@@ -147,6 +155,9 @@
     color: var(--couleurTexteInfosSelecteur);
     border-radius: 0 0 10px 10px;
     display: none;
+}
+.page___selecteur__infos__trois_colonnes{
+    grid-column: 1/4;
 }
 .page___selecteur__infos__ouvert{
     display: block;

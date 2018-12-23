@@ -310,6 +310,40 @@ export class SelecteurSelect extends Selecteur{
     }
 }
 
+export class SelecteurOpinion extends Selecteur{
+    /**
+     * @param {string} description
+     */
+    constructor(texte, description, valeurInitiale){
+        super("fragmentCreationPersonnageSelecteurOpinion");
+        this._label = this._element.querySelector(".page__selecteur__premier_nom");
+        this._label.innerHTML = texte;
+
+        this._ligne1 = this._element.querySelector(".page__selecteur__second_nom");
+        this._ligne1.placeholder = texte;
+        this._ligne1.value = valeurInitiale;
+
+        this._blockInfos = this._element.querySelector(".page___selecteur__infos");
+        this._blockInfos.innerHTML = description;
+        this._boutonInfos = this._element.querySelector(".page___selecteur__bouton_infos");
+        this._boutonInfos.onclick = (event)=>{
+            if(event)
+                event.preventDefault();
+            this._label.classList.toggle("page__selecteur__nom__ouvert");
+            this._boutonInfos.classList.toggle("page___selecteur__bouton_infos__ouvert");
+            this._blockInfos.classList.toggle("page___selecteur__infos__ouvert");
+        };
+        this._onchange = (valeur)=>{};
+        this._ligne1.onchange = (e)=>{
+            this._onchange(this._ligne1.value);
+        }
+    }
+
+    set onchange(callback){
+        this._onchange = callback;
+    }
+}
+
 export class SelecteurTextArea extends Selecteur{
     /**
      * @param {string} texte
