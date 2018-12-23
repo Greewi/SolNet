@@ -13,27 +13,17 @@ export class BibliothequeArticle{
      */
     static initialise(){
         this._article = {};
-        var promise = Promise.resolve();
+        var promises = [];
         var encyclopedie = BibliothequeDonnees.encyclopedie;
-        let nombre = 0;        
         for(let idSection in encyclopedie)
         {
             var section = encyclopedie[idSection];
-            promise = promise.then(()=>{
-                return this._chargeArticle(idSection);
-            });
-
+            promises.push(this._chargeArticle(idSection));
             for(let idArticle of section)
-            {
-                promise = promise.then(()=>{
-                    return this._chargeArticle(idArticle);
-                });
-                nombre++;                
-            }
-            nombre++;            
+                promises.push(this._chargeArticle(idArticle));
         }
-        Loader.setNombreSousEtape(nombre);
-        return promise;
+        Loader.setNombreSousEtape(promises.length);
+        return Promise.all(promises);
     };
 
     /**
@@ -51,7 +41,6 @@ export class BibliothequeArticle{
     static _chargeArticle(idArticle){
         return Promise.resolve()
         .then(()=>{
-            console.log(`Début chargement article ${idArticle}`);
             return Ajax.get(`./localisation/${Lang.getCodeLangue()}/articles/${idArticle}.html`);
         }).then((html)=>{
             let article = document.createElement("template");

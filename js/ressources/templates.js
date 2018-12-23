@@ -47,34 +47,36 @@ export class BibliothequeTemplates{
         Loader.setNombreSousEtape(_listeTemplates.length);
 
         this._templates = {};
-
-        var promise = Promise.resolve();
-        for(let nomTemplate of _listeTemplates)
-        {
-            promise = promise.then(()=>{
-                console.log(`Début chargement template ${nomTemplate}`);
-                return Ajax.get(`./localisation/${Lang.getCodeLangue()}/templates/${nomTemplate}.html`);
-            }).then((html)=>{
-                let template = document.createElement("template");
-                template.innerHTML = html;
-                this._templates[nomTemplate] = template;
-                console.log(`Template ${nomTemplate} chargé`);
-                Loader.termineSousEtape();
-            });
-        }
-        return promise;
+        var promises = [];
+        for(let idTemplate of _listeTemplates)
+            promises.push(this._chargeTemplate(idTemplate));
+        Loader.setNombreSousEtape(_listeTemplates.length);
+        return Promise.all(promises);
     }
 
     /**
      * 
-     * @param {string} nomTemplate le nom du template à récupérer
+     * @param {string} idTemplate le nom du template à récupérer
      * @returns {HTMLTemplateElement} le template chargé
      */
-    static getTemplate(nomTemplate){
-        return this._templates[nomTemplate];
+    static getTemplate(idTemplate){
+        return this._templates[idTemplate];
     }
 
-    static log(){
-        console.log(this._templates);
+    /**
+     * Charge un template dans la banque de templates
+     * @param {string} idTemplate L'id du template 
+     */
+    static _chargeTemplate(idTemplate){
+        return Promise.resolve()
+        .then(()=>{
+            return Ajax.get(`./localisation/${Lang.getCodeLangue()}/templates/${idTemplate}.html`);
+        }).then((html)=>{
+            let template = document.createElement("template");
+            template.innerHTML = html;
+            this._templates[idTemplate] = template;
+            console.log(`Template ${idTemplate} chargé`);
+            Loader.termineSousEtape();
+        });
     }
 }
