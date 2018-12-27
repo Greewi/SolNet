@@ -5,16 +5,29 @@
     /**
      * Interface générale
      */
-    --couleurFondPage: rgb(255, 255, 255);
+    --fondApplication: radial-gradient(circle at 0 0, #1e5799 0%,#82b0d6 77%,#2989d8 79%,#000000 81%,#000000 100%);
+
+    --couleurFondPage: rgba(255, 255, 255, 0.85);
     --couleurTextePage: rgb(36, 36, 36);
 
     --couleurFondFooter: rgba(255, 255, 255, 0.486);
 
-    --couleurFondTitre1: rgba(0, 153, 255, 0.473);
-    --couleurBordureTitre2 : rgba(0, 85, 255, 0.747);
+    --couleurFondTitre1: rgb(29, 71, 99);
+    --couleurTexteTitre1: rgb(255, 255, 255);
+    --couleurTexteTitre2: rgb(29, 71, 99);
+    --couleurBordureTitre2 : rgb(29, 71, 99);
 
     --couleurBordureEncart : rgb(139, 209, 255);
     --couleurFondEncart : rgba(231, 245, 255, 0.384);
+
+    /**
+     * Tableaux
+     */
+    --couleurFondTableau : rgb(29, 71, 99);
+    --couleurTexteTitreTableaux : rgb(255, 255, 255);
+    --couleurFondTitreTableaux : transparent;
+    --couleurFondCelluleTableaux : rgb(255, 255, 255);
+    --couleurTexteCelluleTableaux : rgb(0, 0, 0);
 
     /**
      * Boutons
@@ -36,6 +49,11 @@
     --couleurPlaceholderSelecteur: rgba(0, 0, 0, 0.562);
     --couleurLabelSelecteurOn: rgba(0, 0, 0, 0.959);
     --couleurLabelSelecteurOff: rgba(0, 0, 0, 0.397);
+
+    /**
+     * Textes
+     */
+    font-size:11pt;
 }
 
 /**
@@ -96,12 +114,17 @@
 /**
  * Zone principale
  */
+ html{
+    width: 100%;
+    height: 100%;
+ }
 .body {
     width: 100%;
     height: 100%;
     margin: 0;
     padding: 0;
     overflow: hidden;
+    background-image: var(--fondApplication);
 
     font-family: Arial, Helvetica, sans-serif;
     font-size: 11pt;
@@ -124,7 +147,6 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background: var(--couleurFondPage);
     color : var(--couleurTextePage);
 }
 
@@ -132,21 +154,39 @@
  * Styles de texte
  */
 h1 {
-    text-align: center;
+    margin: 0 -10px 1rem -10px;
+    padding: 0.5rem;
     background: var(--couleurFondTitre1);
-    padding: 10px;
-    margin: 0 -10px 10px -10px;
+    color: var(--couleurTexteTitre1);
+    font-size: 2rem;
+    text-align: center;
 }
 
 h2 {
-    text-align: left;
+    margin: 1rem 0 calc(0.5rem - 1px) 0;
     border-bottom: solid 1px;
     border-bottom-color: var(--couleurBordureTitre2);
-    margin: 15px 0 5px 0;
+    color: var(--couleurTexteTitre2);
+    font-size: 1.5rem;
+    text-align: left;
 }
 
-p {
+p, blockquote {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1rem;
     text-align: justify;
+}
+
+ul {
+    margin:0;
+    margin-bottom: 1rem;
+    padding: 0;
+    padding-left: 2rem;
+}
+
+li {
+    list-style-type: circle;
 }
 
 .encart {
@@ -158,6 +198,38 @@ p {
     border : solid 2px var(--couleurBordureEncart);
     border-radius: 15px;
     background: var(--couleurFondEncart);
+}
+
+/**
+ * Tableaux
+ */
+.table__conteneur {
+    width: 100%;
+    padding:0px;
+    overflow: auto;
+}
+table {
+    box-sizing: border-box;
+    width: 100%;
+    background: var(--couleurFondTableau);
+    border-spacing: 2px;
+    border-radius: 15px;
+    border: solid 2px var(--couleurFondTableau);
+    overflow:hidden;
+}
+
+th {
+    background: var(--couleurFondTitreTableaux);
+    color: var(--couleurTexteTitreTableaux);
+    font-weight: bold;
+    padding: 0.5rem;
+    text-align: center;
+}
+td {
+    background: var(--couleurFondCelluleTableaux);
+    color: var(--couleurTexteCelluleTableaux);
+    padding: 0.5rem;
+    text-align: center;
 }
 
 /**
