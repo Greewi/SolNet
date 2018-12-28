@@ -22,7 +22,8 @@
 .page__contenu {
     grid-row: 1;
     box-sizing: border-box;
-    padding: 0 10px 70px 10px;
+    padding: 0 10px 1rem 10px;
+    margin-bottom: 60px;
     width: 100vw;
     max-width: 640px;
     overflow-x: hidden;

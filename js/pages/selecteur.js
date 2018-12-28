@@ -63,7 +63,7 @@ export class SelecteurSimple extends Selecteur{
         this._blockInfos = this._element.querySelector(".page___selecteur__infos");
         this._blockInfos.innerHTML = description;
         this._boutonInfos = this._element.querySelector(".page___selecteur__bouton_infos");
-        this._boutonInfos.onclick = (event)=>{
+        this._blockInfos.onclick = this._boutonInfos.onclick = (event)=>{
             if(event)
                 event.preventDefault();
             this._ligne1.classList.toggle("page__selecteur__nom__ouvert");
@@ -110,7 +110,7 @@ export class SelecteurAvecPrerequis extends Selecteur{
         this._blockInfos = this._element.querySelector(".page___selecteur__infos");
         this._blockInfos.innerHTML = description;
         this._boutonInfos = this._element.querySelector(".page___selecteur__bouton_infos");
-        this._boutonInfos.onclick = (event)=>{
+        this._blockInfos.onclick = this._boutonInfos.onclick = (event)=>{
             if(event)
                 event.preventDefault();
             this._ligne2.classList.toggle("page__selecteur__nom__ouvert");
@@ -249,7 +249,7 @@ export class SelecteurInputText extends Selecteur{
         this._blockInfos = this._element.querySelector(".page___selecteur__infos");
         this._blockInfos.innerHTML = description;
         this._boutonInfos = this._element.querySelector(".page___selecteur__bouton_infos");
-        this._boutonInfos.onclick = (event)=>{
+        this._blockInfos.onclick = this._boutonInfos.onclick = (event)=>{
             if(event)
                 event.preventDefault();
             this._ligne1.classList.toggle("page__selecteur__nom__ouvert");
@@ -283,7 +283,7 @@ export class SelecteurSelect extends Selecteur{
         this._blockInfos = this._element.querySelector(".page___selecteur__infos");
         this._blockInfos.innerHTML = description;
         this._boutonInfos = this._element.querySelector(".page___selecteur__bouton_infos");
-        this._boutonInfos.onclick = (event)=>{
+        this._blockInfos.onclick = this._boutonInfos.onclick = (event)=>{
             if(event)
                 event.preventDefault();
             this._ligne1.classList.toggle("page__selecteur__nom__ouvert");
@@ -326,7 +326,7 @@ export class SelecteurOpinion extends Selecteur{
         this._blockInfos = this._element.querySelector(".page___selecteur__infos");
         this._blockInfos.innerHTML = description;
         this._boutonInfos = this._element.querySelector(".page___selecteur__bouton_infos");
-        this._boutonInfos.onclick = (event)=>{
+        this._blockInfos.onclick = this._boutonInfos.onclick = (event)=>{
             if(event)
                 event.preventDefault();
             this._label.classList.toggle("page__selecteur__nom__ouvert");
