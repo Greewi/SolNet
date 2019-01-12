@@ -439,7 +439,12 @@ export class SelecteurPersonnage extends Selecteur{
         this._onedite = (e) => {};
         this._ligne1 = this._element.querySelector(".page__selecteur__nom");
         this._ligne1.innerHTML = texte;
-
+        this._ligne1.onclick = (event)=>{
+            if(event)
+                event.preventDefault();
+            this._onclick();
+        };
+        
         this._boutonEditer = this._element.querySelector(".page___selecteur__bouton_editer");
         this._boutonEditer.onclick = (event)=>{
             if(event)

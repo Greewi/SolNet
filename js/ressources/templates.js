@@ -25,6 +25,7 @@ var _listeTemplates =  [
     "pageCreationPersonnageTraits",
     "pagePersonnageImporter",
     "pagePersonnageListe",
+    "pagePersonnageAfficher",
     "fragmentCreationPersonnageSelecteurAjoutElement",
     "fragmentCreationPersonnageSelecteurDeuxLignes",
     "fragmentCreationPersonnageSelecteurElementSpecial",

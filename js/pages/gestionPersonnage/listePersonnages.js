@@ -5,6 +5,7 @@ import { SelecteurPersonnage as SelecteurPersonnage } from "../selecteur";
 import { EcranCreationPersonnage } from "../../ecrans/ecranCreationPersonnage";
 import { Routeur } from "../../routeur";
 import { EcranEditionPersonnage } from "../../ecrans/ecranEditionPersonnage";
+import { EcranAffichagePersonnage } from "../../ecrans/ecranAffichagePersonnage";
 
 export class PageListePersonnages extends Page{
     /**
@@ -58,7 +59,8 @@ export class PageListePersonnages extends Page{
         let selecteur = new SelecteurPersonnage(nomPersonnage);
         selecteur.onclick = ()=>{
             let personnage = BibliothequePersonnage.getPersonnage(idPersonnage);
-            //Todo
+            let ecranAffichage = new EcranAffichagePersonnage(personnage);
+            Routeur.ouvreEcran(ecranAffichage);
         };
         selecteur.onedite = ()=>{
             let personnage = BibliothequePersonnage.getPersonnage(idPersonnage);

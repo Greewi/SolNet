@@ -221,6 +221,10 @@ li {
     background: var(--couleurFondEncart);
 }
 
+em {
+    font-style: normal;
+    font-weight: bold;
+}
 /**
  * Tableaux
  */
