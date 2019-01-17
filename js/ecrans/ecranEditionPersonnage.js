@@ -19,6 +19,8 @@ import { Routeur } from "../routeur";
 import { Lang } from "../lang";
 import { Page } from "../pages/page";
 import { PageOpinions } from "../pages/creationPersonnage/opinions";
+import { PageMotivation } from "../pages/creationPersonnage/motivation";
+import { PageFinCreationPersonnage } from "../pages/creationPersonnage/finCreation";
 
 /**
  * Écran de création de personnage
@@ -45,6 +47,8 @@ export class EcranEditionPersonnage extends Ecran{
             "description" : new PageDescriptionPhysique(this, personnage),
             "avatar" : new PageDescriptionAvatar(this, personnage),
             "opinions" : new PageOpinions(this, personnage),
+            "motivation" : new PageMotivation(this, personnage),
+            "fin" : new PageFinCreationPersonnage(this)
         });
         super.setPageParDefaut("introduction");
         super.setOrdrePages([
@@ -63,6 +67,8 @@ export class EcranEditionPersonnage extends Ecran{
             "description",
             "avatar",
             "opinions",
+            "motivation",
+            "fin"
         ]);
         this._personnage = personnage;
     }
