@@ -23,8 +23,10 @@ export class PageAfficherPersonnage extends Page{
         }
         this.element.querySelector("#affichagePersonnageRoles").innerHTML = roles;
         this.element.querySelector("#affichagePersonnageProfession").innerHTML = personnage.identite.profession;
-        this.element.querySelector("#affichagePersonnageNatureEsprit").innerHTML = Lang.get("Intelligence_"+personnage.identite.natureEsprit.id);
-        this.element.querySelector("#affichagePersonnageEnveloppeUsuelle").innerHTML = Lang.get("Enveloppe_"+personnage.identite.enveloppeUsuelle.id);
+        if(personnage.identite.natureEsprit)
+            this.element.querySelector("#affichagePersonnageNatureEsprit").innerHTML = Lang.get("Intelligence_"+personnage.identite.natureEsprit.id);
+        if(personnage.identite.enveloppeUsuelle)
+            this.element.querySelector("#affichagePersonnageEnveloppeUsuelle").innerHTML = Lang.get("Enveloppe_"+personnage.identite.enveloppeUsuelle.id);
         this.element.querySelector("#affichagePersonnageAffiliation").innerHTML = personnage.identite.affiliation;
         this.element.querySelector("#affichagePersonnageGenre").innerHTML = Lang.get("Genre_"+personnage.identite.genre);
 

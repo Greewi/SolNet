@@ -20,7 +20,7 @@ export class Identite{
         /**
          * @type {string}
          */
-        this.genre = "";
+        this.genre = "INDEFINI";
         /**
          * @type {string}
          */
