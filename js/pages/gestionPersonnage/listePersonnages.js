@@ -18,7 +18,7 @@ export class PageListePersonnages extends Page{
         this._boutonCreer = this.element.querySelector("#personnageNouveauPersonnage");
         this._boutonImporter = this.element.querySelector("#personnageImporterPersonnage");
         
-        this._actionCreePersonnage = ()=>{
+        this._actionCreePersonnage = (event)=>{
             event.preventDefault();
             let personnage = BibliothequePersonnage.creePersonnage();
             this._ajoutePersonnage(personnage.id, Lang.get("NomNouveauPersonnage"));
@@ -27,7 +27,7 @@ export class PageListePersonnages extends Page{
         };
         this._boutonCreer.addEventListener("click", this._actionCreePersonnage);
 
-        this._actionImporter = ()=>{
+        this._actionImporter = (event)=>{
             event.preventDefault();
             ecran.ouvre("importerPersonnage", Page.AVANCER);
         };
