@@ -1,18 +1,24 @@
 {
     "introduction" : [],
     "regles" : [
-        "introduction",
         "reglesGenerales",
         "resolutionActions",
         "mecanismesParticuliers",
         "pointsPersonnages",
         "conseilsJoueurs",
         "conseilsMeneurs",
-        "systemes"
+        "systemeCombat",
+        "systemeEnquete",
+        "systemeEspace",
+        "systemeInfiltration",
+        "systemeInformatique",
+        "systemeNegociation",
+        "systemeRelation",
+        "systemeTechnologie"
     ],
     "personnages" : [
         "creationPersonnages",
-        "elmentsPersonnages",
+        "elementsPersonnages",
         "evolutionPersonnages"
     ],
     "contexte" : [
@@ -21,7 +27,7 @@
         "evenementsClefs",
         "chronologie",
         "factions",
-        "sciencesEtTEchnologie"
+        "sciencesEtTechnologie"
     ],
     "modeDeVie" : [
         "civilisationAbondance",
