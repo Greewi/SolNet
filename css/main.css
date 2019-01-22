@@ -3,6 +3,15 @@
  */
 :root{
     /**
+     * Loader
+     */
+     --fondLoader : radial-gradient(circle at 0 0, #11335a 0%,#4e667a 77%,#0d3250 79%,#000000 81%,#000000 100%);
+     --couleurTitreLoader : rgba(255, 255, 255, 0.945);
+     --couleurBordureBarreLoader1 : rgba(255, 255, 255, 0.856);
+     --couleurBordureBarreLoader2 : rgba(255, 255, 255, 0.767);
+     --couleurBarreLoader : rgba(255, 255, 255, 0.651);
+ 
+    /**
      * Interface générale
      */
     --fondApplication: radial-gradient(circle at 0 0, #1e5799 0%,#82b0d6 77%,#2989d8 79%,#000000 81%,#000000 100%);
@@ -22,15 +31,6 @@
 
     --couleurBordureEncart : rgb(29, 71, 99);
     --couleurFondEncart : rgba(255, 255, 255, 0.418);
-
-    /**
-     * Loader
-     */
-    --fondLoader : radial-gradient(circle at 0 0, #11335a 0%,#4e667a 77%,#0d3250 79%,#000000 81%,#000000 100%);
-    --couleurTitreLoader : rgba(255, 255, 255, 0.945);
-    --couleurBordureBarreLoader1 : rgba(255, 255, 255, 0.856);
-    --couleurBordureBarreLoader2 : rgba(255, 255, 255, 0.767);
-    --couleurBarreLoader : rgba(255, 255, 255, 0.651);
 
     /**
      * Tableaux
@@ -136,7 +136,8 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-image: var(--fondApplication);
+    background: var(--fondApplication);
+    background-size: cover;
 
     font-family: Arial, Helvetica, sans-serif;
     font-size: 11pt;

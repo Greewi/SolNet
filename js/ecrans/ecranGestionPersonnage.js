@@ -4,6 +4,7 @@ import { PageImporterPersonnage } from "../pages/gestionPersonnage/importationPe
 import { Routeur } from "../routeur";
 import { EcranAccueil } from "./ecranAccueil";
 import { Page } from "../pages/page";
+import { BibliothequeThemes } from "../ressources/themes";
 
 /**
  * Écran de gestion de personnage
@@ -19,6 +20,7 @@ export class EcranGestionPersonnage extends Ecran{
             "importerPersonnage" : new PageImporterPersonnage(this),
         });
         super.setPageParDefaut("listePersonnages");
+        BibliothequeThemes.setTheme("mars");
     }
 
     /**

@@ -7,9 +7,10 @@ import { Footer } from "./footer";
 import { BibliothequeArticle } from "./ressources/bibliothequeArticle";
 import { EcranAccueil } from "./ecrans/ecranAccueil";
 import { Loader } from "./loader";
+import { BibliothequeThemes } from "./ressources/themes";
 
 Loader.initialise();
-Loader.setNombreEtape(5);
+Loader.setNombreEtape(6);
 
 Promise.resolve()
 .then(()=>{
@@ -26,6 +27,10 @@ Promise.resolve()
 .then(()=>{
     Loader.termineEtape();
     return BibliothequeArticle.initialise();
+})
+.then(()=>{
+    Loader.termineEtape();
+    return BibliothequeThemes.initialise();
 })
 .then(()=>{
     Loader.termineEtape();

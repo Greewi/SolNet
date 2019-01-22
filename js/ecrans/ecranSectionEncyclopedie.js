@@ -5,6 +5,7 @@ import { PageSection } from "../pages/encyclopedie/section";
 import { EcranEncyclopedie } from "./ecranEncyclopedie";
 import { Routeur } from "../routeur";
 import { Page } from "../pages/page";
+import { BibliothequeThemes } from "../ressources/themes";
 
 /**
  * Écran représentant une section de l'encyclopédie
@@ -39,6 +40,7 @@ export class EcranSectionEncyclopedie extends Ecran{
         super.setActionRetour(()=>{
             Routeur.ouvreEcran(new EcranEncyclopedie());
         });
+        BibliothequeThemes.setTheme("terre");
     }
 
     /**

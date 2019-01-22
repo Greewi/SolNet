@@ -3,6 +3,7 @@ import { Routeur } from "../routeur";
 import { Personnage } from "../personnages/personnage";
 import { PageAfficherPersonnage } from "../pages/gestionPersonnage/affichagePersonnage";
 import { EcranGestionPersonnage } from "./ecranGestionPersonnage";
+import { BibliothequeThemes } from "../ressources/themes";
 
 /**
  * Écran d'affichage des personnage
@@ -21,6 +22,7 @@ export class EcranAffichagePersonnage extends Ecran{
         super.setActionRetour(()=>{
             Routeur.ouvreEcran(new EcranGestionPersonnage());
         });
+        BibliothequeThemes.setTheme("mars");
     }
 
     /**

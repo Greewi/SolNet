@@ -21,6 +21,7 @@ import { Page } from "../pages/page";
 import { PageOpinions } from "../pages/creationPersonnage/opinions";
 import { PageMotivation } from "../pages/creationPersonnage/motivation";
 import { PageFinCreationPersonnage } from "../pages/creationPersonnage/finCreation";
+import { BibliothequeThemes } from "../ressources/themes";
 
 /**
  * Écran de création de personnage
@@ -71,6 +72,7 @@ export class EcranEditionPersonnage extends Ecran{
             "fin"
         ]);
         this._personnage = personnage;
+        BibliothequeThemes.setTheme("mars");
     }
 
     /**

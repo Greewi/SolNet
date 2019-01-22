@@ -20,6 +20,7 @@ import { Lang } from "../lang";
 import { PageOpinions } from "../pages/creationPersonnage/opinions";
 import { PageMotivation } from "../pages/creationPersonnage/motivation";
 import { PageFinCreationPersonnage } from "../pages/creationPersonnage/finCreation";
+import { BibliothequeThemes } from "../ressources/themes";
 
 /**
  * Écran de création de personnage
@@ -74,6 +75,7 @@ export class EcranCreationPersonnage extends Ecran{
             Routeur.ouvreEcran(ecranListePersonnage);
         }, Lang.get("BoutonQuitter"));
         this._personnage = personnage;
+        BibliothequeThemes.setTheme("mars");
     }
 
     /**

@@ -1,5 +1,6 @@
 import { Ecran } from "./ecran";
 import { PageAccueil } from "../pages/pageAccueil";
+import { BibliothequeThemes } from "../ressources/themes";
 
 /**
  * Écran représentant l'écran d'accueil de l'application
@@ -14,5 +15,6 @@ export class EcranAccueil extends Ecran{
             accueil : new PageAccueil(this)
         });
         super.setPageParDefaut("accueil");
+        BibliothequeThemes.setTheme("sol");
     }
 }
