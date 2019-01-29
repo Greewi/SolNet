@@ -28,6 +28,7 @@ var _listeTemplates =  [
     "pagePersonnageImporter",
     "pagePersonnageListe",
     "pagePersonnageAfficher",
+    "pagePersonnageAfficherRoll20",
     "fragmentCreationPersonnageSelecteurAjoutElement",
     "fragmentCreationPersonnageSelecteurDeuxLignes",
     "fragmentCreationPersonnageSelecteurElementSpecial",
