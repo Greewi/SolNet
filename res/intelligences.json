@@ -1,9 +1,119 @@
 {
-    "NATURELLE":{"id":"NATURELLE", "dateInitiale":1970, "enveloppes":["BIOLOGIQUE", "PROVOLUE", "BIOMODIFIE", "REPLICANT", "CHIMERE", "CYBORG", "CYBERNETIQUE", "HYPER_HYBRIDE"]},
-    "PROVOLUEE":{"id":"PROVOLUEE", "dateInitiale":2084, "enveloppes":["PROVOLUE", "REPLICANT", "CHIMERE", "CYBORG", "CYBERNETIQUE", "HYPER_HYBRIDE"]},
-    "SUPERVISEE":{"id":"SUPERVISEE", "dateInitiale":2083, "enveloppes":["BIOMODIFIE", "REPLICANT", "CHIMERE", "CYBORG", "CYBERNETIQUE", "HYPER_HYBRIDE"]},
-    "INFOMORPHISEE":{"id":"INFOMORPHISEE", "dateInitiale":2081, "enveloppes":["CYBORG", "CYBERNETIQUE", "HYPER_HYBRIDE", "INFORMORPHE"]},
-    "SYNCHRO":{"id":"SYNCHRO", "dateInitiale":2060, "enveloppes":["CYBORG", "CYBERNETIQUE", "HYPER_HYBRIDE", "INFORMORPHE"]},
-    "WOLFA":{"id":"WOLFA", "dateInitiale":2070, "enveloppes":["CYBORG", "CYBERNETIQUE", "HYPER_HYBRIDE", "INFORMORPHE"]},
-    "LEY_WAN":{"id":"LEY_WAN", "dateInitiale":2074, "enveloppes":["REPLICANT", "CHIMERE", "CYBORG", "CYBERNETIQUE", "HYPER_HYBRIDE", "INFORMORPHE"]}
+    "NATURELLE": {
+        "id": "NATURELLE",
+        "dateInitiale": 1970,
+        "enveloppes": [
+            "BIOLOGIQUE",
+            "BIOMODIFIE",
+            "CYBORG",
+            "PROVOLUE_BIOMODIFIE",
+            "PROVOLUE_CYBORG",
+            "REPLICANT",
+            "REPLICANT_CYBORG",
+            "CHIMERE",
+            "CHIMERE_CYBORG",
+            "CYBERNETIQUE",
+            "HYPER_HYBRIDE"
+        ]
+    },
+    "PROVOLUEE": {
+        "id": "PROVOLUEE",
+        "dateInitiale": 2084,
+        "enveloppes": [
+            "BIOMODIFIE",
+            "CYBORG",
+            "PROVOLUE",
+            "PROVOLUE_BIOMODIFIE",
+            "PROVOLUE_CYBORG",
+            "REPLICANT",
+            "REPLICANT_CYBORG",
+            "CHIMERE",
+            "CHIMERE_CYBORG",
+            "CYBERNETIQUE",
+            "HYPER_HYBRIDE"
+        ]
+    },
+    "SUPERVISEE": {
+        "id": "SUPERVISEE",
+        "dateInitiale": 2083,
+        "enveloppes": [
+            "CYBORG",
+            "PROVOLUE_CYBORG",
+            "REPLICANT_CYBORG",
+            "CHIMERE_CYBORG",
+            "CYBERNETIQUE",
+            "HYPER_HYBRIDE",
+            "INFORMORPHE"
+        ]
+    },
+    "PROVOLUEE_SUPERVISEE": {
+        "id": "PROVOLUEE_SUPERVISEE",
+        "dateInitiale": 2084,
+        "enveloppes": [
+            "CYBORG",
+            "PROVOLUE_CYBORG",
+            "REPLICANT_CYBORG",
+            "CHIMERE_CYBORG",
+            "CYBERNETIQUE",
+            "HYPER_HYBRIDE",
+            "INFORMORPHE"
+        ]
+    },
+    "INFOMORPHISEE": {
+        "id": "INFOMORPHISEE",
+        "dateInitiale": 2081,
+        "enveloppes": [
+            "INFORMORPHE"
+        ]
+    },
+    "PROVOLUEE_INFOMORPHISEE": {
+        "id": "PROVOLUEE_INFOMORPHISEE",
+        "dateInitiale": 2084,
+        "enveloppes": [
+            "INFORMORPHE"
+        ]
+    },
+    "SYNCHRO": {
+        "id": "SYNCHRO",
+        "dateInitiale": 2060,
+        "enveloppes": [
+            "CYBORG",
+            "PROVOLUE_CYBORG",
+            "REPLICANT_CYBORG",
+            "CHIMERE_CYBORG",
+            "CYBERNETIQUE",
+            "HYPER_HYBRIDE",
+            "INFORMORPHE"
+        ]
+    },
+    "WOLFA": {
+        "id": "WOLFA",
+        "dateInitiale": 2070,
+        "enveloppes": [
+            "CYBORG",
+            "PROVOLUE_CYBORG",
+            "REPLICANT_CYBORG",
+            "CHIMERE_CYBORG",
+            "CYBERNETIQUE",
+            "HYPER_HYBRIDE",
+            "INFORMORPHE"
+        ]
+    },
+    "LEY_WAN": {
+        "id": "LEY_WAN",
+        "dateInitiale": 2074,
+        "enveloppes": [
+            "BIOMODIFIE",
+            "CYBORG",
+            "PROVOLUE_BIOMODIFIE",
+            "PROVOLUE_CYBORG",
+            "REPLICANT",
+            "REPLICANT_CYBORG",
+            "CHIMERE",
+            "CHIMERE_CYBORG",
+            "CYBERNETIQUE",
+            "HYPER_HYBRIDE",
+            "INFORMORPHE"
+        ]
+    }
 }

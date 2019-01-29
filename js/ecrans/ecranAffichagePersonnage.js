@@ -16,8 +16,12 @@ export class EcranAffichagePersonnage extends Ecran{
     constructor(personnage){
         super();
         super.setPages({
-            "personnage" : new PageAfficherPersonnage(this, personnage)
+            "personnage" : new PageAfficherPersonnage(this, personnage),
+            "personnageRoll20" : new PageAfficherPersonnage(this, personnage, "pagePersonnageAfficherRoll20")
         });
+        super.setOrdrePages([
+            "personnage", "personnageRoll20"
+        ]);
         super.setPageParDefaut("personnage");
         super.setActionRetour(()=>{
             Routeur.ouvreEcran(new EcranGestionPersonnage());

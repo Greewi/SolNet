@@ -7,9 +7,10 @@ export class PageAfficherPersonnage extends Page{
     /**
      * @param {Ecran} ecran L'écran auquel cette page est rattachée
      * @param {Personnage} personnage Le personnage à  visualiser
+     * @param {string} [templatePage] Le template de la page à utiliser
      */
-    constructor(ecran, personnage){
-        super("pagePersonnageAfficher", ecran);
+    constructor(ecran, personnage, templatePage){
+        super(templatePage || "pagePersonnageAfficher", ecran);
 
         console.log(personnage);
 
