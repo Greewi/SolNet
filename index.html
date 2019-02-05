@@ -36,6 +36,14 @@
         <button id="footerBouton3" class="bouton footer__bouton-3"></button>
     </footer>
 
+    <script>
+        if('serviceWorker' in navigator) {
+            navigator.serviceWorker.register("/serviceWorker.js")
+            .then(()=>{
+                console.log("Service Worker enregistré");
+            });
+        }
+    </script>
     <script type="module" src="js/main.js"></script>
 </body>
 </html>
