@@ -91,14 +91,16 @@ export class Page{
      * Scroll le contenu de la page pour monter le haut de la page
      */
     scrollEnHaut(){
-        this._contenu.scrollTo(0, 0);
+        if(this._contenu.scrollTo)
+            this._contenu.scrollTo(0, 0);
     }
 
     /**
      * Scroll le contenu de la page pour monter le bas de la page
      */
     scrollEnBas(){
-        this._contenu.scrollTo(0, this._contenu.scrollHeight);
+        if(this._contenu.scrollTo)
+            this._contenu.scrollTo(0, this._contenu.scrollHeight);
     }
 
     /**
