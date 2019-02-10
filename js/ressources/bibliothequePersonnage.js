@@ -193,7 +193,10 @@ export class BibliothequePersonnage{
             personnage.opinions[idOpinion] = json.opinions[idOpinion];
 
         //Histoire
-        //TODO
+        personnage.histoire.dateNaissance = json.histoire.dateNaissance;
+        personnage.histoire.lieuNaissance = json.histoire.lieuNaissance;
+        personnage.histoire.detailNaissance = json.histoire.detailNaissance;
+        //TODO - Historique
 
         //Intrigue
         //TODO

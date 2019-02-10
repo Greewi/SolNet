@@ -30,6 +30,7 @@ export class PageIntroductionEdition extends Page{
         this.creeBoutonLien("editionPersonnageAvatar", "avatar");
         this.creeBoutonLien("editionPersonnageOpinions", "opinions");
         this.creeBoutonLien("editionPersonnageMotivation", "motivation");
+        this.creeBoutonLien("editionPersonnageNaissance", "naissance");
     }
 
     creeBoutonLien(idBouton, idPage){

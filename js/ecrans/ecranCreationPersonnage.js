@@ -21,6 +21,7 @@ import { PageOpinions } from "../pages/creationPersonnage/opinions";
 import { PageMotivation } from "../pages/creationPersonnage/motivation";
 import { PageFinCreationPersonnage } from "../pages/creationPersonnage/finCreation";
 import { BibliothequeThemes } from "../ressources/themes";
+import { PageNaissance } from "../pages/creationPersonnage/naissance";
 
 /**
  * Écran de création de personnage
@@ -48,6 +49,7 @@ export class EcranCreationPersonnage extends Ecran{
             "avatar" : new PageDescriptionAvatar(this, personnage),
             "opinions" : new PageOpinions(this, personnage),
             "motivation" : new PageMotivation(this, personnage),
+            "naissance" : new PageNaissance(this, personnage),
             "fin" : new PageFinCreationPersonnage(this)
         });
         super.setPageParDefaut("introduction");
@@ -68,6 +70,7 @@ export class EcranCreationPersonnage extends Ecran{
             "avatar",
             "opinions",
             "motivation",
+            "naissance",
             "fin"
         ]);
         super.setActionRetour(()=>{

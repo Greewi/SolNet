@@ -21,12 +21,12 @@ export class PageMotivation extends Page{
     ouvre(animation){
         super.ouvre(animation);
         this._elementMotivation.innerHTML = "";
-        this._selecteurPremiereImpression = new SelecteurTextArea(Lang.get("InputMotivation"), 4);
-        this._selecteurPremiereImpression.valeur = this._personnage.motivation;
-        this._selecteurPremiereImpression.onchange = (valeur)=>{
+        this._selecteurMotivation = new SelecteurTextArea(Lang.get("InputMotivation"), 4);
+        this._selecteurMotivation.valeur = this._personnage.motivation;
+        this._selecteurMotivation.onchange = (valeur)=>{
             this._personnage.motivation = valeur;
         };
-        this._elementMotivation.appendChild(this._selecteurPremiereImpression.element);
+        this._elementMotivation.appendChild(this._selecteurMotivation.element);
     }
 
     detruit(){

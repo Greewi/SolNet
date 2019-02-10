@@ -271,6 +271,50 @@ export class SelecteurInputText extends Selecteur{
     }
 }
 
+export class SelecteurInputDate extends Selecteur{
+    /**
+     * @param {string} description
+     */
+    constructor(description){
+        super("fragmentCreationPersonnageSelecteurDate");
+        this._ligne1 = this._element.querySelector(".page__selecteur__nom");
+        this._ligne1.onfocus = ()=>{
+            this._ligne1.scrollIntoView(true);
+        };
+
+        this._blockInfos = this._element.querySelector(".page___selecteur__infos");
+        this._blockInfos.innerHTML = description;
+        this._boutonInfos = this._element.querySelector(".page___selecteur__bouton_infos");
+        this._blockInfos.onclick = this._boutonInfos.onclick = (event)=>{
+            if(event)
+                event.preventDefault();
+            this._ligne1.classList.toggle("page__selecteur__nom__ouvert");
+            this._boutonInfos.classList.toggle("page___selecteur__bouton_infos__ouvert");
+            this._blockInfos.classList.toggle("page___selecteur__infos__ouvert");
+        };
+        this._onchange = (valeur)=>{};
+        this._ligne1.onchange = (e)=>{
+            this._onchange(this._ligne1.value);
+        };
+    }
+
+    set valeur(valeur){
+        this._ligne1.value = valeur;
+    }
+
+    set onchange(callback){
+        this._onchange = callback;
+    }
+
+    set min(valeur){
+        this._ligne1.min = valeur;
+    }
+
+    set max(valeur){
+        this._ligne1.max = valeur;
+    }
+}
+
 export class SelecteurSelect extends Selecteur{
     /**
      * @param {string} description

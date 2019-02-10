@@ -36,6 +36,9 @@
     "MaterielConseille": "Élement conseillé",
     "MaterielUniversel": "Élement universel",
     "ConfirmationCopierDescription": "Ceci écrasera la description actuelle. Voulez-vous vraiment le faire ?",
+    "DescriptionDateNaissance": "Quelle est la date de naissance ou de création de votre personnage ?",
+    "InputLieuNaissance": "Lieu de naissance/création",
+    "DescriptionLieuNaissance": "Où votre personnage est-il né ? Où a-t-il été créé ?",
 
     "// Données de génération des personnages ------------------------------------------------------------------------": "",
 
@@ -189,7 +192,7 @@
    
     "Faction_INDEPENDANT" : "Indépendants",
     "Faction_ONU" : "ONU",
-    "Faction_MARS" : "Mars",
+    "Faction_MARS" : "Mars (HIARTech)",
     "Faction_HIARTECH" : "HIARTech",
     "Faction_WAYLANDERS" : "Waylanders",
     "Faction_SUAN" : "Suan",

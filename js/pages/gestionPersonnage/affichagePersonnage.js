@@ -69,6 +69,10 @@ export class PageAfficherPersonnage extends Page{
         var listeLogiciels = this.element.querySelector("#affichagePersonnageLogiciels");
         this.genereListe(listeLogiciels, personnage.elements.logiciels, "NiveauMateriel");
 
+        this.element.querySelector("#affichagePersonnageDateNaissance").innerHTML = personnage.histoire.dateNaissance;
+        this.element.querySelector("#affichagePersonnageLieuNaissance").innerHTML = personnage.histoire.lieuNaissance;
+        this.element.querySelector("#affichagePersonnageDetailsNaissance").innerHTML = personnage.histoire.detailNaissance;
+
         this.element.querySelector("#affichagePersonnagePP").innerHTML = personnage.pointPersonnage;
         this.element.querySelector("#affichagePersonnageMaxPP").innerHTML = personnage.maxPointPersonnage;
     }

@@ -1,17 +1,62 @@
 {
-    "INDEPENDANT" : {"id": "INDEPENDANT"},
-    "ONU" : {"id": "ONU"},
-    "MARS" : {"id": "MARS"},
-    "WAYLANDERS" : {"id": "WAYLANDERS"},
-    "SUAN" : {"id": "SUAN"},
-    "VRANBERG_LYTAN" : {"id": "VRANBERG_LYTAN"},
-    "AESIR" : {"id": "AESIR"},
-    "URANIA" : {"id": "URANIA"},
-    "SOL6" : {"id": "SOL6"},
-    "SOLAR_WARDNER" : {"id": "SOLAR_WARDNER"},
-    "SOLEILS" : {"id": "SOLEILS"},
-    "NEO_CONTROL" : {"id": "NEO_CONTROL"},
-    "ICARENS" : {"id": "ICARENS"},
-    "PHOBOS_HEIGHTS" : {"id": "PHOBOS_HEIGHTS"},
-    "ZGC" : {"id": "ZGC"}
+    "INDEPENDANT": {
+        "id": "INDEPENDANT",
+        "dateInitiale": 1980
+    },
+    "ONU": {
+        "id": "ONU",
+        "dateInitiale": 1945
+    },
+    "MARS": {
+        "id": "MARS",
+        "dateInitiale": 2049
+    },
+    "WAYLANDERS": {
+        "id": "WAYLANDERS",
+        "dateInitiale": 2063
+    },
+    "SUAN": {
+        "id": "SUAN",
+        "dateInitiale": 2063
+    },
+    "VRANBERG_LYTAN": {
+        "id": "VRANBERG_LYTAN",
+        "dateInitiale": 2062
+    },
+    "AESIR": {
+        "id": "AESIR",
+        "dateInitiale": 2091
+    },
+    "URANIA": {
+        "id": "URANIA",
+        "dateInitiale": 2091
+    },
+    "SOL6": {
+        "id": "SOL6",
+        "dateInitiale": 2063
+    },
+    "SOLAR_WARDNER": {
+        "id": "SOLAR_WARDNER",
+        "dateInitiale": 2081
+    },
+    "SOLEILS": {
+        "id": "SOLEILS",
+        "dateInitiale": 2081
+    },
+    "NEO_CONTROL": {
+        "id": "NEO_CONTROL",
+        "dateInitiale": 2089
+    },
+    "ICARENS": {
+        "id": "ICARENS",
+        "dateInitiale": 2089
+    },
+    "PHOBOS_HEIGHTS": {
+        "id": "PHOBOS_HEIGHTS",
+        "dateInitiale": 2081
+    },
+    "ZGC": {
+        "id": "ZGC",
+        "dateInitiale": 2090
+    }
 }
