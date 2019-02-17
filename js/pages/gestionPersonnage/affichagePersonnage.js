@@ -73,6 +73,26 @@ export class PageAfficherPersonnage extends Page{
         this.element.querySelector("#affichagePersonnageLieuNaissance").innerHTML = personnage.histoire.lieuNaissance;
         this.element.querySelector("#affichagePersonnageDetailsNaissance").innerHTML = personnage.histoire.detailNaissance;
 
+        var listeHistorique = this.element.querySelector("#affichagePersonnageHistorique");
+        for(let periode of personnage.histoire.historique)
+        {
+            let carrieres = "";
+            for(let carriere of periode.carrieres)
+            if(carrieres=="")
+                carrieres=carriere;
+            else
+                carrieres += `, ${carriere}`;
+
+            let html = `<em>${periode.date}</em> : <br/>`;
+            html += `${Lang.get("InputCarrieres")} : ${carrieres} <br/>`
+            html += `${Lang.get("InputAffiliation")} : ${periode.affiliation} <br/>`
+            html += `${Lang.get("InputEvenements")} : ${periode.evenements}`;
+
+            let li = document.createElement("li");
+            li.innerHTML = html;
+            listeHistorique.appendChild(li);
+        }
+
         this.element.querySelector("#affichagePersonnagePP").innerHTML = personnage.pointPersonnage;
         this.element.querySelector("#affichagePersonnageMaxPP").innerHTML = personnage.maxPointPersonnage;
     }

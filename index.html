@@ -16,8 +16,10 @@
     <link rel="stylesheet" type="text/css" media="screen" href="css/footer.css"/>
     <link rel="stylesheet" type="text/css" media="screen" href="css/pages.css"/>
     <link rel="stylesheet" type="text/css" media="screen" href="css/selecteurs.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="css/popup.css"/>
 </head>
 <body class="body">
+    <!-- Le loader de l'application -->
     <div id="loaderOverlay" class="loader__overlay">
         <h1 class="loader__titre">Solaires</h1>
         <div class="loader__barre-chargement-1">
@@ -28,14 +30,23 @@
         </div>
     </div>
 
+    <!-- Ranger les popups là dedans -->
+    <div id="racinePopup" class="racine_popup"></div>
+
+    <!-- Le header-->
     <header id="header" class="header"></header>
+
+    <!-- Le contenu principal de la page-->
     <main id="main" class="main"></main>
+
+    <!-- Le footer de la page -->
     <footer id="footer" class="footer">
         <button id="footerBouton1" class="bouton footer__bouton-1"></button>
         <button id="footerBouton2" class="bouton footer__bouton-2"></button>
         <button id="footerBouton3" class="bouton footer__bouton-3"></button>
     </footer>
 
+    <!-- Le service worker (pour le mode offline) -->
     <script>
         if('serviceWorker' in navigator) {
             navigator.serviceWorker.register("/serviceWorker.js")
@@ -44,6 +55,7 @@
             });
         }
     </script>
+
     <script type="module" src="js/main.js"></script>
 </body>
 </html>

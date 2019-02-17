@@ -15,6 +15,7 @@ var _listeTemplates =  [
     "pageCreationPersonnageEsprit",
     "pageCreationPersonnageEvaluation",
     "pageCreationPersonnageFin",    
+    "pageCreationPersonnageHistorique",    
     "pageCreationPersonnageIdentite",
     "pageCreationPersonnageIntroduction",
     "pageCreationPersonnageIntroductionEdition",
@@ -37,10 +38,14 @@ var _listeTemplates =  [
     "fragmentCreationPersonnageSelecteurEvaluation",
     "fragmentCreationPersonnageSelecteurInput",
     "fragmentCreationPersonnageSelecteurOpinion",
+    "fragmentCreationPersonnageSelecteurPeriodeHistorique",
+    "fragmentCreationPersonnageSelecteurSansDescription",
     "fragmentCreationPersonnageSelecteurSelect",
     "fragmentCreationPersonnageSelecteurSimple",
     "fragmentCreationPersonnageSelecteurTextArea",
     "fragmentListePersonnageSelecteurPersonnage",
+    "popupConfirmation",
+    "popupSelection",
 ];
 
 /**

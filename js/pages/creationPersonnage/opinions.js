@@ -1,7 +1,7 @@
 import { Page } from "../page";
 import { Lang } from "../../lang";
 import { BibliothequeDonnees } from "../../ressources/donneeSources";
-import { SelecteurOpinion } from "../selecteur";
+import { SelecteurOpinion } from "../../ui/selecteur";
 
 export class PageOpinions extends Page{
     /**

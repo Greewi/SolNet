@@ -2,7 +2,7 @@ import { Page } from "../page";
 import { Ecran } from "../../ecrans/ecran";
 import { Personnage } from "../../personnages/personnage";
 import { Element } from "../../personnages/element";
-import { SelecteurElementSpecial, SelecteurAjoutElement } from "../selecteur";
+import { SelecteurElementSpecial, SelecteurAjoutElement } from "../../ui/selecteur";
 
 /**
  * Page de choix des relations du personnage

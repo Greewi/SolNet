@@ -4,6 +4,8 @@ import { Lang } from "../lang";
 import { Element } from "../personnages/element";
 import { Loader } from "../loader";
 import { BibliothequeDonnees } from "./donneeSources";
+import { PeriodeHistorique } from "../personnages/histoire";
+import { PopupConfirmation } from "../ui/popup";
 
 /**
  * Ce singleton gère la bibliothèque des personnages et les stocke dans le local storage.
@@ -119,11 +121,10 @@ export class BibliothequePersonnage{
             try{
                 let json = JSON.parse(event.target.result);
                 let personnage = this.parsePersonnageV1(json);
-                if(confirm(Lang.get("ConfirmationImportationPersonnage", {"CharacterName":personnage.identite.pseudonyme})))
-                {
+                PopupConfirmation.confirme(Lang.get("ConfirmationImportationPersonnage", {"CharacterName":personnage.identite.pseudonyme}), ()=>{
                     this.ajoutePersonnage(personnage);
                     callback();
-                }
+                });
             }
             catch(e){
                 console.error(e);
@@ -196,7 +197,15 @@ export class BibliothequePersonnage{
         personnage.histoire.dateNaissance = json.histoire.dateNaissance;
         personnage.histoire.lieuNaissance = json.histoire.lieuNaissance;
         personnage.histoire.detailNaissance = json.histoire.detailNaissance;
-        //TODO - Historique
+        for(let periodeJson of json.histoire.historique)
+        {
+            let periode = new PeriodeHistorique();
+            periode.date = periodeJson.date;
+            periode.carrieres = periodeJson.carrieres;
+            periode.affiliation = periodeJson.affiliation;
+            periode.evenements = periodeJson.evenements;
+            personnage.histoire.historique.push(periode);
+        }
 
         //Intrigue
         //TODO

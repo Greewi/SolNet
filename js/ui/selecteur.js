@@ -93,6 +93,42 @@ export class SelecteurSimple extends Selecteur{
     
 };
 
+
+/**
+ * Définit un selecteur simple sans description
+ */
+export class SelecteurSansDescription extends Selecteur{
+    /**
+     * @param {String} texte
+     */
+    constructor(texte){
+        super("fragmentCreationPersonnageSelecteurSansDescription");
+
+        this._ligne1 = this._element.querySelector(".page__selecteur__nom");
+        this._ligne1.innerHTML = texte;
+        this._ligne1.onclick = (event)=>{
+            if(event)
+                event.preventDefault();
+            this._onclick();
+        };
+    }
+
+    /**
+     * @inheritdoc
+     */
+    selectionne(){
+        this._ligne1.classList.add("page__selecteur__nom__possede");
+    }
+
+    /**
+     * @inheritdoc
+     */
+    deselectionne(){
+        this._ligne1.classList.remove("page__selecteur__nom__possede");
+    }
+    
+};
+
 /**
  * Définit un selecteur avec une description et des prérequis
  */
@@ -469,6 +505,158 @@ export class SelecteurValeurElement extends Selecteur{
 
     set onchange(callback){
         this._onchange = callback;
+    }
+}
+
+export class SelecteurPeriodeCarriere extends Selecteur{
+    /**
+     */
+    constructor(texteDate, texteCarriere, texteAffiliation, texteEvenements){
+        super("fragmentCreationPersonnageSelecteurPeriodeHistorique");
+
+        this._onchangedate = (valeur)=>{};
+        this._date = this._element.querySelector(".page__selecteur_historique__date");
+        this._date.placeholder = texteDate;
+        this._date.onchange = (e)=>{
+            this._onchangedate(this._date.value);
+        }
+
+        this._onclickcarriere = ()=>{};
+        this._carrieres = this._element.querySelector(".page__selecteur_historique__carriere");
+        this._carrieres.onclick = (e)=>{
+            this._onclickcarriere();
+        }
+
+        this._onclickaffiliation = (valeur)=>{};
+        this._affiliation = this._element.querySelector(".page__selecteur_historique__affiliation");
+        this._affiliation.onclick = (e)=>{
+            this._onclickaffiliation();
+        }
+
+        this._onchangeevenement = (valeur)=>{};
+        this._evenements = this._element.querySelector(".page__selecteur_historique__evenement");
+        this._evenements.placeholder = texteEvenements;
+        this._evenements.onchange = (e)=>{
+            this._onchangeevenement(this._evenements.value);
+        }
+
+        this._onmonter = ()=>{};
+        this._boutonMonter = this._element.querySelector(".page__selecteur_historique__monter");
+        this._boutonMonter.onclick = (event)=>{
+            if(event)
+                event.preventDefault();
+            this._onmonter();
+        };
+        
+        this._ondescendre = ()=>{};
+        this._boutonDescendre = this._element.querySelector(".page__selecteur_historique__descendre");
+        this._boutonDescendre.onclick = (event)=>{
+            if(event)
+                event.preventDefault();
+            this._ondescendre();
+        };
+        
+        this._onsupprime = ()=>{};
+        this._boutonSupprimer = this._element.querySelector(".page__selecteur_historique__supprimer");
+        this._boutonSupprimer.onclick = (event)=>{
+            if(event)
+                event.preventDefault();
+            this._onsupprime();
+        };
+        
+        this._element = this._element.children[0];
+    }
+
+    /**
+     * Définit une callback déclenchée lors d'un clique sur le bouton monter
+     * @param {function(void)=>void} callback
+     */
+    set onmonte(callback){
+        this._onmonter = callback;
+    }
+
+    /**
+     * Définit une callback déclenchée lors d'un clique sur le bouton descendre
+     * @param {function(void)=>void} callback
+     */
+    set ondescend(callback){
+        this._ondescendre = callback;
+    }
+
+    /**
+     * Définit une callback déclenchée lors d'un clique sur le bouton supprimer
+     * @param {function(strivoidng)=>void} callback
+     */
+    set onsupprime(callback){
+        this._onsupprime = callback;
+    }
+
+    /**
+     * Définit une callback déclenchée lors d'une modification de la date
+     * @param {function(string)=>void} callback
+     */
+    set onchangedate(callback){
+        this._onchangedate = callback;
+    }
+
+    /**
+     * Définit une callback déclenchée lors d'une modification des carrieres
+     * @param {function(void)=>void} callback
+     */
+    set onclickcarriere(callback){
+        this._onclickcarriere = callback;
+    }
+
+    /**
+     * Définit une callback déclenchée lors d'une modification de l'affiliation
+     * @param {function(void)=>void} callback
+     */
+    set onclickaffiliation(callback){
+        this._onclickaffiliation = callback;
+    }
+
+    /**
+     * Définit une callback déclenchée lors d'une modification des événements
+     * @param {function(string)=>void} callback
+     */
+    set onchangeevenement(callback){
+        this._onchangeevenement = callback;
+    }
+
+    /**
+     * Défini la date min
+     */
+    set datemin(dateMin){
+        this._date.min = dateMin;
+    }
+
+    /**
+     * Défini la date max
+     */
+    set datemax(dateMax){
+        this._date.max = dateMax;
+    }
+
+    set date(valeur){
+        this._date.value = valeur;
+    }
+
+    set carrieres(valeur){
+        let html = "";
+        for(let carriere of valeur)
+            if(html=="")
+                html=carriere;
+            else
+                html += `, ${carriere}`;
+        this._carrieres.innerHTML = html;
+    }
+
+    set affiliation(valeur){
+        this._affiliation.innerHTML = valeur;
+    }
+
+    set evenements(valeur){
+        this._evenements.value = valeur;
     }
 }
 

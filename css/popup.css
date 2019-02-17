@@ -1,0 +1,42 @@
+/**
+ * Overlay des popups
+ */
+.racine_popup{
+    display: none
+}
+
+.racine_popup__ouverte{
+    display: grid;
+    position: absolute;
+    z-index: 1000;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    align-items: center;
+    justify-items: center;
+}
+
+/**
+ * Popup génériques
+ */
+.popup{
+    box-sizing: border-box;
+    width : 90%;
+    padding : 20px;
+    border : solid 2px var(--couleurFondTableau);
+    border-radius: 20px;
+
+    background : var(--couleurFondPage);
+
+    text-align: center;
+}
+
+/**
+ * Popup de confirmation
+ */
+.popup__bouton_gauche{
+    width : calc(50% - 10px);
+}
+.popup__bouton_droite{
+    width : calc(50% - 10px);
+}

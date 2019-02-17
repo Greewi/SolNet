@@ -2,7 +2,7 @@ import { Page } from "../page";
 import { Ecran } from "../../ecrans/ecran";
 import { Personnage } from "../../personnages/personnage";
 import { BibliothequeDonnees } from "../../ressources/donneeSources";
-import { Selecteur, SelecteurSimple } from "../selecteur";
+import { Selecteur, SelecteurSimple } from "../../ui/selecteur";
 import { Lang } from "../../lang";
 
 /**

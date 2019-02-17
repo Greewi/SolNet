@@ -3,7 +3,7 @@ import { Ecran } from "../../ecrans/ecran";
 import { Personnage } from "../../personnages/personnage";
 import { BibliothequeDonnees } from "../../ressources/donneeSources";
 import { Element } from "../../personnages/element";
-import { SelecteurElementSpecial, SelecteurAvecPrerequis } from "../selecteur";
+import { SelecteurElementSpecial, SelecteurAvecPrerequis } from "../../ui/selecteur";
 import { Lang } from "../../lang";
 
 /**

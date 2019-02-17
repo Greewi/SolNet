@@ -1,5 +1,5 @@
 import { Page } from "../page";
-import { SelecteurTextArea, SelecteurInputDate, SelecteurInputText } from "../selecteur";
+import { SelecteurTextArea, SelecteurInputDate, SelecteurInputText } from "../../ui/selecteur";
 import { Lang } from "../../lang";
 import { Personnage } from "../../personnages/personnage";
 import { BibliothequeDonnees } from "../../ressources/donneeSources";

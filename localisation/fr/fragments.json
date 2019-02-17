@@ -14,8 +14,8 @@
 
     "NomNouveauPersonnage" : "Nouveau personnage",
     "ErreurChargementFichierPersonnage" : "Le fichier du personnage n'a pas pu être chargé. Une erreur semble s'y être glissé !",
-    "ConfirmationSuppressionPersonnage" : "Voulez vous vraiment supprimer le personnage %CharacterName% ?",
-    "ConfirmationImportationPersonnage" : "Voulez vous vraiment importer le personnage %CharacterName% ?",
+    "ConfirmationSuppressionPersonnage" : "Voulez-vous vraiment supprimer le personnage %CharacterName% ?",
+    "ConfirmationImportationPersonnage" : "Voulez-vous vraiment importer le personnage %CharacterName% ?",
 
     "// Edition des personnages ------------------------------------------------------------------------": "",
 
@@ -36,9 +36,19 @@
     "MaterielConseille": "Élement conseillé",
     "MaterielUniversel": "Élement universel",
     "ConfirmationCopierDescription": "Ceci écrasera la description actuelle. Voulez-vous vraiment le faire ?",
+    "DateNaissance":"Date de naissance du personnage",
     "DescriptionDateNaissance": "Quelle est la date de naissance ou de création de votre personnage ?",
     "InputLieuNaissance": "Lieu de naissance/création",
     "DescriptionLieuNaissance": "Où votre personnage est-il né ? Où a-t-il été créé ?",
+    "InputDate" : "Date",
+    "InputCarrieres" : "Carrières",
+    "InputAffiliation" : "Affiliation",
+    "InputEvenements" : "Événements",
+    "ConfirmationSupressionPeriodeHistorique" : "Voulez-vous vraiment supprimer cette période de l'histoire de votre personnage ?",
+    "TitreSelectionCarrieres" : "Selection des carrières",
+    "TexteSelectionCarrieres" : "Selectionnez les carrières de la période historique",
+    "TitreSelectionAffiliation" : "Selection de l'affiliation",
+    "TexteSelectionAffiliation" : "Selectionnez l'affiliation de la période historique",
 
     "// Données de génération des personnages ------------------------------------------------------------------------": "",
 

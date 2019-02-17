@@ -1,11 +1,12 @@
 import { Page } from "../page";
 import { Lang } from "../../lang";
 import { BibliothequePersonnage } from "../../ressources/bibliothequePersonnage";
-import { SelecteurPersonnage as SelecteurPersonnage } from "../selecteur";
+import { SelecteurPersonnage as SelecteurPersonnage } from "../../ui/selecteur";
 import { EcranCreationPersonnage } from "../../ecrans/ecranCreationPersonnage";
 import { Routeur } from "../../routeur";
 import { EcranEditionPersonnage } from "../../ecrans/ecranEditionPersonnage";
 import { EcranAffichagePersonnage } from "../../ecrans/ecranAffichagePersonnage";
+import { PopupConfirmation } from "../../ui/popup";
 
 export class PageListePersonnages extends Page{
     /**
@@ -68,11 +69,10 @@ export class PageListePersonnages extends Page{
             Routeur.ouvreEcran(ecranEdition);
         };
         selecteur.onsupprime = ()=>{
-            if(confirm(Lang.get("ConfirmationSuppressionPersonnage", {"CharacterName":nomPersonnage})))
-            {
+            PopupConfirmation.confirme(Lang.get("ConfirmationSuppressionPersonnage", {"CharacterName":nomPersonnage}), ()=>{
                 BibliothequePersonnage.retirePersonnage(idPersonnage);
                 selecteur.element.remove();
-            }
+            });
         };
         selecteur.onsauvegarde = ()=>{
             BibliothequePersonnage.exportePersonnage(idPersonnage);

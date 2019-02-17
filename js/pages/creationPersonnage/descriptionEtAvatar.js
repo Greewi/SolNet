@@ -1,7 +1,8 @@
 import { Page } from "../page";
-import { SelecteurTextArea } from "../selecteur";
+import { SelecteurTextArea } from "../../ui/selecteur";
 import { Lang } from "../../lang";
 import { Description } from "../../personnages/description";
+import { PopupConfirmation } from "../../ui/popup";
 
 class PageDescriptionGenerique extends Page{
     /**
@@ -19,15 +20,14 @@ class PageDescriptionGenerique extends Page{
         this._descriptionSource = descriptionSource;
         this._boutonCopierDescription = this.element.querySelector(`#${idBoutonCopier}`);
         this._actionCopierDescription = ()=>{
-            if(confirm(Lang.get("ConfirmationCopierDescription")))
-            {
+            PopupConfirmation.confirme(Lang.get("ConfirmationCopierDescription"), ()=>{
                 this._selecteurPremiereImpression.valeur = descriptionSource.premiereImpression;
                 description.premiereImpression = descriptionSource.premiereImpression;
                 this._selecteurCorps.valeur = descriptionSource.corps;
                 description.corps = descriptionSource.corps;
                 this._selecteurVisage.valeur = descriptionSource.visage;
                 description.visage = descriptionSource.visage;
-            }
+            });
         };
         this._boutonCopierDescription.addEventListener("click", this._actionCopierDescription);
     }

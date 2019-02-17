@@ -1,5 +1,5 @@
 import { Page } from "../page";
-import { Selecteur, SelecteurInputText, SelecteurSelect } from "../selecteur";
+import { Selecteur, SelecteurInputText, SelecteurSelect } from "../../ui/selecteur";
 import { Lang } from "../../lang";
 import { BibliothequeDonnees } from "../../ressources/donneeSources";
 
