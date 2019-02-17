@@ -84,7 +84,8 @@ export class Page{
     detruit(){
         this._stopTransition();
         this._element.classList.remove("page__on");
-        document.getElementById("main").removeChild(this._element);
+        if(this._element.parent!=null)
+            document.getElementById("main").removeChild(this._element);
     }
 
     /**

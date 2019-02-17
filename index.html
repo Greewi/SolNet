@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <title>SolNet</title>
 
-    <meta name="mobile-web-app-capable" content="yes"/>
-    <link rel="icon" sizes="48x48" href="images/iconeApp/icon48.png"/>
-    <link rel="icon" sizes="96x96" href="images/iconeApp/icon96.png"/>
-    <link rel="icon" sizes="144x144" href="images/iconeApp/icon144.png"/>
-    <link rel="icon" sizes="192x192" href="images/iconeApp/icon192.png"/>
-    <link rel="icon" sizes="240x240" href="images/iconeApp/icon240.png"/>
+    <meta name="mobile-web-app-capable" content="yes" />
+    <link rel="icon" sizes="48x48" href="images/iconeApp/icon48.png" />
+    <link rel="icon" sizes="96x96" href="images/iconeApp/icon96.png" />
+    <link rel="icon" sizes="144x144" href="images/iconeApp/icon144.png" />
+    <link rel="icon" sizes="192x192" href="images/iconeApp/icon192.png" />
+    <link rel="icon" sizes="240x240" href="images/iconeApp/icon240.png" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css"/>
-    <link rel="stylesheet" type="text/css" media="screen" href="css/footer.css"/>
-    <link rel="stylesheet" type="text/css" media="screen" href="css/pages.css"/>
-    <link rel="stylesheet" type="text/css" media="screen" href="css/selecteurs.css"/>
-    <link rel="stylesheet" type="text/css" media="screen" href="css/popup.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/footer.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/pages.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/selecteurs.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/popup.css" />
 </head>
+
 <body class="body">
     <!-- Le loader de l'application -->
     <div id="loaderOverlay" class="loader__overlay">
@@ -46,16 +48,58 @@
         <button id="footerBouton3" class="bouton footer__bouton-3"></button>
     </footer>
 
+    <!-- Notifications -->
+    <div id="notificationReload" class="notification">
+        <p class="notification__texte">Une mise à jour est disponible !</p>
+        <button id="boutonNotificationReload" class="notification__bouton">Recharger</button>
+    </div>
+
     <!-- Le service worker (pour le mode offline) -->
     <script>
-        if('serviceWorker' in navigator) {
+        let worker;
+
+        // Notification
+        let notificationReload = document.getElementById("notificationReload");
+        let boutonReload = document.getElementById("boutonNotificationReload");
+        boutonReload.addEventListener("click", () => {
+            //On indique au service worker qu'il peut changer de page tout de suite
+            worker.postMessage({ action: 'skipWaiting' });
+        });
+
+        if ('serviceWorker' in navigator) {
+            // Enregistrement du service worker
             navigator.serviceWorker.register("/serviceWorker.js")
-            .then(()=>{
-                console.log("Service Worker enregistré");
+                .then((register) => {
+                    console.log("Service Worker enregistré");
+                    return new Promise((accept, reject) => {
+                        register.addEventListener("updatefound", () => {
+                            worker = register.installing;
+                            accept();
+                        });
+                    });
+                })
+                // Si on a une mise à jour du service worker on affiche la notification
+                .then(() => {
+                    console.log("Nouveau service Worker disponible");
+                    worker.addEventListener("statechange", () => {
+                        if (worker.state == "installed"){
+                            console.log("Nouveau Service Worker installé");
+                            notificationReload.classList.add('notification__ouvert');
+                        }
+                    });
+                });
+
+            //Raffraichissement de la page
+            let raffraichissementEnCours;
+            navigator.serviceWorker.addEventListener('controllerchange', function () {
+                if (!raffraichissementEnCours)
+                    window.location.reload();
+                raffraichissementEnCours = true;
             });
         }
     </script>
 
     <script type="module" src="js/main.js"></script>
 </body>
+
 </html>

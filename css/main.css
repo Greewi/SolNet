@@ -5,12 +5,12 @@
     /**
      * Loader
      */
-     --fondLoader : radial-gradient(circle at 0 0, #11335a 0%,#4e667a 77%,#0d3250 79%,#000000 81%,#000000 100%);
-     --couleurTitreLoader : rgba(255, 255, 255, 0.945);
-     --couleurBordureBarreLoader1 : rgba(255, 255, 255, 0.856);
-     --couleurBordureBarreLoader2 : rgba(255, 255, 255, 0.767);
-     --couleurBarreLoader : rgba(255, 255, 255, 0.651);
- 
+    --fondLoader : radial-gradient(circle at 0 0, #11335a 0%,#4e667a 77%,#0d3250 79%,#000000 81%,#000000 100%);
+    --couleurTitreLoader : rgba(255, 255, 255, 0.945);
+    --couleurBordureBarreLoader1 : rgba(255, 255, 255, 0.856);
+    --couleurBordureBarreLoader2 : rgba(255, 255, 255, 0.767);
+    --couleurBarreLoader : rgba(255, 255, 255, 0.651);
+
     /**
      * Interface générale
      */
@@ -126,10 +126,10 @@
 /**
  * Zone principale
  */
- html{
+html{
     width: 100vw;
     height: 100vh;
- }
+}
 .body {
     width: 100vw;
     height: 100vh;
@@ -286,4 +286,43 @@ td {
 .bouton:active {
     animation-name: bouton__active;
     animation-duration: 200ms;
+}
+
+/**
+ * Notifications
+ */
+.notification {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    width: 100vw;
+    height: auto;
+    background: #333;
+    margin: 0 0;
+    padding: 5px;
+    text-align: center;
+    
+    transform: translateY(100%);
+    transition-property: transform;
+    transition-duration: 250ms;
+}
+.notification__ouvert {
+    transform: translateY(0);
+}
+.notification__texte {
+    color:#aaa;
+    text-align: center;
+}
+.notification__bouton {
+    box-sizing: border-box;
+    padding: 5px;
+    background : #aaa;
+    color: #333;
+    border: none;
+    border-radius : 5px;
+    font-weight: normal;
+    cursor: pointer;
+    user-select: none;
+    font-size: 10pt;
 }
