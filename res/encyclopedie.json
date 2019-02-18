@@ -1,6 +1,6 @@
 {
-    "introduction" : [],
-    "regles" : [
+    "introduction": [],
+    "regles": [
         "reglesGenerales",
         "resolutionActions",
         "mecanismesParticuliers",
@@ -16,12 +16,14 @@
         "systemeRelation",
         "systemeTechnologie"
     ],
-    "personnages" : [
+    "personnages": [
         "creationPersonnages",
-        "elementsPersonnages",
+        "creationPersonnagesGuidee",
+        "creationPersonnagesQuestionnaire",
+        "creationPersonnagesDescriptive",
         "evolutionPersonnages"
     ],
-    "contexte" : [
+    "contexte": [
         "systemeSolaire",
         "systemesPlanetaires",
         "evenementsClefs",
@@ -29,7 +31,7 @@
         "factions",
         "sciencesEtTechnologie"
     ],
-    "modeDeVie" : [
+    "modeDeVie": [
         "civilisationAbondance",
         "corporations",
         "habitats",
@@ -38,7 +40,7 @@
         "colonies",
         "voyagesEtCommunication"
     ],
-    "catalogue" : [
+    "catalogue": [
         "outilsQuotidiens",
         "materielIngenierie",
         "materielEVA",
