@@ -1,34 +1,627 @@
 {
-    "ANALYSTE" : {"id": "ANALYSTE", "roles":["ENQUETE","INFORMATIQUE"], "materiel":["CONSOLE_DECRYPTAGE", "PIRATAGE", "RECONSTITUTION", "CONSOLE_DECRYPTAGE_INTEGREE"]},
-    "ASTRONAUTE" : {"id": "ASTRONAUTE", "roles":["ESPACE"], "materiel":["COMBINAISON_SPATIALE", "GANTS_GECKO", "JET_PACK", "RESPIRATEUR", "DISPOSITIF_GECKO_INTEGRE", "PATTES_GECKO", "DERME_PROTECTION_ENVIRONNEMENT", "METABOLISME_OPTIMISE", "RESPIRATEUR_INTEGRE", "POUMONS_AMELIORES", "JET_PACK_INTEGRE"]},
-    "AVOCAT" : {"id": "AVOCAT", "roles":["NEGOCIATION"], "materiel":["LANGUE", "LECTEUR_INTENTION", "SOCIABILITE"]},
-    "COMMANDO_SPATIAL" : {"id": "COMMANDO_SPATIAL", "roles":["ESPACE","COMBAT"], "materiel":["ARME_PULSEUR", "ARMURE_LOURDE", "BROUILLEUR", "COMBINAISON_SPATIALE", "GANTS_GECKO", "JET_PACK", "PROTECTION_LEGERE", "GRENADE_SHOCK", "GRENADE_BROUILLAGE", "RESPIRATEUR", "COMMUNICATION_INFORMELLE", "INTERFACE_COMBAT", "ARME_PULSEUR_INTEGREE", "ARME_SHOCK_INTEGREE", "DISPOSITIF_GECKO_INTEGRE", "PATTES_GECKO", "ARMURE_DERMIQUE", "DERME_PROTECTION_ENVIRONNEMENT", "METABOLISME_OPTIMISE", "BROUILLEUR_INTEGRE", "RESPIRATEUR_INTEGRE", "POUMONS_AMELIORES", "JET_PACK_INTEGRE"]},
-    "COMMERCIAL" : {"id": "COMMERCIAL", "roles":["NEGOCIATION"], "materiel":["LANGUE", "LECTEUR_INTENTION", "SOCIABILITE"]},
-    "CONTREBANDIER" : {"id": "CONTREBANDIER", "roles":["INFILTRATION","NEGOCIATION","RELATION"], "materiel":["ARME_SHOCK", "BROUILLEUR", "DECODEUR", "FOGLETS", "TENUE_CAMOUFLAGE_THERMO_OPTIQUE", "LECTEUR_INTENTION", "SOCIABILITE", "ARME_SHOCK_INTEGREE", "BROUILLEUR_INTEGRE", "DECODEUR_INTEGRE", "CAMOUFLAGE_THERMO_OPTIQUE_INTEGRE"]},
-    "CYBER_MECANICIEN" : {"id": "CYBER_MECANICIEN", "roles":["TECHNOLOGIE"], "materiel":["DECODEUR", "MICRO_DRONE", "MULTI_TOOL", "SCANNER_WOLFA_PORTATIF", "MAINTENANCE", "RECONSTITUTION", "DECODEUR_INTEGRE", "MULTI_TOOL_INTEGRE", "SCANNER_WOLFA_INTEGRE"]},
-    "CYBER_MEDIC" : {"id": "CYBER_MEDIC", "roles":["TECHNOLOGIE"], "materiel":["KIT_MEDICAL", "MICRO_DRONE", "MULTI_TOOL", "SCANNER_WOLFA_PORTATIF", "MAINTENANCE", "RECONSTITUTION", "KIT_MEDICAL_INTEGRE", "MULTI_TOOL_INTEGRE", "SCANNER_WOLFA_INTEGRE"]},
-    "CYBER_SAMOURAI" : {"id": "CYBER_SAMOURAI", "roles":["COMBAT","INFILTRATION"], "materiel":["ARME_SHOCK", "ARME_PULSEUR", "BROUILLEUR", "FOGLETS", "GANTS_GECKO", "LAME_ACTIVE", "PROTECTION_LEGERE", "TENUE_CAMOUFLAGE_THERMO_OPTIQUE", "GRENADE_BROUILLAGE", "RESPIRATEUR", "INTERFACE_COMBAT", "LECTEUR_INTENTION", "ARME_PULSEUR_INTEGREE", "ARME_SHOCK_INTEGREE", "BROUILLEUR_INTEGRE", "DISPOSITIF_GECKO_INTEGRE", "LAME_INTEGREE", "CAMOUFLAGE_THERMO_OPTIQUE_INTEGRE", "PATTES_GECKO", "ARMURE_DERMIQUE", "MUSCLES_NANO_FIBRE", "SQUELETTE_RENFORCE", "SYSTEME_NERVEUX_CABLE", "VISION_AUGMENTEE", "MUSCLES_AMELIORES", "SQUELETTE_DENSE", "SYSTEME_SENSORIEL_AMELIORE", "RESPIRATEUR_INTEGRE", "POUMONS_AMELIORES"]},
-    "DECKER" : {"id": "DECKER", "roles":["INFORMATIQUE"], "materiel":["BROUILLEUR", "CONSOLE_DECRYPTAGE", "PIRATAGE", "BROUILLEUR_INTEGRE", "CONSOLE_DECRYPTAGE_INTEGREE"]},
-    "DETECTIVE" : {"id": "DETECTIVE", "roles":["ENQUETE"], "materiel":["SCANNER_WOLFA_PORTATIF", "RECONSTITUTION", "SCANNER_WOLFA_INTEGRE"]},
-    "DIPLOMATE" : {"id": "DIPLOMATE", "roles":["NEGOCIATION","RELATION"], "materiel":["FOGLETS", "COMMUNICATION_INFORMELLE", "LANGUE", "LECTEUR_INTENTION", "SOCIABILITE"]},
-    "ESPION" : {"id": "ESPION", "roles":["INFILTRATION","INFORMATIQUE"], "materiel":["BROUILLEUR", "CONSOLE_DECRYPTAGE", "DECODEUR", "EMETTEUR_LIAISON", "GANTS_GECKO", "TENUE_CAMOUFLAGE_THERMO_OPTIQUE", "COMMUNICATION_INFORMELLE", "LANGUE", "PIRATAGE", "SOCIABILITE", "BROUILLEUR_INTEGRE", "CONSOLE_DECRYPTAGE_INTEGREE", "DECODEUR_INTEGRE", "DISPOSITIF_GECKO_INTEGRE", "CAMOUFLAGE_THERMO_OPTIQUE_INTEGRE", "PATTES_GECKO"]},
-    "EXPERT_TECHNIQUE" : {"id": "EXPERT_TECHNIQUE",  "roles":["ENQUETE","TECHNOLOGIE"], "materiel":["MULTI_TOOL", "SCANNER_WOLFA_PORTATIF", "MAINTENANCE", "RECONSTITUTION", "MULTI_TOOL_INTEGRE", "SCANNER_WOLFA_INTEGRE"]},
-    "FIXER" : {"id": "FIXER", "roles":["RELATION","TECHNOLOGIE"], "materiel":["BROUILLEUR", "DECODEUR", "SCANNER_WOLFA_PORTATIF", "MULTI_TOOL", "LANGUE", "MAINTENANCE", "BROUILLEUR_INTEGRE", "DECODEUR_INTEGRE", "SCANNER_WOLFA_INTEGRE", "MULTI_TOOL_INTEGRE"]},
-    "HACKER" : {"id": "HACKER", "roles":["INFORMATIQUE","TECHNOLOGIE"], "materiel":["BROUILLEUR", "CONSOLE_DECRYPTAGE", "DECODEUR", "EMETTEUR_LIAISON", "MICRO_DRONE", "MULTI_TOOL", "SCANNER_WOLFA_PORTATIF", "MAINTENANCE", "PIRATAGE", "BROUILLEUR_INTEGRE", "CONSOLE_DECRYPTAGE_INTEGREE", "DECODEUR_INTEGRE", "MULTI_TOOL_INTEGRE", "SCANNER_WOLFA_INTEGRE"]},
-    "INFILTRATEUR_SPATIAL" : {"id": "INFILTRATEUR_SPATIAL", "roles":["ESPACE","INFILTRATION"], "materiel":["BROUILLEUR", "COMBINAISON_SPATIALE", "DECODEUR", "EMETTEUR_LIAISON", "GANTS_GECKO", "JET_PACK", "TENUE_CAMOUFLAGE_THERMO_OPTIQUE", "RESPIRATEUR", "COMMUNICATION_INFORMELLE", "BROUILLEUR_INTEGRE", "RESPIRATEUR_INTEGRE", "SCANNER_WOLFA_INTEGRE", "DECODEUR_INTEGRE", "DISPOSITIF_GECKO_INTEGRE", "PATTES_GECKO", "CAMOUFLAGE_THERMO_OPTIQUE_INTEGRE", "JET_PACK_INTEGRE"]},
-    "INTERROGATEUR" : {"id": "INTERROGATEUR", "roles":["ENQUETE","NEGOCIATION"], "materiel":["FOGLETS", "COMMUNICATION_INFORMELLE", "LANGUE", "LECTEUR_INTENTION", "RECONSTITUTION", "SOCIABILITE"]},
-    "JUSTICIER" : {"id": "JUSTICIER", "roles":["COMBAT","ENQUETE"], "materiel":["ARME_SHOCK", "GRENADE_SHOCK", "GRENADE_BROUILLAGE", "PROTECTION_LEGERE", "SCANNER_WOLFA_PORTATIF", "INTERFACE_COMBAT", "RECONSTITUTION", "ARME_SHOCK_INTEGREE", "ARMURE_DERMIQUE", "SCANNER_WOLFA_INTEGRE"]},
-    "MERCENAIRE" : {"id": "MERCENAIRE", "roles":["COMBAT","TECHNOLOGIE"], "materiel":["ARME_PULSEUR", "ARME_SHOCK", "ARMURE_LOURDE", "DECODEUR", "LAME_ACTIVE", "MULTI_TOOL", "PROTECTION_LEGERE", "SCANNER_WOLFA_PORTATIF", "GRENADE_SHOCK", "GRENADE_BROUILLAGE", "COMMUNICATION_INFORMELLE", "INTERFACE_COMBAT", "MAINTENANCE", "ARME_PULSEUR_INTEGREE", "ARME_SHOCK_INTEGREE", "DECODEUR_INTEGRE", "LAME_INTEGREE", "ARMURE_DERMIQUE", "MULTI_TOOL_INTEGRE", "SCANNER_WOLFA_INTEGRE"]},
-    "NEGOCIATEUR" : {"id": "NEGOCIATEUR", "roles":["NEGOCIATION"], "materiel":["FOGLETS", "COMMUNICATION_INFORMELLE", "LANGUE", "LECTEUR_INTENTION", "SOCIABILITE"]},
-    "OFFICIER_LIAISON" : {"id": "OFFICIER_LIAISON", "roles":["COMBAT","RELATION"], "materiel":["ARME_PULSEUR", "ARME_SHOCK", "FOGLETS", "GRENADE_SHOCK", "GRENADE_BROUILLAGE", "PROTECTION_LEGERE", "COMMUNICATION_INFORMELLE", "INTERFACE_COMBAT", "LANGUE", "ARME_PULSEUR_INTEGREE", "ARME_SHOCK_INTEGREE", "ARMURE_DERMIQUE"]},
-    "PACIFICATEUR" : {"id": "PACIFICATEUR", "roles":["COMBAT","NEGOCIATION"], "materiel":["ARME_SHOCK", "BROUILLEUR", "GRENADE_SHOCK", "GRENADE_BROUILLAGE", "KIT_MEDICAL", "PROTECTION_LEGERE", "RESPIRATEUR", "COMMUNICATION_INFORMELLE", "INTERFACE_COMBAT", "LANGUE", "LECTEUR_INTENTION", "ARME_SHOCK_INTEGREE", "BROUILLEUR_INTEGRE", "KIT_MEDICAL_INTEGRE", "ARMURE_DERMIQUE", "POUMONS_AMELIORES", "RESPIRATEUR_INTEGRE"]},
-    "PILOTE" : {"id": "PILOTE", "roles":["ESPACE","TECHNOLOGIE"], "materiel":["COMBINAISON_SPATIALE", "MULTI_TOOL", "RESPIRATEUR", "MAINTENANCE", "PILOTAGE", "POUMONS_AMELIORES", "RESPIRATEUR_INTEGRE", "MULTI_TOOL_INTEGRE", "METABOLISME_OPTIMISE"]},
-    "POP_STAR" : {"id": "POP_STAR", "roles":["RELATION"], "materiel":["FOGLETS", "LANGUE", "SOCIABILITE"]},
-    "PRIVE" : {"id": "PRIVE", "roles":["ENQUETE","INFILTRATION","NEGOCIATION"], "materiel":["ARME_SHOCK", "BROUILLEUR", "DECODEUR", "EMETTEUR_LIAISON", "FOGLETS", "RESPIRATEUR", "SCANNER_WOLFA_PORTATIF", "LANGUE", "LECTEUR_INTENTION", "RECONSTITUTION", "ARME_SHOCK_INTEGREE", "BROUILLEUR_INTEGRE", "DECODEUR_INTEGRE", "POUMONS_AMELIORES", "RESPIRATEUR_INTEGRE", "SCANNER_WOLFA_INTEGRE"]},
-    "PSION" : {"id": "PSION", "roles":[], "materiel":["IMPLANT_PSI_MATIERE", "IMPLANT_PSI_ENERGIE", "IMPLANT_PSI_ESPACE", "IMPLANT_PSI_INFORMATION", "IMPLANT_PSI_BIOLOGIE", "IMPLANT_PSI_META"]},
-    "RECUPERATEUR_SPATIAL" : {"id": "RECUPERATEUR_SPATIAL", "roles":["ESPACE","TECHNOLOGIE"], "materiel":["COMBINAISON_SPATIALE", "DECODEUR", "KIT_MEDICAL", "GANTS_GECKO", "JET_PACK", "MICRO_DRONE", "MULTI_TOOL", "RESPIRATEUR", "SCANNER_WOLFA_PORTATIF", "MAINTENANCE", "PILOTAGE", "RECONSTITUTION", "DERME_PROTECTION_ENVIRONNEMENT", "POUMONS_AMELIORES", "RESPIRATEUR_INTEGRE", "DECODEUR_INTEGRE", "KIT_MEDICAL_INTEGRE", "MULTI_TOOL_INTEGRE", "JET_PACK_INTEGRE", "SCANNER_WOLFA_INTEGRE", "DISPOSITIF_GECKO_INTEGRE", "PATTES_GECKO", "METABOLISME_OPTIMISE"]},
-    "SABOTEUR" : {"id": "SABOTEUR", "roles":["INFILTRATION","TECHNOLOGIE"], "materiel":["BROUILLEUR", "DECODEUR", "EMETTEUR_LIAISON", "GANTS_GECKO", "MICRO_DRONE", "MULTI_TOOL", "RESPIRATEUR", "SCANNER_WOLFA_PORTATIF", "TENUE_CAMOUFLAGE_THERMO_OPTIQUE", "MAINTENANCE", "BROUILLEUR_INTEGRE", "DECODEUR_INTEGRE", "DISPOSITIF_GECKO_INTEGRE", "PATTES_GECKO", "MULTI_TOOL_INTEGRE", "POUMONS_AMELIORES", "RESPIRATEUR_INTEGRE", "SCANNER_WOLFA_INTEGRE", "CAMOUFLAGE_THERMO_OPTIQUE_INTEGRE"]},
-    "SOLAR_WARDNER" : {"id": "SOLAR_WARDNER", "roles":["NEGOCIATION","RELATION"], "materiel":[]},
-    "SOLDAT_INFANTERIE" : {"id": "SOLDAT_INFANTERIE", "roles":["COMBAT"], "materiel":["ARME_PULSEUR", "ARME_SHOCK", "ARMURE_LOURDE", "GRENADE_SHOCK", "GRENADE_BROUILLAGE", "KIT_MEDICAL", "RESPIRATEUR", "PROTECTION_LEGERE", "COMMUNICATION_INFORMELLE", "INTERFACE_COMBAT", "ARME_PULSEUR_INTEGREE", "ARME_SHOCK_INTEGREE", "ARMURE_DERMIQUE", "MUSCLES_NANO_FIBRE", "SQUELETTE_RENFORCE", "MUSCLES_AMELIORES", "SQUELETTE_DENSE"]},
-    "TECHNOPHILE" : {"id": "TECHNOPHILE", "roles":["TECHNOLOGIE"], "materiel":["DECODEUR", "FOGLETS", "MICRO_DRONE", "MULTI_TOOL", "SCANNER_WOLFA_PORTATIF", "MAINTENANCE", "DECODEUR_INTEGRE", "MULTI_TOOL_INTEGRE", "SCANNER_WOLFA_INTEGRE"]}
+    "ANALYSTE": {
+        "id": "ANALYSTE",
+        "roles": [
+            "ENQUETE",
+            "INFORMATIQUE"
+        ],
+        "materiel": [
+            "CONSOLE_DECRYPTAGE",
+            "PIRATAGE",
+            "RECONSTITUTION",
+            "CONSOLE_DECRYPTAGE_INTEGREE"
+        ]
+    },
+    "ASTRONAUTE": {
+        "id": "ASTRONAUTE",
+        "roles": [
+            "ESPACE"
+        ],
+        "materiel": [
+            "COMBINAISON_SPATIALE",
+            "GANTS_GECKO",
+            "JET_PACK",
+            "RESPIRATEUR",
+            "DISPOSITIF_GECKO_INTEGRE",
+            "PATTES_GECKO",
+            "DERME_PROTECTION_ENVIRONNEMENT",
+            "METABOLISME_OPTIMISE",
+            "RESPIRATEUR_INTEGRE",
+            "POUMONS_AMELIORES",
+            "JET_PACK_INTEGRE"
+        ]
+    },
+    "AVOCAT": {
+        "id": "AVOCAT",
+        "roles": [
+            "NEGOCIATION"
+        ],
+        "materiel": [
+            "LANGUE",
+            "LECTEUR_INTENTION",
+            "SOCIABILITE"
+        ]
+    },
+    "COMMANDO_SPATIAL": {
+        "id": "COMMANDO_SPATIAL",
+        "roles": [
+            "ESPACE",
+            "COMBAT"
+        ],
+        "materiel": [
+            "ARME_PULSEUR",
+            "ARMURE_LOURDE",
+            "BROUILLEUR",
+            "COMBINAISON_SPATIALE",
+            "GANTS_GECKO",
+            "JET_PACK",
+            "PROTECTION_LEGERE",
+            "GRENADE_SHOCK",
+            "GRENADE_BROUILLAGE",
+            "RESPIRATEUR",
+            "COMMUNICATION_INFORMELLE",
+            "INTERFACE_COMBAT",
+            "ARME_PULSEUR_INTEGREE",
+            "ARME_SHOCK_INTEGREE",
+            "DISPOSITIF_GECKO_INTEGRE",
+            "PATTES_GECKO",
+            "ARMURE_DERMIQUE",
+            "DERME_PROTECTION_ENVIRONNEMENT",
+            "METABOLISME_OPTIMISE",
+            "BROUILLEUR_INTEGRE",
+            "RESPIRATEUR_INTEGRE",
+            "POUMONS_AMELIORES",
+            "JET_PACK_INTEGRE"
+        ]
+    },
+    "COMMERCIAL": {
+        "id": "COMMERCIAL",
+        "roles": [
+            "NEGOCIATION"
+        ],
+        "materiel": [
+            "LANGUE",
+            "LECTEUR_INTENTION",
+            "SOCIABILITE"
+        ]
+    },
+    "CONTREBANDIER": {
+        "id": "CONTREBANDIER",
+        "roles": [
+            "INFILTRATION",
+            "NEGOCIATION",
+            "RELATION"
+        ],
+        "materiel": [
+            "ARME_SHOCK",
+            "BROUILLEUR",
+            "DECODEUR",
+            "FOGLETS",
+            "TENUE_CAMOUFLAGE_THERMO_OPTIQUE",
+            "LECTEUR_INTENTION",
+            "SOCIABILITE",
+            "ARME_SHOCK_INTEGREE",
+            "BROUILLEUR_INTEGRE",
+            "DECODEUR_INTEGRE",
+            "CAMOUFLAGE_THERMO_OPTIQUE_INTEGRE"
+        ]
+    },
+    "CYBER_MECANICIEN": {
+        "id": "CYBER_MECANICIEN",
+        "roles": [
+            "TECHNOLOGIE"
+        ],
+        "materiel": [
+            "DECODEUR",
+            "MICRO_DRONE",
+            "MULTI_TOOL",
+            "SCANNER_WOLFA_PORTATIF",
+            "MAINTENANCE",
+            "RECONSTITUTION",
+            "DECODEUR_INTEGRE",
+            "MULTI_TOOL_INTEGRE",
+            "SCANNER_WOLFA_INTEGRE"
+        ]
+    },
+    "CYBER_MEDIC": {
+        "id": "CYBER_MEDIC",
+        "roles": [
+            "TECHNOLOGIE"
+        ],
+        "materiel": [
+            "KIT_MEDICAL",
+            "MICRO_DRONE",
+            "MULTI_TOOL",
+            "SCANNER_WOLFA_PORTATIF",
+            "MAINTENANCE",
+            "RECONSTITUTION",
+            "KIT_MEDICAL_INTEGRE",
+            "MULTI_TOOL_INTEGRE",
+            "SCANNER_WOLFA_INTEGRE"
+        ]
+    },
+    "CYBER_SAMOURAI": {
+        "id": "CYBER_SAMOURAI",
+        "roles": [
+            "COMBAT",
+            "INFILTRATION"
+        ],
+        "materiel": [
+            "ARME_SHOCK",
+            "ARME_PULSEUR",
+            "BROUILLEUR",
+            "FOGLETS",
+            "GANTS_GECKO",
+            "LAME_ACTIVE",
+            "PROTECTION_LEGERE",
+            "TENUE_CAMOUFLAGE_THERMO_OPTIQUE",
+            "GRENADE_BROUILLAGE",
+            "RESPIRATEUR",
+            "INTERFACE_COMBAT",
+            "LECTEUR_INTENTION",
+            "ARME_PULSEUR_INTEGREE",
+            "ARME_SHOCK_INTEGREE",
+            "BROUILLEUR_INTEGRE",
+            "DISPOSITIF_GECKO_INTEGRE",
+            "LAME_INTEGREE",
+            "CAMOUFLAGE_THERMO_OPTIQUE_INTEGRE",
+            "PATTES_GECKO",
+            "ARMURE_DERMIQUE",
+            "MUSCLES_NANO_FIBRE",
+            "SQUELETTE_RENFORCE",
+            "SYSTEME_NERVEUX_CABLE",
+            "VISION_AUGMENTEE",
+            "MUSCLES_AMELIORES",
+            "SQUELETTE_DENSE",
+            "SYSTEME_SENSORIEL_AMELIORE",
+            "RESPIRATEUR_INTEGRE",
+            "POUMONS_AMELIORES"
+        ]
+    },
+    "DECKER": {
+        "id": "DECKER",
+        "roles": [
+            "INFORMATIQUE"
+        ],
+        "materiel": [
+            "BROUILLEUR",
+            "CONSOLE_DECRYPTAGE",
+            "PIRATAGE",
+            "BROUILLEUR_INTEGRE",
+            "CONSOLE_DECRYPTAGE_INTEGREE"
+        ]
+    },
+    "DETECTIVE": {
+        "id": "DETECTIVE",
+        "roles": [
+            "ENQUETE"
+        ],
+        "materiel": [
+            "SCANNER_WOLFA_PORTATIF",
+            "RECONSTITUTION",
+            "SCANNER_WOLFA_INTEGRE"
+        ]
+    },
+    "DIPLOMATE": {
+        "id": "DIPLOMATE",
+        "roles": [
+            "NEGOCIATION",
+            "RELATION"
+        ],
+        "materiel": [
+            "FOGLETS",
+            "COMMUNICATION_INFORMELLE",
+            "LANGUE",
+            "LECTEUR_INTENTION",
+            "SOCIABILITE"
+        ]
+    },
+    "ESPION": {
+        "id": "ESPION",
+        "roles": [
+            "INFILTRATION",
+            "INFORMATIQUE"
+        ],
+        "materiel": [
+            "BROUILLEUR",
+            "CONSOLE_DECRYPTAGE",
+            "DECODEUR",
+            "EMETTEUR_LIAISON",
+            "GANTS_GECKO",
+            "TENUE_CAMOUFLAGE_THERMO_OPTIQUE",
+            "COMMUNICATION_INFORMELLE",
+            "LANGUE",
+            "PIRATAGE",
+            "SOCIABILITE",
+            "BROUILLEUR_INTEGRE",
+            "CONSOLE_DECRYPTAGE_INTEGREE",
+            "DECODEUR_INTEGRE",
+            "DISPOSITIF_GECKO_INTEGRE",
+            "CAMOUFLAGE_THERMO_OPTIQUE_INTEGRE",
+            "PATTES_GECKO"
+        ]
+    },
+    "EXPERT_TECHNIQUE": {
+        "id": "EXPERT_TECHNIQUE",
+        "roles": [
+            "ENQUETE",
+            "TECHNOLOGIE"
+        ],
+        "materiel": [
+            "MULTI_TOOL",
+            "SCANNER_WOLFA_PORTATIF",
+            "MAINTENANCE",
+            "RECONSTITUTION",
+            "MULTI_TOOL_INTEGRE",
+            "SCANNER_WOLFA_INTEGRE"
+        ]
+    },
+    "FIXER": {
+        "id": "FIXER",
+        "roles": [
+            "RELATION",
+            "TECHNOLOGIE"
+        ],
+        "materiel": [
+            "BROUILLEUR",
+            "DECODEUR",
+            "SCANNER_WOLFA_PORTATIF",
+            "MULTI_TOOL",
+            "LANGUE",
+            "MAINTENANCE",
+            "BROUILLEUR_INTEGRE",
+            "DECODEUR_INTEGRE",
+            "SCANNER_WOLFA_INTEGRE",
+            "MULTI_TOOL_INTEGRE"
+        ]
+    },
+    "HACKER": {
+        "id": "HACKER",
+        "roles": [
+            "INFORMATIQUE",
+            "TECHNOLOGIE"
+        ],
+        "materiel": [
+            "BROUILLEUR",
+            "CONSOLE_DECRYPTAGE",
+            "DECODEUR",
+            "EMETTEUR_LIAISON",
+            "MICRO_DRONE",
+            "MULTI_TOOL",
+            "SCANNER_WOLFA_PORTATIF",
+            "MAINTENANCE",
+            "PIRATAGE",
+            "BROUILLEUR_INTEGRE",
+            "CONSOLE_DECRYPTAGE_INTEGREE",
+            "DECODEUR_INTEGRE",
+            "MULTI_TOOL_INTEGRE",
+            "SCANNER_WOLFA_INTEGRE"
+        ]
+    },
+    "INFILTRATEUR_SPATIAL": {
+        "id": "INFILTRATEUR_SPATIAL",
+        "roles": [
+            "ESPACE",
+            "INFILTRATION"
+        ],
+        "materiel": [
+            "BROUILLEUR",
+            "COMBINAISON_SPATIALE",
+            "DECODEUR",
+            "EMETTEUR_LIAISON",
+            "GANTS_GECKO",
+            "JET_PACK",
+            "TENUE_CAMOUFLAGE_THERMO_OPTIQUE",
+            "RESPIRATEUR",
+            "COMMUNICATION_INFORMELLE",
+            "BROUILLEUR_INTEGRE",
+            "RESPIRATEUR_INTEGRE",
+            "SCANNER_WOLFA_INTEGRE",
+            "DECODEUR_INTEGRE",
+            "DISPOSITIF_GECKO_INTEGRE",
+            "PATTES_GECKO",
+            "CAMOUFLAGE_THERMO_OPTIQUE_INTEGRE",
+            "JET_PACK_INTEGRE"
+        ]
+    },
+    "INTERROGATEUR": {
+        "id": "INTERROGATEUR",
+        "roles": [
+            "ENQUETE",
+            "NEGOCIATION"
+        ],
+        "materiel": [
+            "FOGLETS",
+            "COMMUNICATION_INFORMELLE",
+            "LANGUE",
+            "LECTEUR_INTENTION",
+            "RECONSTITUTION",
+            "SOCIABILITE"
+        ]
+    },
+    "JUSTICIER": {
+        "id": "JUSTICIER",
+        "roles": [
+            "COMBAT",
+            "ENQUETE"
+        ],
+        "materiel": [
+            "ARME_SHOCK",
+            "GRENADE_SHOCK",
+            "GRENADE_BROUILLAGE",
+            "PROTECTION_LEGERE",
+            "SCANNER_WOLFA_PORTATIF",
+            "INTERFACE_COMBAT",
+            "RECONSTITUTION",
+            "ARME_SHOCK_INTEGREE",
+            "ARMURE_DERMIQUE",
+            "SCANNER_WOLFA_INTEGRE"
+        ]
+    },
+    "MERCENAIRE": {
+        "id": "MERCENAIRE",
+        "roles": [
+            "COMBAT",
+            "TECHNOLOGIE"
+        ],
+        "materiel": [
+            "ARME_PULSEUR",
+            "ARME_SHOCK",
+            "ARMURE_LOURDE",
+            "DECODEUR",
+            "LAME_ACTIVE",
+            "MULTI_TOOL",
+            "PROTECTION_LEGERE",
+            "SCANNER_WOLFA_PORTATIF",
+            "GRENADE_SHOCK",
+            "GRENADE_BROUILLAGE",
+            "COMMUNICATION_INFORMELLE",
+            "INTERFACE_COMBAT",
+            "MAINTENANCE",
+            "ARME_PULSEUR_INTEGREE",
+            "ARME_SHOCK_INTEGREE",
+            "DECODEUR_INTEGRE",
+            "LAME_INTEGREE",
+            "ARMURE_DERMIQUE",
+            "MULTI_TOOL_INTEGRE",
+            "SCANNER_WOLFA_INTEGRE"
+        ]
+    },
+    "NEGOCIATEUR": {
+        "id": "NEGOCIATEUR",
+        "roles": [
+            "NEGOCIATION"
+        ],
+        "materiel": [
+            "FOGLETS",
+            "COMMUNICATION_INFORMELLE",
+            "LANGUE",
+            "LECTEUR_INTENTION",
+            "SOCIABILITE"
+        ]
+    },
+    "OFFICIER_LIAISON": {
+        "id": "OFFICIER_LIAISON",
+        "roles": [
+            "COMBAT",
+            "RELATION"
+        ],
+        "materiel": [
+            "ARME_PULSEUR",
+            "ARME_SHOCK",
+            "FOGLETS",
+            "GRENADE_SHOCK",
+            "GRENADE_BROUILLAGE",
+            "PROTECTION_LEGERE",
+            "COMMUNICATION_INFORMELLE",
+            "INTERFACE_COMBAT",
+            "LANGUE",
+            "ARME_PULSEUR_INTEGREE",
+            "ARME_SHOCK_INTEGREE",
+            "ARMURE_DERMIQUE"
+        ]
+    },
+    "PACIFICATEUR": {
+        "id": "PACIFICATEUR",
+        "roles": [
+            "COMBAT",
+            "NEGOCIATION"
+        ],
+        "materiel": [
+            "ARME_SHOCK",
+            "BROUILLEUR",
+            "GRENADE_SHOCK",
+            "GRENADE_BROUILLAGE",
+            "KIT_MEDICAL",
+            "PROTECTION_LEGERE",
+            "RESPIRATEUR",
+            "COMMUNICATION_INFORMELLE",
+            "INTERFACE_COMBAT",
+            "LANGUE",
+            "LECTEUR_INTENTION",
+            "ARME_SHOCK_INTEGREE",
+            "BROUILLEUR_INTEGRE",
+            "KIT_MEDICAL_INTEGRE",
+            "ARMURE_DERMIQUE",
+            "POUMONS_AMELIORES",
+            "RESPIRATEUR_INTEGRE"
+        ]
+    },
+    "PILOTE": {
+        "id": "PILOTE",
+        "roles": [
+            "ESPACE",
+            "TECHNOLOGIE"
+        ],
+        "materiel": [
+            "COMBINAISON_SPATIALE",
+            "MULTI_TOOL",
+            "RESPIRATEUR",
+            "MAINTENANCE",
+            "PILOTAGE",
+            "POUMONS_AMELIORES",
+            "RESPIRATEUR_INTEGRE",
+            "MULTI_TOOL_INTEGRE",
+            "METABOLISME_OPTIMISE"
+        ]
+    },
+    "POP_STAR": {
+        "id": "POP_STAR",
+        "roles": [
+            "RELATION"
+        ],
+        "materiel": [
+            "FOGLETS",
+            "LANGUE",
+            "SOCIABILITE"
+        ]
+    },
+    "PRIVE": {
+        "id": "PRIVE",
+        "roles": [
+            "ENQUETE",
+            "INFILTRATION",
+            "NEGOCIATION"
+        ],
+        "materiel": [
+            "ARME_SHOCK",
+            "BROUILLEUR",
+            "DECODEUR",
+            "EMETTEUR_LIAISON",
+            "FOGLETS",
+            "RESPIRATEUR",
+            "SCANNER_WOLFA_PORTATIF",
+            "LANGUE",
+            "LECTEUR_INTENTION",
+            "RECONSTITUTION",
+            "ARME_SHOCK_INTEGREE",
+            "BROUILLEUR_INTEGRE",
+            "DECODEUR_INTEGRE",
+            "POUMONS_AMELIORES",
+            "RESPIRATEUR_INTEGRE",
+            "SCANNER_WOLFA_INTEGRE"
+        ]
+    },
+    "PSION": {
+        "id": "PSION",
+        "roles": [],
+        "materiel": [
+            "IMPLANT_PSI_MATIERE",
+            "IMPLANT_PSI_ENERGIE",
+            "IMPLANT_PSI_ESPACE",
+            "IMPLANT_PSI_INFORMATION",
+            "IMPLANT_PSI_BIOLOGIE",
+            "IMPLANT_PSI_META"
+        ]
+    },
+    "RECUPERATEUR_SPATIAL": {
+        "id": "RECUPERATEUR_SPATIAL",
+        "roles": [
+            "ESPACE",
+            "TECHNOLOGIE"
+        ],
+        "materiel": [
+            "COMBINAISON_SPATIALE",
+            "DECODEUR",
+            "KIT_MEDICAL",
+            "GANTS_GECKO",
+            "JET_PACK",
+            "MICRO_DRONE",
+            "MULTI_TOOL",
+            "RESPIRATEUR",
+            "SCANNER_WOLFA_PORTATIF",
+            "MAINTENANCE",
+            "PILOTAGE",
+            "RECONSTITUTION",
+            "DERME_PROTECTION_ENVIRONNEMENT",
+            "POUMONS_AMELIORES",
+            "RESPIRATEUR_INTEGRE",
+            "DECODEUR_INTEGRE",
+            "KIT_MEDICAL_INTEGRE",
+            "MULTI_TOOL_INTEGRE",
+            "JET_PACK_INTEGRE",
+            "SCANNER_WOLFA_INTEGRE",
+            "DISPOSITIF_GECKO_INTEGRE",
+            "PATTES_GECKO",
+            "METABOLISME_OPTIMISE"
+        ]
+    },
+    "SABOTEUR": {
+        "id": "SABOTEUR",
+        "roles": [
+            "INFILTRATION",
+            "TECHNOLOGIE"
+        ],
+        "materiel": [
+            "BROUILLEUR",
+            "DECODEUR",
+            "EMETTEUR_LIAISON",
+            "GANTS_GECKO",
+            "MICRO_DRONE",
+            "MULTI_TOOL",
+            "RESPIRATEUR",
+            "SCANNER_WOLFA_PORTATIF",
+            "TENUE_CAMOUFLAGE_THERMO_OPTIQUE",
+            "MAINTENANCE",
+            "BROUILLEUR_INTEGRE",
+            "DECODEUR_INTEGRE",
+            "DISPOSITIF_GECKO_INTEGRE",
+            "PATTES_GECKO",
+            "MULTI_TOOL_INTEGRE",
+            "POUMONS_AMELIORES",
+            "RESPIRATEUR_INTEGRE",
+            "SCANNER_WOLFA_INTEGRE",
+            "CAMOUFLAGE_THERMO_OPTIQUE_INTEGRE"
+        ]
+    },
+    "SOLAR_WARDNER": {
+        "id": "SOLAR_WARDNER",
+        "roles": [
+            "NEGOCIATION",
+            "RELATION"
+        ],
+        "materiel": []
+    },
+    "SOLDAT_INFANTERIE": {
+        "id": "SOLDAT_INFANTERIE",
+        "roles": [
+            "COMBAT"
+        ],
+        "materiel": [
+            "ARME_PULSEUR",
+            "ARME_SHOCK",
+            "ARMURE_LOURDE",
+            "GRENADE_SHOCK",
+            "GRENADE_BROUILLAGE",
+            "KIT_MEDICAL",
+            "RESPIRATEUR",
+            "PROTECTION_LEGERE",
+            "COMMUNICATION_INFORMELLE",
+            "INTERFACE_COMBAT",
+            "ARME_PULSEUR_INTEGREE",
+            "ARME_SHOCK_INTEGREE",
+            "ARMURE_DERMIQUE",
+            "MUSCLES_NANO_FIBRE",
+            "SQUELETTE_RENFORCE",
+            "MUSCLES_AMELIORES",
+            "SQUELETTE_DENSE"
+        ]
+    },
+    "TECHNOPHILE": {
+        "id": "TECHNOPHILE",
+        "roles": [
+            "TECHNOLOGIE"
+        ],
+        "materiel": [
+            "DECODEUR",
+            "FOGLETS",
+            "MICRO_DRONE",
+            "MULTI_TOOL",
+            "SCANNER_WOLFA_PORTATIF",
+            "MAINTENANCE",
+            "DECODEUR_INTEGRE",
+            "MULTI_TOOL_INTEGRE",
+            "SCANNER_WOLFA_INTEGRE"
+        ]
+    }
 }
