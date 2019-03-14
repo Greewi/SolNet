@@ -6,6 +6,7 @@
     <title>SolNet</title>
 
     <meta name="mobile-web-app-capable" content="yes" />
+    <link rel="manifest" href="manifest.json">
     <link rel="icon" sizes="48x48" href="images/iconeApp/icon48.png" />
     <link rel="icon" sizes="96x96" href="images/iconeApp/icon96.png" />
     <link rel="icon" sizes="144x144" href="images/iconeApp/icon144.png" />
@@ -54,8 +55,14 @@
         <button id="boutonNotificationReload" class="notification__bouton">Recharger</button>
     </div>
 
-    <!-- Le service worker (pour le mode offline) -->
+    <!-- Le service worker (pour le mode offline) et la gestion du lifecycle -->
     <script>
+        //Gestion du lifecycle
+        document.addEventListener('resume', ()=>{
+            window.location.reload();
+        });
+
+        //Service worker
         let worker;
 
         // Notification
