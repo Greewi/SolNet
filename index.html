@@ -71,6 +71,9 @@
         boutonReload.addEventListener("click", () => {
             //On indique au service worker qu'il peut changer de page tout de suite
             worker.postMessage({ action: 'skipWaiting' });
+            setTimeout(function(){
+                document.location.reload();
+            }, 5000);
         });
 
         if ('serviceWorker' in navigator) {
