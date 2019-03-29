@@ -69,11 +69,13 @@
         let notificationReload = document.getElementById("notificationReload");
         let boutonReload = document.getElementById("boutonNotificationReload");
         boutonReload.addEventListener("click", () => {
-            //On indique au service worker qu'il peut changer de page tout de suite
+            notificationReload.classList.remove('notification__ouvert');
+            // On indique au service worker qu'il peut changer de page tout de suite
             worker.postMessage({ action: 'skipWaiting' });
+            // Workaround : sur firefox et safari, skipWaiting ne semble pas recharger la page. On effectue un reload à la place.
             setTimeout(function(){
                 document.location.reload();
-            }, 5000);
+            }, 1500);
         });
 
         if ('serviceWorker' in navigator) {
