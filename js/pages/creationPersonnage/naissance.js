@@ -31,7 +31,7 @@ export class PageNaissance extends Page{
         if(this._personnage.identite.enveloppeUsuelle){
             datesUtiles.push({
                 "date" : BibliothequeDonnees.enveloppes[this._personnage.identite.enveloppeUsuelle.id].dateInitiale,
-                 "texte" : Lang.get(`Enveloppe_${this._personnage.identite.enveloppeUsuelle.id}`)
+                "texte" : Lang.get(`Enveloppe_${this._personnage.identite.enveloppeUsuelle.id}`)
             });
         }
         if(this._personnage.identite.natureEsprit){
@@ -59,10 +59,10 @@ export class PageNaissance extends Page{
         this._elementDatesUtiles.innerHTML = listeDates;
 
         this._elementDate.innerHTML = "";
-        this._selecteurDate = new SelecteurInputDate(Lang.get("DescriptionDateNaissance"));
+        this._selecteurDate = new SelecteurInputDate(Lang.get("DescriptionDateNaissance"), true, true, true);
         this._selecteurDate.valeur = this._personnage.histoire.dateNaissance;
-        this._selecteurDate.min = "1980-01-01";
-        this._selecteurDate.max = "2092-12-31";
+        this._selecteurDate.min = "1980";
+        this._selecteurDate.max = "2093";
         this._selecteurDate.onchange = (valeur)=>{
             this._personnage.histoire.dateNaissance = valeur;
         };

@@ -83,9 +83,16 @@ export class PageAfficherPersonnage extends Page{
             else
                 carrieres += `, ${carriere}`;
 
+            let affiliations = "";
+            for(let affiliation of periode.affiliation)
+            if(affiliations=="")
+                affiliations=affiliation;
+            else
+                affiliations += `, ${affiliation}`;
+
             let html = `<em>${periode.date}</em> : <br/>`;
             html += `${Lang.get("InputCarrieres")} : ${carrieres} <br/>`
-            html += `${Lang.get("InputAffiliation")} : ${periode.affiliation} <br/>`
+            html += `${Lang.get("InputAffiliation")} : ${affiliations} <br/>`
             html += `${Lang.get("InputEvenements")} : ${periode.evenements}`;
 
             let li = document.createElement("li");

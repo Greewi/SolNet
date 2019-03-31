@@ -114,8 +114,8 @@ export class PopupSelect extends Popup {
         this._boutonSelectionner = this._element.querySelector(".popup__bouton_gauche");
         this._boutonSelectionner.onclick = () => {
             let selectionFinale = [];
-            for(let valeur in this._selection)
-                if(this._selection[valeur])
+            for (let valeur in this._selection)
+                if (this._selection[valeur])
                     selectionFinale.push(valeur);
             callback(selectionFinale);
             this.ferme();
@@ -135,36 +135,50 @@ export class PopupSelect extends Popup {
     _initialiseListe() {
         this._liste.innerHTML = "";
         this._selection = {};
-        for(let valeur of this._selectionInitiale)
-            if(this._valeurs[valeur]!==undefined)
+        for (let valeur of this._selectionInitiale)
+            if (this._valeurs[valeur] !== undefined)
                 this._selection[valeur] = true;
         for (let valeur in this._valeurs) {
             this._selection[valeur] = !!this._selection[valeur]; //Pour compléter les valeurs manquantes
 
-            let selecteur = new SelecteurSansDescription(this._valeurs[valeur]);
+            let selecteur = new SelecteurSansDescription(this._valeurs[valeur], true);
             selecteur.onclick = (e) => {
                 if (this._selection[valeur]) {
-                    this._selection[valeur] = false;
-                    selecteur.deselectionne();
+                    if (this._selectionMultiple) {
+                        this._selection[valeur] = false;
+                        selecteur.deselectionne();
+                    }
                 }
                 else {
-                    if (!this._selectionMultiple)
-                    {
+                    if (!this._selectionMultiple) {
                         Selecteur.deselectionneTous(this._liste);
-                        for(let val in this._selection)
+                        for (let val in this._selection)
                             this._selection[val] = false;
+                        this._selection[valeur] = true;
+                        selecteur.selectionne();
+                        this._boutonSelectionner.onclick();
                     }
-                    this._selection[valeur] = true;
-                    selecteur.selectionne();
+                    else {
+                        this._selection[valeur] = true;
+                        selecteur.selectionne();
+                    }
                 }
             };
-            if (this._selection[valeur])
+            if (this._selection[valeur]) {
                 selecteur.selectionne();
+                this._selecteurParDefaut = selecteur.element.firstChild;
+            }
             this._liste.appendChild(selecteur.element);
         }
     }
 
-    static selectionne(titre, texte, valeurs, selectionInitiale, selectionMultiple, callback){
+    ouvre() {
+        super.ouvre();
+        if (this._selecteurParDefaut && this._selecteurParDefaut.scrollIntoView)
+            this._selecteurParDefaut.scrollIntoView({ block: "center", inline: "nearest" });
+    }
+
+    static selectionne(titre, texte, valeurs, selectionInitiale, selectionMultiple, callback) {
         let popup = new PopupSelect(titre, texte, valeurs, selectionInitiale, selectionMultiple, (selection) => {
             callback(selection);
         });

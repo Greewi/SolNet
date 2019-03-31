@@ -40,3 +40,12 @@
 .popup__bouton_droite{
     width : calc(50% - 10px);
 }
+
+/**
+ * Popup de sélection
+ */
+.popup_selection__liste{
+    max-height: 60vh;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}

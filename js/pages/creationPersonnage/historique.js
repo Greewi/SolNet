@@ -21,12 +21,22 @@ export class PageHistorique extends Page{
         this._elementListe = this.element.querySelector("#creationPersonnageListePeriodes");
 
         this._actionAjouterDebut = ()=>{
-            this._personnage.histoire.ajoutePeriodeDebut(new PeriodeHistorique());
+            let periode = new PeriodeHistorique();
+            if(this._personnage.histoire.historique.length>0)
+                periode.date = this._personnage.histoire.historique[0].date;
+            else
+                periode.date = this._personnage.histoire.dateNaissance;
+            this._personnage.histoire.ajoutePeriodeDebut(periode);
             this.chargePeriodes(); //TODO Bourrin mais rapide à coder pour le moment
         };
         this._elementAjouterDebut.addEventListener("click", this._actionAjouterDebut);
         this._actionAjouterFin = ()=>{
-            this._personnage.histoire.ajoutePeriodeFin(new PeriodeHistorique());
+            let periode = new PeriodeHistorique();
+            if(this._personnage.histoire.historique.length>0)
+                periode.date = this._personnage.histoire.historique[this._personnage.histoire.historique.length-1].date;
+            else
+                periode.date = this._personnage.histoire.dateNaissance;
+            this._personnage.histoire.ajoutePeriodeFin(periode);
             this.chargePeriodes(); //TODO Bourrin mais rapide à coder pour le moment
         };
         this._elementAjouterFin.addEventListener("click", this._actionAjouterFin);
@@ -47,12 +57,12 @@ export class PageHistorique extends Page{
         let datesUtiles = [];
         datesUtiles.push({
             "date" : this._personnage.histoire.dateNaissance.split("-")[0],
-             "texte" : Lang.get(`DateNaissance`)
+            "texte" : Lang.get(`DateNaissance`)
         });
         if(this._personnage.identite.enveloppeUsuelle){
             datesUtiles.push({
                 "date" : BibliothequeDonnees.enveloppes[this._personnage.identite.enveloppeUsuelle.id].dateInitiale,
-                 "texte" : Lang.get(`Enveloppe_${this._personnage.identite.enveloppeUsuelle.id}`)
+                "texte" : Lang.get(`Enveloppe_${this._personnage.identite.enveloppeUsuelle.id}`)
             });
         }
         if(this._personnage.identite.natureEsprit){
@@ -81,6 +91,7 @@ export class PageHistorique extends Page{
     }
 
     chargePeriodes(){
+        this._personnage.histoire.triePeriodes();
         this._elementListe.innerHTML = "";
         for(let periode of this._personnage.histoire.historique)
         {
@@ -91,12 +102,13 @@ export class PageHistorique extends Page{
             selecteur.evenements = periode.evenements;
             selecteur.onchangedate = (date)=>{
                 periode.date = date;
+                this.chargePeriodes(); //TODO Bourrin mais rapide à coder pour le moment
             };
             selecteur.onclickcarriere = ()=>{
                 let carrieres = {};
                 for(let carriere of this._personnage.elements.carrieres)
                     carrieres[carriere.nom] = carriere.nom;
-                PopupSelect.selectionne(Lang.get("TitreSelectionCarrieres"), Lang.get("TexteSelectionCarrieres"), carrieres, [periode.carrieres], true, (selection)=>{
+                PopupSelect.selectionne(Lang.get("TitreSelectionCarrieres"), Lang.get("TexteSelectionCarrieres"), carrieres, periode.carrieres, true, (selection)=>{
                     if(selection)
                     {
                         periode.carrieres = selection;
@@ -108,24 +120,16 @@ export class PageHistorique extends Page{
                 let relations = {};
                 for(let relation of this._personnage.elements.relations)
                     relations[relation.nom] = relation.nom;
-                PopupSelect.selectionne(Lang.get("TitreSelectionAffiliation"), Lang.get("TexteSelectionAffiliation"), relations, [periode.affiliation], false, (selection)=>{
-                    if(selection && selection.length>0)
+                PopupSelect.selectionne(Lang.get("TitreSelectionAffiliation"), Lang.get("TexteSelectionAffiliation"), relations, periode.affiliation, true, (selection)=>{
+                    if(selection)
                     {
-                        periode.affiliation = selection[0];
-                        selecteur.affiliation = selection[0];
+                        periode.affiliation = selection;
+                        selecteur.affiliation = selection;
                     }
                 });
             };
             selecteur.onchangeevenement = (evenements)=>{
                 periode.evenements = evenements;
-            };
-            selecteur.onmonte = ()=>{
-                this._personnage.histoire.montePeriode(periode);
-                this.chargePeriodes(); //TODO Bourrin mais rapide à coder pour le moment
-            };
-            selecteur.ondescend = ()=>{
-                this._personnage.histoire.descendPeriode(periode);
-                this.chargePeriodes(); //TODO Bourrin mais rapide à coder pour le moment
             };
             selecteur.onsupprime = ()=>{
                 PopupConfirmation.confirme(Lang.get("ConfirmationSupressionPeriodeHistorique"), ()=>{
