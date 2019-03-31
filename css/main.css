@@ -303,12 +303,12 @@ td {
     padding: 5px;
     text-align: center;
     
-    transform: translateY(100%);
+    transform: scale(0);
     transition-property: transform;
     transition-duration: 250ms;
 }
 .notification__ouvert {
-    transform: translateY(0);
+    transform: scale(1);
 }
 .notification__texte {
     color:#aaa;
