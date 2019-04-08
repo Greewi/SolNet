@@ -13,6 +13,9 @@ this.addEventListener('install', (event) => {
             for (let i = 0; i < sources.length; i++)
                 sources[i] = new Request(sources[i], { cache: 'no-cache' });
             return cache.addAll(sources);
+        }).then(()=>{
+            const channel = new BroadcastChannel('sw-messages');
+            channel.postMessage({version:version});
         })
     );
 });

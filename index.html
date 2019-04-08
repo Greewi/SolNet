@@ -58,26 +58,12 @@
     <!-- Le service worker (pour le mode offline) et la gestion du lifecycle -->
     <script>
         //Gestion du lifecycle
-        document.addEventListener('resume', ()=>{
+        document.addEventListener('resume', () => {
             window.location.reload();
         });
 
         //Service worker
-        let worker;
-
-        // Notification
-        let notificationReload = document.getElementById("notificationReload");
-        let boutonReload = document.getElementById("boutonNotificationReload");
-        boutonReload.addEventListener("click", () => {
-            notificationReload.classList.remove('notification__ouvert');
-            // On indique au service worker qu'il peut changer de page tout de suite
-            worker.postMessage({ action: 'skipWaiting' });
-            // Workaround : sur firefox et safari, skipWaiting ne semble pas recharger la page. On effectue un reload à la place.
-            setTimeout(function(){
-                document.location.reload();
-            }, 1500);
-        });
-
+        let worker = null;
         if ('serviceWorker' in navigator) {
             // Enregistrement du service worker
             navigator.serviceWorker.register("/serviceWorker.js")
@@ -92,11 +78,22 @@
                 })
                 // Si on a une mise à jour du service worker on affiche la notification
                 .then(() => {
+                    if (BroadcastChannel in window) {
+                        const channel = new BroadcastChannel('sw-messages');
+                        channel.addEventListener('message', event => {
+                            console.log('Received', event.data);
+                            if (event.data.version)
+                                worker.version = event.data.version;
+                        });
+                    }
                     console.log("Nouveau service Worker disponible");
                     worker.addEventListener("statechange", () => {
-                        if (worker.state == "installed"){
+                        if (worker.state == "installed") {
                             console.log("Nouveau Service Worker installé");
-                            notificationReload.classList.add('notification__ouvert');
+                            if (localStorage.getItem("versionWorker") != null && localStorage.getItem("versionWorker") != worker.version)
+                                notificationReload.classList.add('notification__ouvert');
+                            if (worker.version !== undefined)
+                                localStorage.setItem("versionWorker", worker.version);
                         }
                     });
                 });
@@ -109,6 +106,20 @@
                 raffraichissementEnCours = true;
             });
         }
+
+        // Notification
+        let notificationReload = document.getElementById("notificationReload");
+        let boutonReload = document.getElementById("boutonNotificationReload");
+        boutonReload.addEventListener("click", () => {
+            notificationReload.classList.remove('notification__ouvert');
+            // On indique au service worker qu'il peut changer de page tout de suite
+            worker.postMessage({ action: 'skipWaiting' });
+            // Workaround : sur firefox et safari, skipWaiting ne semble pas recharger la page. On effectue un reload à la place.
+            setTimeout(function () {
+                document.location.reload();
+            }, 1500);
+        });
+
     </script>
 
     <script type="module" src="js/main.js"></script>
