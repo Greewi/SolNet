@@ -9,35 +9,33 @@ export class BibliothequeDonnees {
      * Initialise la banque de donnée
      * @returns {Promise}
      */
-    static initialise(){   
+    static initialise() {
         var promises = [];
         promises.push(
             Ajax.get("./res/roles.json")
-            .then((json)=>{
-                this._roles = JSON.parse(json);
-                this._carrieresParRole = {};
-                for(let idRole in this._roles)
-                    this._carrieresParRole[idRole] = [];
-                console.log("Roles chargés");
-                Loader.termineSousEtape();
-            })
-        );
-        promises.push(
-            Ajax.get("./res/carrieres.json")
-            .then((json)=>{
-                this._carrieres = JSON.parse(json);
-                for(let idCarriere in this._carrieres)
-                {
-                    let carriere = this._carrieres[idCarriere];
-                    for(let role of carriere.roles)
-                        if(this._carrieresParRole[role])
-                            this._carrieresParRole[role].push(carriere);
-                        else
-                            console.error(`Carrière ${idCarriere} possède un rôle invalide : ${role}`)
-                }
-                console.log("Carrières chargés");
-                Loader.termineSousEtape();
-            })
+                .then((json) => {
+                    this._roles = JSON.parse(json);
+                    this._carrieresParRole = {};
+                    for (let idRole in this._roles)
+                        this._carrieresParRole[idRole] = [];
+                    console.log("Roles chargés");
+                    Loader.termineSousEtape();
+                }).then(() => {
+                    return Ajax.get("./res/carrieres.json");
+                })
+                .then((json) => {
+                    this._carrieres = JSON.parse(json);
+                    for (let idCarriere in this._carrieres) {
+                        let carriere = this._carrieres[idCarriere];
+                        for (let role of carriere.roles)
+                            if (this._carrieresParRole[role])
+                                this._carrieresParRole[role].push(carriere);
+                            else
+                                console.error(`Carrière ${idCarriere} possède un rôle invalide : ${role}`)
+                    }
+                    console.log("Carrières chargés");
+                    Loader.termineSousEtape();
+                })
         );
         promises.push(
             this._chargeDonnee("Intelligences", "./res/intelligences.json", "_intelligences")
@@ -66,61 +64,61 @@ export class BibliothequeDonnees {
         promises.push(
             this._chargeDonnee("Encyclopedie", "./res/encyclopedie.json", "_encyclopedie")
         );
-        
+
         Loader.setNombreSousEtape(promises.length);
         return Promise.all(promises);
     }
 
-    static _chargeDonnee(nom, fichier, propriete){
+    static _chargeDonnee(nom, fichier, propriete) {
         return Ajax.get(fichier)
-        .then((json)=>{
-            this[propriete] = JSON.parse(json);
-            console.log(`${nom} chargé`);
-            Loader.termineSousEtape();
-        });
+            .then((json) => {
+                this[propriete] = JSON.parse(json);
+                console.log(`${nom} chargé`);
+                Loader.termineSousEtape();
+            });
     }
 
-    static get roles(){
+    static get roles() {
         return this._roles;
     }
 
-    static get carrieres(){
+    static get carrieres() {
         return this._carrieres;
     }
 
-    static get intelligences(){
+    static get intelligences() {
         return this._intelligences;
     }
 
-    static get enveloppes(){
+    static get enveloppes() {
         return this._enveloppes;
     }
 
-    static get genres(){
+    static get genres() {
         return this._genres;
     }
 
-    static get factions(){
+    static get factions() {
         return this._factions;
     }
 
-    static get modifications(){
+    static get modifications() {
         return this._modifications;
     }
 
-    static get equipements(){
+    static get equipements() {
         return this._equipements;
     }
 
-    static get logiciels(){
+    static get logiciels() {
         return this._logiciels;
     }
 
-    static get opinions(){
+    static get opinions() {
         return this._opinions;
     }
 
-    static get encyclopedie(){
+    static get encyclopedie() {
         return this._encyclopedie;
     }
 }
