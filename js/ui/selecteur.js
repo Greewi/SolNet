@@ -496,14 +496,14 @@ export class SelecteurValeurElement extends Selecteur {
 
     _setValeur(valeur) {
         valeur = Math.round(valeur);
-        if (valeur < 1)
-            valeur = 1;
+        if (valeur < 0)
+            valeur = 0;
         if (valeur > 3)
             valeur = 3;
         if (valeur == this._valeur)
             return;
         this._valeur = valeur;
-        this._ligne2.innerHTML = `<span class="page__selecteur__label page__selecteur__label__focus">${this._textes[valeur - 1]}</span>`;
+        this._ligne2.innerHTML = `<span class="page__selecteur__label page__selecteur__label__focus">${this._textes[valeur]}</span>`;
         this._ligneValeur.innerHTML = `${valeur}`;
         this._onchange(valeur);
     }

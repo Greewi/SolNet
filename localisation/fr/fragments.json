@@ -59,18 +59,25 @@
     "Genre_FLUIDE": "Fluide",
     "Genre_INDEFINI": "Indéfini",
 
+    "NiveauCarriere_0" : "Profane",
     "NiveauCarriere_1" : "Débutant",
     "NiveauCarriere_2" : "Professionnel",
     "NiveauCarriere_3" : "Expert",
-    "NiveauRelation_1" : "Contacts",
-    "NiveauRelation_2" : "Alliés",
-    "NiveauRelation_3" : "Amis",
+    
+    "NiveauRelation_0" : "Connu",
+    "NiveauRelation_1" : "Favorable",
+    "NiveauRelation_2" : "Allié",
+    "NiveauRelation_3" : "Dévoué",
+
+    "NiveauTrait_0" : "Insignifiant",
     "NiveauTrait_1" : "Léger",
     "NiveauTrait_2" : "Important",
     "NiveauTrait_3" : "Extrême",
-    "NiveauMateriel_1" : "Standard",
-    "NiveauMateriel_2" : "Amélioré",
-    "NiveauMateriel_3" : "À la pointe",
+
+    "NiveauMateriel_0" : "Ordinaire ou Standard",
+    "NiveauMateriel_1" : "Amélioré ou spécial",
+    "NiveauMateriel_2" : "À la pointe de la technologie",
+    "NiveauMateriel_3" : "Prochaine génération",
 
     "Role_COMBAT" : "Combat",
     "Role_ENQUETE" : "Enquête",
@@ -148,7 +155,7 @@
     "Carriere_DETECTIVE" : "Détective",
     "Carriere_DIPLOMATE" : "Diplomate",
     "Carriere_ESPION" : "Espion",
-    "Carriere_EXPERT_TECHNIQUE" : "Expert technique",
+    "Carriere_EXPERT_TECHNIQUE" : "Enquêteur de la Sûreté spatiale",
     "Carriere_FIXER" : "Fixeur",
     "Carriere_HACKER" : "Hacker",
     "Carriere_INFILTRATEUR_SPATIAL" : "Infiltrateur spatial",
@@ -199,7 +206,7 @@
     "DescriptionCarriere_SOLAR_WARDNER" : "ces gardiens de la paix sont des agents au service des colonies. Leaders d’exception, ils s’entourent généralement d’équipes polyvalentes et font faces aux dangers qui menacent les colonies. Matériel : accréditation universelle, etc.",
     "DescriptionCarriere_SOLDAT_INFANTERIE" : "ces combattants forment le gros des forces sentientes lors des affrontements de surface. Formés au maniement de nombreuses armes, ils ne délaissent pas pour autant le corps à corps. Matériel : Armure lourde, fusil pulseur, armes blanches, etc.",
     "DescriptionCarriere_TECHNOPHILE" : "ces passionnés de technologie passent leur temps à découvrir, disséquer et inventer de nouveaux appareils. Ils sont persuadés que la maîtrise de la technologie leur permettra de résoudre les problèmes qu’ils rencontreront. Matériel : multi-tool, scanner Wolfa portatif, constructeur universel, foglets, des tas de gadgets fait sur mesure, etc.",
-   
+
     "Faction_INDEPENDANT" : "Indépendants",
     "Faction_ONU" : "ONU",
     "Faction_MARS" : "Mars (HIARTech)",

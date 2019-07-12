@@ -57,7 +57,7 @@ export class PageEvaluation extends Page{
     {
         labelListe.style.display = listeElements.length==0 ? "none" : "block";
 
-        let valeurs = [Lang.get(`${fragmentValeurs}_1`), Lang.get(`${fragmentValeurs}_2`), Lang.get(`${fragmentValeurs}_3`)];
+        let valeurs = [Lang.get(`${fragmentValeurs}_0`), Lang.get(`${fragmentValeurs}_1`), Lang.get(`${fragmentValeurs}_2`), Lang.get(`${fragmentValeurs}_3`)];
         listeHTML.innerHTML = "";
         for(let element of listeElements)
         {
