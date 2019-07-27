@@ -1,46 +1,40 @@
 /**
  * Thèmes
  */
-:root{
+
+:root {
     /**
      * Loader
      */
-    --fondLoader : radial-gradient(circle at 0 0, #11335a 0%,#4e667a 77%,#0d3250 79%,#000000 81%,#000000 100%);
-    --couleurTitreLoader : rgba(255, 255, 255, 0.945);
-    --couleurBordureBarreLoader1 : rgba(255, 255, 255, 0.856);
-    --couleurBordureBarreLoader2 : rgba(255, 255, 255, 0.767);
-    --couleurBarreLoader : rgba(255, 255, 255, 0.651);
-
+    --fondLoader: radial-gradient(circle at 0 0, #11335a 0%, #4e667a 77%, #0d3250 79%, #000000 81%, #000000 100%);
+    --couleurTitreLoader: rgba(255, 255, 255, 0.945);
+    --couleurBordureBarreLoader1: rgba(255, 255, 255, 0.856);
+    --couleurBordureBarreLoader2: rgba(255, 255, 255, 0.767);
+    --couleurBarreLoader: rgba(255, 255, 255, 0.651);
     /**
      * Interface générale
      */
-    --fondApplication: radial-gradient(circle at 0 0, #1e5799 0%,#82b0d6 77%,#2989d8 79%,#000000 81%,#000000 100%);
-
+    --fondApplication: radial-gradient(circle at 0 0, #1e5799 0%, #82b0d6 77%, #2989d8 79%, #000000 81%, #000000 100%);
     --couleurFondPage: rgba(255, 255, 255, 0.651);
     --couleurTextePage: rgb(36, 36, 36);
-
     --couleurFondFooter: rgba(255, 255, 255, 0.781);
-
+    --couleurFondSidePanel: rgba(255, 255, 255, 0.781);
     --couleurFondTitre1: rgb(29, 71, 99);
     --couleurTexteTitre1: rgb(255, 255, 255);
     --couleurTexteTitre2: rgb(29, 71, 99);
-    --couleurBordureTitre2 : rgb(29, 71, 99);
-
-    --couleurTexteCitation : rgb(36, 36, 36);
-    --fondCitation : rgba(29, 71, 99, 0.329);
-
-    --couleurBordureEncart : rgb(29, 71, 99);
-    --couleurFondEncart : rgba(255, 255, 255, 0.418);
-
+    --couleurBordureTitre2: rgb(29, 71, 99);
+    --couleurTexteCitation: rgb(36, 36, 36);
+    --fondCitation: rgba(29, 71, 99, 0.329);
+    --couleurBordureEncart: rgb(29, 71, 99);
+    --couleurFondEncart: rgba(255, 255, 255, 0.418);
     /**
      * Tableaux
      */
-    --couleurFondTableau : rgb(29, 71, 99);
-    --couleurTexteTitreTableaux : rgba(255, 255, 255, 0.9);
-    --couleurFondTitreTableaux : transparent;
-    --couleurFondCelluleTableaux : rgba(255, 255, 255, 0.85);
-    --couleurTexteCelluleTableaux : rgb(0, 0, 0);
-
+    --couleurFondTableau: rgb(29, 71, 99);
+    --couleurTexteTitreTableaux: rgba(255, 255, 255, 0.9);
+    --couleurFondTitreTableaux: transparent;
+    --couleurFondCelluleTableaux: rgba(255, 255, 255, 0.85);
+    --couleurTexteCelluleTableaux: rgb(0, 0, 0);
     /**
      * Boutons
      */
@@ -48,7 +42,10 @@
     --couleurTexteBoutons: rgb(255, 255, 255);
     --couleurBoutonsBad: rgb(209, 44, 44);
     --couleurTexteBoutonsBad: rgb(255, 255, 255);
-
+    --couleurBoutonsClair: rgb(105, 165, 206);
+    --couleurTexteBoutonsClair: rgb(255, 255, 255);
+    --couleurBoutonsBlanc: rgb(187, 212, 228);
+    --couleurTexteBoutonsBlanc: rgb(31, 89, 128);
     /**
      * Création de personnage
      */
@@ -61,22 +58,32 @@
     --couleurPlaceholderSelecteur: rgba(0, 0, 0, 0.562);
     --couleurLabelSelecteurOn: rgba(0, 0, 0, 0.959);
     --couleurLabelSelecteurOff: rgba(0, 0, 0, 0.397);
-
     /**
      * Textes
      */
-    font-size:11pt;
+    font-size: 11pt;
+    /**
+     * Z-indexes
+     */
+    --zIndexPopup: 300;
+    --zIndexLoader: 200;
+    --zIndexSidePanel: 100;
+    --zIndexSidePanelOverlay: 99;
+    --zIndexMain: 0;
+    --zIndexHeader: 0;
+    --zIndexFooter: 0;
 }
 
 /**
  * Loader
  */
-.loader__overlay{
+
+.loader__overlay {
     position: absolute;
     display: grid;
-    z-index: 100000;
-    width:100%;
-    height:100%;
+    z-index: var(--zIndexLoader);
+    width: 100%;
+    height: 100%;
     background: var(--fondLoader);
     opacity: 1;
     transition-duration: 1000ms;
@@ -86,50 +93,59 @@
     justify-items: center;
     align-items: center;
 }
-.loader__disparait{
+
+.loader__disparait {
     opacity: 0;
 }
-.loader__disparu{
+
+.loader__disparu {
     display: none;
 }
-.loader__titre{
+
+.loader__titre {
     grid-row: 2;
     font-size: 40pt;
     font-weight: bold;
     background: transparent;
     color: var(--couleurTitreLoader);
 }
-.loader__barre-chargement-1{
+
+.loader__barre-chargement-1 {
     grid-row: 3;
-    border : solid 2px var(--couleurBordureBarreLoader1);
+    border: solid 2px var(--couleurBordureBarreLoader1);
     padding: 1px;
     width: 300px;
     height: 12px;
 }
-.loader__barre-chargement-2{
+
+.loader__barre-chargement-2 {
     grid-row: 4;
-    border : solid 2px var(--couleurBordureBarreLoader2);
+    border: solid 2px var(--couleurBordureBarreLoader2);
     padding: 1px;
     width: 300px;
     height: 8px;
 }
-.loader__barre-chargement-interieur{
-    background : var(--couleurBarreLoader);
+
+.loader__barre-chargement-interieur {
+    background: var(--couleurBarreLoader);
     height: 100%;
     width: 0%;
     transition-property: width;
 }
-.loader__barre-chargement-interieur__avec-transition{
+
+.loader__barre-chargement-interieur__avec-transition {
     transition-duration: 500ms;
 }
 
 /**
  * Zone principale
  */
-html{
+
+html {
     width: 100vw;
     height: 100vh;
 }
+
 .body {
     width: 100vw;
     height: 100vh;
@@ -138,36 +154,15 @@ html{
     overflow: hidden;
     background: var(--fondApplication);
     background-size: cover;
-
     font-family: Arial, Helvetica, sans-serif;
     font-size: 11pt;
-}
-.header {
-    position: fixed;
-    top:0px;
-    width: 100vw;
-    height: 60px;
-    transform: translateY(-60px);
-    transition-property: transform;
-    transition-duration: 300ms;
-}
-.header__actif {
-    transform: translateY(0);
-}
-.main {
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    color : var(--couleurTextePage);
-    will-change: transform; /* Avoid repainting everything ! */
 }
 
 /**
  * Styles de texte
  */
-h1 {
+
+main h1 {
     margin: 0 -10px 1rem -10px;
     padding: 0.5rem;
     background: var(--couleurFondTitre1);
@@ -176,7 +171,7 @@ h1 {
     text-align: center;
 }
 
-h2 {
+main h2 {
     margin: 1rem 0 calc(0.5rem - 1px) 0;
     border-bottom: solid 1px;
     border-bottom-color: var(--couleurBordureTitre2);
@@ -185,13 +180,13 @@ h2 {
     text-align: left;
 }
 
-p {
+main p {
     margin-top: 0;
     margin-bottom: 1rem;
     text-align: justify;
 }
 
-blockquote {
+main blockquote {
     margin: -1rem -10px 1rem -10px;
     padding: 1rem calc(10px + 3rem) 1rem calc(10px + 3rem);
     color: var(--couleurTexteCitation);
@@ -200,59 +195,63 @@ blockquote {
     text-align: center;
 }
 
-ul {
-    margin:0;
+main ul {
+    margin: 0;
     margin-bottom: 1rem;
     padding: 0;
     padding-left: 2rem;
 }
 
-li {
+main li {
     list-style-type: circle;
 }
 
-.encart {
+main .encart {
     box-sizing: border-box;
     padding: calc(1rem - 2px + 5px);
     margin-left: -5px;
     margin-right: -5px;
     margin-bottom: 1rem;
-    border : solid 2px var(--couleurBordureEncart);
+    border: solid 2px var(--couleurBordureEncart);
     border-radius: 15px;
     background: var(--couleurFondEncart);
 }
 
-em {
+main em {
     font-style: normal;
     font-weight: bold;
 }
+
 /**
  * Tableaux
  */
-.table__conteneur {
+
+main .table__conteneur {
     width: 100%;
-    padding:0px;
+    padding: 0px;
     overflow: auto;
     margin-bottom: 1rem;
 }
-table {
+
+main table {
     box-sizing: border-box;
     width: 100%;
     background: var(--couleurFondTableau);
     border-spacing: 2px;
     border-radius: 15px;
     border: solid 2px var(--couleurFondTableau);
-    overflow:hidden;
+    overflow: hidden;
 }
 
-th {
+main th {
     background: var(--couleurFondTitreTableaux);
     color: var(--couleurTexteTitreTableaux);
     font-weight: bold;
     padding: 0.5rem;
     text-align: center;
 }
-td {
+
+main td {
     background: var(--couleurFondCelluleTableaux);
     color: var(--couleurTexteCelluleTableaux);
     padding: 0.5rem;
@@ -262,67 +261,42 @@ td {
 /**
  * Boutons
  */
+
 .bouton {
     box-sizing: border-box;
     padding: 10px;
     height: 40px;
-    background : var(--couleurBoutons);
+    background: var(--couleurBoutons);
     color: var(--couleurTexteBoutons);
     border: none;
-    border-radius : 10px;
+    border-radius: 10px;
     font-weight: bold;
     cursor: pointer;
     user-select: none;
     font-size: 10pt;
 }
+
+.bouton_carre {
+    border-radius: 0;
+}
+
 @keyframes bouton__active {
-    from {transform: scale(1.0);}
-    50% {transform: scale(0.95);}
-    to {transform: scale(1.0);}
+    from {
+        transform: scale(1.0);
+    }
+    50% {
+        transform: scale(0.95);
+    }
+    to {
+        transform: scale(1.0);
+    }
 }
+
 .bouton:focus {
-    outline:0;
+    outline: 0;
 }
+
 .bouton:active {
     animation-name: bouton__active;
     animation-duration: 200ms;
-}
-
-/**
- * Notifications
- */
-.notification {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    box-sizing: border-box;
-    width: 100vw;
-    height: auto;
-    background: #333;
-    margin: 0 0;
-    padding: 5px;
-    text-align: center;
-    
-    transform: scale(0);
-    transition-property: transform;
-    transition-duration: 250ms;
-}
-.notification__ouvert {
-    transform: scale(1);
-}
-.notification__texte {
-    color:#aaa;
-    text-align: center;
-}
-.notification__bouton {
-    box-sizing: border-box;
-    padding: 5px;
-    background : #aaa;
-    color: #333;
-    border: none;
-    border-radius : 5px;
-    font-weight: normal;
-    cursor: pointer;
-    user-select: none;
-    font-size: 10pt;
 }

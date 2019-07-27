@@ -13,9 +13,9 @@ this.addEventListener('install', (event) => {
             for (let i = 0; i < sources.length; i++)
                 sources[i] = new Request(sources[i], { cache: 'no-cache' });
             return cache.addAll(sources);
-        }).then(()=>{
+        }).then(() => {
             const channel = new BroadcastChannel('sw-messages');
-            channel.postMessage({version:version});
+            channel.postMessage({ version: version });
         })
     );
 });
@@ -40,7 +40,10 @@ this.addEventListener('fetch', function (event) {
     event.respondWith(
         caches.open(version)
             .then((cache) => {
-                return cache.match(event.request);
+                if (self.location.hostname.indexOf("dev") != -1)
+                    return false;
+                else
+                    return cache.match(event.request);
             })
             .then((response) => {
                 console.log(response);

@@ -15,7 +15,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="css/footer.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/general.css">
     <link rel="stylesheet" type="text/css" media="screen" href="css/pages.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/selecteurs.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/popup.css" />
@@ -33,94 +33,38 @@
         </div>
     </div>
 
-    <!-- Ranger les popups là dedans -->
-    <div id="racinePopup" class="racine_popup"></div>
+    <div class="interfaceGenerale">
 
-    <!-- Le header-->
-    <header id="header" class="header"></header>
+        <!-- Ranger les popups là dedans -->
+        <div id="racinePopup" class="racinePopup"></div>
 
-    <!-- Le contenu principal de la page-->
-    <main id="main" class="main"></main>
+        <!-- Le header-->
+        <header id="header" class="header">
+            <div id="headerBoutonMenu" class="header_boutonMenu bouton bouton_carre"></div>
+            <h1 id="headerTitre" class="header_titre"></h1>
+            <div id="headerBoutonPersonnage" class="header_boutonPersonnage bouton bouton_carre"></div>
+        </header>
 
-    <!-- Le footer de la page -->
-    <footer id="footer" class="footer">
-        <button id="footerBouton1" class="bouton footer__bouton-1"></button>
-        <button id="footerBouton2" class="bouton footer__bouton-2"></button>
-        <button id="footerBouton3" class="bouton footer__bouton-3"></button>
-    </footer>
+        <!-- Le contenu principal de la page-->
+        <main id="main" class="main"></main>
 
-    <!-- Notifications -->
-    <div id="notificationReload" class="notification">
-        <p class="notification__texte">Une mise à jour est disponible !</p>
-        <button id="boutonNotificationReload" class="notification__bouton">Recharger</button>
+        <!-- Le contenu du panneau de navigation -->
+        <div id="sidePanelOverlay" class="sidePanel_overlay"></div>
+        <div id="sidePanel" class="sidePanel">
+            <button id="sidePanelBoutonFermer" class="sidePanel_boutonFermer bouton bouton_carre"></button>
+            <h1 id="sidePanelTitre" class="sidePanel_titre"></h1>
+            <div id="sidePanelNotifications" class="sidePanel_notifications"></div>
+            <nav id="sidePanelNavigation" class="sidePanel_navigation"></nav>
+        </div>
+
+        <!-- Le footer de la page -->
+        <footer id="footer" class="footer">
+            <button id="footerBouton1" class="bouton footer_bouton footer_bouton1"></button>
+            <button id="footerBouton2" class="bouton footer_bouton footer_bouton2"></button>
+            <button id="footerBouton3" class="bouton footer_bouton footer_bouton3"></button>
+        </footer>
+
     </div>
-
-    <!-- Le service worker (pour le mode offline) et la gestion du lifecycle -->
-    <script>
-        //Gestion du lifecycle
-        document.addEventListener('resume', () => {
-            window.location.reload();
-        });
-
-        //Service worker
-        let worker = null;
-        if ('serviceWorker' in navigator) {
-            // Enregistrement du service worker
-            navigator.serviceWorker.register("/serviceWorker.js")
-                .then((register) => {
-                    console.log("Service Worker enregistré");
-                    return new Promise((accept, reject) => {
-                        register.addEventListener("updatefound", () => {
-                            worker = register.installing;
-                            accept();
-                        });
-                    });
-                })
-                // Si on a une mise à jour du service worker on affiche la notification
-                .then(() => {
-                    if (BroadcastChannel in window) {
-                        const channel = new BroadcastChannel('sw-messages');
-                        channel.addEventListener('message', event => {
-                            console.log('Received', event.data);
-                            if (event.data.version)
-                                worker.version = event.data.version;
-                        });
-                    }
-                    console.log("Nouveau service Worker disponible");
-                    worker.addEventListener("statechange", () => {
-                        if (worker.state == "installed") {
-                            console.log("Nouveau Service Worker installé");
-                            if (localStorage.getItem("versionWorker") != null && localStorage.getItem("versionWorker") != worker.version)
-                                notificationReload.classList.add('notification__ouvert');
-                            if (worker.version !== undefined)
-                                localStorage.setItem("versionWorker", worker.version);
-                        }
-                    });
-                });
-
-            //Raffraichissement de la page
-            let raffraichissementEnCours;
-            navigator.serviceWorker.addEventListener('controllerchange', function () {
-                if (!raffraichissementEnCours)
-                    window.location.reload();
-                raffraichissementEnCours = true;
-            });
-        }
-
-        // Notification
-        let notificationReload = document.getElementById("notificationReload");
-        let boutonReload = document.getElementById("boutonNotificationReload");
-        boutonReload.addEventListener("click", () => {
-            notificationReload.classList.remove('notification__ouvert');
-            // On indique au service worker qu'il peut changer de page tout de suite
-            worker.postMessage({ action: 'skipWaiting' });
-            // Workaround : sur firefox et safari, skipWaiting ne semble pas recharger la page. On effectue un reload à la place.
-            setTimeout(function () {
-                document.location.reload();
-            }, 1500);
-        });
-
-    </script>
 
     <script type="module" src="js/main.js"></script>
 </body>

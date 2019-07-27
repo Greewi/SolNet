@@ -1,0 +1,268 @@
+.interfaceGenerale {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr minmax(auto, 640px) 1fr;
+    grid-template-rows: 60px auto 60px;
+    grid-template-areas: ". header ." ". main ." ". footer .";
+    will-change: transform;
+}
+
+/* Page principale */
+
+.main {
+    grid-area: main;
+    z-index: var(--zIndexMain);
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    color: var(--couleurTextePage);
+    will-change: transform;
+    /* Avoid repainting everything ! */
+}
+
+/* Header */
+
+.header {
+    grid-area: header;
+    z-index: var(--zIndexheader);
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: var(--couleurFondTitre1);
+    color: var(--couleurTexteTitre1);
+    display: grid;
+    grid-template-columns: 60px 1fr 60px;
+    grid-template-areas: "boutonMenu titre boutonPersonnage";
+    align-items: center;
+    justify-items: center;
+}
+
+.header_boutonMenu {
+    grid-area: boutonMenu;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+}
+
+.header_titre {
+    grid-area: titre;
+    box-sizing: border-box;
+    width: 100%;
+    max-height: 100%;
+    margin: 0;
+    padding: 0.5rem;
+    background: var(--couleurFondTitre1);
+    color: var(--couleurTexteTitre1);
+    font-size: 2rem;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.header_boutonPersonnage {
+    grid-area: boutonPersonnage;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+}
+
+/* Footer */
+
+.footer {
+    grid-area: footer;
+    z-index: var(--zIndexFooter);
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 10px;
+    background: var(--couleurFondFooter);
+    display: grid;
+    grid-template-columns: calc(30% - 5px) calc(40% - 10px) calc(30% - 5px);
+    grid-template-rows: auto;
+    column-gap: 10px;
+    transform: translateY(100%);
+    transition: transform 200ms ease-in 0ms;
+}
+
+.footer_actif {
+    transform: translateY(0);
+    transition: transform 200ms ease-out 0ms;
+}
+
+.footer_bouton {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.footer_bouton_actif {
+    display: block;
+}
+
+.footer_bouton1 {
+    grid-column: 1;
+}
+
+.footer_bouton2 {
+    grid-column: 2;
+}
+
+.footer_bouton3 {
+    grid-column: 3;
+}
+
+/* Side panel */
+
+.sidePanel_overlay {
+    z-index: var(--zIndexSidePanelOverlay);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgb(0, 0, 0);
+    opacity: 0.0;
+    transform: scaleX(0);
+    transition: opacity 200ms linear 0s, transform 0ms linear 200ms;
+    will-change: transform;
+}
+
+.sidePanel_overlay_ouvert {
+    opacity: 0.8;
+    transform: scaleX(1);
+    transition: opacity 200ms linear 0s, transform 0ms linear 0ms;
+}
+
+.sidePanel {
+    z-index: var(--zIndexSidePanel);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 85vw;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: var(--couleurFondSidePanel);
+    display: grid;
+    grid-template-columns: 1fr 60px;
+    grid-template-rows: 60px min-content 1fr;
+    grid-template-areas: "titre boutonFermer" "notifications notifications" "navigation navigation";
+    transform: translateX(-100%);
+    transition: transform 200ms ease-in 0ms;
+    will-change: transform;
+}
+
+.sidePanel_ouvert {
+    transform: translateX(0);
+    transition: transform 200ms ease-out 0ms;
+}
+
+.sidePanel_boutonFermer {
+    grid-area: boutonFermer;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+}
+
+.sidePanel_titre {
+    grid-area: titre;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0.5rem;
+    background: var(--couleurFondTitre1);
+    color: var(--couleurTexteTitre1);
+    font-size: 2rem;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sidePanel_notifications {
+    grid-area: notifications;
+}
+
+.sidePanel_navigation {
+    grid-area: navigation;
+    margin-top:10px;
+}
+
+.sidePanel_elementNavigation {
+    width: calc(100% - 20px);
+    height: 40px;
+    margin: 0px 10px 2px 10px;
+    padding: 10px 10px 10px 10px;
+    background: var(--couleurBoutons);
+    color: var(--couleurTexteBoutons);
+    text-align: left;
+    font-size: 10pt;
+    border: none;
+}
+.sidePanel_elementNavigation_niveau0 {
+    padding: 10px 10px 10px 10px;
+    background: var(--couleurBoutons);
+    color: var(--couleurTexteBoutons);
+}
+.sidePanel_elementNavigation_niveau1 {
+    padding: 10px 10px 10px 30px;
+    background: var(--couleurBoutonsClair);
+    color: var(--couleurTexteBoutonsClair);
+}
+.sidePanel_elementNavigation_niveau2 {
+    padding: 10px 10px 10px 50px;
+    background: var(--couleurBoutonsBlanc);
+    color: var(--couleurTexteBoutonsBlanc);
+}
+
+.sidePanel_elementNavigation:active {
+    animation-name: bouton__active;
+    animation-duration: 200ms;
+}
+
+
+
+
+@media screen and (min-width: 640px) {
+    .interfaceGenerale {
+        grid-template-columns: 1fr minmax(auto, 640px) 250px 1fr;
+        grid-template-areas: ". header header ." ". main sidepanel ." ". footer footer .";
+    }
+    .header {
+        grid-template-columns: 1fr 190px 60px;
+        grid-template-areas: "titre . boutonPersonnage";
+    }
+    .header_boutonMenu {
+        display: none;
+    }
+    .sidePanel {
+        position: initial;
+        grid-area: sidepanel;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: min-content 1fr;
+        grid-template-areas: "notifications" "navigation";
+        transform: initial;
+        transition: initial;
+    }
+    .sidePanel_overlay, .sidePanel_overlay_ouvert, .sidePanel_titre, .sidePanel_boutonFermer {
+        display: none;
+    }
+    .sidePanel_ouvert {
+        transform: initial;
+    }
+}

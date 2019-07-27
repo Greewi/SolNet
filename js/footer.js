@@ -30,14 +30,14 @@ export class Footer{
      * Affiche le footer
      */
     static affiche(){
-        this._footer.classList.add("footer__actif");
+        this._footer.classList.add("footer_actif");
     }
 
     /**
      * Masque le footer
      */
     static masque(){
-        this._footer.classList.remove("footer__actif");
+        this._footer.classList.remove("footer_actif");
     }
 
     /**
@@ -50,7 +50,7 @@ export class Footer{
         if(action)
             bouton.removeEventListener("click", action);
         bouton.innerHTML = "";
-        bouton.classList.remove("footer__bouton__actif");
+        bouton.classList.remove("footer_bouton_actif");
     }
 
     /**
@@ -65,7 +65,7 @@ export class Footer{
         if(action)
             this._reinitialiseBouton(idBouton);
         bouton.innerHTML = texte;
-        bouton.classList.add(`footer__bouton__actif`)
+        bouton.classList.add(`footer_bouton_actif`)
         this._actions[idBouton] = nouvelleAction;
         bouton.addEventListener("click", nouvelleAction);
     }

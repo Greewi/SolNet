@@ -46,6 +46,8 @@ var _listeTemplates =  [
     "fragmentListePersonnageSelecteurPersonnage",
     "popupConfirmation",
     "popupSelection",
+    "notificationInstallation",
+    "notificationMiseAJour",
 ];
 
 /**
