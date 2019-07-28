@@ -79,10 +79,14 @@ export class InterfaceGenerale {
      * Met à jour l'icone de notification
      */
     static metAJourIconeNotifications() {
-        if (this._sidePanelNotifications.children.length > 0)
-            this._boutonMenu.classList.add("header_boutonMenu_notification")
-        else
-            this._boutonMenu.classList.remove("header_boutonMenu_notification")
+        if (this._sidePanelNotifications.children.length > 0){
+            this._boutonMenu.classList.add("header_boutonMenu_notification");
+            this._boutonMenu.classList.add("iconeMenu_notification");
+        }
+        else{
+            this._boutonMenu.classList.remove("header_boutonMenu_notification");
+            this._boutonMenu.classList.remove("iconeMenu_notification");
+        }
     }
 
     /**
