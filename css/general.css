@@ -6,8 +6,8 @@
     height: 100vh;
     display: grid;
     grid-template-columns: 1fr minmax(auto, 640px) 1fr;
-    grid-template-rows: 60px auto 60px;
-    grid-template-areas: ". header ." ". main ." ". footer .";
+    grid-template-rows: 60px 1fr;
+    grid-template-areas: ". header ." ". main .";
     will-change: transform;
 }
 
@@ -80,14 +80,15 @@
 /* Footer */
 
 .footer {
-    grid-area: footer;
+    grid-area: main;
+    align-self: end;
     z-index: var(--zIndexFooter);
     box-sizing: border-box;
     width: 100%;
-    height: 100%;
+    height: 60px;
     margin: 0;
     padding: 10px;
-    background: var(--couleurFondFooter);
+    background: transparent;
     display: grid;
     grid-template-columns: calc(30% - 5px) calc(40% - 10px) calc(30% - 5px);
     grid-template-rows: auto;
@@ -172,9 +173,7 @@
 
 .sidePanel_boutonFermer {
     grid-area: boutonFermer;
-    box-sizing: border-box;
-    width: 100%;
-    height: 100%;
+    background: var(--couleurFondTitre1);
 }
 
 .sidePanel_titre {
@@ -198,7 +197,7 @@
 
 .sidePanel_navigation {
     grid-area: navigation;
-    margin-top:10px;
+    margin-top: 10px;
 }
 
 .sidePanel_elementNavigation {
@@ -211,17 +210,21 @@
     text-align: left;
     font-size: 10pt;
     border: none;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
 }
+
 .sidePanel_elementNavigation_niveau0 {
     padding: 10px 10px 10px 10px;
     background: var(--couleurBoutons);
     color: var(--couleurTexteBoutons);
 }
+
 .sidePanel_elementNavigation_niveau1 {
     padding: 10px 10px 10px 30px;
     background: var(--couleurBoutonsClair);
     color: var(--couleurTexteBoutonsClair);
 }
+
 .sidePanel_elementNavigation_niveau2 {
     padding: 10px 10px 10px 50px;
     background: var(--couleurBoutonsBlanc);
@@ -242,17 +245,22 @@
     grid-template-columns: 1fr 90px;
     grid-template-areas: "titre bouton" "texte bouton";
 }
+
 .notification_titre {
     grid-area: titre;
+    margin: 0 0 5px 0;
+    padding-top: 2px 5px 0 0;
     font-weight: bold;
     font-size: 0.8rem;
-    margin: 0 0 5px 0;
 }
+
 .notification_texte {
     grid-area: texte;
+    padding: 0 5px 2px 0;
     opacity: 0.6;
     font-size: 0.8rem;
 }
+
 .notification_boutonAction {
     grid-area: bouton;
     height: 100%;
@@ -265,7 +273,7 @@
 @media screen and (min-width: 640px) {
     .interfaceGenerale {
         grid-template-columns: 1fr minmax(auto, 640px) 250px 1fr;
-        grid-template-areas: ". header header ." ". main sidepanel ." ". footer footer .";
+        grid-template-areas: ". header header ." ". main sidepanel .";
     }
     .header {
         grid-template-columns: 1fr 190px 60px;

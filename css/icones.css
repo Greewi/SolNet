@@ -8,22 +8,25 @@
     user-select: none;
     font-size: 10pt;
     border-radius: 0;
+    background-size: 32px 32px;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 
 .iconeMenu {
-    background: rgb(255, 208, 0);
+    background-image: url('../images/icones/iconeMenu.png');
 }
 
 .iconeMenu_notification {
-    background: #F00;
-}
-
-.iconeNotification {
-    background: #F00;
+    background-image: url('../images/icones/iconeMenuNotif.png');
 }
 
 .iconePersonnage {
-    background: rgb(0, 255, 98);
+    background-image: url('../images/icones/iconePersonnage.png');
+}
+
+.iconeRetour {
+    background-image: url('../images/icones/iconeRetourGauche.png');
 }
 
 .iconeAccueil {
@@ -42,6 +45,3 @@
     background: rgb(68, 68, 68);
 }
 
-.iconeRetour {
-    background: rgb(138, 78, 133);
-}
