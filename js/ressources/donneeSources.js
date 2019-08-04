@@ -10,7 +10,7 @@ export class BibliothequeDonnees {
      * @returns {Promise}
      */
     static initialise() {
-        var promises = [];
+        let promises = [];
         promises.push(
             Ajax.get("./res/roles.json")
                 .then((json) => {

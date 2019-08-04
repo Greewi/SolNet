@@ -24,7 +24,7 @@ export class PageListePersonnages extends Page{
             let personnage = BibliothequePersonnage.creePersonnage();
             this._ajoutePersonnage(personnage.id, Lang.get("NomNouveauPersonnage"));
             let ecranEdition = new EcranCreationPersonnage(personnage);
-            Routeur.ouvreEcran(ecranEdition);
+            Routeur.empileEcran(ecranEdition);
         };
         this._boutonCreer.addEventListener("click", this._actionCreePersonnage);
 
@@ -43,7 +43,7 @@ export class PageListePersonnages extends Page{
         super.ouvre(animation);
         this._listePersonnages.innerHTML = "";
 
-        var personnages = BibliothequePersonnage.getListePersonnages();
+        let personnages = BibliothequePersonnage.getListePersonnages();
         for(let idPersonnage in personnages)
         {
             let nomPersonnage = personnages[idPersonnage];
@@ -61,12 +61,12 @@ export class PageListePersonnages extends Page{
         selecteur.onclick = ()=>{
             let personnage = BibliothequePersonnage.getPersonnage(idPersonnage);
             let ecranAffichage = new EcranAffichagePersonnage(personnage);
-            Routeur.ouvreEcran(ecranAffichage);
+            Routeur.empileEcran(ecranAffichage);
         };
         selecteur.onedite = ()=>{
             let personnage = BibliothequePersonnage.getPersonnage(idPersonnage);
             let ecranEdition = new EcranEditionPersonnage(personnage);
-            Routeur.ouvreEcran(ecranEdition);
+            Routeur.empileEcran(ecranEdition);
         };
         selecteur.onsupprime = ()=>{
             PopupConfirmation.confirme(Lang.get("ConfirmationSuppressionPersonnage", {"CharacterName":nomPersonnage}), ()=>{

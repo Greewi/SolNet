@@ -96,11 +96,11 @@ export class BibliothequePersonnage {
      */
     static exportePersonnage(idPersonnage) {
         let personnage = this.getPersonnage(idPersonnage);
-        var json = JSON.stringify(personnage);
-        var blob = new Blob([json], {
+        let json = JSON.stringify(personnage);
+        let blob = new Blob([json], {
             "type": "application/json"
         });
-        var a = document.createElement("a");
+        let a = document.createElement("a");
         a.download = `${personnage.identite.pseudonyme}.json`;
         a.href = URL.createObjectURL(blob);
         document.body.appendChild(a);
@@ -116,7 +116,7 @@ export class BibliothequePersonnage {
      */
     static importePersonnage(fichier, callback) {
         callback = callback || (() => { });
-        var reader = new FileReader();
+        let reader = new FileReader();
         reader.onload = (event) => {
             try {
                 let json = JSON.parse(event.target.result);

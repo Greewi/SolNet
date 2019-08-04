@@ -29,18 +29,26 @@ export class Sommaire {
 export class ElementSommaire {
     /**
      * @param {string} texte le texte de l'élément de navigation
-     * @param {number} niveau le niveau de l'élément de navigation (par défaut 1)
+     * @param {string} symbole le symbole de l'élément de navigation
      * @param {function} callbackOnClick une callback appelée lors du click sur l'élément de navigation
      */
-    constructor(texte, niveau, callbackOnClick){
+    constructor(texte, symbole, callbackOnClick){
         this._texte = texte;
-        this._niveau = niveau || 1;
-        this._element = document.createElement("button");
-        this._element.classList.add("sidePanel_elementNavigation");
-        this._element.classList.add(`sidePanel_elementNavigation_niveau${niveau}`);
-        this._element.innerHTML = texte;
+        this._symbole = symbole;
         this._callback = callbackOnClick;
+        this._element = document.createElement("div");
+        this._element.classList.add("sidePanel_elementNavigation");
         this._element.addEventListener("click", this._callback);
+        
+        this._elementIcone = document.createElement("div");
+        this._elementIcone.classList.add("sidePanel_elementNavigation_icone");
+        this._elementIcone.innerHTML = symbole;
+        this._element.appendChild(this._elementIcone);
+
+        this._elementTexte = document.createElement("div");
+        this._elementTexte.classList.add("sidePanel_elementNavigation_texte");
+        this._elementTexte.innerHTML = texte;
+        this._element.appendChild(this._elementTexte);
     }
 
     /**

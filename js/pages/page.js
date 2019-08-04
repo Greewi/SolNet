@@ -142,7 +142,7 @@ export class Page {
                         this.scrollEnHaut();
                         InterfaceGenerale.fermeSidePanel();
                     }
-                let element = new ElementSommaire(titre.innerHTML, niveau, callback);
+                let element = new ElementSommaire(titre.innerHTML, niveau == 1 ? "#" : "§", callback);
                 this._sommaire.ajouteElementNavigation(element);
             }
         }

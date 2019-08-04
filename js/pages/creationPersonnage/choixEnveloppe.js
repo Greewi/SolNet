@@ -37,7 +37,7 @@ export class PageChoixEnveloppe extends Page{
         {
             let enveloppe = enveloppes[idEnveloppe];
             let nom = Lang.get(`Enveloppe_${idEnveloppe}`);
-            var listeEsprits = "";
+            let listeEsprits = "";
             for(let idIntelligence in intelligences)
             {
                 let intelligence = intelligences[idIntelligence];
@@ -53,7 +53,7 @@ export class PageChoixEnveloppe extends Page{
                     }
                 }
             }
-            var listeModeles = "";
+            let listeModeles = "";
             for(let modele of enveloppe.modeles)
                 if(listeModeles=="")
                     listeModeles = `<em>${modele}</em>`;
@@ -63,7 +63,7 @@ export class PageChoixEnveloppe extends Page{
             let selecteur = new SelecteurAvecPrerequis(nom, description);
 
             //Liste des enveloppes compatibles
-            var estCompatible = false;
+            let estCompatible = false;
             if(this._personnage.identite.natureEsprit)
             {
                 for(let idEnveloppeActuelle of this._personnage.identite.natureEsprit.enveloppes)

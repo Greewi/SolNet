@@ -36,7 +36,7 @@ export class PageChoixEsprit extends Page{
         {
             let intelligence = intelligences[idIntelligence];
             let nom = Lang.get(`Intelligence_${idIntelligence}`);
-            var listeEnveloppes = "";
+            let listeEnveloppes = "";
             for(let idEnveloppe of intelligence.enveloppes)
             {
                 let nomEnveloppe = Lang.get(`Enveloppe_${idEnveloppe}`);
@@ -51,7 +51,7 @@ export class PageChoixEsprit extends Page{
             //Liste des enveloppes compatibles
             if(this._personnage.identite.enveloppeUsuelle)
             {
-                var estCompatible = false;
+                let estCompatible = false;
                 for(let idEnveloppe of intelligence.enveloppes)
                     if(this._personnage.identite.enveloppeUsuelle && this._personnage.identite.enveloppeUsuelle.id == idEnveloppe)
                         estCompatible = true;

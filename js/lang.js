@@ -48,7 +48,7 @@ export class Lang {
      * @param {Object<string, string>} [remplacements] Les remplacements de variable à effectuer (ne pas mettre les %)
      */
     static get(idFragment, remplacements){
-        var fragment = _fragmentLang[idFragment];
+        let fragment = _fragmentLang[idFragment];
         if(!fragment)
             return `String not found : ${idFragment}`;
         if(remplacements)

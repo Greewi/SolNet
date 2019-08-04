@@ -14,7 +14,7 @@ export class PageFinCreationPersonnage extends Page{
         super("pageCreationPersonnageFin", ecran);
         let boutonPersonnages = this.element.querySelector("#creationPersonnageRetourAccueil");
         boutonPersonnages.onclick = ()=>{
-            Routeur.ouvreEcran(new EcranGestionPersonnage());
+            Routeur.empileEcran(new EcranGestionPersonnage());
         };
     }
 }

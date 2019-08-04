@@ -26,7 +26,15 @@
 }
 
 .iconeRetour {
-    background-image: url('../images/icones/iconeRetourGauche.png');
+    background-image: url('../images/icones/iconeRetour.png');
+}
+
+.iconeGauche {
+    background-image: url('../images/icones/iconeGauche.png');
+}
+
+.iconeDroite {
+    background-image: url('../images/icones/iconeDroite.png');
 }
 
 .iconeAccueil {

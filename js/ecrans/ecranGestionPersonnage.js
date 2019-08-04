@@ -20,7 +20,6 @@ export class EcranGestionPersonnage extends Ecran{
             "importerPersonnage" : new PageImporterPersonnage(this),
         });
         super.setPageParDefaut("listePersonnages");
-        BibliothequeThemes.setTheme("mars");
     }
 
     /**
@@ -28,6 +27,7 @@ export class EcranGestionPersonnage extends Ecran{
      * @inheritdoc
      */
     ouvre(page, animation){
+        BibliothequeThemes.setTheme("mars");
 
         if(page=="importerPersonnage")
         {
@@ -38,7 +38,7 @@ export class EcranGestionPersonnage extends Ecran{
         else
         {
             super.setActionRetour(()=>{
-                Routeur.ouvreEcran(new EcranAccueil());
+                Routeur.depileEcran(this);
             });
         }
 

@@ -38,9 +38,8 @@ export class EcranSectionEncyclopedie extends Ecran{
         super.setOrdrePages(ordrePage);
         super.setPageParDefaut(idSection);
         super.setActionRetour(()=>{
-            Routeur.ouvreEcran(new EcranEncyclopedie());
+            Routeur.depileEcran(this);
         });
-        BibliothequeThemes.setTheme("terre");
     }
 
     /**
@@ -48,10 +47,11 @@ export class EcranSectionEncyclopedie extends Ecran{
      * @inheritdoc
      */
     ouvre(page, animation){
+        BibliothequeThemes.setTheme("terre");
         if(!page || page==this._idSection)
         {
             super.setActionRetour(()=>{
-                Routeur.ouvreEcran(new EcranEncyclopedie());
+                Routeur.depileEcran(this);
             });
         }
         else

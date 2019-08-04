@@ -52,17 +52,20 @@
         <!-- Le contenu du panneau de navigation -->
         <div id="sidePanelOverlay" class="sidePanel_overlay"></div>
         <div id="sidePanel" class="sidePanel">
-            <button id="sidePanelBoutonFermer" class="sidePanel_boutonFermer icone iconeRetour"></button>
+            <button id="sidePanelBoutonFermer" class="sidePanel_boutonFermer icone iconeGauche"></button>
             <h1 id="sidePanelTitre" class="sidePanel_titre"></h1>
-            <div id="sidePanelNotifications" class="sidePanel_notifications"></div>
-            <nav id="sidePanelNavigation" class="sidePanel_navigation"></nav>
+            <div class="sidePanel_contenu">
+                <div id="sidePanelNotifications" class="sidePanel_notifications"></div>
+                <nav id="sidePanelFilAriane" class="sidePanel_filAriane"></nav>
+                <nav id="sidePanelNavigation" class="sidePanel_navigation"></nav>    
+            </div>
         </div>
 
         <!-- Le footer de la page -->
         <footer id="footer" class="footer">
-            <button id="footerBouton1" class="bouton footer_bouton footer_bouton1"></button>
-            <button id="footerBouton2" class="bouton footer_bouton footer_bouton2"></button>
-            <button id="footerBouton3" class="bouton footer_bouton footer_bouton3"></button>
+            <button id="footerBoutonRetour" class="bouton footer_bouton footer_bouton1"><div class="icone iconeRetour"></div></button>
+            <button id="footerBoutonPrecedent" class="bouton footer_bouton footer_bouton2"><div class="icone iconeGauche"></div></button>
+            <button id="footerBoutonSuivant" class="bouton footer_bouton footer_bouton3"><div class="icone iconeDroite"></div></button>
         </footer>
 
     </div>

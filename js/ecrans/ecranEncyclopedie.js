@@ -18,8 +18,15 @@ export class EcranEncyclopedie extends Ecran{
         });
         super.setPageParDefaut("sommaire");
         super.setActionRetour(()=>{
-            Routeur.ouvreEcran(new EcranAccueil());
+            Routeur.depileEcran(this);
         });
+    }
+    /**
+     * @override
+     * @inheritdoc
+     */
+    ouvre(page, animation){
         BibliothequeThemes.setTheme("terre");
+        super.ouvre(page, animation);
     }
 }

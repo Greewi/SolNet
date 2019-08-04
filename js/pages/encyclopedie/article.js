@@ -15,7 +15,7 @@ export class PageArticle extends Page{
         let article = BibliothequeArticle.getArticle(idArticle);
         if(article)
         {
-            var contenuPage = this.element.querySelector(".page__contenu");
+            let contenuPage = this.element.querySelector(".page__contenu");
             contenuPage.appendChild(article.content.cloneNode(true));
         }
     }

@@ -85,16 +85,14 @@
     z-index: var(--zIndexFooter);
     box-sizing: border-box;
     width: 100%;
-    height: 60px;
+    height: 80px;
     margin: 0;
     padding: 10px;
     background: transparent;
-    display: grid;
-    grid-template-columns: calc(30% - 5px) calc(40% - 10px) calc(30% - 5px);
-    grid-template-rows: auto;
-    column-gap: 10px;
+    display: block;
     transform: translateY(100%);
     transition: transform 200ms ease-in 0ms;
+    text-align: right;
 }
 
 .footer_actif {
@@ -104,25 +102,16 @@
 
 .footer_bouton {
     box-sizing: border-box;
-    width: 100%;
-    height: 100%;
-    display: none;
+    width: 60px;
+    height: 60px;
+    padding: 0;
+    display: inline-block;
+    border-radius: 50%;
+    opacity: 0.2;
 }
 
 .footer_bouton_actif {
-    display: block;
-}
-
-.footer_bouton1 {
-    grid-column: 1;
-}
-
-.footer_bouton2 {
-    grid-column: 2;
-}
-
-.footer_bouton3 {
-    grid-column: 3;
+    opacity: 1.0;
 }
 
 /* Side panel */
@@ -154,13 +143,12 @@
     left: 0;
     width: 85vw;
     height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow: hidden;
     background: var(--couleurFondSidePanel);
     display: grid;
-    grid-template-columns: 1fr 60px;
-    grid-template-rows: 60px min-content 1fr;
-    grid-template-areas: "titre boutonFermer" "notifications notifications" "navigation navigation";
+    grid-template-columns: 60px 1fr;
+    grid-template-rows: 60px 1fr;
+    grid-template-areas: "boutonFermer titre" "contenu contenu";
     transform: translateX(-100%);
     transition: transform 200ms ease-in 0ms;
     will-change: transform;
@@ -175,6 +163,18 @@
     grid-area: boutonFermer;
     background: var(--couleurFondTitre1);
 }
+
+.sidePanel_contenu {
+    grid-area: contenu;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 20px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-top: 5px;
+}
+
 
 .sidePanel_titre {
     grid-area: titre;
@@ -191,44 +191,39 @@
     text-overflow: ellipsis;
 }
 
-.sidePanel_notifications {
-    grid-area: notifications;
-}
-
-.sidePanel_navigation {
-    grid-area: navigation;
-    margin-top: 10px;
-}
-
 .sidePanel_elementNavigation {
+    box-sizing: border-box;
     width: calc(100% - 20px);
     height: 40px;
-    margin: 0px 10px 2px 10px;
-    padding: 10px 10px 10px 10px;
-    background: var(--couleurBoutons);
-    color: var(--couleurTexteBoutons);
+    margin: 5px 10px 0px 10px;
+    padding: 0 10px 0 20px;
+    background: transparent;
+    border: none;
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "icone texte";
+    align-items: center;
+    cursor: pointer;
+    border: solid 1px var(--couleurBoutons);
+    border-radius: 10px;
+}
+
+.sidePanel_elementNavigation_icone {
+    grid-area: icone;
+    color: var(--couleurBoutons);
+    opacity: 0.7;
     text-align: left;
     font-size: 10pt;
-    border: none;
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+    font-weight: bolder;
 }
 
-.sidePanel_elementNavigation_niveau0 {
-    padding: 10px 10px 10px 10px;
-    background: var(--couleurBoutons);
-    color: var(--couleurTexteBoutons);
-}
-
-.sidePanel_elementNavigation_niveau1 {
-    padding: 10px 10px 10px 30px;
-    background: var(--couleurBoutonsClair);
-    color: var(--couleurTexteBoutonsClair);
-}
-
-.sidePanel_elementNavigation_niveau2 {
-    padding: 10px 10px 10px 50px;
-    background: var(--couleurBoutonsBlanc);
-    color: var(--couleurTexteBoutonsBlanc);
+.sidePanel_elementNavigation_texte {
+    grid-area: texte;
+    color: var(--couleurBoutons);
+    text-align: left;
+    font-size: 10pt;
+    font-weight: bold;
 }
 
 .sidePanel_elementNavigation:active {
@@ -289,8 +284,8 @@
         height: 100%;
         display: grid;
         grid-template-columns: 100%;
-        grid-template-rows: min-content 1fr;
-        grid-template-areas: "notifications" "navigation";
+        grid-template-rows: 1fr;
+        grid-template-areas: "contenu";
         transform: initial;
         transition: initial;
     }

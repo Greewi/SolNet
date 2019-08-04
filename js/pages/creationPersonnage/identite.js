@@ -33,7 +33,7 @@ export class PageIdentite extends Page{
     }
     initialisePseudonyme(){
         this._elementPseudonyme.innerHTML = "";
-        var selecteur = new SelecteurInputText(Lang.get("InputPseudonyme"), Lang.get("DescriptionPseudonyme"));
+        let selecteur = new SelecteurInputText(Lang.get("InputPseudonyme"), Lang.get("DescriptionPseudonyme"));
         selecteur.valeur = this._personnage.identite.pseudonyme;
         selecteur.onchange = (valeur)=>{
             this._personnage.identite.pseudonyme = valeur;
@@ -42,7 +42,7 @@ export class PageIdentite extends Page{
     }
     initialiseNomAdministratif(){
         this._elementNomAdministratif.innerHTML = "";
-        var selecteur = new SelecteurInputText(Lang.get("InputNomAdministratif"), Lang.get("DescriptionNomAdministratif"));
+        let selecteur = new SelecteurInputText(Lang.get("InputNomAdministratif"), Lang.get("DescriptionNomAdministratif"));
         selecteur.valeur = this._personnage.identite.nomAdministratif;
         selecteur.onchange = (valeur)=>{
             this._personnage.identite.nomAdministratif = valeur;
@@ -51,7 +51,7 @@ export class PageIdentite extends Page{
     }
     initialiseProfession(){
         this._elementProfession.innerHTML = "";
-        var selecteur = new SelecteurSelect(Lang.get("InputProfessionActuelle"), Lang.get("DescriptionProfessionActuelle"));
+        let selecteur = new SelecteurSelect(Lang.get("InputProfessionActuelle"), Lang.get("DescriptionProfessionActuelle"));
         selecteur.ajouteOption("", "", this._personnage.identite.profession == "");
         for(let carriere of this._personnage.elements.carrieres)
             selecteur.ajouteOption(carriere.nom, carriere.nom, this._personnage.identite.profession == carriere.nom);
@@ -62,7 +62,7 @@ export class PageIdentite extends Page{
     }
     initialiseAffiliation(){
         this._elementAffiliation.innerHTML = "";
-        var selecteur = new SelecteurSelect(Lang.get("InputAffiliationActuelle"), Lang.get("DescriptionAffiliationActuelle"));
+        let selecteur = new SelecteurSelect(Lang.get("InputAffiliationActuelle"), Lang.get("DescriptionAffiliationActuelle"));
         selecteur.ajouteOption("", "", this._personnage.identite.affiliation == "");
         for(let relation of this._personnage.elements.relations)
             selecteur.ajouteOption(relation.nom, relation.nom, this._personnage.identite.affiliation == relation.nom);

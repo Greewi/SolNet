@@ -13,11 +13,11 @@ export class BibliothequeArticle{
      */
     static initialise(){
         this._article = {};
-        var promises = [];
-        var encyclopedie = BibliothequeDonnees.encyclopedie;
+        let promises = [];
+        let encyclopedie = BibliothequeDonnees.encyclopedie;
         for(let idSection in encyclopedie)
         {
-            var section = encyclopedie[idSection];
+            let section = encyclopedie[idSection];
             promises.push(this._chargeArticle(idSection));
             for(let idArticle of section)
                 promises.push(this._chargeArticle(idArticle));

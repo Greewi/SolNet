@@ -62,7 +62,7 @@ export class BibliothequeTemplates{
         Loader.setNombreSousEtape(_listeTemplates.length);
 
         this._templates = {};
-        var promises = [];
+        let promises = [];
         for(let idTemplate of _listeTemplates)
             promises.push(this._chargeTemplate(idTemplate));
         Loader.setNombreSousEtape(_listeTemplates.length);

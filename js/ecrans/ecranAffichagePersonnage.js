@@ -24,9 +24,8 @@ export class EcranAffichagePersonnage extends Ecran{
         ]);
         super.setPageParDefaut("personnage");
         super.setActionRetour(()=>{
-            Routeur.ouvreEcran(new EcranGestionPersonnage());
+            Routeur.depileEcran(this);
         });
-        BibliothequeThemes.setTheme("mars");
     }
 
     /**
@@ -34,6 +33,7 @@ export class EcranAffichagePersonnage extends Ecran{
      * @inheritdoc
      */
     ouvre(page, animation){
+        BibliothequeThemes.setTheme("mars");
         super.ouvre(page, animation);
     }
 }

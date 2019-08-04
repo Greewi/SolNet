@@ -35,8 +35,8 @@ export class PageIntroductionEdition extends Page{
     }
 
     creeBoutonLien(idBouton, idPage){
-        var bouton = this.element.querySelector(`#${idBouton}`);
-        var action = ()=>{
+        let bouton = this.element.querySelector(`#${idBouton}`);
+        let action = ()=>{
             this.ecran.ouvre(idPage, Page.AVANCER);
         };
         bouton.addEventListener("click", action);

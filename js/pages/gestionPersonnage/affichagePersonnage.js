@@ -33,7 +33,7 @@ export class PageAfficherPersonnage extends Page{
 
         this.element.querySelector("#affichagePersonnageMotivation").innerHTML = personnage.motivation;
 
-        var listeOpinions = this.element.querySelector("#affichagePersonnageOpinions");
+        let listeOpinions = this.element.querySelector("#affichagePersonnageOpinions");
         for(let idOpinion in personnage.opinions)
         {
             let nomOpinion = Lang.get(`Opinion_${idOpinion}`);
@@ -51,29 +51,29 @@ export class PageAfficherPersonnage extends Page{
         this.element.querySelector("#affichagePersonnageAvatarCorps").innerHTML = personnage.avatar.corps;
         this.element.querySelector("#affichagePersonnageAvatarVisage").innerHTML = personnage.avatar.visage;
 
-        var listeTraits = this.element.querySelector("#affichagePersonnageTraits");
+        let listeTraits = this.element.querySelector("#affichagePersonnageTraits");
         this.genereListe(listeTraits, personnage.elements.traits, "NiveauTrait");
 
-        var listeCarrieres = this.element.querySelector("#affichagePersonnageCarrieres");
+        let listeCarrieres = this.element.querySelector("#affichagePersonnageCarrieres");
         this.genereListe(listeCarrieres, personnage.elements.carrieres, "NiveauCarriere");
 
-        var listeRelations = this.element.querySelector("#affichagePersonnageRelations");
+        let listeRelations = this.element.querySelector("#affichagePersonnageRelations");
         this.genereListe(listeRelations, personnage.elements.relations, "NiveauRelation");
 
-        var listeModifications = this.element.querySelector("#affichagePersonnageModifications");
+        let listeModifications = this.element.querySelector("#affichagePersonnageModifications");
         this.genereListe(listeModifications, personnage.elements.modifications, "NiveauMateriel");
 
-        var listeEquipement = this.element.querySelector("#affichagePersonnageEquipement");
+        let listeEquipement = this.element.querySelector("#affichagePersonnageEquipement");
         this.genereListe(listeEquipement, personnage.elements.equipements, "NiveauMateriel");
 
-        var listeLogiciels = this.element.querySelector("#affichagePersonnageLogiciels");
+        let listeLogiciels = this.element.querySelector("#affichagePersonnageLogiciels");
         this.genereListe(listeLogiciels, personnage.elements.logiciels, "NiveauMateriel");
 
         this.element.querySelector("#affichagePersonnageDateNaissance").innerHTML = personnage.histoire.dateNaissance;
         this.element.querySelector("#affichagePersonnageLieuNaissance").innerHTML = personnage.histoire.lieuNaissance;
         this.element.querySelector("#affichagePersonnageDetailsNaissance").innerHTML = personnage.histoire.detailNaissance;
 
-        var listeHistorique = this.element.querySelector("#affichagePersonnageHistorique");
+        let listeHistorique = this.element.querySelector("#affichagePersonnageHistorique");
         for(let periode of personnage.histoire.historique)
         {
             let carrieres = "";

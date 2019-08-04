@@ -15,6 +15,14 @@ export class EcranAccueil extends Ecran{
             accueil : new PageAccueil(this)
         });
         super.setPageParDefaut("accueil");
+    }
+
+    /**
+     * @override
+     * @inheritdoc
+     */
+    ouvre(page, animation){
         BibliothequeThemes.setTheme("sol");
+        super.ouvre(page, animation);
     }
 }

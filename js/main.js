@@ -3,7 +3,6 @@ import { BibliothequeDonnees as BibliothequeDonnees } from "./ressources/donneeS
 import { BibliothequeTemplates } from "./ressources/templates";
 import { BibliothequePersonnage } from "./ressources/bibliothequePersonnage";
 import { Routeur } from "./routeur";
-import { Footer } from "./footer";
 import { BibliothequeArticle } from "./ressources/bibliothequeArticle";
 import { EcranAccueil } from "./ecrans/ecranAccueil";
 import { Loader } from "./loader";
@@ -44,19 +43,16 @@ Promise.resolve()
         Loader.termineEtape();
     })
     .then(() => {
-        Footer.initialise();
-        Footer.affiche();
-    })
-    .then(() => {
         InterfaceGenerale.initialise();
         Routeur.initialise();
         new NotificationInstallation();
         new NotificationMiseAJour(window.serviceWorkerSolNet);
     })
     .then(() => {
-        var ecran = new EcranAccueil();
-        Routeur.ouvreEcran(ecran);
+        let ecran = new EcranAccueil();
+        Routeur.empileEcran(ecran);
         Loader.termineChargement();
+        InterfaceGenerale.afficheFooter();
     })
     .catch((e) => {
         console.error(e);

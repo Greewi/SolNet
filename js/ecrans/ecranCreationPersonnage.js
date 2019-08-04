@@ -77,11 +77,9 @@ export class EcranCreationPersonnage extends Ecran{
             "fin"
         ]);
         super.setActionRetour(()=>{
-            let ecranListePersonnage = new EcranGestionPersonnage();
-            Routeur.ouvreEcran(ecranListePersonnage);
-        }, Lang.get("BoutonQuitter"));
+            Routeur.depileEcran(this);
+        });
         this._personnage = personnage;
-        BibliothequeThemes.setTheme("mars");
     }
 
     /**
@@ -89,6 +87,7 @@ export class EcranCreationPersonnage extends Ecran{
      * @inheritdoc
      */
     ouvre(page, animation){
+        BibliothequeThemes.setTheme("mars");
         BibliothequePersonnage.sauvegardePersonnage(this._personnage);
         super.ouvre(page, animation);
     }

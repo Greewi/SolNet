@@ -4,6 +4,7 @@ import { BibliothequeDonnees } from "../../ressources/donneeSources";
 import { BibliothequeArticle } from "../../ressources/bibliothequeArticle";
 import { EcranSectionEncyclopedie } from "../../ecrans/ecranSectionEncyclopedie";
 import { Routeur } from "../../routeur";
+import { Sommaire, ElementSommaire } from "../../ui/sommaire";
 
 /**
  * Page racine de l'encyclopédie
@@ -16,22 +17,24 @@ export class PageRacine extends Page{
         super("pageEncyclopedieRacine", ecran);
 
         this._listeSommaire = this.element.querySelector("#sommaireEncyclopedie");
-
+        this._sommaire = new Sommaire();
         let encyclopedie = BibliothequeDonnees.encyclopedie;
         for(let idSection in encyclopedie)
         {
             let article = BibliothequeArticle.getArticle(idSection);
             if(article)
             {
-                var titre = article.content.querySelector("h1").innerHTML;
-                var bouton = document.createElement("button");
+                let titre = article.content.querySelector("h1").innerHTML;
+                let bouton = document.createElement("button");
                 bouton.innerHTML = titre;
                 bouton.className = "page__bouton page__bouton__pleine_largeur";
                 bouton.onclick = ()=>{
-                    let ecran = new EcranSectionEncyclopedie(idSection);
-                    Routeur.ouvreEcran(ecran);
+                    Routeur.empileEcran(new EcranSectionEncyclopedie(idSection));
                 };
                 this._listeSommaire.appendChild(bouton);
+                this._sommaire.ajouteElementNavigation(new ElementSommaire(
+                    titre, ">", () => bouton.onclick()
+                ));
             }
         }
     }

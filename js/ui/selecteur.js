@@ -42,7 +42,7 @@ export class Selecteur {
      * @param {HTMLElement} conteneur le conteneur dans lequel déselectionner tous les selecteurs
      */
     static deselectionneTous(conteneur) {
-        var selecteurs = conteneur.querySelectorAll(".page__selecteur__nom__possede");
+        let selecteurs = conteneur.querySelectorAll(".page__selecteur__nom__possede");
         for (var selecteur of selecteurs)
             selecteur.classList.remove("page__selecteur__nom__possede");
     }
@@ -382,7 +382,7 @@ export class SelecteurSelect extends Selecteur {
     }
 
     ajouteOption(valeur, texte, selectionnee) {
-        var option = document.createElement("option");
+        let option = document.createElement("option");
         option.value = valeur;
         option.innerHTML = texte;
         if (selectionnee)

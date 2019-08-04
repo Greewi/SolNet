@@ -78,7 +78,6 @@ export class EcranEditionPersonnage extends Ecran{
             "fin"
         ]);
         this._personnage = personnage;
-        BibliothequeThemes.setTheme("mars");
     }
 
     /**
@@ -86,20 +85,21 @@ export class EcranEditionPersonnage extends Ecran{
      * @inheritdoc
      */
     ouvre(page, animation){
+        BibliothequeThemes.setTheme("mars");
         //Sauvegarde automatique
         BibliothequePersonnage.sauvegardePersonnage(this._personnage);
 
         if(!page || page=="introduction")
         {
             super.setActionRetour(()=>{
-                Routeur.ouvreEcran(new EcranGestionPersonnage());
-            }, Lang.get("BoutonQuitter"));
+                Routeur.depileEcran(this);
+            });
         }
         else
         {
             super.setActionRetour(()=>{
                 this.ouvre("introduction", Page.RECULER);
-            }, Lang.get("BoutonRetour"));
+            });
         }
 
         super.ouvre(page, animation);
