@@ -3,7 +3,7 @@ import { Ecran } from "../ecrans/ecran";
 import { EcranEncyclopedie } from "../ecrans/ecranEncyclopedie";
 import { Routeur } from "../routeur";
 import { EcranGestionPersonnage } from "../ecrans/ecranGestionPersonnage";
-import { Sommaire, ElementSommaire } from "../ui/sommaire";
+import { Sommaire } from "../ui/sommaire";
 
 /**
  * Page d'accueil de l'application
@@ -19,18 +19,10 @@ export class PageAccueil extends Page {
 
         let boutonEncyclopedie = this.element.querySelector("#accueilEncyclopedie");
         boutonEncyclopedie.onclick = () => Routeur.empileEcran(new EcranEncyclopedie());
-        this._sommaire.ajouteElementNavigation(new ElementSommaire(
-            boutonEncyclopedie.innerHTML,
-            ">",
-            () => boutonEncyclopedie.onclick()
-        ));
+        this._sommaire.ajoute(boutonEncyclopedie.innerHTML, ">", () => boutonEncyclopedie.onclick());
 
         let boutonPersonnages = this.element.querySelector("#accueilPersonnages");
         boutonPersonnages.onclick = () => Routeur.empileEcran(new EcranGestionPersonnage());
-        this._sommaire.ajouteElementNavigation(new ElementSommaire(
-            boutonPersonnages.innerHTML,
-            ">",
-            () => boutonPersonnages.onclick()
-        ));
+        this._sommaire.ajoute(boutonPersonnages.innerHTML, ">", () => boutonPersonnages.onclick());
     }
 }

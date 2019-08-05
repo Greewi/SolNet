@@ -21,11 +21,12 @@
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: hidden;
     scroll-behavior: smooth;
     color: var(--couleurTextePage);
+    perspective: 100vw;
+    perspective-origin: 50% 50%;
     will-change: transform;
-    /* Avoid repainting everything ! */
 }
 
 /* Header */
@@ -207,6 +208,15 @@
     cursor: pointer;
     border: solid 1px var(--couleurBoutons);
     border-radius: 10px;
+}
+
+.sidePanel_elementFilAriane {
+    margin: 5px 10px 0px 10px;
+}
+
+.sidePanel_elementSommaire {
+    width: calc(100% - 40px);
+    margin: 5px 10px 0px 30px;
 }
 
 .sidePanel_elementNavigation_icone {

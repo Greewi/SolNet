@@ -124,11 +124,18 @@ export class Ecran {
     }
 
     /**
-     * Ferme l'écran et le détruit
+     * Ferme l'écran
      */
-    ferme() {
+    ferme(animation) {
+        for (let idPage in this._pages)
+            this._pages[idPage].ferme(animation);
+    }
+
+    /**
+     * Détruit l'écran
+     */
+    detruit() {
         for (let idPage in this._pages)
             this._pages[idPage].detruit();
     }
-
 }

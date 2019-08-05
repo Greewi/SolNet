@@ -17,7 +17,7 @@ export class InterfaceGenerale {
         this._sidePanelTitre = document.getElementById("sidePanelTitre");
         this._sidePanelNotifications = document.getElementById("sidePanelNotifications");
         this._sidePanelFilAriane = document.getElementById("sidePanelFilAriane");
-        this._sidePanelNavigation = document.getElementById("sidePanelNavigation");
+        this._sidePanelSommaire = document.getElementById("sidePanelSommaire");
         //Footer
         this._footer = document.getElementById("footer");
         this._footerBoutonRetour = document.getElementById("footerBoutonRetour");
@@ -56,9 +56,9 @@ export class InterfaceGenerale {
      * @param {Sommaire} sommaire le sommaire
      */
     static setSommaire(sommaire) {
-        while (this._sidePanelNavigation.firstChild)
-            this._sidePanelNavigation.removeChild(this._sidePanelNavigation.firstChild);
-        sommaire.ajouteDans(this._sidePanelNavigation);
+        while (this._sidePanelSommaire.firstChild)
+            this._sidePanelSommaire.removeChild(this._sidePanelSommaire.firstChild);
+        sommaire.ajouteDans(this._sidePanelSommaire);
     }
     /**
      * Défini le personnage actuellement lié

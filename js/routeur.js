@@ -1,6 +1,7 @@
 import { Ecran } from "./ecrans/ecran";
-import { Sommaire, ElementSommaire } from "./ui/sommaire";
+import { Sommaire } from "./ui/sommaire";
 import { InterfaceGenerale } from "./ui/interfaceGenerale";
+import { Page } from "./pages/page";
 
 /**
  * @type {Ecran[]}
@@ -17,8 +18,6 @@ export class Routeur {
      * Initialise le routeur
      */
     static initialise() {
-        window.addEventListener("beforeunload", function () {
-        });
     }
 
     /**
@@ -27,9 +26,9 @@ export class Routeur {
      */
     static empileEcran(ecran) {
         if (this._getEcranActuel())
-            this._getEcranActuel().ferme();
+            this._getEcranActuel().ferme(Page.NOUVEL_ECRAN);
         _pileEcrans.push(ecran);
-        this._getEcranActuel().ouvre();
+        this._getEcranActuel().ouvre(null, Page.NOUVEL_ECRAN);
         this._metAJourNavigation();
     }
 
@@ -38,14 +37,7 @@ export class Routeur {
      */
     static depileEcran(ecran) {
         let indexEcran = _pileEcrans.indexOf(ecran);
-        if (indexEcran == -1)
-            return;
-        if (this._getEcranActuel())
-            this._getEcranActuel().ferme();
-        _pileEcrans = _pileEcrans.slice(0, indexEcran);
-        window._pileEcrans = _pileEcrans;
-        this._getEcranActuel().ouvre();
-        this._metAJourNavigation();
+        this.depileJusqueEcran(_pileEcrans[indexEcran - 1]);
     }
 
     /**
@@ -53,15 +45,27 @@ export class Routeur {
      * @param {Ecran} ecran l'écran à rouvrir
      */
     static depileJusqueEcran(ecran) {
+        if (ecran == this._getEcranActuel()) {
+            ecran.ouvre(null, Page.RECULER);
+            return;
+        }
+
         let indexEcran = _pileEcrans.indexOf(ecran);
         if (indexEcran == -1)
             return;
         if (this._getEcranActuel())
-            this._getEcranActuel().ferme();
-        _pileEcrans = _pileEcrans.slice(0, indexEcran + 1);
+            this._getEcranActuel().ferme(Page.RETOUR_ECRAN);
+        while (_pileEcrans.length > indexEcran + 1)
+            this._depileUnEcran();
         window._pileEcrans = _pileEcrans;
-        this._getEcranActuel().ouvre();
+        this._getEcranActuel().ouvre(null, Page.RETOUR_ECRAN);
         this._metAJourNavigation();
+    }
+
+    static _depileUnEcran() {
+        let ecran = _pileEcrans.pop();
+        if (ecran)
+            setTimeout(() => ecran.detruit(), 500);
     }
 
     /**
@@ -75,12 +79,14 @@ export class Routeur {
      * Met à jour les informations de navigation
      */
     static _metAJourNavigation() {
-        let filAriane = new Sommaire();
+        let filAriane = new Sommaire("FilAriane");
         for (let ecran of _pileEcrans) {
-            let titre  = ecran.getTitre();
+            let titre = ecran.getTitre();
+            if (titre == null)
+                continue;
             let symbole = ecran == this._getEcranActuel() ? "#" : "<";
             let action = () => this.depileJusqueEcran(ecran);
-            filAriane.ajouteElementNavigation(new ElementSommaire(titre, symbole, action));
+            filAriane.ajoute(titre, symbole, action);
         }
         InterfaceGenerale.setFilAriane(filAriane);
     }

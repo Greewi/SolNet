@@ -2,14 +2,26 @@
  * Représente le sommaire du panneau latéral
  */
 export class Sommaire {
-    constructor(){
+    /**
+     * @param {string} type le type du sommaire
+     */
+    constructor(type) {
+        this._type = type || "Sommaire";
         this._elementsNavigation = [];
+    }
+    /**
+     * @param {string} texte le texte de l'élément de navigation
+     * @param {string} symbole le symbole de l'élément de navigation
+     * @param {function} callbackOnClick une callback appelée lors du click sur l'élément de navigation
+     */
+    ajoute(texte, symbole, callbackOnClick) {
+        this._ajouteElementNavigation(new ElementSommaire(this._type, texte, symbole, callbackOnClick));
     }
 
     /**
      * @param {ElementSommaire} elementNavigation l'élément de navigation à ajouter
      */
-    ajouteElementNavigation(elementNavigation){
+    _ajouteElementNavigation(elementNavigation) {
         this._elementsNavigation.push(elementNavigation);
     }
 
@@ -17,8 +29,8 @@ export class Sommaire {
      * Ajoute le sommaire dans l'arbre DOM
      * @param {HTMLElement} elementRacine l'élément racine dans lequel ajouter le sommaire
      */
-    ajouteDans(elementRacine){
-        for(let elementNavigation of this._elementsNavigation)
+    ajouteDans(elementRacine) {
+        for (let elementNavigation of this._elementsNavigation)
             elementRacine.appendChild(elementNavigation.getElement());
     }
 };
@@ -26,20 +38,22 @@ export class Sommaire {
 /**
  * Représente un élément de navigation du panneau latéral
  */
-export class ElementSommaire {
+const ElementSommaire = class {
     /**
+     * @param {string} type le type du sommaire
      * @param {string} texte le texte de l'élément de navigation
      * @param {string} symbole le symbole de l'élément de navigation
      * @param {function} callbackOnClick une callback appelée lors du click sur l'élément de navigation
      */
-    constructor(texte, symbole, callbackOnClick){
+    constructor(type, texte, symbole, callbackOnClick) {
         this._texte = texte;
         this._symbole = symbole;
         this._callback = callbackOnClick;
         this._element = document.createElement("div");
         this._element.classList.add("sidePanel_elementNavigation");
+        this._element.classList.add(`sidePanel_element${type}`);
         this._element.addEventListener("click", this._callback);
-        
+
         this._elementIcone = document.createElement("div");
         this._elementIcone.classList.add("sidePanel_elementNavigation_icone");
         this._elementIcone.innerHTML = symbole;
@@ -54,7 +68,7 @@ export class ElementSommaire {
     /**
      * @returns {HTMLElement} l'élément HTML de cet élément de navigation
      */
-    getElement(){
+    getElement() {
         return this._element;
     }
 };

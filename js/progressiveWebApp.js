@@ -12,8 +12,6 @@ export class ProgressiveWebApp {
         this._applicationUpdateEvent = null;
         this._listenerApplicationUpdate = null;
 
-        // Gestion du lifecycle (sortie d'une pause tue l'affichage sinon)
-        document.addEventListener('resume', () => window.location.reload());
         window.addEventListener('beforeinstallprompt', event => this._onBeforeInstallPrompt(event));
         this._initialiseWorker();
     }

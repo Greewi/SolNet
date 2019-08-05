@@ -1,5 +1,6 @@
 import { Page } from "../page";
 import { BibliothequePersonnage } from "../../ressources/bibliothequePersonnage";
+import { Sommaire } from "../../ui/sommaire";
 
 export class PageImporterPersonnage extends Page{
     /**
@@ -17,6 +18,8 @@ export class PageImporterPersonnage extends Page{
                 });
             }
         };
+
+        this._sommaire = new Sommaire();
     }
 
     /**

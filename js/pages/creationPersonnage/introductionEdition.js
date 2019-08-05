@@ -1,6 +1,7 @@
 import { Page } from "../page";
 import { Ecran } from "../../ecrans/ecran";
 import { Personnage } from "../../personnages/personnage";
+import { Sommaire } from "../../ui/sommaire";
 
 /**
  * Page d'introduction de la création de personnage
@@ -14,6 +15,8 @@ export class PageIntroductionEdition extends Page{
         super("pageCreationPersonnageIntroductionEdition", ecran);
         this._personnage = personnage;
         this._boutons = [];
+
+        this._sommaire = new Sommaire();
 
         this.creeBoutonLien("editionPersonnageRoles", "choixRole");
         this.creeBoutonLien("editionPersonnageEsprit", "choixEsprit");
@@ -41,6 +44,7 @@ export class PageIntroductionEdition extends Page{
         };
         bouton.addEventListener("click", action);
         this._boutons.push({bouton : bouton, action : action});
+        this._sommaire.ajoute(bouton.innerHTML, ">", action);
     }
 
     detruit(){

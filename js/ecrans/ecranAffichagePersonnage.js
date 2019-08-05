@@ -36,4 +36,8 @@ export class EcranAffichagePersonnage extends Ecran{
         BibliothequeThemes.setTheme("mars");
         super.ouvre(page, animation);
     }
+
+    getTitre(){
+        return null;
+    }
 }

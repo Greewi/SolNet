@@ -7,6 +7,7 @@ import { Routeur } from "../../routeur";
 import { EcranEditionPersonnage } from "../../ecrans/ecranEditionPersonnage";
 import { EcranAffichagePersonnage } from "../../ecrans/ecranAffichagePersonnage";
 import { PopupConfirmation } from "../../ui/popup";
+import { Sommaire } from "../../ui/sommaire";
 
 export class PageListePersonnages extends Page{
     /**
@@ -33,6 +34,8 @@ export class PageListePersonnages extends Page{
             ecran.ouvre("importerPersonnage", Page.AVANCER);
         };
         this._boutonImporter.addEventListener("click", this._actionImporter);
+
+        this._sommaire = new Sommaire();
     }
     
     /**
