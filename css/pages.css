@@ -102,7 +102,7 @@
 
 @keyframes page__depuisFond {
     from {
-        transform: translateZ(-30vw);
+        transform: translateZ(-10vw);
         opacity: 0;
     }
     25% {
@@ -120,7 +120,7 @@
 
 @keyframes page__depuisAvant {
     from {
-        transform: translateZ(30vw);
+        transform: translateZ(00vw);
         opacity: 0;
     }
     25% {
@@ -145,11 +145,11 @@
         opacity: 1;
     }
     50% {
-        transform: translateZ(-30vw);
+        transform: translateZ(-10vw);
         opacity: 0;
     }
     to {
-        transform: translateZ(-30vw);
+        transform: translateZ(-10vw);
         opacity: 0;
     }
 }
@@ -163,11 +163,11 @@
         opacity: 1;
     }
     50% {
-        transform: translateZ(30vw);
+        transform: translateZ(00vw);
         opacity: 0;
     }
     to {
-        transform: translateZ(30vw);
+        transform: translateZ(00vw);
         opacity: 0;
     }
 }
@@ -182,6 +182,13 @@
     animation-name: page__depuisAvant;
     animation-duration: 750ms;
     animation-timing-function: ease-in-out;
+    z-index: var(--zIndexMainAvant);
+}
+
+@media screen and (min-width: 640px) {
+    .page__depuisAvant {
+        z-index: var(--zIndexMainPCAvant);
+    }
 }
 
 .page__versFond {
@@ -194,6 +201,13 @@
     animation-name: page__versAvant;
     animation-duration: 750ms;
     animation-timing-function: ease-in-out;
+    z-index: var(--zIndexMainAvant);
+}
+
+@media screen and (min-width: 640px) {
+    .page__versAvant {
+        z-index: var(--zIndexMainPCAvant);
+    }
 }
 
 /*

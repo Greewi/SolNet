@@ -65,11 +65,13 @@
      */
     --zIndexPopup: 300;
     --zIndexLoader: 200;
-    --zIndexFooterPC: 102;
+    --zIndexFooterPC: 105;
+    --zIndexMainPCAvant: 101;
     --zIndexMainPC: 101;
     --zIndexSidePanel: 100;
     --zIndexSidePanelOverlay: 99;
-    --zIndexFooter: 2;
+    --zIndexFooter: 5;
+    --zIndexMainAvant: 1;
     --zIndexMain: 1;
     --zIndexHeader: 0;
 }
