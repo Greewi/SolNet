@@ -1,55 +1,77 @@
 /**
  * Liste de sélections
  */
-.page__liste{
+
+.page__liste {
     box-sizing: border-box;
     width: 100%;
-    margin:0;
-    margin-top:10px;
-    padding:0;
+    margin: 0;
+    margin-top: 10px;
+    padding: 0;
 }
-.page__selecteur{
+
+.page__selecteur {
     box-sizing: border-box;
     width: 100%;
-    padding:0;
-    margin:0;
+    padding: 0;
+    margin: 0;
     margin-bottom: 10px;
-    display:grid;
+    display: grid;
     grid-template-columns: calc(100% - 50px) 50px;
     grid-template-rows: 50px auto;
     cursor: pointer;
     user-select: none;
+    background: var(--couleurFondSelecteurs);
+    color: var(--couleurTexteSelecteur);
+    border-radius: 10px;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
 }
-.page__selecteur__deux_lignes{
+
+.page__selecteur__possede {
+    background: var(--couleurFondSelecteursSelection);
+    color: var(--couleurTexteSelecteurSelection);
+}
+
+.page__selecteur:hover {
+    outline: 0;
+    filter: brightness(1.2) saturate(0.7) contrast(1.2);
+}
+
+.page__selecteur__deux_lignes {
     grid-template-rows: 25px 25px auto;
 }
-.page__selecteur__deux_boutons{
+
+.page__selecteur__deux_boutons {
     grid-template-columns: calc(100% - 100px) 50px 50px;
 }
-.page__selecteur__trois_boutons{
+
+.page__selecteur__trois_boutons {
     grid-template-columns: calc(100% - 150px) 50px 50px 50px;
 }
-.page__selecteur__bouton_large{
+
+.page__selecteur__bouton_large {
     grid-template-columns: calc(100% - 150px) 150px;
 }
-.page__selecteur__sans_bouton{
+
+.page__selecteur__sans_bouton {
     grid-template-columns: 100%;
     grid-template-rows: auto;
 }
-.page__selecteur__avec_label{
+
+.page__selecteur__avec_label {
     grid-template-columns: 1fr 1fr 50px;
 }
+
 /* Contenu du sélecteur */
-.page__selecteur__nom{
+
+.page__selecteur__nom {
     box-sizing: border-box;
     display: block;
     grid-column: 1;
     width: 100%;
     height: 100%;
-    padding:17px;
+    padding: 17px;
     margin: 0;
-    background: var(--couleurFondSelecteurs);
-    color: var(--couleurTexteSelecteur);
     border: none;
     border-radius: 10px 0 0 10px;
     overflow: hidden;
@@ -59,7 +81,7 @@
 }
 
 .page__selecteur__nom::placeholder {
-    color:var(--couleurPlaceholderSelecteur);
+    color: var(--couleurPlaceholderSelecteur);
     opacity: 1;
 }
 
@@ -67,132 +89,153 @@
     grid-column: 2;
     border-radius: 0 0 0 0;
 }
-.page__selecteur__nom_seul{
+
+.page__selecteur__nom_seul {
     grid-column: 1/3;
     border-radius: 10px 10px 10px 10px;
 }
-.page__selecteur__nom__ouvert{
+
+.page__selecteur__nom__ouvert {
     border-radius: 10px 0 0 0;
 }
-.page__selecteur__nom__possede{
-    background: var(--couleurFondSelecteursSelection);
-    color: var(--couleurTexteSelecteurSelection);
-}
-.page__selecteur__ligne_haut{
-    grid-row:1;
+
+.page__selecteur__ligne_haut {
+    grid-row: 1;
     padding: 8px 17px 0px 17px;
     border-radius: 10px 0 0 0;
 }
-.page__selecteur__ligne_bas{
-    grid-row:2;
+
+.page__selecteur__ligne_bas {
+    grid-row: 2;
     padding: 5px 17px 5px 37px;
     font-size: 8pt;
     border-radius: 0 0 0 10px;
 }
-.page__selecteur__ligne_bas.page__selecteur__nom__ouvert{
+
+.page__selecteur__ligne_bas.page__selecteur__nom__ouvert {
     border-radius: 0 0 0 0;
 }
-.page__selecteur__label{
-    margin:10px;
-    color:var(--couleurLabelSelecteurOff);
+
+.page__selecteur__label {
+    margin: 10px;
+    color: var(--couleurLabelSelecteurOff);
     font-style: italic;
 }
-.page__selecteur__label__focus{
-    color:var(--couleurLabelSelecteurOn);
-    font-weight: bold;
-}
-.page__selecteur__prerequis{
-    margin:10px;
-    color:var(--couleurLabelSelecteurOff);
-    font-style: italic;
-}
-.page__selecteur__prerequis__possede{
-    color:var(--couleurLabelSelecteurOn);
+
+.page__selecteur__label__focus {
+    color: var(--couleurLabelSelecteurOn);
     font-weight: bold;
 }
 
-.page__selecteur__textarea{
+.page__selecteur__prerequis {
+    margin: 10px;
+    color: var(--couleurLabelSelecteurOff);
+    font-style: italic;
+}
+
+.page__selecteur__prerequis__possede {
+    color: var(--couleurLabelSelecteurOn);
+    font-weight: bold;
+}
+
+.page__selecteur__textarea {
     resize: none;
-    border-radius:10px;
+    border-radius: 10px;
     white-space: pre-wrap;
 }
+
 /* Bouton d'info */
-.page___selecteur__bouton_infos{
+
+.page___selecteur__bouton_infos {
     box-sizing: border-box;
     display: block;
     width: 100%;
     height: 100%;
-    padding:10px;
-    background : var(--couleurBoutons);
+    padding: 10px;
+    background: var(--fondBouton);
     color: var(--couleurTexteBoutons);
-    border : none;
+    border: none;
     border-radius: 0 10px 10px 0;
     font-size: 17pt;
     cursor: pointer;
     user-select: none;
 }
-.page___selecteur__bouton__deux_lignes{
-    grid-row:1/3;
+
+.page___selecteur__bouton__deux_lignes {
+    grid-row: 1/3;
 }
-.page___selecteur__bouton_1{
-    grid-column:2;
+
+.page___selecteur__bouton_1 {
+    grid-column: 2;
 }
-.page___selecteur__bouton_2{
-    grid-column:3;
+
+.page___selecteur__bouton_2 {
+    grid-column: 3;
 }
-.page___selecteur__bouton_3{
-    grid-column:4;
+
+.page___selecteur__bouton_3 {
+    grid-column: 4;
 }
-.page___selecteur__bouton_infos__ouvert{
+
+.page___selecteur__bouton_infos__ouvert {
     border-radius: 0 10px 0 0;
 }
+
 /* Boîte d'info */
-.page___selecteur__infos{
+
+.page___selecteur__infos {
     box-sizing: border-box;
     display: block;
     grid-column: 1/3;
     width: 100%;
-    padding:10px;
+    padding: 10px;
     margin: 0;
     background: var(--couleurFondInfosSelecteur);
     color: var(--couleurTexteInfosSelecteur);
     border-radius: 0 0 10px 10px;
     display: none;
 }
-.page___selecteur__infos__trois_colonnes{
+
+.page___selecteur__infos__trois_colonnes {
     grid-column: 1/4;
 }
-.page___selecteur__infos__ouvert{
+
+.page___selecteur__infos__ouvert {
     display: block;
 }
-.page___selecteur__infos em{
+
+.page___selecteur__infos em {
     font-weight: bold;
 }
+
 /* Bouton supprimer */
-.page___selecteur__bouton_supprimer{
+
+.page___selecteur__bouton_supprimer {
     box-sizing: border-box;
     display: block;
     width: 100%;
     height: 100%;
-    padding:10px;
-    background : var(--couleurBoutonsBad);
+    padding: 10px;
+    background: var(--couleurBoutonsBad);
     color: var(--couleurTexteBoutonsBad);
-    border : none;
+    border: none;
     border-radius: 0 10px 10px 0;
     font-size: 17pt;
     cursor: pointer;
     user-select: none;
 }
+
 /* Bouton ajouter */
-.page___selecteur__bouton_ajouter{
+
+.page___selecteur__bouton_ajouter {
     box-sizing: border-box;
     display: block;
     width: 100%;
     height: 100%;
-    padding:10px;
-    background : var(--couleurBoutons);
+    padding: 10px;
+    background: var(--fondBouton);
     color: var(--couleurTexteBoutons);
-    border : none;
+    border: none;
     border-radius: 0 10px 10px 0;
     font-size: 17pt;
     cursor: pointer;
@@ -200,76 +243,84 @@
 }
 
 /* Bouton moins */
-.page___selecteur__bouton_moins{
+
+.page___selecteur__bouton_moins {
     box-sizing: border-box;
     display: block;
     width: 100%;
     height: 100%;
-    padding:10px;
-    background : var(--couleurBoutons);
+    padding: 10px;
+    background: var(--fondBouton);
     color: var(--couleurTexteBoutons);
-    border : none;
+    border: none;
     border-radius: 0;
     font-size: 17pt;
     text-align: center;
     cursor: pointer;
     user-select: none;
 }
+
 /* Bouton editer */
-.page___selecteur__bouton_editer{
+
+.page___selecteur__bouton_editer {
     box-sizing: border-box;
     display: block;
     width: 100%;
     height: 100%;
-    padding:10px;
-    background : var(--couleurBoutons);
+    padding: 10px;
+    background: var(--fondBouton);
     color: var(--couleurTexteBoutons);
-    border : none;
+    border: none;
     border-radius: 0 0 0 0;
     font-size: 17pt;
     cursor: pointer;
     user-select: none;
 }
+
 /* Bouton sauvegarder */
-.page___selecteur__bouton_sauvegarder{
+
+.page___selecteur__bouton_sauvegarder {
     box-sizing: border-box;
     display: block;
     width: 100%;
     height: 100%;
-    padding:10px;
-    background : var(--couleurBoutons);
+    padding: 10px;
+    background: var(--fondBouton);
     color: var(--couleurTexteBoutons);
-    border : none;
+    border: none;
     border-radius: 0 0 0 0;
     font-size: 17pt;
     cursor: pointer;
     user-select: none;
 }
+
 /* Valeur d'un élément */
-.page___selecteur__valeur_element{
+
+.page___selecteur__valeur_element {
     box-sizing: border-box;
     display: block;
     width: 100%;
     height: 100%;
     margin: 0;
-    padding:10px;
-    background: var(--couleurFondSelecteurs);
+    padding: 10px;
     color: var(--couleurTexteSelecteur);
-    border : none;
+    border: none;
     border-radius: 0;
     font-size: 17pt;
     text-align: center;
 }
+
 /* Bouton plus */
-.page___selecteur__bouton_plus{
+
+.page___selecteur__bouton_plus {
     box-sizing: border-box;
     display: block;
     width: 100%;
     height: 100%;
-    padding:10px;
-    background : var(--couleurBoutons);
+    padding: 10px;
+    background: var(--fondBouton);
     color: var(--couleurTexteBoutons);
-    border : none;
+    border: none;
     border-radius: 0 10px 10px 0;
     font-size: 17pt;
     text-align: center;
@@ -278,7 +329,8 @@
 }
 
 /* Selecteur de date */
-.page__selecteur_date_selection{
+
+.page__selecteur_date_selection {
     display: inline-block;
     min-width: 20px;
     border-bottom: solid 1px var(--couleurTexteSelecteur);
@@ -287,82 +339,77 @@
 
 /* Selecteur de période historique */
 
-.page__selecteur_historique{
+.page__selecteur_historique {
     grid-template-columns: calc(50% - 1px) 2px calc(50% - 51px) 50px;
     grid-template-rows: 50px 2px 50px 2px auto;
 }
 
-.page__selecteur_historique__date{
+.page__selecteur_historique__date {
     grid-column: 1/4;
     grid-row: 1;
-
     box-sizing: border-box;
     display: block;
     width: 100%;
     height: 100%;
-    padding:17px;
+    padding: 17px;
     margin: 0;
-    background: var(--couleurFondSelecteurs);
+    background: rgba(255, 255, 255, 0.1);
     color: var(--couleurTexteSelecteur);
     border: none;
     border-radius: 10px 0 0 0;
     overflow: hidden;
     font-weight: bold;
     text-overflow: ellipsis;
-    white-space: nowrap;    
+    white-space: nowrap;
 }
 
-.page__selecteur_historique__carriere{
+.page__selecteur_historique__carriere {
     grid-column: 1;
     grid-row: 3;
-
     box-sizing: border-box;
     display: block;
     width: 100%;
     height: 100%;
-    padding:17px;
+    padding: 17px;
     margin: 0;
-    background: var(--couleurFondSelecteurs);
+    background: rgba(255, 255, 255, 0.1);
     color: var(--couleurTexteSelecteur);
     border: none;
     border-radius: 0 0 0 0;
     overflow: hidden;
     font-weight: bold;
     text-overflow: ellipsis;
-    white-space: nowrap;   
+    white-space: nowrap;
 }
 
-.page__selecteur_historique__affiliation{
+.page__selecteur_historique__affiliation {
     grid-column: 3/5;
     grid-row: 3;
-
     box-sizing: border-box;
     display: block;
     width: 100%;
     height: 100%;
-    padding:17px;
-    margin: 0;
-    background: var(--couleurFondSelecteurs);
+    padding: 17px;
+    background: rgba(255, 255, 255, 0.1);
     color: var(--couleurTexteSelecteur);
     border: none;
     border-radius: 0 0 0 0;
     overflow: hidden;
     font-weight: bold;
     text-overflow: ellipsis;
-    white-space: nowrap;    
+    white-space: nowrap;
 }
 
-.page__selecteur_historique__evenement{
+.page__selecteur_historique__evenement {
     grid-column: 1/5;
     grid-row: 5;
-
     box-sizing: border-box;
     display: block;
     width: 100%;
     height: 100%;
-    padding:17px;
+    padding: 17px;
     margin: 0;
-    background: var(--couleurFondSelecteurs);
+    background: rgba(255, 255, 255, 0.1);
     color: var(--couleurTexteSelecteur);
     border: none;
     border-radius: 0 0 10px 10px;
@@ -371,18 +418,17 @@
     text-overflow: ellipsis;
 }
 
-.page__selecteur_historique__supprimer{
+.page__selecteur_historique__supprimer {
     grid-column: 4;
     grid-row: 1;
-
     box-sizing: border-box;
     display: block;
     width: 100%;
     height: 100%;
-    padding:10px;
-    background : var(--couleurBoutonsBad);
+    padding: 10px;
+    background: var(--couleurBoutonsBad);
     color: var(--couleurTexteBoutonsBad);
-    border : none;
+    border: none;
     border-radius: 0 10px 0 0;
     font-size: 17pt;
     cursor: pointer;

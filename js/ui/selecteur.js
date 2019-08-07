@@ -10,7 +10,7 @@ export class Selecteur {
      */
     constructor(template) {
         this._onclick = () => { };
-        this._element = BibliothequeTemplates.getTemplate(template).content.cloneNode(true);
+        this._element = BibliothequeTemplates.getTemplate(template).content.firstElementChild.cloneNode(true);
     }
 
     /**
@@ -42,9 +42,9 @@ export class Selecteur {
      * @param {HTMLElement} conteneur le conteneur dans lequel déselectionner tous les selecteurs
      */
     static deselectionneTous(conteneur) {
-        let selecteurs = conteneur.querySelectorAll(".page__selecteur__nom__possede");
+        let selecteurs = conteneur.querySelectorAll(".page__selecteur__possede");
         for (var selecteur of selecteurs)
-            selecteur.classList.remove("page__selecteur__nom__possede");
+            selecteur.classList.remove("page__selecteur__possede");
     }
 }
 
@@ -82,14 +82,14 @@ export class SelecteurSimple extends Selecteur {
      * @inheritdoc
      */
     selectionne() {
-        this._ligne1.classList.add("page__selecteur__nom__possede");
+        this._element.classList.add("page__selecteur__possede");
     }
 
     /**
      * @inheritdoc
      */
     deselectionne() {
-        this._ligne1.classList.remove("page__selecteur__nom__possede");
+        this._element.classList.remove("page__selecteur__possede");
     }
 
 };
@@ -120,14 +120,14 @@ export class SelecteurSansDescription extends Selecteur {
      * @inheritdoc
      */
     selectionne() {
-        this._ligne1.classList.add("page__selecteur__nom__possede");
+        this._element.classList.add("page__selecteur__possede");
     }
 
     /**
      * @inheritdoc
      */
     deselectionne() {
-        this._ligne1.classList.remove("page__selecteur__nom__possede");
+        this._element.classList.remove("page__selecteur__possede");
     }
 
 };
@@ -167,18 +167,14 @@ export class SelecteurAvecPrerequis extends Selecteur {
      * @inheritdoc
      */
     selectionne() {
-        this._ligne1.classList.add("page__selecteur__nom__possede");
-        if (this._ligne2)
-            this._ligne2.classList.add("page__selecteur__nom__possede");
+        this._element.classList.add("page__selecteur__possede");
     }
 
     /**
      * @inheritdoc
      */
     deselectionne() {
-        this._ligne1.classList.remove("page__selecteur__nom__possede");
-        if (this._ligne2)
-            this._ligne2.classList.remove("page__selecteur__nom__possede");
+        this._element.classList.remove("page__selecteur__possede");
     }
 
     /**
@@ -211,21 +207,20 @@ export class SelecteurElementSpecial extends Selecteur {
                 event.preventDefault();
             this._onsupprime(event);
         };
-        this._element = this._element.children[0];
     }
 
     /**
      * @inheritdoc
      */
     selectionne() {
-        this._ligne1.classList.add("page__selecteur__nom__possede");
+        this._element.classList.add("page__selecteur__possede");
     }
 
     /**
      * @inheritdoc
      */
     deselectionne() {
-        this._ligne1.classList.remove("page__selecteur__nom__possede");
+        this._element.classList.remove("page__selecteur__possede");
     }
 
     /**
@@ -553,7 +548,6 @@ export class SelecteurPeriodeCarriere extends Selecteur {
             this._onsupprime();
         };
 
-        this._element = this._element.children[0];
     }
 
     /**
@@ -663,21 +657,20 @@ export class SelecteurPersonnage extends Selecteur {
             this._onsupprime(event);
         };
 
-        this._element = this._element.children[0];
     }
 
     /**
      * @inheritdoc
      */
     selectionne() {
-        this._ligne1.classList.add("page__selecteur__nom__possede");
+        this._element.classList.add("page__selecteur__possede");
     }
 
     /**
      * @inheritdoc
      */
     deselectionne() {
-        this._ligne1.classList.remove("page__selecteur__nom__possede");
+        this._element.classList.remove("page__selecteur__possede");
     }
 
     /**

@@ -20,8 +20,7 @@
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
-    overflow-y: hidden;
+    overflow: visible;
     scroll-behavior: smooth;
     color: var(--couleurTextePage);
     perspective: 100vw;
@@ -61,7 +60,7 @@
     width: 100%;
     height: 100%;
     margin: 0;
-    background: var(--couleurFondTitre1);
+    background: transparent;
     color: var(--couleurTexteTitre1);
     font-size: 1.5rem;
     text-align: center;
@@ -76,6 +75,7 @@
     box-sizing: border-box;
     width: 100%;
     height: 100%;
+    display: none;
 }
 
 /* Footer */
@@ -88,7 +88,7 @@
     width: 100%;
     height: 80px;
     margin: 0;
-    padding: 10px;
+    padding: 10px 30px 10px 10px;
     background: transparent;
     display: block;
     transform: translateY(100%);
@@ -147,9 +147,9 @@
     overflow: hidden;
     background: var(--couleurFondSidePanel);
     display: grid;
-    grid-template-columns: 60px 1fr;
+    grid-template-columns: 1fr;
     grid-template-rows: 60px 1fr;
-    grid-template-areas: "boutonFermer titre" "contenu contenu";
+    grid-template-areas: "header" "contenu";
     transform: translateX(-100%);
     transition: transform 200ms ease-in 0ms;
     will-change: transform;
@@ -158,6 +158,16 @@
 .sidePanel_ouvert {
     transform: translateX(0);
     transition: transform 200ms ease-out 0ms;
+}
+
+.sidePanel_header {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    grid-template-rows: 60px;
+    grid-template-areas: "boutonFermer titre";
+    grid-area: header;
+    background: var(--couleurFondTitre1);
+    color: var(--couleurTexteTitre1);
 }
 
 .sidePanel_boutonFermer {
@@ -184,8 +194,6 @@
     height: 100%;
     margin: 0;
     padding: 0.5rem;
-    background: var(--couleurFondTitre1);
-    color: var(--couleurTexteTitre1);
     font-size: 2rem;
     text-align: center;
     overflow: hidden;
@@ -198,7 +206,7 @@
     height: 40px;
     margin: 5px 10px 0px 10px;
     padding: 0 10px 0 20px;
-    background: transparent;
+    background: var(--couleurBoutonsClair);
     border: none;
     display: grid;
     grid-template-columns: 20px 1fr;
@@ -206,7 +214,7 @@
     grid-template-areas: "icone texte";
     align-items: center;
     cursor: pointer;
-    border: solid 1px var(--couleurBoutons);
+    border: solid 1px var(--couleurTexteBoutonsClair);
     border-radius: 10px;
 }
 
@@ -221,16 +229,16 @@
 
 .sidePanel_elementNavigation_icone {
     grid-area: icone;
-    color: var(--couleurBoutons);
-    opacity: 0.7;
+    color: var(--couleurTexteBoutonsClair);
+    opacity: 0.5;
     text-align: left;
-    font-size: 10pt;
+    font-size: 14pt;
     font-weight: bolder;
 }
 
 .sidePanel_elementNavigation_texte {
     grid-area: texte;
-    color: var(--couleurBoutons);
+    color: var(--couleurTexteBoutonsClair);
     text-align: left;
     font-size: 10pt;
     font-weight: bold;
@@ -243,7 +251,7 @@
 
 .notification {
     padding: 0 0 10px 0;
-    border-bottom: solid 1px var(--couleurBoutons);
+    border-bottom: solid 1px var(--couleurTexteBoutonsClair);
     margin: 10px;
     display: grid;
     grid-template-rows: auto auto;
@@ -287,6 +295,12 @@
     .header_boutonMenu {
         display: none;
     }
+    .main {
+        z-index: var(--zIndexMainPC);
+    }
+    .footer {
+        z-index: var(--zIndexFooterPC);
+    }
     .sidePanel {
         position: initial;
         grid-area: sidepanel;
@@ -299,7 +313,7 @@
         transform: initial;
         transition: initial;
     }
-    .sidePanel_overlay, .sidePanel_overlay_ouvert, .sidePanel_titre, .sidePanel_boutonFermer {
+    .sidePanel_header, .sidePanel_overlay, .sidePanel_overlay_ouvert {
         display: none;
     }
     .sidePanel_ouvert {

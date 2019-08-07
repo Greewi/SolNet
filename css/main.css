@@ -17,8 +17,7 @@
     --fondApplication: radial-gradient(circle at 0 0, #1e5799 0%, #82b0d6 77%, #2989d8 79%, #000000 81%, #000000 100%);
     --couleurFondPage: rgba(255, 255, 255, 0.651);
     --couleurTextePage: rgb(36, 36, 36);
-    --couleurFondFooter: rgba(255, 255, 255, 0.781);
-    --couleurFondSidePanel: rgba(255, 255, 255, 0.781);
+    --couleurFondSidePanel: linear-gradient(160deg, #ffffff 0%,#dcf1ff 100%);
     --couleurFondTitre1: rgb(29, 71, 99);
     --couleurTexteTitre1: rgb(255, 255, 255);
     --couleurTexteTitre2: rgb(29, 71, 99);
@@ -38,14 +37,13 @@
     /**
      * Boutons
      */
+    --fondBouton: linear-gradient(160deg, #30bee5 0%,#2871a1 100%);
     --couleurBoutons: rgb(40, 113, 161);
     --couleurTexteBoutons: rgb(255, 255, 255);
     --couleurBoutonsBad: rgb(209, 44, 44);
     --couleurTexteBoutonsBad: rgb(255, 255, 255);
-    --couleurBoutonsClair: rgb(105, 165, 206);
-    --couleurTexteBoutonsClair: rgb(255, 255, 255);
-    --couleurBoutonsBlanc: rgb(187, 212, 228);
-    --couleurTexteBoutonsBlanc: rgb(31, 89, 128);
+    --couleurBoutonsClair: linear-gradient(160deg, #ffffff 0%,#dcf1ff 100%);
+    --couleurTexteBoutonsClair: rgb(17, 55, 80);
     /**
      * Création de personnage
      */
@@ -67,11 +65,13 @@
      */
     --zIndexPopup: 300;
     --zIndexLoader: 200;
+    --zIndexFooterPC: 102;
+    --zIndexMainPC: 101;
     --zIndexSidePanel: 100;
     --zIndexSidePanelOverlay: 99;
-    --zIndexMain: 0;
+    --zIndexFooter: 2;
+    --zIndexMain: 1;
     --zIndexHeader: 0;
-    --zIndexFooter: 0;
 }
 
 /**
@@ -266,7 +266,7 @@ main td {
     box-sizing: border-box;
     padding: 10px;
     height: 40px;
-    background: var(--couleurBoutons);
+    background: var(--fondBouton);
     color: var(--couleurTexteBoutons);
     border: none;
     border-radius: 10px;
@@ -274,11 +274,16 @@ main td {
     cursor: pointer;
     user-select: none;
     font-size: 10pt;
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.7);
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .bouton_carre {
     border-radius: 0;
+}
+
+.bouton:hover{
+    outline: 0;
+    filter: brightness(1.2) saturate(0.7) contrast(1.2);
 }
 
 @keyframes bouton__active {
@@ -291,10 +296,6 @@ main td {
     to {
         transform: scale(1.0);
     }
-}
-
-.bouton:focus {
-    outline: 0;
 }
 
 .bouton:active {

@@ -6,6 +6,7 @@ import { EcranEncyclopedie } from "./ecranEncyclopedie";
 import { Routeur } from "../routeur";
 import { Page } from "../pages/page";
 import { BibliothequeThemes } from "../ressources/themes";
+import { InterfaceGenerale } from "../ui/interfaceGenerale";
 
 /**
  * Écran représentant une section de l'encyclopédie
@@ -56,6 +57,7 @@ export class EcranSectionEncyclopedie extends Ecran{
         }
         else
         {
+            InterfaceGenerale.fermeSidePanel();
             super.setActionRetour(()=>{
                 this.ouvre(this._idSection, Page.RECULER);
             });

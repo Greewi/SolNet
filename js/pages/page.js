@@ -12,7 +12,6 @@ export class Page {
         this._ecran = ecran;
         this._transition = null;
         this._contenu = this._element.querySelector(".page__contenu");
-        document.getElementById("main").appendChild(this._element);
     }
 
     /**
@@ -33,14 +32,16 @@ export class Page {
      * Ouvre la page
      * @param {number} animation Détermine l'animation d'ouverture (Page.AVANCER, Page.RECULER, PAGE.NOUVEL_ECRAN, Page.RETOUR_ECRAN)
      */
-    ouvre(animation) {
+    ouvre(animation, callback) {
+        document.getElementById("main").appendChild(this._element);
+        InterfaceGenerale.setTitre(this.getTitre());
+        InterfaceGenerale.setSommaire(this.getSommaire());
         this._stopTransition();
-        this._element.classList.add("page__on");
         if (animation == Page.AVANCER) {
-            this._element.classList.add("page__depuisDroite");
+            this._contenu.classList.add("page__depuisDroite");
         }
         else if (animation == Page.RECULER) {
-            this._element.classList.add("page__depuisGauche");
+            this._contenu.classList.add("page__depuisGauche");
         }
         else if (animation == Page.RETOUR_ECRAN) {
             this._element.classList.add("page__depuisAvant");
@@ -48,10 +49,8 @@ export class Page {
         else {
             this._element.classList.add("page__depuisFond");
         }
-        this.scrollEnHaut();
-
-        InterfaceGenerale.setTitre(this.getTitre());
-        InterfaceGenerale.setSommaire(this.getSommaire());
+        //this.scrollEnHaut(true);
+        this._transition = setTimeout(callback, 500);
     }
 
     /**
@@ -61,10 +60,10 @@ export class Page {
     ferme(animation) {
         this._stopTransition();
         if (animation == Page.AVANCER) {
-            this._element.classList.add("page__versGauche");
+            this._contenu.classList.add("page__versGauche");
         }
         else if (animation == Page.RECULER) {
-            this._element.classList.add("page__versDroite");
+            this._contenu.classList.add("page__versDroite");
         }
         else if (animation == Page.RETOUR_ECRAN) {
             this._element.classList.add("page__versFond");
@@ -74,29 +73,32 @@ export class Page {
         }
 
         this._transition = setTimeout(() => {
-            this._element.classList.remove("page__on");
-        }, 500);    
+            if (this._element.parentElement != null)
+                this._element.parentElement.removeChild(this._element);
+        }, 500);
     }
 
     /**
      * Détruit la page et libère ses ressources
      */
     detruit() {
-        this._stopTransition();
-        this._element.classList.remove("page__on");
-        if (this._element.parentElement != null)
-            this._element.parentElement.removeChild(this._element);
     }
 
     /**
      * Scroll le contenu de la page pour monter le haut de la page
      */
-    scrollEnHaut() {
-        if (this._contenu.scrollTo)
-            this._contenu.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+    scrollEnHaut(immediat) {
+        if (this._contenu.scrollTo) {
+            if (immediat) {
+                this._contenu.scrollTo({ top: 0 });
+            }
+            else {
+                this._contenu.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
+        }
     }
 
     /**
@@ -155,10 +157,10 @@ export class Page {
             this._transition = null;
         }
         // Nettoyage des classes
-        this._element.classList.remove("page__depuisGauche");
-        this._element.classList.remove("page__depuisDroite");
-        this._element.classList.remove("page__versGauche");
-        this._element.classList.remove("page__versDroite");
+        this._contenu.classList.remove("page__depuisGauche");
+        this._contenu.classList.remove("page__depuisDroite");
+        this._contenu.classList.remove("page__versGauche");
+        this._contenu.classList.remove("page__versDroite");
         this._element.classList.remove("page__depuisAvant");
         this._element.classList.remove("page__depuisFond");
         this._element.classList.remove("page__versAvant");
